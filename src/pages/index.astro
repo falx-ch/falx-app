@@ -1,7 +1,10 @@
 ---
 import '../styles/global.css';
 // Component Imports
-import Button from '../components/Button.astro';
+import ShaderBackground from '../components/shader-background.tsx';
+import Header from '../components/header.tsx';
+import HeroContent from '../components/hero-content.tsx';
+import PulsingCircle from '../components/pulsing-circle.tsx';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -13,13 +16,13 @@ import Button from '../components/Button.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
+		<title>KI-Strategien für Schweizer KMU</title>
 	</head>
 
 	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
+		<ShaderBackground client:load>
+			<Header client:load />
+			<HeroContent client:load />
+		</ShaderBackground>
 	</body>
 </html>
