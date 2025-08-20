@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(pnpm add:*)",
+      "Bash(pnpm dev:*)"
+    ]
+  },
   "allowedTools": [
     "Edit",
     "Read",
