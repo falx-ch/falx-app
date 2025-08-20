@@ -1,6 +1,6 @@
 export default function HeroContent() {
   return (
-    <main className="absolute bottom-8 left-8 z-20 max-w-lg">
+    <main className="absolute bottom-8 left-8 z-20 max-w-xl">
       <div className="text-left backdrop-blur-sm bg-black/10 rounded-2xl p-6 border border-white/10">
         <div
           className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm mb-4 relative"
