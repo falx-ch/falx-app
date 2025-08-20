@@ -31,9 +31,10 @@
 ### 2. Digital Marketing Report Section 
 **Purpose**: High-level market data and cost calculator
 - **Design**: Clean dark gradient background (CSS-only)
+- **Animation Rhythm**: Measured pace following hero energy
 - **Impressive Animations**:
   - **Morphing number counters** with elastic bounce (CHF values transforming)
-  - **Magnetic slider interactions** (cost calculator thumb follows cursor)
+  - **Magnetic slider interactions** (strong magnetic pull, wide interaction zone)
   - **Card reveal choreography** (statistics cards cascade in with staggered timing)
   - **Real-time data transformations** (numbers update with spring physics)
 
@@ -44,34 +45,39 @@
   - **Timeline progression** with elegant connection lines drawing themselves
   - **Before/after morphing states** (inefficient → optimized with smooth transitions)
   - **Swiss precision grid reveals** (workflow steps appear in mathematical sequence)
-  - **Interactive hover choreography** (multiple elements respond to single interaction)
+  - **Transition bridge**: Last timeline element transforms into first solution card
 
-### 4. Lösung Section (Solution)
-**Purpose**: AI-powered solutions and ROI demonstrations
+### 4. Lösungen Section (Current Solutions)
+**Purpose**: Practical AI solutions available today
 - **Design**: Clean gradient transition from previous section
+- **Content**: Document processing, meeting transcription, workflow automation, compliance tools
+- **Flow Structure**: Solution cards → ROI metrics → Risk reversal → CTA
 - **Impressive Animations**:
   - **Solution cards with 3D perspective shifts** (2D → 3D on scroll/hover)
   - **ROI metrics building progressively** (charts animate as bars/lines draw themselves)
-  - **Magnetic hover effects** on CTAs (buttons morph and follow cursor)
-  - **Coordinated element choreography** (multiple solution cards dance together)
+  - **Risk reversal reveal** ("100% Erfolgsgarantie" with subtle but confident presentation)
+  - **CTA transformation** ("Gespräch buchen" button with subtle magnetic effects - lighter than slider)
+  - **Coordinated element choreography** (solution → metrics → guarantee → action sequence)
 
-### 5. Legata Section (Showcase)
-**Purpose**: Technical capabilities through Legata project example
+### 5. Legata Section (Future Innovation)
+**Purpose**: "Building the future" - cutting-edge R&D showcase
 - **Design**: Clean minimal background
+- **Content**: Voice-first AI, n8n workflows, bleeding-edge tech innovation
 - **Impressive Animations**:
   - **Animated timeline with precision timing** (voice-first process reveals step-by-step)
   - **Interactive detail exploration** (click reveals morph into expanded content)
-  - **Swiss legal compliance messaging** with elegant text animations
+  - **n8n workflow visualizations** with elegant flow animations
   - **Process flow with organic connections** (lines flow between steps like water)
 
-### 6. Founder Section
-**Purpose**: Personal connection and vision
+### 6. Founder Section (Founder-Led Advantage)
+**Purpose**: Personal connection, founder-led positioning, and strong CTA
 - **Design**: Split-screen layout with clean typography focus
+- **Content**: "Direkter Draht zum Gründer", personal attention, founder story
 - **Impressive Animations**:
   - **Sophisticated text reveals** (story unfolds with staggered character animations)
   - **Photo-to-content transitions** (image elements morph into text blocks)
   - **Quote typography transformations** (weight/size changes with scroll)
-  - **Timeline milestones** with calculated easing curves
+  - **CTA button with magnetic hover effects** for consultation booking
 
 ### 7. Footer
 **Purpose**: Contact and legal compliance
@@ -111,18 +117,18 @@
 ## Design Principles
 
 ### Visual Continuity
-- **Shader Backgrounds**: Evolving color schemes per section
+- **Hero Shader**: Dynamic statement piece, then clean backgrounds
 - **Backdrop Blur**: Consistent readability technique
-- **Gooey Animations**: Section transitions and interactive elements
+- **Smooth Transitions**: Elements flow between sections, not abrupt cuts
 - **Glass Morphism**: Cards, forms, and overlay elements
 - **Swiss Grid**: Geometric precision in layouts
 
-### Interactive Elements
-- **GSAP Animations**: Scroll-triggered reveals, hover states
-- **Particle Systems**: Connect concepts visually
-- **Morphing Shapes**: Problem → solution transformations
-- **Magnetic Effects**: CTAs and important elements
-- **Progressive Disclosure**: Content reveals on interaction
+### Animation Strategy
+- **Unified Timing**: Consistent easing curves (power2.out, elastic.out, power3.inOut)
+- **Animation Rhythm**: Fast → Measured → Slow Build → Accelerate → Smooth → Gentle
+- **Varied Magnetic Effects**: Different behaviors for slider vs CTAs (strength, distance, response)
+- **Section Transitions**: Last element of each section transforms into first element of next
+- **Progressive Disclosure**: Content reveals with purposeful timing
 
 ## Technical Implementation Notes
 
