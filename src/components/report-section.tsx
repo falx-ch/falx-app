@@ -127,7 +127,7 @@ export default function ReportSection() {
       ref={sectionRef}
       className="min-h-screen flex flex-col justify-center items-center px-8 py-16 text-white relative"
       style={{
-        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 50%, rgba(51, 65, 85, 0.85) 100%)'
+        background: 'linear-gradient(180deg, rgba(220, 38, 38, 0.15) 0%, rgba(127, 29, 29, 0.08) 20%, rgba(0, 0, 0, 0.95) 50%, rgba(0, 0, 0, 1) 100%)'
       }}
     >
       {/* Main Heading */}
@@ -135,30 +135,27 @@ export default function ReportSection() {
         Was kostet Sie Ineffizienz wirklich?
       </h2>
 
-      {/* Dynamic CHF Display with morphing animation */}
+      {/* Dynamic CHF Display with subtle enhancement */}
       <div className="text-center mb-12">
         <div 
           ref={numberRef}
           className="text-7xl md:text-8xl lg:text-9xl font-light mb-4 text-white font-mono tabular-nums"
           style={{
-            textShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-            minHeight: '1.2em' // Prevent layout shift
+            textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
+            minHeight: '1.2em'
           }}
         >
           CHF {savings.toLocaleString('de-CH')}
         </div>
-        <p className="text-xl md:text-2xl text-gray-300">
+        <p className="text-xl md:text-2xl text-white/70 font-light">
           Potenzielle KI-Ersparnis/Jahr
         </p>
       </div>
 
-      {/* Enhanced Interactive Slider with magnetic effects */}
+      {/* Clean Interactive Slider */}
       <div 
         ref={sliderRef}
         className="w-full max-w-3xl mb-20 px-4"
-        style={{
-          cursor: 'pointer'
-        }}
       >
         <Slider
           value={sliderValue}
@@ -182,7 +179,7 @@ export default function ReportSection() {
         >
           <CardContent className="p-8">
             <div className="text-5xl md:text-6xl font-light mb-4 text-white">54.5h</div>
-            <p className="text-base md:text-lg text-gray-300 leading-relaxed">Monatlicher Zeitverlust</p>
+            <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">Monatlicher Zeitverlust</p>
           </CardContent>
         </Card>
         
@@ -193,7 +190,7 @@ export default function ReportSection() {
         >
           <CardContent className="p-8">
             <div className="text-5xl md:text-6xl font-light mb-4 text-white">56%</div>
-            <p className="text-base md:text-lg text-gray-300 leading-relaxed">Unternehmen teilen Daten unsicher</p>
+            <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">Unternehmen teilen Daten unsicher</p>
           </CardContent>
         </Card>
         
@@ -204,14 +201,14 @@ export default function ReportSection() {
         >
           <CardContent className="p-8">
             <div className="text-5xl md:text-6xl font-light mb-4 text-white">CHF 9 Mia.</div>
-            <p className="text-base md:text-lg text-gray-300 leading-relaxed">Jährlicher Verlust in der Schweiz</p>
+            <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">Jährlicher Verlust in der Schweiz</p>
           </CardContent>
         </Card>
       </div>
 
-      {/* Scroll indicator with subtle animation */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 right-8 animate-bounce">
-        <div className="text-2xl text-white/70">↓</div>
+        <div className="text-2xl text-white/60">↓</div>
       </div>
     </section>
   )
