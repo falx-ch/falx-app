@@ -10,7 +10,16 @@
       "mcp__firecrawl__firecrawl_check_crawl_status",
       "mcp__firecrawl__firecrawl_scrape",
       "mcp__firecrawl__firecrawl_extract",
-      "WebFetch(domain:huncwot.com)"
+      "WebFetch(domain:huncwot.com)",
+      "mcp__archon__get_available_sources",
+      "mcp__archon__perform_rag_query",
+      "mcp__archon__search_code_examples",
+      "Bash(pnpm dlx:*)",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_hover"
     ]
   },
   "allowedTools": [

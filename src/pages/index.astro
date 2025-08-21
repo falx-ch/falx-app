@@ -5,6 +5,7 @@ import ShaderBackground from '../components/shader-background.tsx';
 import Header from '../components/header.tsx';
 import HeroContent from '../components/hero-content.tsx';
 import PulsingCircle from '../components/pulsing-circle.tsx';
+import ReportSection from '../components/report-section.tsx';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -24,5 +25,6 @@ import PulsingCircle from '../components/pulsing-circle.tsx';
 			<Header client:load />
 			<HeroContent client:load />
 		</ShaderBackground>
+		<ReportSection client:load />
 	</body>
 </html>
