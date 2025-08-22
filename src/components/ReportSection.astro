@@ -1,0 +1,38 @@
+---
+// Astro wrapper component for Report Section
+// This provides the static structure with minimal hydration
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+// Import the interactive React component
+import ReportSectionInteractive from './report-section-interactive.tsx';
+---
+
+<section 
+  class={`min-h-screen flex flex-col justify-center items-center px-8 py-16 text-white relative ${className || ''}`}
+>
+  <!-- Static background layer -->
+  <div 
+    class="absolute inset-0 z-0"
+    style="background: linear-gradient(180deg, rgba(220, 38, 38, 0.25) 0%, rgba(127, 29, 29, 0.15) 15%, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 1) 100%)"
+  />
+  
+  <!-- Content layer -->
+  <div class="relative z-10 flex flex-col justify-center items-center w-full">
+    <!-- Static heading - no need for hydration -->
+    <h2 class="text-4xl md:text-5xl lg:text-6xl text-center mb-16 max-w-4xl font-light text-white leading-tight">
+      Was kostet Sie Ineffizienz?
+    </h2>
+
+    <!-- Interactive component island - only hydrate when visible -->
+    <ReportSectionInteractive client:visible />
+
+    <!-- Static scroll indicator -->
+    <div class="absolute bottom-8 right-8">
+      <div class="text-2xl text-white/60">↓</div>
+    </div>
+  </div>
+</section>
