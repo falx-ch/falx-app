@@ -15,10 +15,7 @@ export default function ReportSection() {
   const [sliderValue, setSliderValue] = useState([10])
   const sectionRef = useRef<HTMLElement>(null)
   const backgroundRef = useRef<HTMLDivElement>(null)
-  const numberRef = useRef<HTMLDivElement>(null)
   const mainNumberRef = useRef<HTMLDivElement>(null)
-  const subtitleRef = useRef<HTMLDivElement>(null)
-  const weeklyHoursRef = useRef<HTMLSpanElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
   const card1Ref = useRef<HTMLDivElement>(null)
@@ -69,7 +66,7 @@ export default function ReportSection() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
     
     // Progressive Value Reveal: ScrollTrigger-based initial slider animation
@@ -99,7 +96,6 @@ export default function ReportSection() {
     }
     
     // Swiss-precision slider micro-interactions
-    let cleanupSlider = () => {}
     if (sliderRef.current) {
       const sliderElement = sliderRef.current
       const thumbs = sliderElement.querySelectorAll('[data-slot="slider-thumb"]')
@@ -108,7 +104,7 @@ export default function ReportSection() {
       thumbs.forEach(thumb => {
         gsap.set(thumb, { transformOrigin: "center" })
         
-        const sophisticatedHover = (e: MouseEvent) => {
+        const sophisticatedHover = () => {
           gsap.to(thumb, {
             scale: 1.08,
             duration: 0.6,
@@ -141,7 +137,7 @@ export default function ReportSection() {
           })
         }
 
-        const preciseDrag = (e: MouseEvent) => {
+        const preciseDrag = () => {
           gsap.to(thumb, {
             scale: 0.95,
             duration: 0.15,
@@ -161,23 +157,13 @@ export default function ReportSection() {
         thumb.addEventListener('mouseleave', sophisticatedLeave)
         thumb.addEventListener('mousedown', preciseDrag)
         thumb.addEventListener('mouseup', dragRelease)
-        
-        cleanupSlider = () => {
-          thumb.removeEventListener('mouseenter', sophisticatedHover)
-          thumb.removeEventListener('mouseleave', sophisticatedLeave)
-          thumb.removeEventListener('mousedown', preciseDrag)
-          thumb.removeEventListener('mouseup', dragRelease)
-        }
       })
     }
 
     // Advanced 3D card tilt effects and reveal
-    let scrollTriggerInstance = null
-    let cardCleanupFunctions: (() => void)[] = []
-    
     if (cardsRef.current && cards.length > 0) {
       // Initial reveal animation
-      scrollTriggerInstance = ScrollTrigger.create({
+      ScrollTrigger.create({
         trigger: cardsRef.current,
         start: "top 80%",
         once: true,
@@ -256,11 +242,6 @@ export default function ReportSection() {
         
         card.addEventListener('mousemove', handleMouseMove)
         card.addEventListener('mouseleave', handleMouseLeave)
-        
-        cardCleanupFunctions.push(() => {
-          card.removeEventListener('mousemove', handleMouseMove)
-          card.removeEventListener('mouseleave', handleMouseLeave)
-        })
       })
     }
 
@@ -309,7 +290,6 @@ export default function ReportSection() {
       {/* Dynamic CHF Display with rolling numbers */}
       <div className="text-center mb-12">
         <div 
-          ref={numberRef}
           className="mb-4 font-mono tabular-nums flex flex-col items-center justify-center"
           style={{
             textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
@@ -323,7 +303,6 @@ export default function ReportSection() {
             CHF {yearlyCostPerEmployee.toLocaleString('de-CH')}
           </div>
           <div 
-            ref={subtitleRef}
             className="mt-2 font-mono text-white/70 text-2xl md:text-3xl lg:text-4xl text-center"
           >
             pro Person und Jahr
@@ -339,7 +318,7 @@ export default function ReportSection() {
         <div className="mb-6 text-center">
           <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
             <span className="text-lg font-light text-white tabular-nums">
-              <span ref={weeklyHoursRef} className="inline-block w-6 text-center">{displayHours}</span> Std./Woche für Administration
+              <span className="inline-block w-6 text-center">{displayHours}</span> Std./Woche für Administration
             </span>
           </div>
         </div>
