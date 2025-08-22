@@ -5,10 +5,11 @@ import { Slider } from "@/components/ui/slider"
 import { Card, CardContent } from "@/components/ui/card"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Flip } from 'gsap/Flip'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger, Flip)
 }
 
 export default function ReportSection() {
@@ -16,6 +17,8 @@ export default function ReportSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const backgroundRef = useRef<HTMLDivElement>(null)
   const numberRef = useRef<HTMLDivElement>(null)
+  const mainNumberRef = useRef<HTMLDivElement>(null)
+  const subtitleRef = useRef<HTMLDivElement>(null)
   const weeklyHoursRef = useRef<HTMLSpanElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
@@ -32,14 +35,15 @@ export default function ReportSection() {
   }
   
   const weeklyHoursWasted = sliderValue[0]
+  const displayHours = Math.round(weeklyHoursWasted) // Round to whole numbers for display
   const yearlyCostPerEmployee = calculateYearlyCost(weeklyHoursWasted)
 
 
-  // Smart directional number animation
+  // Smart directional number animation with FLIP layout transitions
   useEffect(() => {
-    if (numberRef.current) {
+    if (mainNumberRef.current && subtitleRef.current) {
       const obj = { value: 0 }
-      const currentText = numberRef.current.textContent
+      const currentText = mainNumberRef.current.textContent
       const currentNumber = parseInt(currentText?.replace(/[^0-9]/g, '') || '0')
       
       obj.value = currentNumber
@@ -47,27 +51,29 @@ export default function ReportSection() {
       // Determine if we're increasing or decreasing
       const isIncreasing = yearlyCostPerEmployee > currentNumber
       
+      // FLIP Animation: Record initial state before layout changes
+      const state = Flip.getState([numberRef.current])
+      
       gsap.to(obj, {
         value: yearlyCostPerEmployee,
         duration: isIncreasing ? 0.8 : 0.3, // Fast decrease, smooth increase
         ease: isIncreasing ? "power2.out" : "power3.out",
         onUpdate: function() {
           const currentValue = Math.round(obj.value)
-          if (numberRef.current) {
-            numberRef.current.innerHTML = `
-              <div class="text-7xl md:text-8xl lg:text-9xl font-light text-white">
-                CHF ${currentValue.toLocaleString('de-CH')}
-              </div>
-              <div class="mt-2 font-sans text-white/70 text-2xl md:text-3xl lg:text-4xl">
-                pro Person und Jahr
-              </div>
-            `
+          if (mainNumberRef.current) {
+            mainNumberRef.current.textContent = `CHF ${currentValue.toLocaleString('de-CH')}`
           }
+        },
+        onComplete: function() {
+          // Animate smooth layout reflow after number change
+          Flip.from(state, {
+            duration: 0.5,
+            ease: "power2.out"
+          })
         }
       })
     }
   }, [yearlyCostPerEmployee])
-
 
   // Setup animations on mount with proper GSAP context
   useEffect(() => {
@@ -75,6 +81,32 @@ export default function ReportSection() {
 
     let ctx = gsap.context(() => {
       const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
+    
+    // Progressive Value Reveal: ScrollTrigger-based initial slider animation
+    if (sliderRef.current && sectionRef.current) {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top 80%",
+        once: true,
+        onEnter: () => {
+          // Start from 1 and animate to default value smoothly
+          setSliderValue([1]) // Set initial value immediately
+          
+          // Animate the slider value with smooth decimal precision
+          const obj = { value: 1 }
+          gsap.to(obj, {
+            value: 10, // Animate to default value
+            duration: 2.5, // Slower, more elegant animation
+            ease: "power3.out",
+            delay: 0.5,
+            onUpdate: function() {
+              // Use precise decimal value for smooth animation, round for display only
+              setSliderValue([obj.value])
+            }
+          })
+        }
+      })
+    }
     
     // Swiss-precision slider micro-interactions
     let cleanupSlider = () => {}
@@ -284,21 +316,25 @@ export default function ReportSection() {
         Was kostet Sie Ineffizienz?
       </h2>
 
-      {/* Dynamic CHF Display with subtle enhancement */}
+      {/* Dynamic CHF Display with FLIP layout transitions */}
       <div className="text-center mb-12">
         <div 
           ref={numberRef}
-          className="mb-4 font-mono tabular-nums"
+          className="mb-4 font-mono tabular-nums flex flex-col items-center justify-center"
           style={{
             textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
             minHeight: '1.2em'
           }}
         >
-          <div className="text-7xl md:text-8xl lg:text-9xl font-light text-white">
+          <div 
+            ref={mainNumberRef}
+            className="text-7xl md:text-8xl lg:text-9xl font-light text-white whitespace-nowrap text-center"
+          >
             CHF {yearlyCostPerEmployee.toLocaleString('de-CH')}
           </div>
           <div 
-            className="mt-2 font-mono text-white/70 text-2xl md:text-3xl lg:text-4xl"
+            ref={subtitleRef}
+            className="mt-2 font-mono text-white/70 text-2xl md:text-3xl lg:text-4xl text-center"
           >
             pro Person und Jahr
           </div>
@@ -313,7 +349,7 @@ export default function ReportSection() {
         <div className="mb-6 text-center">
           <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
             <span className="text-lg font-light text-white tabular-nums">
-              <span ref={weeklyHoursRef} className="inline-block w-6 text-center">{weeklyHoursWasted}</span> Std./Woche für Administration
+              <span ref={weeklyHoursRef} className="inline-block w-6 text-center">{displayHours}</span> Std./Woche für Administration
             </span>
           </div>
         </div>
@@ -322,7 +358,7 @@ export default function ReportSection() {
           onValueChange={setSliderValue}
           min={1}
           max={20}
-          step={1}
+          step={0.1}
           className="w-full h-2 transition-all duration-300"
         />
         <div className="flex justify-center mt-3 text-sm text-white/60">
