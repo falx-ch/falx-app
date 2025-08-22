@@ -12,8 +12,9 @@ if (typeof window !== 'undefined') {
 }
 
 export default function ReportSection() {
-  const [sliderValue, setSliderValue] = useState([50])
+  const [sliderValue, setSliderValue] = useState([10])
   const sectionRef = useRef<HTMLElement>(null)
+  const backgroundRef = useRef<HTMLDivElement>(null)
   const numberRef = useRef<HTMLDivElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
@@ -21,14 +22,17 @@ export default function ReportSection() {
   const card2Ref = useRef<HTMLDivElement>(null)
   const card3Ref = useRef<HTMLDivElement>(null)
   
-  // Calculate CHF savings based on slider value (simplified calculation)
-  const calculateSavings = (value: number) => {
-    const baseSavings = 73800
-    const multiplier = value / 50 // 50 is the middle value
-    return Math.round(baseSavings * multiplier)
+  // Calculate yearly cost per employee based on weekly administrative hours
+  const calculateYearlyCost = (weeklyHours: number) => {
+    const hourlyRate = 150 // CHF 150 per hour consultant rate
+    const yearlyHours = weeklyHours * 52 // 52 weeks per year
+    const yearlyCostPerEmployee = yearlyHours * hourlyRate
+    return Math.round(yearlyCostPerEmployee)
   }
+  
+  const weeklyHoursWasted = sliderValue[0]
+  const yearlyCostPerEmployee = calculateYearlyCost(weeklyHoursWasted)
 
-  const savings = calculateSavings(sliderValue[0])
 
   // Smooth number morphing animation
   useEffect(() => {
@@ -41,84 +45,176 @@ export default function ReportSection() {
       obj.value = currentNumber
       
       gsap.to(obj, {
-        value: savings,
+        value: yearlyCostPerEmployee,
         duration: 0.8,
         ease: "power2.out",
         onUpdate: function() {
           const currentValue = Math.round(obj.value)
           if (numberRef.current) {
-            numberRef.current.textContent = `CHF ${currentValue.toLocaleString('de-CH')}`
+            numberRef.current.textContent = `CHF ${currentValue.toLocaleString('de-CH')} pro Jahr`
           }
         }
       })
     }
-  }, [savings])
+  }, [yearlyCostPerEmployee])
 
-  // Setup animations on mount
+  // Setup animations on mount with proper GSAP context
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    // Simple setup without complex context
-    // Initially hide cards with CSS class instead of GSAP
-    const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
+    let ctx = gsap.context(() => {
+      const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
     
-    // Magnetic slider setup
+    // Advanced slider thumb magnetic hover setup
     let cleanupSlider = () => {}
     if (sliderRef.current) {
       const sliderElement = sliderRef.current
+      const thumbs = sliderElement.querySelectorAll('[data-slot="slider-thumb"]')
       
-      const magneticHover = () => {
-        gsap.to(sliderElement, {
-          scale: 1.01,
-          duration: 0.2,
-          ease: "power1.out"
-        })
-      }
-      
-      const magneticLeave = () => {
-        gsap.to(sliderElement, {
-          scale: 1,
-          duration: 0.3,
-          ease: "power1.out"
-        })
-      }
+      thumbs.forEach(thumb => {
+        gsap.set(thumb, { transformOrigin: "center" })
+        
+        const magneticHover = (e: MouseEvent) => {
+          gsap.to(thumb, {
+            scale: 1.3,
+            boxShadow: "0 8px 32px rgba(251, 191, 36, 0.5), 0 4px 16px rgba(251, 146, 60, 0.3)",
+            borderColor: "rgba(251, 191, 36, 0.8)",
+            duration: 0.4,
+            ease: "back.out(1.7)"
+          })
+        }
+        
+        const magneticLeave = () => {
+          gsap.to(thumb, {
+            scale: 1,
+            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+            borderColor: "rgba(251, 191, 36, 0.6)",
+            duration: 0.3,
+            ease: "power2.out"
+          })
+        }
 
-      sliderElement.addEventListener('mouseenter', magneticHover)
-      sliderElement.addEventListener('mouseleave', magneticLeave)
-      
-      cleanupSlider = () => {
-        sliderElement.removeEventListener('mouseenter', magneticHover)
-        sliderElement.removeEventListener('mouseleave', magneticLeave)
-      }
+        thumb.addEventListener('mouseenter', magneticHover)
+        thumb.addEventListener('mouseleave', magneticLeave)
+        
+        cleanupSlider = () => {
+          thumb.removeEventListener('mouseenter', magneticHover)
+          thumb.removeEventListener('mouseleave', magneticLeave)
+        }
+      })
     }
 
-    // Card reveal with ScrollTrigger - simplified
+    // Advanced 3D card tilt effects and reveal
     let scrollTriggerInstance = null
+    let cardCleanupFunctions: (() => void)[] = []
+    
     if (cardsRef.current && cards.length > 0) {
+      // Initial reveal animation
       scrollTriggerInstance = ScrollTrigger.create({
         trigger: cardsRef.current,
         start: "top 80%",
         once: true,
         onEnter: () => {
           gsap.fromTo(cards, 
-            { y: 30, opacity: 0 },
+            { y: 50, opacity: 0, rotationX: -15 },
             {
               y: 0,
               opacity: 1,
-              duration: 0.8,
-              stagger: 0.15,
-              ease: "power2.out"
+              rotationX: 0,
+              duration: 1,
+              stagger: 0.2,
+              ease: "power3.out"
             }
           )
         }
       })
+      
+      // 3D tilt effects for each card
+      cards.forEach((card, index) => {
+        if (!card) return
+        
+        gsap.set(card, { 
+          transformOrigin: "center",
+          transformStyle: "preserve-3d"
+        })
+        
+        const cardContent = card.querySelector('.card-content') || card.firstElementChild
+        if (cardContent) {
+          gsap.set(cardContent, { transformOrigin: "center" })
+        }
+        
+        const handleMouseMove = (e: MouseEvent) => {
+          const rect = card.getBoundingClientRect()
+          const centerX = rect.left + rect.width / 2
+          const centerY = rect.top + rect.height / 2
+          const rotateX = (e.clientY - centerY) / 10
+          const rotateY = (centerX - e.clientX) / 10
+          
+          gsap.to(card, {
+            rotationX: rotateX,
+            rotationY: rotateY,
+            z: 30,
+            duration: 0.4,
+            ease: "power2.out"
+          })
+          
+          if (cardContent) {
+            gsap.to(cardContent, {
+              x: (e.clientX - centerX) / 20,
+              y: (e.clientY - centerY) / 20,
+              duration: 0.4,
+              ease: "power2.out"
+            })
+          }
+        }
+        
+        const handleMouseLeave = () => {
+          gsap.to(card, {
+            rotationX: 0,
+            rotationY: 0,
+            z: 0,
+            duration: 0.6,
+            ease: "power3.out"
+          })
+          
+          if (cardContent) {
+            gsap.to(cardContent, {
+              x: 0,
+              y: 0,
+              duration: 0.6,
+              ease: "power3.out"
+            })
+          }
+        }
+        
+        card.addEventListener('mousemove', handleMouseMove)
+        card.addEventListener('mouseleave', handleMouseLeave)
+        
+        cardCleanupFunctions.push(() => {
+          card.removeEventListener('mousemove', handleMouseMove)
+          card.removeEventListener('mouseleave', handleMouseLeave)
+        })
+      })
     }
 
+    // Keep the red gradient persistent (no morphing that makes it disappear)
+    // The hero glow effect should remain visible
+    if (backgroundRef.current) {
+      // Set a static gradient that maintains the red glow from above
+      backgroundRef.current.style.background = `
+        linear-gradient(180deg, 
+          rgba(220, 38, 38, 0.25) 0%, 
+          rgba(127, 29, 29, 0.15) 15%, 
+          rgba(0, 0, 0, 0.95) 40%, 
+          rgba(0, 0, 0, 1) 100%
+        )
+      `
+    }
+
+    }, sectionRef) // GSAP context scope
+    
     return () => {
-      cleanupSlider()
-      if (scrollTriggerInstance) {
-        scrollTriggerInstance.kill()
-      }
+      ctx.revert() // This will kill all animations and ScrollTriggers in this context
     }
   }, [])
 
@@ -126,13 +222,21 @@ export default function ReportSection() {
     <section 
       ref={sectionRef}
       className="min-h-screen flex flex-col justify-center items-center px-8 py-16 text-white relative"
-      style={{
-        background: 'linear-gradient(180deg, rgba(220, 38, 38, 0.15) 0%, rgba(127, 29, 29, 0.08) 20%, rgba(0, 0, 0, 0.95) 50%, rgba(0, 0, 0, 1) 100%)'
-      }}
     >
+      {/* Morphing background layer */}
+      <div 
+        ref={backgroundRef}
+        className="absolute inset-0 z-0"
+        style={{
+          background: 'linear-gradient(180deg, rgba(220, 38, 38, 0.25) 0%, rgba(127, 29, 29, 0.15) 15%, rgba(0, 0, 0, 0.95) 40%, rgba(0, 0, 0, 1) 100%)'
+        }}
+      />
+      
+      {/* Content layer */}
+      <div className="relative z-10 flex flex-col justify-center items-center w-full">
       {/* Main Heading */}
       <h2 className="text-4xl md:text-5xl lg:text-6xl text-center mb-16 max-w-4xl font-light text-white leading-tight">
-        Was kostet Sie Ineffizienz wirklich?
+        Was kostet Sie Ineffizienz?
       </h2>
 
       {/* Dynamic CHF Display with subtle enhancement */}
@@ -145,26 +249,35 @@ export default function ReportSection() {
             minHeight: '1.2em'
           }}
         >
-          CHF {savings.toLocaleString('de-CH')}
+          CHF {yearlyCostPerEmployee.toLocaleString('de-CH')} pro Jahr
         </div>
-        <p className="text-xl md:text-2xl text-white/70 font-light">
-          Potenzielle KI-Ersparnis/Jahr
-        </p>
       </div>
 
-      {/* Clean Interactive Slider */}
+      {/* Interactive Slider with Custom Tooltip */}
       <div 
         ref={sliderRef}
-        className="w-full max-w-3xl mb-20 px-4"
+        className="w-full max-w-3xl mb-20 px-4 relative"
       >
+        <div className="mb-6 text-center">
+          <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+            <span className="text-lg font-light text-white">
+              {weeklyHoursWasted} Std./Woche für Administration
+            </span>
+          </div>
+        </div>
         <Slider
           value={sliderValue}
           onValueChange={setSliderValue}
-          min={10}
-          max={100}
+          min={5}
+          max={20}
           step={1}
           className="w-full h-2 transition-all duration-300"
         />
+        <div className="flex justify-between mt-3 text-sm text-white/60">
+          <span>5h</span>
+          <span className="font-light">Basis: CHF 150/h Vollkosten</span>
+          <span>20h</span>
+        </div>
       </div>
 
       {/* Data Cards with Swiss precision grid */}
@@ -174,41 +287,42 @@ export default function ReportSection() {
       >
         <Card 
           ref={card1Ref}
-          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0"
+          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0 h-48 flex flex-col justify-center"
           style={{ transform: 'translateY(30px)' }}
         >
-          <CardContent className="p-8">
-            <div className="text-5xl md:text-6xl font-light mb-4 text-white">54.5h</div>
-            <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">Monatlicher Zeitverlust</p>
+          <CardContent className="p-6 card-content flex flex-col justify-center h-full">
+            <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">+31h</div>
+            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Pro Mitarbeiter monatlich</p>
           </CardContent>
         </Card>
         
         <Card 
           ref={card2Ref}
-          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0"
+          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0 h-48 flex flex-col justify-center"
           style={{ transform: 'translateY(30px)' }}
         >
-          <CardContent className="p-8">
-            <div className="text-5xl md:text-6xl font-light mb-4 text-white">56%</div>
-            <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">Unternehmen teilen Daten unsicher</p>
+          <CardContent className="p-6 card-content flex flex-col justify-center h-full">
+            <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">6.8 Tage</div>
+            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Verschwendet jeden Monat</p>
           </CardContent>
         </Card>
         
         <Card 
           ref={card3Ref}
-          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0"
+          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0 h-48 flex flex-col justify-center"
           style={{ transform: 'translateY(30px)' }}
         >
-          <CardContent className="p-8">
-            <div className="text-5xl md:text-6xl font-light mb-4 text-white">CHF 9 Mia.</div>
-            <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">Jährlicher Verlust in der Schweiz</p>
+          <CardContent className="p-6 card-content flex flex-col justify-center h-full">
+            <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">CHF 6 Mrd.</div>
+            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Schaden für die Schweiz jährlich</p>
           </CardContent>
         </Card>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 right-8 animate-bounce">
+      <div className="absolute bottom-8 right-8">
         <div className="text-2xl text-white/60">↓</div>
+      </div>
       </div>
     </section>
   )
