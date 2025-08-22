@@ -35,20 +35,22 @@ export default function ReportSection() {
   const yearlyCostPerEmployee = calculateYearlyCost(weeklyHoursWasted)
 
 
-  // Smooth number morphing animation
+  // Smart directional number animation
   useEffect(() => {
     if (numberRef.current) {
-      // Use a more controlled animation
       const obj = { value: 0 }
       const currentText = numberRef.current.textContent
       const currentNumber = parseInt(currentText?.replace(/[^0-9]/g, '') || '0')
       
       obj.value = currentNumber
       
+      // Determine if we're increasing or decreasing
+      const isIncreasing = yearlyCostPerEmployee > currentNumber
+      
       gsap.to(obj, {
         value: yearlyCostPerEmployee,
-        duration: 0.8,
-        ease: "power2.out",
+        duration: isIncreasing ? 0.8 : 0.3, // Fast decrease, smooth increase
+        ease: isIncreasing ? "power2.out" : "power3.out",
         onUpdate: function() {
           const currentValue = Math.round(obj.value)
           if (numberRef.current) {
@@ -56,7 +58,7 @@ export default function ReportSection() {
               <div class="text-7xl md:text-8xl lg:text-9xl font-light text-white">
                 CHF ${currentValue.toLocaleString('de-CH')}
               </div>
-              <div class="mt-2 text-white text-2xl md:text-3xl lg:text-4xl" style="opacity: 0.7;">
+              <div class="mt-2 font-sans text-white/70 text-2xl md:text-3xl lg:text-4xl">
                 pro Person und Jahr
               </div>
             `
@@ -66,27 +68,6 @@ export default function ReportSection() {
     }
   }, [yearlyCostPerEmployee])
 
-  // Weekly hours animation
-  useEffect(() => {
-    if (weeklyHoursRef.current) {
-      const obj = { value: parseInt(weeklyHoursRef.current.textContent || '0') }
-      const currentNumber = obj.value
-      
-      obj.value = currentNumber
-      
-      gsap.to(obj, {
-        value: weeklyHoursWasted,
-        duration: 0.6,
-        ease: "power2.out",
-        onUpdate: function() {
-          const currentValue = Math.round(obj.value)
-          if (weeklyHoursRef.current) {
-            weeklyHoursRef.current.textContent = `${currentValue}`
-          }
-        }
-      })
-    }
-  }, [weeklyHoursWasted])
 
   // Setup animations on mount with proper GSAP context
   useEffect(() => {
@@ -95,41 +76,75 @@ export default function ReportSection() {
     let ctx = gsap.context(() => {
       const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
     
-    // Advanced slider thumb magnetic hover setup
+    // Swiss-precision slider micro-interactions
     let cleanupSlider = () => {}
     if (sliderRef.current) {
       const sliderElement = sliderRef.current
       const thumbs = sliderElement.querySelectorAll('[data-slot="slider-thumb"]')
+      const ranges = sliderElement.querySelectorAll('[data-slot="slider-range"]')
       
       thumbs.forEach(thumb => {
         gsap.set(thumb, { transformOrigin: "center" })
         
-        const magneticHover = (e: MouseEvent) => {
+        const sophisticatedHover = (e: MouseEvent) => {
           gsap.to(thumb, {
-            scale: 1.3,
-            boxShadow: "0 8px 32px rgba(251, 191, 36, 0.5), 0 4px 16px rgba(251, 146, 60, 0.3)",
-            borderColor: "rgba(251, 191, 36, 0.8)",
-            duration: 0.4,
-            ease: "back.out(1.7)"
+            scale: 1.08,
+            duration: 0.6,
+            ease: "power3.out"
+          })
+          
+          // Subtle range glow enhancement
+          ranges.forEach(range => {
+            gsap.to(range, {
+              boxShadow: "0 0 12px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+              duration: 0.4,
+              ease: "power2.out"
+            })
           })
         }
         
-        const magneticLeave = () => {
+        const sophisticatedLeave = () => {
           gsap.to(thumb, {
             scale: 1,
-            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-            borderColor: "rgba(251, 191, 36, 0.6)",
-            duration: 0.3,
+            duration: 0.5,
+            ease: "power3.out"
+          })
+          
+          ranges.forEach(range => {
+            gsap.to(range, {
+              boxShadow: "0 0 8px rgba(220, 38, 38, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+              duration: 0.3,
+              ease: "power2.out"
+            })
+          })
+        }
+
+        const preciseDrag = (e: MouseEvent) => {
+          gsap.to(thumb, {
+            scale: 0.95,
+            duration: 0.15,
             ease: "power2.out"
           })
         }
 
-        thumb.addEventListener('mouseenter', magneticHover)
-        thumb.addEventListener('mouseleave', magneticLeave)
+        const dragRelease = () => {
+          gsap.to(thumb, {
+            scale: 1.08,
+            duration: 0.4,
+            ease: "back.out(1.2)"
+          })
+        }
+
+        thumb.addEventListener('mouseenter', sophisticatedHover)
+        thumb.addEventListener('mouseleave', sophisticatedLeave)
+        thumb.addEventListener('mousedown', preciseDrag)
+        thumb.addEventListener('mouseup', dragRelease)
         
         cleanupSlider = () => {
-          thumb.removeEventListener('mouseenter', magneticHover)
-          thumb.removeEventListener('mouseleave', magneticLeave)
+          thumb.removeEventListener('mouseenter', sophisticatedHover)
+          thumb.removeEventListener('mouseleave', sophisticatedLeave)
+          thumb.removeEventListener('mousedown', preciseDrag)
+          thumb.removeEventListener('mouseup', dragRelease)
         }
       })
     }
@@ -283,10 +298,7 @@ export default function ReportSection() {
             CHF {yearlyCostPerEmployee.toLocaleString('de-CH')}
           </div>
           <div 
-            className="mt-2 text-white text-2xl md:text-3xl lg:text-4xl"
-            style={{ 
-              opacity: 0.7
-            }}
+            className="mt-2 font-mono text-white/70 text-2xl md:text-3xl lg:text-4xl"
           >
             pro Person und Jahr
           </div>
@@ -300,8 +312,8 @@ export default function ReportSection() {
       >
         <div className="mb-6 text-center">
           <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
-            <span className="text-lg font-light text-white">
-              <span ref={weeklyHoursRef}>{weeklyHoursWasted}</span> Std./Woche für Administration
+            <span className="text-lg font-light text-white tabular-nums">
+              <span ref={weeklyHoursRef} className="inline-block w-6 text-center">{weeklyHoursWasted}</span> Std./Woche für Administration
             </span>
           </div>
         </div>
