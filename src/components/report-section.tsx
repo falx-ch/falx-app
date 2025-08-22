@@ -5,11 +5,10 @@ import { Slider } from "@/components/ui/slider"
 import { Card, CardContent } from "@/components/ui/card"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Flip } from 'gsap/Flip'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, Flip)
+  gsap.registerPlugin(ScrollTrigger)
 }
 
 export default function ReportSection() {
@@ -39,9 +38,9 @@ export default function ReportSection() {
   const yearlyCostPerEmployee = calculateYearlyCost(weeklyHoursWasted)
 
 
-  // Smart directional number animation with FLIP layout transitions
+  // Smart directional number animation (rolling numbers only, no FLIP)
   useEffect(() => {
-    if (mainNumberRef.current && subtitleRef.current) {
+    if (mainNumberRef.current) {
       const obj = { value: 0 }
       const currentText = mainNumberRef.current.textContent
       const currentNumber = parseInt(currentText?.replace(/[^0-9]/g, '') || '0')
@@ -51,9 +50,7 @@ export default function ReportSection() {
       // Determine if we're increasing or decreasing
       const isIncreasing = yearlyCostPerEmployee > currentNumber
       
-      // FLIP Animation: Record initial state before layout changes
-      const state = Flip.getState([numberRef.current])
-      
+      // Rolling number animation
       gsap.to(obj, {
         value: yearlyCostPerEmployee,
         duration: isIncreasing ? 0.8 : 0.3, // Fast decrease, smooth increase
@@ -63,13 +60,6 @@ export default function ReportSection() {
           if (mainNumberRef.current) {
             mainNumberRef.current.textContent = `CHF ${currentValue.toLocaleString('de-CH')}`
           }
-        },
-        onComplete: function() {
-          // Animate smooth layout reflow after number change
-          Flip.from(state, {
-            duration: 0.5,
-            ease: "power2.out"
-          })
         }
       })
     }
@@ -316,7 +306,7 @@ export default function ReportSection() {
         Was kostet Sie Ineffizienz?
       </h2>
 
-      {/* Dynamic CHF Display with FLIP layout transitions */}
+      {/* Dynamic CHF Display with rolling numbers */}
       <div className="text-center mb-12">
         <div 
           ref={numberRef}
