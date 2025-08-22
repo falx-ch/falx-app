@@ -16,6 +16,7 @@ export default function ReportSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const backgroundRef = useRef<HTMLDivElement>(null)
   const numberRef = useRef<HTMLDivElement>(null)
+  const weeklyHoursRef = useRef<HTMLSpanElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
   const card1Ref = useRef<HTMLDivElement>(null)
@@ -51,12 +52,41 @@ export default function ReportSection() {
         onUpdate: function() {
           const currentValue = Math.round(obj.value)
           if (numberRef.current) {
-            numberRef.current.textContent = `CHF ${currentValue.toLocaleString('de-CH')} pro Jahr`
+            numberRef.current.innerHTML = `
+              <div class="text-7xl md:text-8xl lg:text-9xl font-light text-white">
+                CHF ${currentValue.toLocaleString('de-CH')}
+              </div>
+              <div class="mt-2 text-white text-2xl md:text-3xl lg:text-4xl" style="opacity: 0.7;">
+                pro Person und Jahr
+              </div>
+            `
           }
         }
       })
     }
   }, [yearlyCostPerEmployee])
+
+  // Weekly hours animation
+  useEffect(() => {
+    if (weeklyHoursRef.current) {
+      const obj = { value: parseInt(weeklyHoursRef.current.textContent || '0') }
+      const currentNumber = obj.value
+      
+      obj.value = currentNumber
+      
+      gsap.to(obj, {
+        value: weeklyHoursWasted,
+        duration: 0.6,
+        ease: "power2.out",
+        onUpdate: function() {
+          const currentValue = Math.round(obj.value)
+          if (weeklyHoursRef.current) {
+            weeklyHoursRef.current.textContent = `${currentValue}`
+          }
+        }
+      })
+    }
+  }, [weeklyHoursWasted])
 
   // Setup animations on mount with proper GSAP context
   useEffect(() => {
@@ -243,40 +273,48 @@ export default function ReportSection() {
       <div className="text-center mb-12">
         <div 
           ref={numberRef}
-          className="text-7xl md:text-8xl lg:text-9xl font-light mb-4 text-white font-mono tabular-nums"
+          className="mb-4 font-mono tabular-nums"
           style={{
             textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
             minHeight: '1.2em'
           }}
         >
-          CHF {yearlyCostPerEmployee.toLocaleString('de-CH')} pro Jahr
+          <div className="text-7xl md:text-8xl lg:text-9xl font-light text-white">
+            CHF {yearlyCostPerEmployee.toLocaleString('de-CH')}
+          </div>
+          <div 
+            className="mt-2 text-white text-2xl md:text-3xl lg:text-4xl"
+            style={{ 
+              opacity: 0.7
+            }}
+          >
+            pro Person und Jahr
+          </div>
         </div>
       </div>
 
       {/* Interactive Slider with Custom Tooltip */}
       <div 
         ref={sliderRef}
-        className="w-full max-w-3xl mb-20 px-4 relative"
+        className="w-[90%] max-w-3xl mb-20 px-4 relative"
       >
         <div className="mb-6 text-center">
           <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
             <span className="text-lg font-light text-white">
-              {weeklyHoursWasted} Std./Woche für Administration
+              <span ref={weeklyHoursRef}>{weeklyHoursWasted}</span> Std./Woche für Administration
             </span>
           </div>
         </div>
         <Slider
           value={sliderValue}
           onValueChange={setSliderValue}
-          min={5}
+          min={1}
           max={20}
           step={1}
           className="w-full h-2 transition-all duration-300"
         />
-        <div className="flex justify-between mt-3 text-sm text-white/60">
-          <span>5h</span>
+        <div className="flex justify-center mt-3 text-sm text-white/60">
           <span className="font-light">Basis: CHF 150/h Vollkosten</span>
-          <span>20h</span>
         </div>
       </div>
 
@@ -291,8 +329,8 @@ export default function ReportSection() {
           style={{ transform: 'translateY(30px)' }}
         >
           <CardContent className="p-6 card-content flex flex-col justify-center h-full">
-            <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">+31h</div>
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Pro Mitarbeiter monatlich</p>
+            <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">+7 Std.</div>
+            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Nationaler Durchschnitt pro Woche</p>
           </CardContent>
         </Card>
         
@@ -303,7 +341,7 @@ export default function ReportSection() {
         >
           <CardContent className="p-6 card-content flex flex-col justify-center h-full">
             <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">6.8 Tage</div>
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Verschwendet jeden Monat</p>
+            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Produktivität verloren pro Monat</p>
           </CardContent>
         </Card>
         
@@ -314,7 +352,7 @@ export default function ReportSection() {
         >
           <CardContent className="p-6 card-content flex flex-col justify-center h-full">
             <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">CHF 6 Mrd.</div>
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Schaden für die Schweiz jährlich</p>
+            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Wirtschaftsschaden Schweiz pro Jahr</p>
           </CardContent>
         </Card>
       </div>

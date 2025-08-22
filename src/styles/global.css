@@ -140,7 +140,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-figtree);
+    font-family: var(--font-geist);
   }
 }
 
