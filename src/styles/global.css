@@ -365,8 +365,6 @@
 /* Swiss Layout Helpers */
 .hero-gradient {
   background: var(--gradient-hero);
-  min-height: 100vh;
-  position: relative;
 }
 
 .swiss-focus:focus-visible {
