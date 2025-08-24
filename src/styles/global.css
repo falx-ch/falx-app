@@ -1,90 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Bitter:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital,wght@0,400;1,400&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match dramatic lighting design brief */
-  --background: #000000; /* Pure black background */
-  --foreground: oklch(1 0 0); /* Pure white for text and highlights */
-  --card: oklch(0.95 0 0); /* Light gray for subtle backgrounds */
-  --card-foreground: oklch(0 0 0); /* Black text on light cards */
-  --popover: oklch(1 0 0); /* White for popover backgrounds */
-  --popover-foreground: oklch(0 0 0); /* Black text in popovers */
-  --primary: oklch(0.65 0.2 270); /* Violet accent for highlights */
-  --primary-foreground: oklch(1 0 0); /* White text on violet */
-  --secondary: oklch(0.95 0 0); /* Light gray for secondary elements */
-  --secondary-foreground: oklch(0 0 0); /* Black text on secondary */
-  --muted: oklch(0.25 0 0); /* Dark gray for muted elements */
-  --muted-foreground: oklch(0.95 0 0); /* Light gray text for muted */
-  --accent: oklch(0.65 0.2 270); /* Violet for interactive elements */
-  --accent-foreground: oklch(1 0 0); /* White text on accent */
-  --destructive: oklch(0.6 0.2 40); /* Amber for destructive actions */
-  --destructive-foreground: oklch(1 0 0); /* White text for destructive */
-  --border: oklch(1 0 0); /* White borders for contrast */
-  --input: oklch(0.95 0 0); /* Light gray for inputs */
-  --ring: oklch(0.65 0.2 270); /* Violet for focus rings */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.5rem; /* Softer rounded corners */
-  --sidebar: oklch(0 0 0); /* Black sidebar */
-  --sidebar-foreground: oklch(1 0 0); /* White sidebar text */
-  --sidebar-primary: oklch(0.65 0 0); /* Violet for primary sidebar */
-  --sidebar-primary-foreground: oklch(1 0 0); /* White text on sidebar primary */
-  --sidebar-accent: oklch(0.95 0 0); /* Light gray for sidebar accent */
-  --sidebar-accent-foreground: oklch(0 0 0); /* Black text on sidebar accent */
-  --sidebar-border: oklch(1 0 0); /* White sidebar borders */
-  --sidebar-ring: oklch(0.65 0.2 270); /* Violet for sidebar focus */
-  --font-instrument-serif: "Instrument Serif", serif; /* Instrument Serif font family configuration */
-  --font-figtree: "Figtree", sans-serif; /* Figtree font family configuration */
-  --font-geist: "Geist", sans-serif; /* Geist font family configuration */
-  --font-geist-mono: "Geist Mono", monospace; /* Geist Mono font family configuration */
-  --font-bitter: "Bitter", serif; /* Bitter font family configuration */
+  /* === SWISS DESIGN SYSTEM === */
+  /* Mapped to Tailwind color palette for consistency */
+  
+  /* Swiss Red Theme - Using Tailwind red scale */
+  --swiss-red-primary: theme(colors.red.600); /* rgb(220, 38, 38) - matches hero/report */
+  --swiss-red-secondary: theme(colors.red.500); /* rgb(239, 68, 68) - lighter accent */
+  --swiss-red-dark: theme(colors.red.900); /* rgb(127, 29, 29) - darker depth */
+  
+  /* Swiss Glassmorphism Tokens */
+  --glass-light: theme(colors.white / 5%); /* backdrop-blur with 5% opacity */
+  --glass-medium: theme(colors.white / 10%); /* backdrop-blur with 10% opacity */
+  --glass-strong: theme(colors.white / 20%); /* backdrop-blur with 20% opacity */
+  --glass-border-subtle: theme(colors.white / 8%); /* 8% white borders */
+  --glass-border-medium: theme(colors.white / 15%); /* 15% white borders */
+  --glass-border-strong: theme(colors.white / 30%); /* 30% white borders */
+  
+  /* Swiss Background Gradients */
+  --gradient-hero: linear-gradient(180deg, 
+    theme(colors.red.600 / 25%) 0%, 
+    theme(colors.red.900 / 15%) 15%, 
+    theme(colors.black / 95%) 40%, 
+    theme(colors.black) 100%);
+  
+  /* === SHADCN/UI COMPATIBILITY === */
+  /* Updated to use Swiss red theme with Tailwind colors */
+  --background: theme(colors.black); /* Pure black background */
+  --foreground: theme(colors.white); /* Pure white text */
+  --card: var(--glass-light); /* Glassmorphism cards */
+  --card-foreground: theme(colors.white); /* White text on glass */
+  --popover: theme(colors.black / 95%); /* Semi-transparent popover */
+  --popover-foreground: theme(colors.white); /* White popover text */
+  --primary: var(--swiss-red-primary); /* Swiss red primary */
+  --primary-foreground: theme(colors.white); /* White on red */
+  --secondary: var(--glass-medium); /* Glass secondary background */
+  --secondary-foreground: theme(colors.white); /* White secondary text */
+  --muted: theme(colors.white / 5%); /* Subtle muted background */
+  --muted-foreground: theme(colors.white / 70%); /* 70% opacity muted text */
+  --accent: var(--swiss-red-secondary); /* Red accent */
+  --accent-foreground: theme(colors.white); /* White accent text */
+  --destructive: var(--swiss-red-primary); /* Red for destructive */
+  --destructive-foreground: theme(colors.white); /* White destructive text */
+  --border: var(--glass-border-medium); /* Glass borders */
+  --input: var(--glass-light); /* Glass input backgrounds */
+  --ring: theme(colors.red.600 / 40%); /* Red focus rings */
+  --chart-1: var(--swiss-red-primary); /* Chart red primary */
+  --chart-2: var(--swiss-red-secondary); /* Chart red secondary */
+  --chart-3: var(--swiss-red-dark); /* Chart red dark */
+  --chart-4: theme(colors.red.600 / 70%); /* Chart red with opacity */
+  --chart-5: theme(colors.red.500 / 70%); /* Chart red secondary with opacity */
+  --radius: theme(borderRadius.xl); /* 0.75rem - Swiss precision */
+  --sidebar: theme(colors.black / 95%); /* Semi-transparent sidebar */
+  --sidebar-foreground: theme(colors.white); /* White sidebar text */
+  --sidebar-primary: var(--swiss-red-primary); /* Red sidebar primary */
+  --sidebar-primary-foreground: theme(colors.white); /* White primary text */
+  --sidebar-accent: var(--glass-light); /* Glass sidebar accent */
+  --sidebar-accent-foreground: theme(colors.white); /* White accent text */
+  --sidebar-border: var(--glass-border-subtle); /* Subtle sidebar borders */
+  --sidebar-ring: theme(colors.red.600 / 40%); /* Red sidebar focus */
+  
+  /* Core Typography - Only used fonts */
+  --font-geist: "Geist", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+  --font-bitter: "Bitter", serif;
 }
 
 .dark {
-  /* Dark mode maintains the same dramatic black background theme */
-  --background: #000000;
-  --foreground: oklch(1 0 0);
-  --card: oklch(0.1 0 0);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.1 0 0);
-  --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.7 0.25 270);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.7 0.25 270);
-  --accent-foreground: oklch(0 0 0);
-  --destructive: oklch(0.5 0.2 40);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.3 0 0);
-  --input: oklch(0.15 0 0);
-  --ring: oklch(0.7 0.25 270);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.05 0 0);
-  --sidebar-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.7 0.25 270);
-  --sidebar-primary-foreground: oklch(0 0 0);
-  --sidebar-accent: oklch(0.15 0 0);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.3 0 0);
-  --sidebar-ring: oklch(0.7 0.25 270);
-  --font-instrument-serif: "Instrument Serif", serif; /* Instrument Serif font family configuration */
-  --font-figtree: "Figtree", sans-serif; /* Figtree font family configuration */
-  --font-geist: "Geist", sans-serif; /* Geist font family configuration */
-  --font-geist-mono: "Geist Mono", monospace; /* Geist Mono font family configuration */
-  --font-bitter: "Bitter", serif; /* Bitter font family configuration */
+  /* Dark mode - Enhanced glassmorphism for better contrast */
+  --glass-light: theme(colors.white / 2%); /* More subtle in dark mode */
+  --glass-medium: theme(colors.white / 5%); /* Reduced opacity for dark */
+  --glass-strong: theme(colors.white / 10%); /* Darker glassmorphism */
+  --glass-border-subtle: theme(colors.white / 4%); /* Subtle dark borders */
+  --glass-border-medium: theme(colors.white / 8%); /* Medium dark borders */
+  --glass-border-strong: theme(colors.white / 15%); /* Stronger dark borders */
+  
+  /* Enhanced Swiss red for dark mode contrast */
+  --swiss-red-primary: theme(colors.red.500); /* Brighter red in dark */
+  --swiss-red-secondary: theme(colors.red.400); /* Even brighter accent */
+  
+  /* Dark mode gradient */
+  --gradient-hero: linear-gradient(180deg, 
+    theme(colors.red.500 / 20%) 0%, 
+    theme(colors.red.900 / 10%) 15%, 
+    theme(colors.black / 98%) 40%, 
+    theme(colors.black) 100%);
 }
 
 @theme inline {
@@ -124,11 +128,9 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-instrument-serif: var(--font-instrument-serif);
   --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-bitter);
-  --font-figtree: var(--font-figtree);
   --font-geist: var(--font-geist);
   --font-geist-mono: var(--font-geist-mono);
   --font-bitter: var(--font-bitter);
@@ -142,10 +144,6 @@
     @apply bg-background text-foreground;
     font-family: var(--font-geist);
   }
-}
-
-.instrument {
-  font-family: var(--font-instrument-serif);
 }
 
 .geist {
@@ -195,15 +193,15 @@
 [data-slot="slider-range"] {
   position: absolute;
   background: linear-gradient(90deg, 
-    rgba(220, 38, 38, 0.8) 0%,
-    rgba(239, 68, 68, 0.9) 50%,
-    rgba(220, 38, 38, 1) 100%
+    theme(colors.red.600 / 80%) 0%,
+    theme(colors.red.500 / 90%) 50%,
+    theme(colors.red.600) 100%
   ) !important;
   border-radius: 2px;
   height: 100%;
   box-shadow: 
-    0 0 8px rgba(220, 38, 38, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 0 8px theme(colors.red.600 / 30%),
+    inset 0 1px 0 theme(colors.white / 10%);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -212,11 +210,11 @@
   width: 20px !important;
   height: 20px !important;
   background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.95) 0%, 
-    rgba(248, 250, 252, 0.9) 50%,
-    rgba(241, 245, 249, 0.85) 100%
+    theme(colors.white / 95%) 0%, 
+    theme(colors.slate.50 / 90%) 50%,
+    theme(colors.slate.100 / 85%) 100%
   ) !important;
-  border: 1px solid rgba(220, 38, 38, 0.4) !important;
+  border: 1px solid theme(colors.red.600 / 40%) !important;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
@@ -224,9 +222,9 @@
   z-index: 10;
   backdrop-filter: blur(8px);
   box-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.1),
-    0 1px 3px rgba(220, 38, 38, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    0 2px 8px theme(colors.black / 10%),
+    0 1px 3px theme(colors.red.600 / 20%),
+    inset 0 1px 0 theme(colors.white / 80%) !important;
 }
 
 [data-slot="slider-thumb"]::before {
@@ -235,25 +233,25 @@
   inset: 3px;
   border-radius: 50%;
   background: linear-gradient(135deg, 
-    rgba(220, 38, 38, 0.1) 0%,
-    rgba(239, 68, 68, 0.05) 100%
+    theme(colors.red.600 / 10%) 0%,
+    theme(colors.red.500 / 5%) 100%
   );
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-slot="slider-thumb"]:hover {
   transform: scale(1.05) !important;
-  border-color: rgba(220, 38, 38, 0.6) !important;
+  border-color: theme(colors.red.600 / 60%) !important;
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.15),
-    0 2px 6px rgba(220, 38, 38, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    0 4px 16px theme(colors.black / 15%),
+    0 2px 6px theme(colors.red.600 / 30%),
+    inset 0 1px 0 theme(colors.white / 90%) !important;
 }
 
 [data-slot="slider-thumb"]:hover::before {
   background: linear-gradient(135deg, 
-    rgba(220, 38, 38, 0.15) 0%,
-    rgba(239, 68, 68, 0.1) 100%
+    theme(colors.red.600 / 15%) 0%,
+    theme(colors.red.500 / 10%) 100%
   );
 }
 
@@ -263,6 +261,137 @@
 }
 
 [data-slot="slider-thumb"]:focus-visible {
-  outline: 2px solid rgba(220, 38, 38, 0.4) !important;
+  outline: 2px solid theme(colors.red.600 / 40%) !important;
   outline-offset: 3px;
+}
+
+/* === SWISS DESIGN UTILITY CLASSES === */
+
+/* Swiss Glassmorphism Components */
+.glass-light {
+  background: var(--glass-light);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--glass-border-subtle);
+}
+
+.glass-medium {
+  background: var(--glass-medium);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border-medium);
+}
+
+.glass-strong {
+  background: var(--glass-strong);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border-strong);
+}
+
+/* Swiss Button System */
+.btn-swiss-primary {
+  background: var(--swiss-red-primary);
+  color: theme(colors.white);
+  border: none;
+  border-radius: theme(borderRadius.full);
+  padding: theme(spacing.3) theme(spacing.8);
+  font-size: theme(fontSize.xs);
+  font-weight: 400;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-swiss-primary:hover {
+  background: var(--swiss-red-secondary);
+  transform: translateY(-1px);
+}
+
+.btn-swiss-ghost {
+  background: transparent;
+  color: theme(colors.white);
+  border: 1px solid var(--glass-border-strong);
+  border-radius: theme(borderRadius.full);
+  padding: theme(spacing.3) theme(spacing.8);
+  font-size: theme(fontSize.xs);
+  font-weight: 400;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-swiss-ghost:hover {
+  background: var(--glass-medium);
+  border-color: theme(colors.white / 50%);
+}
+
+/* Swiss Card System */
+.card-swiss {
+  background: var(--glass-light);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border-medium);
+  border-radius: theme(borderRadius.2xl);
+  padding: theme(spacing.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-swiss:hover {
+  background: var(--glass-medium);
+  transform: translateY(-2px);
+}
+
+/* Swiss Typography Scale */
+.text-swiss-hero {
+  font-size: theme(fontSize.6xl);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.text-swiss-headline {
+  font-size: theme(fontSize.5xl);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.text-swiss-body {
+  font-size: theme(fontSize.xs);
+  font-weight: 300;
+  line-height: 1.6;
+  color: theme(colors.white / 70%);
+}
+
+.text-swiss-caption {
+  font-size: theme(fontSize.xs);
+  font-weight: 300;
+  color: theme(colors.white / 60%);
+}
+
+/* Swiss Layout Helpers */
+.hero-gradient {
+  background: var(--gradient-hero);
+  min-height: 100vh;
+  position: relative;
+}
+
+.swiss-focus:focus-visible {
+  outline: 2px solid theme(colors.red.600 / 40%);
+  outline-offset: 2px;
+  border-radius: theme(borderRadius.DEFAULT);
+}
+
+/* Responsive Typography */
+@media (min-width: 768px) {
+  .text-swiss-hero {
+    font-size: theme(fontSize.8xl);
+  }
+  
+  .text-swiss-headline {
+    font-size: theme(fontSize.6xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-swiss-hero {
+    font-size: theme(fontSize.9xl);
+  }
+  
+  .text-swiss-headline {
+    font-size: theme(fontSize.7xl);
+  }
 }
