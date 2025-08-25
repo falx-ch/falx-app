@@ -4,7 +4,7 @@ import '../styles/global.css';
 import ShaderBackground from '../components/shader-background.tsx';
 import Header from '../components/header.tsx';
 import HeroContent from '../components/hero-content.tsx';
-import ReportSection from '../components/report-section.tsx';
+import ReportSection from '../components/ReportSection.astro';
 import WorkflowBreakdown from '../components/workflow-breakdown.tsx';
 import AiInPractice from '../components/ai-in-practice.tsx';
 import LegataFuture from '../components/legata-future.tsx';
@@ -32,7 +32,7 @@ import GlobalAnimations from '../components/global-animations.tsx';
 			<Header client:load />
 			<HeroContent client:load />
 		</ShaderBackground>
-		<ReportSection client:visible />
+		<ReportSection />
 		<WorkflowBreakdown client:visible />
 		<AiInPractice client:visible />
 		<LegataFuture client:visible />
