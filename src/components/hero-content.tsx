@@ -1,9 +1,12 @@
+import { GlassCard } from '@/components/ui/glass-card'
+
 export default function HeroContent() {
   return (
     <main className="absolute bottom-8 left-8 z-20 max-w-xl">
-      <div className="text-left backdrop-blur-sm bg-black/10 rounded-2xl p-6 border border-white/10">
-        <div
-          className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm mb-4 relative"
+      <GlassCard className="text-left bg-black/10" size="lg">
+        <GlassCard 
+          variant="badge"
+          className="mb-4 relative"
           style={{
             filter: "url(#glass-effect)",
           }}
@@ -16,7 +19,7 @@ export default function HeroContent() {
             </svg>
             Made in Zurich • 🔒 DSG konform • 🎯 Gratis KI-Analyse
           </span>
-        </div>
+        </GlassCard>
 
         {/* Main Heading */}
         <h1 className="text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-4">
@@ -41,7 +44,7 @@ export default function HeroContent() {
             Kostenlos beraten
           </button>
         </div>
-      </div>
+      </GlassCard>
     </main>
   )
 }

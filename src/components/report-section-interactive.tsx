@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Slider } from "@/components/ui/slider"
 import { Card, CardContent } from "@/components/ui/card"
+import { GlassCard } from '@/components/ui/glass-card'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -252,7 +253,10 @@ export default function ReportSectionInteractive() {
   return (
     <>
       {/* Dynamic CHF Display with rolling numbers - adapted for left column */}
-      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-red-500/30 transition-all duration-300">
+      <GlassCard 
+        hover="glow" 
+        size="lg"
+      >
         <div className="text-center lg:text-left space-y-4">
           <div className="flex items-baseline mb-3">
             <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-2">CHF</span>
@@ -279,7 +283,7 @@ export default function ReportSectionInteractive() {
             <p className="text-white/40 text-xs">Basis: CHF 150/h Vollkosten</p>
           </div>
         </div>
-      </div>
+      </GlassCard>
 
       {/* Interactive Slider - adapted for left column */}
       <div className="mt-6 lg:mt-6 space-y-4 lg:space-y-6">

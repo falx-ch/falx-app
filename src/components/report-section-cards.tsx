@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { GlassCard } from '@/components/ui/glass-card'
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -115,9 +116,11 @@ export default function ReportSectionCards() {
 
   return (
     <div ref={cardsRef} className="grid grid-cols-1 gap-4">
-      <div 
+      <GlassCard 
         ref={card1Ref}
-        className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 lg:p-6 border border-white/10 hover:border-red-500/30 transition-all duration-300 opacity-0 cursor-pointer"
+        variant="interactive"
+        hover="glow"
+        size="md"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
         <div className="flex items-center justify-between card-content">
@@ -128,11 +131,13 @@ export default function ReportSectionCards() {
             <span className="text-red-400 text-xs">⏱</span>
           </div>
         </div>
-      </div>
+      </GlassCard>
 
-      <div 
+      <GlassCard 
         ref={card2Ref}
-        className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 lg:p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-300 opacity-0 cursor-pointer"
+        variant="interactive"
+        hover="glow"
+        size="md"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
         <div className="flex items-center justify-between card-content">
@@ -143,11 +148,13 @@ export default function ReportSectionCards() {
             <span className="text-orange-400 text-xs">⚠</span>
           </div>
         </div>
-      </div>
+      </GlassCard>
 
-      <div 
+      <GlassCard 
         ref={card3Ref}
-        className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 lg:p-6 border border-white/10 hover:border-red-500/30 transition-all duration-300 opacity-0 cursor-pointer"
+        variant="interactive"
+        hover="glow"
+        size="md"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
         <div className="flex items-center justify-between card-content">
@@ -158,7 +165,7 @@ export default function ReportSectionCards() {
             <span className="text-red-400 text-xs">📉</span>
           </div>
         </div>
-      </div>
+      </GlassCard>
     </div>
   )
 }

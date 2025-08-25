@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { gsap } from "gsap"
+import { GlassCard } from '@/components/ui/glass-card'
 
 export default function LegataFuture() {
   const [animationStep, setAnimationStep] = useState(0)
@@ -547,7 +548,7 @@ export default function LegataFuture() {
 
       <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center pb-16 lg:pb-24">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex justify-center">
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-lg text-center shadow-2xl pointer-events-auto">
+          <GlassCard variant="modal" intensity="strong" size="xl">
           <h2 className="text-3xl font-light mb-4 tracking-tight">
             <span className="font-serif italic text-blue-300">Legata:</span> Swiss Legal Innovation
           </h2>
@@ -558,7 +559,7 @@ export default function LegataFuture() {
           <button className="text-white/90 text-base hover:text-white transition-all duration-300 border-b-2 border-white/20 hover:border-white/60 pb-1">
             Experience Legata →
           </button>
-          </div>
+          </GlassCard>
         </div>
       </div>
 

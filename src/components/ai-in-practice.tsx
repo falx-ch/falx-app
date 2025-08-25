@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Progress } from "@/components/ui/progress"
+import { GlassCard } from '@/components/ui/glass-card'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -276,10 +277,13 @@ export default function AiInPractice() {
                   ref: card3Ref,
                 },
               ].map((solution, index) => (
-                <div
+                <GlassCard
                   key={index}
                   ref={solution.ref}
-                  className={`solution-card bg-white/8 backdrop-blur-md rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/15 transition-all duration-500 cursor-pointer opacity-0 hover:bg-white/12 hover:backdrop-blur-lg hover:border-white/25 hover:shadow-2xl hover:shadow-black/10 hover:-translate-y-1 hover:scale-[1.02] max-w-sm mx-auto lg:mx-0 lg:max-w-md`}
+                  variant="solution"
+                  intensity="medium"
+                  hover="lift"
+                  className="solution-card opacity-0 transition-all duration-500"
                   style={{ 
                     transform: 'translateY(50px) rotateY(-45deg) translateZ(-200px)'
                   }}
@@ -315,7 +319,7 @@ export default function AiInPractice() {
                       <span className="ml-2 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white/80">→</span>
                     </div>
                   </div>
-                </div>
+                </GlassCard>
               ))}
             </div>
           </div>

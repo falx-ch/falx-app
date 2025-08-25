@@ -1,5 +1,7 @@
 "use client"
 
+import { GlassCard } from '@/components/ui/glass-card'
+
 export default function FounderSection() {
   return (
     <section className="min-h-screen founder-gradient text-white flex items-center justify-center relative overflow-hidden py-16 lg:py-24">
@@ -12,7 +14,7 @@ export default function FounderSection() {
           {/* Left column - Founder photo (40%) */}
           <div className="lg:col-span-2 relative overflow-hidden flex items-center justify-center">
             <div className="relative w-full max-w-lg">
-              <div className="relative bg-white/5 backdrop-blur-sm p-1 rounded-3xl border border-white/20">
+              <GlassCard intensity="strong" size="sm" className="relative rounded-3xl">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
                   <img
                     src="/professional-founder-portrait-in-modern-office-set.png"
@@ -22,7 +24,7 @@ export default function FounderSection() {
                   {/* Subtle top highlight like hero badge */}
                   <div className="absolute top-0 left-1 right-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
                 </div>
-              </div>
+              </GlassCard>
             </div>
           </div>
 
