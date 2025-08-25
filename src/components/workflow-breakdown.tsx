@@ -249,46 +249,15 @@ export default function WorkflowBreakdown() {
   }
 
   return (
-    <section className="min-h-screen workflow-gradient text-white flex items-center justify-center relative overflow-hidden py-12 md:py-20">
+    <section className="min-h-screen workflow-gradient text-white flex items-center justify-center relative overflow-hidden py-16 lg:py-24">
       {/* Soft neutral background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(55,65,81,0.08),transparent_65%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(75,85,99,0.05),transparent_65%)]" />
 
-      <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
-          {/* Left column - Content */}
-          <div className="lg:col-span-2 space-y-6 lg:space-y-8">
-            <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
-                Der <span className="font-serif italic text-red-300">Workflow</span>-<br />
-                Zusammenbruch
-              </h2>
-              <p className="text-white/60 text-base lg:text-lg leading-relaxed mb-6 lg:mb-8">
-                Fragmentierte Systeme, manuelle Prozesse und Datenchaos kosten Schweizer Unternehmen täglich wertvolle
-                Ressourcen.
-              </p>
-            </div>
-
-            <div className="space-y-3 lg:space-y-4">
-              <div className="flex items-center space-x-3 lg:space-x-4">
-                <div className="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></div>
-                <span className="text-white/70 text-sm lg:text-base">73% der Arbeitszeit für manuelle Aufgaben</span>
-              </div>
-              <div className="flex items-center space-x-3 lg:space-x-4">
-                <div className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></div>
-                <span className="text-white/70 text-sm lg:text-base">41% Produktivitätsverlust durch Systembrüche</span>
-              </div>
-              <div className="flex items-center space-x-3 lg:space-x-4">
-                <div className="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></div>
-                <span className="text-white/70 text-sm lg:text-base">
-                  28% höhere Fehlerrate bei manuellen Prozessen
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right column - Interactive Visualization */}
-          <div className="lg:col-span-3">
+          {/* Left column - Interactive Visualization */}
+          <div className="lg:col-span-3 order-2 lg:order-1">
             <div className="relative h-64 sm:h-80 lg:h-96">
               <svg
                 ref={webRef}
@@ -385,6 +354,37 @@ export default function WorkflowBreakdown() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Right column - Content */}
+          <div className="lg:col-span-2 space-y-6 lg:space-y-8 order-1 lg:order-2">
+            <div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
+                Der <span className="font-serif italic text-red-300">Workflow</span>-<br />
+                Zusammenbruch
+              </h2>
+              <p className="text-white/60 text-base lg:text-lg leading-relaxed mb-6 lg:mb-8">
+                Fragmentierte Systeme, manuelle Prozesse und Datenchaos kosten Schweizer Unternehmen täglich wertvolle
+                Ressourcen.
+              </p>
+            </div>
+
+            <div className="space-y-3 lg:space-y-4">
+              <div className="flex items-center space-x-3 lg:space-x-4">
+                <div className="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></div>
+                <span className="text-white/70 text-sm lg:text-base">73% der Arbeitszeit für manuelle Aufgaben</span>
+              </div>
+              <div className="flex items-center space-x-3 lg:space-x-4">
+                <div className="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></div>
+                <span className="text-white/70 text-sm lg:text-base">41% Produktivitätsverlust durch Systembrüche</span>
+              </div>
+              <div className="flex items-center space-x-3 lg:space-x-4">
+                <div className="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></div>
+                <span className="text-white/70 text-sm lg:text-base">
+                  28% höhere Fehlerrate bei manuellen Prozessen
+                </span>
+              </div>
             </div>
           </div>
         </div>

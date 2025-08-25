@@ -162,7 +162,7 @@ export default function AiInPractice() {
   return (
     <section 
       ref={containerRef}
-      className="min-h-screen ai-practice-gradient text-white flex items-center justify-center relative overflow-hidden py-20"
+      className="min-h-screen ai-practice-gradient text-white flex items-center justify-center relative overflow-hidden py-16 lg:py-24"
     >
       {/* Neutral slate background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(71,85,105,0.06),transparent_65%)]" />
@@ -206,7 +206,7 @@ export default function AiInPractice() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
           {/* Left column - Header content */}
           <div className="lg:col-span-2 space-y-8">

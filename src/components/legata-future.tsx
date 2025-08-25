@@ -128,15 +128,16 @@ export default function LegataFuture() {
   }
 
   return (
-    <section className="h-screen legata-gradient text-white relative overflow-hidden">
+    <section className="min-h-screen legata-gradient text-white relative overflow-hidden py-16 lg:py-24">
       {/* Soft neutral background with gentle depth */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(71,85,105,0.04),transparent_70%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(100,116,139,0.025),transparent_75%)]" />
 
       <div className="absolute top-0 left-0 right-0 h-1/2 flex items-center justify-center">
-        <svg
-          ref={svgRef}
-          className="w-full h-full max-w-7xl"
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full h-full flex items-center justify-center">
+          <svg
+            ref={svgRef}
+            className="w-full h-full"
           viewBox="0 0 1400 400"
           onClick={() => !isInteractive && handleInteraction(0)}
         >
@@ -540,11 +541,13 @@ export default function LegataFuture() {
               </text>
             </g>
           )}
-        </svg>
+          </svg>
+        </div>
       </div>
 
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-0">
-        <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-lg text-center shadow-2xl pointer-events-auto">
+      <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center pb-16 lg:pb-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex justify-center">
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-lg text-center shadow-2xl pointer-events-auto">
           <h2 className="text-3xl font-light mb-4 tracking-tight">
             <span className="font-serif italic text-blue-300">Legata:</span> Swiss Legal Innovation
           </h2>
@@ -555,6 +558,7 @@ export default function LegataFuture() {
           <button className="text-white/90 text-base hover:text-white transition-all duration-300 border-b-2 border-white/20 hover:border-white/60 pb-1">
             Experience Legata →
           </button>
+          </div>
         </div>
       </div>
 

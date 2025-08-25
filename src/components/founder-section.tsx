@@ -2,13 +2,14 @@
 
 export default function FounderSection() {
   return (
-    <section className="h-screen founder-gradient text-white flex relative overflow-hidden">
+    <section className="min-h-screen founder-gradient text-white flex relative overflow-hidden py-16 lg:py-24">
       {/* Soft neutral background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(148,163,184,0.03),transparent_75%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(156,163,175,0.02),transparent_80%)]" />
 
-      {/* Left side - Founder photo */}
-      <div className="w-1/2 relative overflow-hidden flex items-center justify-center p-8 lg:p-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex">
+        {/* Left side - Founder photo */}
+        <div className="w-1/2 relative overflow-hidden flex items-center justify-center">
         <div className="relative w-full max-w-lg">
           <div className="relative bg-white/5 backdrop-blur-sm p-1 rounded-3xl border border-white/20">
             <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
@@ -24,8 +25,8 @@ export default function FounderSection() {
         </div>
       </div>
 
-      {/* Right side - Content */}
-      <div className="w-1/2 flex items-center justify-center p-8 lg:p-16">
+        {/* Right side - Content */}
+        <div className="w-1/2 flex items-center justify-center">
         <div className="max-w-md space-y-8">
           <div className="space-y-6">
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-light tracking-tight leading-tight">
@@ -59,6 +60,7 @@ export default function FounderSection() {
           <button className="px-8 py-3 rounded-full bg-white text-slate-900 font-normal text-sm transition-all duration-200 hover:bg-white/90 cursor-pointer">
             Book a Founder Consultation
           </button>
+        </div>
         </div>
       </div>
 

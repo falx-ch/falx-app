@@ -2,13 +2,14 @@
 
 export default function StartNowSection() {
   return (
-    <section className="h-screen cta-gradient text-slate-900 flex flex-col relative">
+    <section className="min-h-screen cta-gradient text-slate-900 flex flex-col relative py-16 lg:py-24">
       {/* Subtle neutral light background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(156,163,175,0.05),transparent_70%)]" />
 
       {/* Main content */}
       <div className="flex-1 flex items-center justify-center relative z-10">
-        <div className="text-center max-w-2xl mx-auto px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex justify-center">
+          <div className="text-center max-w-2xl">
           <h2 className="text-5xl md:text-7xl font-light mb-4 tracking-tight leading-tight text-slate-900">
             Starten Sie Ihre
           </h2>
@@ -19,6 +20,7 @@ export default function StartNowSection() {
           <button className="px-12 py-4 rounded-full bg-slate-900 text-white font-normal text-lg transition-all duration-200 hover:bg-slate-800 cursor-pointer transform hover:scale-105 shadow-lg">
             Kostenlose Analyse buchen
           </button>
+          </div>
         </div>
       </div>
 
