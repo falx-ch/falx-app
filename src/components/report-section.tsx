@@ -5,9 +5,12 @@ import { Slider } from "@/components/ui/slider"
 import { Card, CardContent } from "@/components/ui/card"
 import { GlassCard } from '@/components/ui/glass-card'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { gsapManager } from '@/lib/gsap-manager'
 
-export default function CostCalculator() {
+gsap.registerPlugin(ScrollTrigger)
+
+export default function ReportSection() {
   const [sliderValue, setSliderValue] = useState([10])
   const mainNumberRef = useRef<HTMLDivElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -260,55 +263,138 @@ export default function CostCalculator() {
   }, [])
 
   return (
-    <>
-      {/* Dynamic CHF Display with rolling numbers - adapted for left column */}
-      <GlassCard 
-        hover="glow" 
-        size="lg"
-      >
-        <div className="text-center lg:text-left space-y-4">
-          <div className="flex items-baseline mb-3">
-            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-2">CHF</span>
-            <div 
-              ref={mainNumberRef}
-              className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight inline-block w-48 sm:w-56 lg:w-72 text-right"
-              style={{
-                textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
-                minHeight: '1.2em'
-              }}
-            >
-              {yearlyCostPerEmployee.toLocaleString('de-CH')}
-            </div>
-            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium ml-2">pro Jahr</span>
-          </div>
-          
-          <div className="space-y-2">
-            <p className="text-white/60 text-sm font-normal">
-              Vollzeit-Mitarbeiter (<span className="inline-block w-5 text-right tabular-nums">{displayHours}</span> Std. Administration wöchentlich)
-            </p>
-          </div>
-          
-          <div className="space-y-1">
-            <p className="text-white/40 text-xs">Basis: CHF 150/h Vollkosten</p>
-          </div>
+    <section 
+      className={`min-h-screen calculator-gradient text-white flex items-center justify-center relative overflow-hidden py-16 lg:py-24`}
+    >
+      {/* Soft neutral calculator background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(55,65,81,0.10),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(75,85,99,0.06),transparent_60%)]" />
+      
+      {/* Content layer with centered heading and two-column layout */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Static heading - centered above everything */}
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
+            Was kostet Sie <br />
+            <span className="font-serif italic text-red-300">Ineffizienz</span> wirklich?
+          </h2>
+          <p className="text-white/60 text-base lg:text-lg leading-relaxed max-w-3xl mx-auto">
+            Schweizer Unternehmen verlieren täglich Tausende durch manuelle Prozesse. Berechnen Sie Ihr
+            Einsparpotenzial.
+          </p>
         </div>
-      </GlassCard>
 
-      {/* Interactive Slider - adapted for left column */}
-      <div className="mt-6 lg:mt-6 space-y-4 lg:space-y-6">
-        <div className="space-y-2">
-          <div ref={sliderRef}>
-            <Slider
-              value={sliderValue}
-              onValueChange={setSliderValue}
-              min={1}
-              max={20}
-              step={0.1}
-              className="w-full h-2 transition-all duration-300"
-            />
+        {/* Two-column layout for calculator and cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-start">
+          {/* Left column - Interactive calculator component (60%) */}
+          <div className="lg:col-span-3">
+            {/* Dynamic CHF Display with rolling numbers - adapted for left column */}
+            <GlassCard 
+              hover="glow" 
+              size="lg"
+            >
+              <div className="text-center lg:text-left space-y-4">
+                <div className="flex items-baseline mb-3">
+                  <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-2">CHF</span>
+                  <div 
+                    ref={mainNumberRef}
+                    className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight inline-block w-48 sm:w-56 lg:w-72 text-right"
+                    style={{
+                      textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
+                      minHeight: '1.2em'
+                    }}
+                  >
+                    {yearlyCostPerEmployee.toLocaleString('de-CH')}
+                  </div>
+                  <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium ml-2">pro Jahr</span>
+                </div>
+                
+                <div className="space-y-2">
+                  <p className="text-white/60 text-sm font-normal">
+                    Vollzeit-Mitarbeiter (<span className="inline-block w-5 text-right tabular-nums">{displayHours}</span> Std. Administration wöchentlich)
+                  </p>
+                </div>
+                
+                <div className="space-y-1">
+                  <p className="text-white/40 text-xs">Basis: CHF 150/h Vollkosten</p>
+                </div>
+              </div>
+            </GlassCard>
+
+            {/* Interactive Slider - adapted for left column */}
+            <div className="mt-6 lg:mt-6 space-y-4 lg:space-y-6">
+              <div className="space-y-2">
+                <div ref={sliderRef}>
+                  <Slider
+                    value={sliderValue}
+                    onValueChange={setSliderValue}
+                    min={1}
+                    max={20}
+                    step={0.1}
+                    className="w-full h-2 transition-all duration-300"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right column - Interactive problem indicators with animations (40%) */}
+          <div className="lg:col-span-2 space-y-4 lg:space-y-6">
+            <div ref={cardsRef} className="grid grid-cols-1 gap-4">
+              <GlassCard 
+                ref={card1Ref}
+                variant="interactive"
+                hover="glow"
+                size="md"
+                style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
+              >
+                <div className="flex items-center justify-between card-content">
+                  <div>
+                    <div className="text-lg lg:text-xl font-normal text-white/90 mb-1">+7 Std. Verwaltung pro Woche</div>
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <span className="text-red-400 text-xs">⏱</span>
+                  </div>
+                </div>
+              </GlassCard>
+
+              <GlassCard 
+                ref={card2Ref}
+                variant="interactive"
+                hover="glow"
+                size="md"
+                style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
+              >
+                <div className="flex items-center justify-between card-content">
+                  <div>
+                    <div className="text-lg lg:text-xl font-normal text-white/90 mb-1">6.8 Tage verschwendet pro Monat</div>
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <span className="text-orange-400 text-xs">⚠</span>
+                  </div>
+                </div>
+              </GlassCard>
+
+              <GlassCard 
+                ref={card3Ref}
+                variant="interactive"
+                hover="glow"
+                size="md"
+                style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
+              >
+                <div className="flex items-center justify-between card-content">
+                  <div>
+                    <div className="text-lg lg:text-xl font-normal text-white/90 mb-1">CHF 6 Mia. schweizweit pro Jahr</div>
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <span className="text-red-400 text-xs">📉</span>
+                  </div>
+                </div>
+              </GlassCard>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </section>
   )
 }

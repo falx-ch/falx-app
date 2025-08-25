@@ -90,7 +90,7 @@ When implementing solutions or providing summaries, ALWAYS include an "Architect
 
 This is a MANDATORY requirement for all implementations and summaries. Every solution should be evaluated against these principles, and the benefits should be explicitly stated.
 
-Start every reply with random emoji.
+Start every reply with completely random emoji not related to the reply itself.
 
 # Project Overview
 
