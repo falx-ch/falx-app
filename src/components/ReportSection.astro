@@ -12,27 +12,74 @@ import ReportSectionInteractive from './report-section-interactive.tsx';
 ---
 
 <section 
-  class={`min-h-screen flex flex-col justify-center items-center px-8 py-16 text-white relative ${className || ''}`}
+  class={`min-h-screen bg-gray-900 text-white flex items-center justify-center relative overflow-hidden py-12 md:py-20 ${className || ''}`}
 >
-  <!-- Static background layer -->
-  <div 
-    class="absolute inset-0 z-0"
-    style="background: var(--gradient-hero)"
-  />
+  <!-- Background gradients matching cost-calculator template -->
+  <div class="absolute inset-0 bg-gradient-to-br from-red-900/20 via-gray-900 to-orange-900/10" />
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(239,68,68,0.1),transparent_50%)]" />
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(251,146,60,0.05),transparent_50%)]" />
   
-  <!-- Content layer -->
-  <div class="relative z-10 flex flex-col justify-center items-center w-full">
-    <!-- Static heading - no need for hydration -->
-    <h2 class="text-4xl md:text-5xl lg:text-6xl text-center mb-16 max-w-4xl font-light text-white leading-tight">
-      Was kostet Sie Ineffizienz?
-    </h2>
+  <!-- Content layer with two-column layout -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <!-- Left column - Interactive component and main content -->
+      <div class="space-y-6 lg:space-y-8">
+        <!-- Static heading -->
+        <div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
+            Was kostet Sie <br />
+            <span class="font-serif italic text-red-300">Ineffizienz</span> wirklich?
+          </h2>
+          <p class="text-white/60 text-base lg:text-lg leading-relaxed">
+            Schweizer Unternehmen verlieren täglich Millionen durch manuelle Prozesse. Berechnen Sie Ihr
+            Einsparpotenzial.
+          </p>
+        </div>
 
-    <!-- Interactive component island - only hydrate when visible -->
-    <ReportSectionInteractive client:visible />
+        <!-- Interactive component island - only hydrate when visible -->
+        <ReportSectionInteractive client:visible />
+      </div>
 
-    <!-- Static scroll indicator -->
-    <div class="absolute bottom-8 right-8">
-      <div class="text-2xl text-white/60">↓</div>
+      <!-- Right column - Static problem indicators -->
+      <div class="space-y-4 lg:space-y-6">
+        <div class="grid grid-cols-1 gap-4">
+          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-white/10 hover:border-red-500/30 transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-xl lg:text-2xl font-light text-white mb-1">54.5h</div>
+                <div class="text-white/60 text-sm">Admin-Zeit pro Woche</div>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                <span class="text-red-400 text-xs">⏱</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-xl lg:text-2xl font-light text-white mb-1">56%</div>
+                <div class="text-white/60 text-sm">Verschwendete Arbeitszeit</div>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                <span class="text-orange-400 text-xs">⚠</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-white/10 hover:border-red-500/30 transition-all duration-300">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-xl lg:text-2xl font-light text-white mb-1">CHF 9 Mia.</div>
+                <div class="text-white/60 text-sm">Jährlicher Verlust Schweiz</div>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
+                <span class="text-red-400 text-xs">📉</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

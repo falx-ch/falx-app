@@ -251,91 +251,52 @@ export default function ReportSectionInteractive() {
 
   return (
     <>
-      {/* Dynamic CHF Display with rolling numbers */}
-      <div className="text-center mb-12">
-        <div 
-          className="mb-4 font-mono tabular-nums flex flex-col items-center justify-center"
-          style={{
-            textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
-            minHeight: '1.2em'
-          }}
-        >
-          <div 
-            ref={mainNumberRef}
-            className="text-7xl md:text-8xl lg:text-9xl font-light text-white whitespace-nowrap text-center"
-          >
-            CHF {yearlyCostPerEmployee.toLocaleString('de-CH')}
+      {/* Dynamic CHF Display with rolling numbers - adapted for left column */}
+      <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-red-500/30 transition-all duration-300">
+        <div className="text-center lg:text-left">
+          <div className="inline-flex items-baseline space-x-2 mb-3">
+            <span className="text-sm text-white/60 font-medium">CHF</span>
+            <div 
+              ref={mainNumberRef}
+              className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight"
+              style={{
+                textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
+                minHeight: '1.2em'
+              }}
+            >
+              {yearlyCostPerEmployee.toLocaleString('de-CH')}
+            </div>
           </div>
-          <div 
-            className="mt-2 font-mono text-white/70 text-2xl md:text-3xl lg:text-4xl text-center"
-          >
-            pro Person und Jahr
-          </div>
+          <p className="text-red-300 text-lg font-medium">Potenzielle Ersparnis pro Jahr</p>
+          <p className="text-white/50 text-sm mt-1">Basierend auf durchschnittlichen KI-Effizienzgewinnen</p>
         </div>
       </div>
 
-      {/* Interactive Slider with Custom Tooltip */}
-      <div 
-        ref={sliderRef}
-        className="w-[90%] max-w-3xl mb-20 px-4 relative"
-      >
-        <div className="mb-6 text-center">
-          <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
-            <span className="text-lg font-light text-white tabular-nums">
-              <span className="inline-block w-6 text-center">{displayHours}</span> Std./Woche für Administration
-            </span>
+      {/* Interactive Slider with Custom Tooltip - adapted for left column */}
+      <div className="space-y-4 lg:space-y-6">
+        <div className="space-y-2">
+          <label className="text-sm text-white/70 font-medium">
+            <span className="inline-block w-6 text-center tabular-nums">{displayHours}</span> Std./Woche für Administration
+          </label>
+          <div ref={sliderRef}>
+            <Slider
+              value={sliderValue}
+              onValueChange={setSliderValue}
+              min={1}
+              max={20}
+              step={0.1}
+              className="w-full h-2 transition-all duration-300"
+            />
+          </div>
+          <div className="flex justify-between text-xs text-white/50">
+            <span>1</span>
+            <span className="font-medium text-white/80">{displayHours}</span>
+            <span>20+</span>
+          </div>
+          <div className="text-center">
+            <span className="text-xs text-white/60 font-light">Basis: CHF 150/h Vollkosten</span>
           </div>
         </div>
-        <Slider
-          value={sliderValue}
-          onValueChange={setSliderValue}
-          min={1}
-          max={20}
-          step={0.1}
-          className="w-full h-2 transition-all duration-300"
-        />
-        <div className="flex justify-center mt-3 text-sm text-white/60">
-          <span className="font-light">Basis: CHF 150/h Vollkosten</span>
-        </div>
-      </div>
-
-      {/* Data Cards with Swiss precision grid */}
-      <div 
-        ref={cardsRef}
-        className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl w-full"
-      >
-        <Card 
-          ref={card1Ref}
-          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0 h-48 flex flex-col justify-center"
-          style={{ transform: 'translateY(30px)' }}
-        >
-          <CardContent className="p-6 card-content flex flex-col justify-center h-full">
-            <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">+7 Std.</div>
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Nationaler Durchschnitt pro Woche</p>
-          </CardContent>
-        </Card>
-        
-        <Card 
-          ref={card2Ref}
-          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0 h-48 flex flex-col justify-center"
-          style={{ transform: 'translateY(30px)' }}
-        >
-          <CardContent className="p-6 card-content flex flex-col justify-center h-full">
-            <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">6.8 Tage</div>
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Produktivität verloren pro Monat</p>
-          </CardContent>
-        </Card>
-        
-        <Card 
-          ref={card3Ref}
-          className="text-center border-none shadow-none bg-transparent hover:bg-white/5 transition-all duration-300 rounded-2xl p-2 opacity-0 h-48 flex flex-col justify-center"
-          style={{ transform: 'translateY(30px)' }}
-        >
-          <CardContent className="p-6 card-content flex flex-col justify-center h-full">
-            <div className="text-4xl md:text-5xl font-light mb-3 text-white whitespace-nowrap">CHF 6 Mrd.</div>
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-light">Wirtschaftsschaden Schweiz pro Jahr</p>
-          </CardContent>
-        </Card>
       </div>
     </>
   )
