@@ -1,12 +1,169 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Progress } from "@/components/ui/progress"
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 export default function AiInPractice() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const cardsRef = useRef<HTMLDivElement>(null)
+  const card1Ref = useRef<HTMLDivElement>(null)
+  const card2Ref = useRef<HTMLDivElement>(null)
+  const card3Ref = useRef<HTMLDivElement>(null)
+
+  // Setup card animations with proper GSAP context
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const ctx = gsap.context(() => {
+      const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
+
+      // Header content animation
+      if (containerRef.current) {
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: "top 80%",
+          once: true,
+          onEnter: () => {
+            gsap.fromTo(".header-content", 
+              { y: 30, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out"
+              }
+            )
+            gsap.fromTo(".cta-button", 
+              { scale: 0.8, opacity: 0 },
+              {
+                scale: 1,
+                opacity: 1,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.3)",
+                delay: 0.3
+              }
+            )
+          }
+        })
+      }
+
+      // Advanced 3D card stagger effects
+      if (cardsRef.current && cards.length > 0) {
+        // Initial reveal animation with stagger
+        ScrollTrigger.create({
+          trigger: cardsRef.current,
+          start: "top 80%",
+          once: true,
+          onEnter: () => {
+            gsap.fromTo(cards, 
+              { y: 50, opacity: 0, rotationY: -45, z: -200 },
+              {
+                y: 0,
+                opacity: 1,
+                rotationY: 0,
+                z: 0,
+                duration: 1.2,
+                stagger: 0.15,
+                ease: "power3.out"
+              }
+            )
+            // Progress bars animation
+            const progressBars = cards.map(card => card?.querySelector('.progress-bar')).filter(Boolean)
+            gsap.fromTo(progressBars, 
+              { scaleX: 0 },
+              {
+                scaleX: 1,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: "elastic.out(1, 0.3)",
+                transformOrigin: "left",
+                delay: 0.5
+              }
+            )
+          }
+        })
+        
+        // 3D hover effects for each card
+        cards.forEach((card, index) => {
+          if (!card) return
+          
+          gsap.set(card, { 
+            transformOrigin: "center",
+            transformStyle: "preserve-3d"
+          })
+          
+          const cardContent = card.querySelector('.card-content') || card.firstElementChild
+          if (cardContent) {
+            gsap.set(cardContent, { transformOrigin: "center" })
+          }
+          
+          const handleMouseMove = (e: MouseEvent) => {
+            const rect = card.getBoundingClientRect()
+            const centerX = rect.left + rect.width / 2
+            const centerY = rect.top + rect.height / 2
+            const rotateX = (e.clientY - centerY) / 15
+            const rotateY = (centerX - e.clientX) / 15
+            
+            gsap.to(card, {
+              rotationX: rotateX,
+              rotationY: rotateY,
+              z: 30,
+              duration: 0.4,
+              ease: "power2.out"
+            })
+            
+            if (cardContent) {
+              gsap.to(cardContent, {
+                x: (e.clientX - centerX) / 20,
+                y: (e.clientY - centerY) / 20,
+                duration: 0.4,
+                ease: "power2.out"
+              })
+            }
+          }
+          
+          const handleMouseLeave = () => {
+            gsap.to(card, {
+              rotationX: 0,
+              rotationY: 0,
+              z: 0,
+              duration: 0.6,
+              ease: "power3.out"
+            })
+            
+            if (cardContent) {
+              gsap.to(cardContent, {
+                x: 0,
+                y: 0,
+                duration: 0.6,
+                ease: "power3.out"
+              })
+            }
+          }
+          
+          card.addEventListener('mousemove', handleMouseMove)
+          card.addEventListener('mouseleave', handleMouseLeave)
+        })
+      }
+    }, containerRef) // GSAP context scope
+    
+    return () => {
+      ctx.revert() // This will kill all animations and ScrollTriggers in this context
+    }
+  }, [])
 
   return (
-    <section className="min-h-screen ai-practice-gradient text-white flex items-center justify-center relative overflow-hidden py-20">
+    <section 
+      ref={containerRef}
+      className="min-h-screen ai-practice-gradient text-white flex items-center justify-center relative overflow-hidden py-20"
+    >
       {/* Neutral slate background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(71,85,105,0.06),transparent_65%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(100,116,139,0.04),transparent_65%)]" />
@@ -53,7 +210,7 @@ export default function AiInPractice() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
           {/* Left column - Header content */}
           <div className="lg:col-span-2 space-y-8">
-            <div>
+            <div className="header-content">
               <h2 className="text-5xl lg:text-6xl font-light mb-6 tracking-tight leading-tight">
                 <span className="font-serif italic text-emerald-300">KI</span> in der <br />
                 Praxis
@@ -82,14 +239,14 @@ export default function AiInPractice() {
               </div>
             </div>
 
-            <button className="px-8 py-4 rounded-full bg-white text-black font-medium text-sm transition-all duration-300 hover:bg-white/90 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+            <button className="cta-button px-8 py-4 rounded-full bg-white text-black font-medium text-sm transition-all duration-300 hover:bg-white/90 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
               Kostenloses Beratungsgespräch
             </button>
           </div>
 
           {/* Right column - Solution cards */}
           <div className="lg:col-span-3">
-            <div className="space-y-6">
+            <div ref={cardsRef} className="space-y-6">
               {[
                 {
                   title: "Administration automatisieren",
@@ -97,6 +254,8 @@ export default function AiInPractice() {
                   icon: "📋",
                   color: "emerald",
                   stats: "↗ 78% Zeitersparnis",
+                  progress: 78,
+                  ref: card1Ref,
                 },
                 {
                   title: "Marketing optimieren",
@@ -104,6 +263,8 @@ export default function AiInPractice() {
                   icon: "🎯",
                   color: "blue",
                   stats: "↗ 156% mehr Leads",
+                  progress: 95,
+                  ref: card2Ref,
                 },
                 {
                   title: "Verkauf beschleunigen",
@@ -111,39 +272,53 @@ export default function AiInPractice() {
                   icon: "⚡",
                   color: "violet",
                   stats: "↗ 43% höhere Conversion",
+                  progress: 89,
+                  ref: card3Ref,
                 },
               ].map((solution, index) => (
                 <div
                   key={index}
-                  className={`bg-white/5 backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 cursor-pointer transform hover:scale-105 ${
+                  ref={solution.ref}
+                  className={`solution-card bg-white/5 backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 cursor-pointer opacity-0 ${
                     index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
                   } ${
                     hoveredCard === index
                       ? `border-${solution.color}-500/50 shadow-lg shadow-${solution.color}-500/20`
                       : "border-white/10 hover:border-white/20"
                   }`}
+                  style={{ transform: 'translateY(50px) rotateY(-45deg) translateZ(-200px)' }}
                   onMouseEnter={() => setHoveredCard(index)}
                   onMouseLeave={() => setHoveredCard(null)}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl bg-${solution.color}-500/20 flex items-center justify-center`}
-                    >
-                      <span className="text-xl">{solution.icon}</span>
+                  <div className="card-content">
+                    <div className="flex items-start justify-between mb-4">
+                      <div
+                        className={`w-12 h-12 rounded-2xl bg-${solution.color}-500/20 flex items-center justify-center`}
+                      >
+                        <span className="text-xl">{solution.icon}</span>
+                      </div>
+                      <div
+                        className={`text-xs font-medium px-3 py-1 rounded-full bg-${solution.color}-500/20 text-${solution.color}-300`}
+                      >
+                        {solution.stats}
+                      </div>
                     </div>
-                    <div
-                      className={`text-xs font-medium px-3 py-1 rounded-full bg-${solution.color}-500/20 text-${solution.color}-300`}
-                    >
-                      {solution.stats}
+
+                    <h3 className="text-xl font-medium mb-3 text-white">{solution.title}</h3>
+                    <p className="text-white/70 text-sm leading-relaxed mb-4">{solution.description}</p>
+
+                    <div className="space-y-2 mb-4">
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-white/60">Effizienz</span>
+                        <span className="font-semibold text-emerald-300">{solution.progress}%</span>
+                      </div>
+                      <Progress value={solution.progress} className="h-2 progress-bar" />
                     </div>
-                  </div>
 
-                  <h3 className="text-xl font-medium mb-3 text-white">{solution.title}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed">{solution.description}</p>
-
-                  <div className="mt-4 flex items-center text-white/50 text-xs">
-                    <span>Mehr erfahren</span>
-                    <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
+                    <div className="mt-4 flex items-center text-white/50 text-xs">
+                      <span>Mehr erfahren</span>
+                      <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
+                    </div>
                   </div>
                 </div>
               ))}
