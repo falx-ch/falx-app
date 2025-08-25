@@ -207,7 +207,7 @@ export default function AiInPractice() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start"> {/* 40/60 split - no margins */}
           {/* Left column - Header content */}
           <div className="lg:col-span-2 space-y-8">
             <div className="header-content">
@@ -246,7 +246,7 @@ export default function AiInPractice() {
 
           {/* Right column - Solution cards */}
           <div className="lg:col-span-3">
-            <div ref={cardsRef} className="space-y-6">
+            <div ref={cardsRef} className="space-y-3 sm:space-y-4 lg:space-y-5">
               {[
                 {
                   title: "Administration automatisieren",
@@ -279,45 +279,40 @@ export default function AiInPractice() {
                 <div
                   key={index}
                   ref={solution.ref}
-                  className={`solution-card bg-white/5 backdrop-blur-sm rounded-2xl p-6 border transition-all duration-300 cursor-pointer opacity-0 ${
-                    index === 1 ? "ml-8" : index === 2 ? "ml-16" : ""
-                  } ${
-                    hoveredCard === index
-                      ? `border-${solution.color}-500/50 shadow-lg shadow-${solution.color}-500/20`
-                      : "border-white/10 hover:border-white/20"
-                  }`}
-                  style={{ transform: 'translateY(50px) rotateY(-45deg) translateZ(-200px)' }}
+                  className={`solution-card bg-white/8 backdrop-blur-md rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/15 transition-all duration-500 cursor-pointer opacity-0 hover:bg-white/12 hover:backdrop-blur-lg hover:border-white/25 hover:shadow-2xl hover:shadow-black/10 hover:-translate-y-1 hover:scale-[1.02] max-w-sm mx-auto lg:mx-0 lg:max-w-md`}
+                  style={{ 
+                    transform: 'translateY(50px) rotateY(-45deg) translateZ(-200px)'
+                  }}
                   onMouseEnter={() => setHoveredCard(index)}
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   <div className="card-content">
-                    <div className="flex items-start justify-between mb-4">
-                      <div
-                        className={`w-12 h-12 rounded-2xl bg-${solution.color}-500/20 flex items-center justify-center`}
-                      >
-                        <span className="text-xl">{solution.icon}</span>
+                    <div className="flex items-start justify-between mb-4 sm:mb-5">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-white/20 to-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
+                        <span className="text-lg sm:text-xl filter drop-shadow-sm">{solution.icon}</span>
                       </div>
-                      <div
-                        className={`text-xs font-medium px-3 py-1 rounded-full bg-${solution.color}-500/20 text-${solution.color}-300`}
-                      >
+                      <div className="text-xs font-medium px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-emerald-500/20 to-blue-500/20 text-emerald-300 border border-emerald-500/30 backdrop-blur-sm">
                         {solution.stats}
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-medium mb-3 text-white">{solution.title}</h3>
-                    <p className="text-white/70 text-sm leading-relaxed mb-4">{solution.description}</p>
+                    <h3 className="text-lg sm:text-xl font-light mb-3 sm:mb-4 text-white leading-tight tracking-tight">{solution.title}</h3>
+                    <p className="text-white/75 text-sm leading-relaxed mb-4 sm:mb-5 font-light">{solution.description}</p>
 
-                    <div className="space-y-2 mb-4">
+                    <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-5">
                       <div className="flex justify-between items-center text-sm">
-                        <span className="text-white/60">Effizienz</span>
-                        <span className="font-semibold text-emerald-300">{solution.progress}%</span>
+                        <span className="text-white/60 font-light">Effizienz</span>
+                        <span className="font-medium text-white">{solution.progress}%</span>
                       </div>
-                      <Progress value={solution.progress} className="h-2 progress-bar" />
+                      <div className="relative h-1.5 sm:h-2 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
+                        <Progress value={solution.progress} className="h-full progress-bar" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-full"></div>
+                      </div>
                     </div>
 
-                    <div className="mt-4 flex items-center text-white/50 text-xs">
+                    <div className="pt-3 sm:pt-4 border-t border-white/10 flex items-center text-white/60 text-xs sm:text-sm font-light group">
                       <span>Mehr erfahren</span>
-                      <span className="ml-2 transition-transform duration-200 group-hover:translate-x-1">→</span>
+                      <span className="ml-2 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white/80">→</span>
                     </div>
                   </div>
                 </div>

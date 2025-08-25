@@ -122,8 +122,7 @@ export default function ReportSectionCards() {
       >
         <div className="flex items-center justify-between card-content">
           <div>
-            <div className="text-xl lg:text-2xl font-light text-white mb-1">+7 Std. ⌀</div>
-            <div className="text-white/60 text-sm">Admin-Zeit pro Woche</div>
+            <div className="text-xl lg:text-xl font-light text-white mb-1">+7 Std. ⌀ Admin-Zeit pro Woche</div>
           </div>
           <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
             <span className="text-red-400 text-xs">⏱</span>
@@ -138,8 +137,7 @@ export default function ReportSectionCards() {
       >
         <div className="flex items-center justify-between card-content">
           <div>
-            <div className="text-xl lg:text-2xl font-light text-white mb-1">6.8 Tage ⌀</div>
-            <div className="text-white/60 text-sm">Produktivität verloren pro Monat</div>
+            <div className="text-xl lg:text-xl font-light text-white mb-1">6.8 Tage ⌀ verschwendet pro Monat</div>
           </div>
           <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
             <span className="text-orange-400 text-xs">⚠</span>
@@ -154,8 +152,7 @@ export default function ReportSectionCards() {
       >
         <div className="flex items-center justify-between card-content">
           <div>
-            <div className="text-xl lg:text-2xl font-light text-white mb-1">CHF 6 Mia.</div>
-            <div className="text-white/60 text-sm">Wirtschaftsschaden pro Jahr</div>
+            <div className="text-xl lg:text-xl font-light text-white mb-1">CHF 6 Mia. Wirtschaftsschaden pro Jahr</div>
           </div>
           <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
             <span className="text-red-400 text-xs">📉</span>

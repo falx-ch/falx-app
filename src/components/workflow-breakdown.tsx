@@ -37,12 +37,10 @@ export default function WorkflowBreakdown() {
     if (!isVisible || cardsRef.current.length === 0) return
 
     const updatePositions = () => {
-      if (!containerRef.current) return
+      if (!containerRef.current || !webRef.current) return
 
       const containerRect = containerRef.current.getBoundingClientRect()
-      const svgRect = webRef.current?.getBoundingClientRect()
-
-      if (!svgRect) return
+      const svgRect = webRef.current.getBoundingClientRect()
 
       const positions = cardsRef.current.map((card) => {
         if (!card) return { x: 0, y: 0 }
@@ -61,22 +59,35 @@ export default function WorkflowBreakdown() {
       setCardPositions(positions)
     }
 
-    // Initial position calculation
-    updatePositions()
+    // Initial position calculation with delay for grid layout
+    const initialTimer = setTimeout(updatePositions, 100)
 
     // Update positions on window resize
-    const handleResize = () => updatePositions()
+    const handleResize = () => {
+      setTimeout(updatePositions, 50) // Small delay for layout changes
+    }
     window.addEventListener("resize", handleResize)
 
-    return () => window.removeEventListener("resize", handleResize)
+    // Observe card position changes for dynamic updates
+    const observer = new ResizeObserver(() => {
+      setTimeout(updatePositions, 10)
+    })
+
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card)
+    })
+
+    return () => {
+      clearTimeout(initialTimer)
+      window.removeEventListener("resize", handleResize)
+      observer.disconnect()
+    }
   }, [isVisible])
 
   useEffect(() => {
-    if (!isVisible || !containerRef.current || !webRef.current || cardPositions.length === 0) return
+    if (!isVisible || !containerRef.current) return
 
     const cards = cardsRef.current.filter(Boolean)
-    const webLines = webRef.current.querySelectorAll(".web-line")
-    const webNodes = webRef.current.querySelectorAll(".web-node")
 
     gsap.fromTo(
       cards,
@@ -95,40 +106,18 @@ export default function WorkflowBreakdown() {
       },
     )
 
-    gsap.fromTo(
-      webLines,
-      { strokeDasharray: "0 1000" },
-      {
-        strokeDasharray: "1000 0",
-        duration: 1.5,
-        stagger: 0.2,
-        ease: "power2.inOut",
-        delay: 0.8,
-      },
-    )
-
-    gsap.to(webNodes, {
-      scale: 1.3,
-      opacity: 0.9,
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      stagger: 0.3,
-      ease: "sine.inOut",
-    })
-
+    // Gentle floating animation
     cards.forEach((card, index) => {
       gsap.to(card, {
-        y: "+=8",
-        rotation: "+=1",
-        duration: 4 + index * 0.3,
+        y: "+=4",
+        duration: 3 + index * 0.2,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: index * 0.2,
+        delay: index * 0.3,
       })
     })
-  }, [isVisible, cardPositions])
+  }, [isVisible])
 
   const getConnectionPath = (fromIndex: number, toIndex: number) => {
     if (cardPositions.length === 0 || !cardPositions[fromIndex] || !cardPositions[toIndex]) {
@@ -166,86 +155,39 @@ export default function WorkflowBreakdown() {
       title: "Manuelle Datenerfassung",
       subtitle: "Fehleranfällig & zeitaufwändig",
       color: "red",
-      position: { top: "8%", left: "50%", transform: "translateX(-50%)" },
     },
     {
       icon: "💬",
       title: "Fragmentierte Kommunikation",
       subtitle: "Informationsverlust garantiert",
       color: "orange",
-      position: { bottom: "25%", left: "12%" },
     },
     {
       icon: "⚠️",
       title: "Compliance-Risiken",
       subtitle: "Datenschutz in Gefahr",
       color: "yellow",
-      position: { bottom: "20%", right: "5%" },
     },
     {
       icon: "🔄",
       title: "Endlose Schleifen",
       subtitle: "Ineffiziente Workflows",
       color: "purple",
-      position: { top: "45%", right: "2%", transform: "translateY(-50%)" },
     },
     {
       icon: "💸",
       title: "Versteckte Kosten",
       subtitle: "Ressourcenverschwendung",
       color: "pink",
-      position: { top: "25%", left: "8%" },
     },
   ]
 
   const handleCardHover = (cardIndex: number) => {
     setHoveredCard(cardIndex)
-
-    // Highlight connected lines
-    const connectedLines = connections.filter((conn) => conn.from === cardIndex || conn.to === cardIndex)
-
-    connectedLines.forEach((_, index) => {
-      const line = webRef.current?.querySelector(`.web-line-${index}`)
-      if (line) {
-        gsap.to(line, {
-          strokeWidth: 3,
-          opacity: 1,
-          duration: 0.3,
-        })
-      }
-    })
-
-    // Scale up the hovered card
-    const card = cardsRef.current[cardIndex]
-    if (card) {
-      gsap.to(card, {
-        scale: 1.1,
-        duration: 0.3,
-        ease: "power2.out",
-      })
-    }
   }
 
   const handleCardLeave = () => {
     setHoveredCard(null)
-
-    // Reset all lines
-    const allLines = webRef.current?.querySelectorAll(".web-line")
-    if (allLines) {
-      gsap.to(allLines, {
-        strokeWidth: 1.5,
-        opacity: 0.6,
-        duration: 0.3,
-      })
-    }
-
-    // Reset all cards
-    const cards = cardsRef.current.filter(Boolean)
-    gsap.to(cards, {
-      scale: 1,
-      duration: 0.3,
-      ease: "power2.out",
-    })
   }
 
   return (
@@ -255,100 +197,72 @@ export default function WorkflowBreakdown() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(75,85,99,0.05),transparent_65%)]" />
 
       <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-8 lg:gap-16 items-center">
-          {/* Left column - Interactive Visualization (70%) */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
-            <div className="relative h-64 sm:h-80 lg:h-96">
-              <svg
-                ref={webRef}
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <defs>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="0.5" result="coloredBlur" />
-                    <feMerge>
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-
-                {cardPositions.length > 0 &&
-                  connections.map((connection, index) => (
-                    <path
-                      key={index}
-                      className={`web-line web-line-${index}`}
-                      d={getConnectionPath(connection.from, connection.to)}
-                      stroke={connection.color}
-                      strokeWidth="1.5"
-                      fill="none"
-                      opacity="0.6"
-                      filter="url(#glow)"
-                      strokeDasharray="5,3"
-                    />
-                  ))}
-
-                {cardPositions.map((pos, index) => (
-                  <circle
-                    key={index}
-                    className="web-node"
-                    cx={pos.x}
-                    cy={pos.y}
-                    r="1.2"
-                    fill={
-                      problemCards[index]?.color === "red"
-                        ? "#ef4444"
-                        : problemCards[index]?.color === "orange"
-                          ? "#f97316"
-                          : problemCards[index]?.color === "yellow"
-                            ? "#eab308"
-                            : problemCards[index]?.color === "purple"
-                              ? "#a855f7"
-                              : "#ec4899"
-                    }
-                    opacity="0.8"
-                    filter="url(#glow)"
-                  />
-                ))}
-              </svg>
-
+        <div className="grid grid-cols-1 lg:grid-cols-20 gap-8 lg:gap-16 items-center"> {/* 65/35 split */}
+          {/* Left column - Problem Cards Grid (65%) */}
+          <div className="lg:col-span-13 order-2 lg:order-1 relative">
+            {/* SVG overlay for connections */}
+            <svg
+              ref={webRef}
+              className="absolute inset-0 w-full h-full pointer-events-none z-0"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                  <feMerge> 
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              {connections.map((connection, index) => (
+                <path
+                  key={index}
+                  d={getConnectionPath(connection.from, connection.to)}
+                  stroke={connection.color}
+                  strokeWidth="0.3"
+                  fill="none"
+                  opacity={hoveredCard === connection.from || hoveredCard === connection.to ? "0.8" : "0.4"}
+                  filter="url(#glow)"
+                  className="transition-opacity duration-300"
+                />
+              ))}
+            </svg>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 relative z-10">
               {problemCards.map((card, index) => (
                 <div
                   key={index}
                   ref={(el) => {
                     if (el) cardsRef.current[index] = el
                   }}
-                  className="absolute cursor-pointer transform transition-all duration-300 hover:z-10 select-none"
-                  style={card.position}
+                  className="cursor-pointer transform transition-all duration-300 hover:scale-105 select-none"
                   onMouseEnter={() => handleCardHover(index)}
                   onMouseLeave={handleCardLeave}
                 >
                   <div
-                    className={`bg-slate-900/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 border-2 transition-all duration-300 shadow-lg
+                    className={`bg-slate-900/80 backdrop-blur-sm rounded-xl p-4 border-2 transition-all duration-300 shadow-lg h-full
                       ${
                         hoveredCard === index
                           ? `border-${card.color}-400 shadow-${card.color}-500/30`
                           : `border-${card.color}-500/30 hover:border-${card.color}-500/60`
                       }`}
-                    style={{ maxWidth: "200px" }}
                   >
-                    <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="flex items-start space-x-3 mb-3">
                       <div
-                        className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-${card.color}-500/20 flex items-center justify-center flex-shrink-0 transition-all duration-300`}
+                        className={`w-10 h-10 rounded-full bg-${card.color}-500/20 flex items-center justify-center flex-shrink-0 transition-all duration-300`}
                       >
-                        <span className={`text-${card.color}-400 text-xs sm:text-sm`}>{card.icon}</span>
+                        <span className={`text-${card.color}-400 text-lg`}>{card.icon}</span>
                       </div>
                       <div className="min-w-0">
-                        <div className="text-xs sm:text-sm font-medium text-white truncate">{card.title}</div>
-                        <div className="text-xs text-white/60 truncate">{card.subtitle}</div>
+                        <div className="text-sm font-medium text-white mb-1">{card.title}</div>
+                        <div className="text-xs text-white/60">{card.subtitle}</div>
                       </div>
                     </div>
                     {hoveredCard === index && (
-                      <div className="mt-2 text-xs text-white/50">
-                        Verbunden mit {connections.filter((c) => c.from === index || c.to === index).length} anderen
-                        Problemen
+                      <div className="mt-3 pt-3 border-t border-white/10 text-xs text-white/50">
+                        Problem-Kategorie: {card.color}
                       </div>
                     )}
                   </div>
@@ -357,8 +271,8 @@ export default function WorkflowBreakdown() {
             </div>
           </div>
 
-          {/* Right column - Content (30%) */}
-          <div className="lg:col-span-3 space-y-6 lg:space-y-8 order-1 lg:order-2">
+          {/* Right column - Content (35%) */}
+          <div className="lg:col-span-7 space-y-6 lg:space-y-8 order-1 lg:order-2">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
                 Der <span className="font-serif italic text-red-300">Workflow</span>-<br />

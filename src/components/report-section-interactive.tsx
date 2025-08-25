@@ -258,7 +258,7 @@ export default function ReportSectionInteractive() {
             <span className="text-sm text-white/60 font-medium">CHF</span>
             <div 
               ref={mainNumberRef}
-              className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight"
               style={{
                 textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
                 minHeight: '1.2em'

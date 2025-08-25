@@ -19,23 +19,24 @@ import ReportSectionCards from './report-section-cards.tsx';
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(55,65,81,0.10),transparent_60%)]" />
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(75,85,99,0.06),transparent_60%)]" />
   
-  <!-- Content layer with two-column layout -->
+  <!-- Content layer with centered heading and two-column layout -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
-      <!-- Left column - Interactive component and main content (60%) -->
-      <div class="lg:col-span-3 space-y-6 lg:space-y-8">
-        <!-- Static heading -->
-        <div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
-            Was kostet Sie <br />
-            <span class="font-serif italic text-red-300">Ineffizienz</span> wirklich?
-          </h2>
-          <p class="text-white/60 text-base lg:text-lg leading-relaxed">
-            Schweizer Unternehmen verlieren täglich Tausende durch manuelle Prozesse. Berechnen Sie Ihr
-            Einsparpotenzial.
-          </p>
-        </div>
+    <!-- Static heading - centered above everything -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
+        Was kostet Sie <br />
+        <span class="font-serif italic text-red-300">Ineffizienz</span> wirklich?
+      </h2>
+      <p class="text-white/60 text-base lg:text-lg leading-relaxed max-w-3xl mx-auto">
+        Schweizer Unternehmen verlieren täglich Tausende durch manuelle Prozesse. Berechnen Sie Ihr
+        Einsparpotenzial.
+      </p>
+    </div>
 
+    <!-- Two-column layout for calculator and cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-start">
+      <!-- Left column - Interactive calculator component (60%) -->
+      <div class="lg:col-span-3">
         <!-- Interactive component island - only hydrate when visible -->
         <ReportSectionInteractive client:visible />
       </div>

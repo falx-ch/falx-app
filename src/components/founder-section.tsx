@@ -11,24 +11,24 @@ export default function FounderSection() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
           {/* Left column - Founder photo (40%) */}
           <div className="lg:col-span-2 relative overflow-hidden flex items-center justify-center">
-        <div className="relative w-full max-w-lg">
-          <div className="relative bg-white/5 backdrop-blur-sm p-1 rounded-3xl border border-white/20">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
-              <img
-                src="/professional-founder-portrait-in-modern-office-set.png"
-                alt="Thomas Müller, Founder & CEO"
-                className="w-full h-full object-cover object-center"
-              />
-              {/* Subtle top highlight like hero badge */}
-              <div className="absolute top-0 left-1 right-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
-            </div>
-          </div>
+            <div className="relative w-full max-w-lg">
+              <div className="relative bg-white/5 backdrop-blur-sm p-1 rounded-3xl border border-white/20">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
+                  <img
+                    src="/professional-founder-portrait-in-modern-office-set.png"
+                    alt="Thomas Müller, Founder & CEO"
+                    className="w-full h-full object-cover object-center"
+                  />
+                  {/* Subtle top highlight like hero badge */}
+                  <div className="absolute top-0 left-1 right-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Right column - Content (60%) */}
-          <div className="lg:col-span-3 flex items-center">
-            <div className="w-full space-y-8">
+          <div className="lg:col-span-3 space-y-6 lg:space-y-8">
+            <div className="space-y-8">
               <div className="space-y-6">
                 <h2 className="text-3xl lg:text-4xl xl:text-5xl font-light tracking-tight leading-tight">
                   Ihr direkter Draht zum <span className="font-serif italic text-blue-300">Gründer</span>
