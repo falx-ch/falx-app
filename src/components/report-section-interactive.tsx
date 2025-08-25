@@ -52,7 +52,7 @@ export default function ReportSectionInteractive() {
         onUpdate: function() {
           const currentValue = Math.round(obj.value)
           if (mainNumberRef.current) {
-            mainNumberRef.current.textContent = `CHF ${currentValue.toLocaleString('de-CH')}`
+            mainNumberRef.current.textContent = `${currentValue.toLocaleString('de-CH')}`
           }
         }
       })
@@ -267,8 +267,8 @@ export default function ReportSectionInteractive() {
               {yearlyCostPerEmployee.toLocaleString('de-CH')}
             </div>
           </div>
-          <p className="text-red-300 text-lg font-medium">Potenzielle Ersparnis pro Jahr</p>
-          <p className="text-white/50 text-sm mt-1">Basierend auf durchschnittlichen KI-Effizienzgewinnen</p>
+          <p className="text-red-300 text-lg font-medium">Pro Mitarbeiter und Jahr</p>
+          <p className="text-white/50 text-sm mt-1">Basierend auf unserem KI 2025 Schweiz Report</p>
         </div>
       </div>
 
@@ -287,11 +287,6 @@ export default function ReportSectionInteractive() {
               step={0.1}
               className="w-full h-2 transition-all duration-300"
             />
-          </div>
-          <div className="flex justify-between text-xs text-white/50">
-            <span>1</span>
-            <span className="font-medium text-white/80">{displayHours}</span>
-            <span>20+</span>
           </div>
           <div className="text-center">
             <span className="text-xs text-white/60 font-light">Basis: CHF 150/h Vollkosten</span>

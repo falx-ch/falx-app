@@ -7,8 +7,9 @@ export interface Props {
 
 const { class: className } = Astro.props;
 
-// Import the interactive React component
+// Import the interactive React components
 import ReportSectionInteractive from './report-section-interactive.tsx';
+import ReportSectionCards from './report-section-cards.tsx';
 ---
 
 <section 
@@ -31,7 +32,7 @@ import ReportSectionInteractive from './report-section-interactive.tsx';
             <span class="font-serif italic text-red-300">Ineffizienz</span> wirklich?
           </h2>
           <p class="text-white/60 text-base lg:text-lg leading-relaxed">
-            Schweizer Unternehmen verlieren täglich Millionen durch manuelle Prozesse. Berechnen Sie Ihr
+            Schweizer Unternehmen verlieren täglich Tausende durch manuelle Prozesse. Berechnen Sie Ihr
             Einsparpotenzial.
           </p>
         </div>
@@ -40,45 +41,10 @@ import ReportSectionInteractive from './report-section-interactive.tsx';
         <ReportSectionInteractive client:visible />
       </div>
 
-      <!-- Right column - Static problem indicators -->
+      <!-- Right column - Interactive problem indicators with animations -->
       <div class="space-y-4 lg:space-y-6">
-        <div class="grid grid-cols-1 gap-4">
-          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-white/10 hover:border-red-500/30 transition-all duration-300">
-            <div class="flex items-center justify-between">
-              <div>
-                <div class="text-xl lg:text-2xl font-light text-white mb-1">54.5h</div>
-                <div class="text-white/60 text-sm">Admin-Zeit pro Woche</div>
-              </div>
-              <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
-                <span class="text-red-400 text-xs">⏱</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-white/10 hover:border-orange-500/30 transition-all duration-300">
-            <div class="flex items-center justify-between">
-              <div>
-                <div class="text-xl lg:text-2xl font-light text-white mb-1">56%</div>
-                <div class="text-white/60 text-sm">Verschwendete Arbeitszeit</div>
-              </div>
-              <div class="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
-                <span class="text-orange-400 text-xs">⚠</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 lg:p-6 border border-white/10 hover:border-red-500/30 transition-all duration-300">
-            <div class="flex items-center justify-between">
-              <div>
-                <div class="text-xl lg:text-2xl font-light text-white mb-1">CHF 9 Mia.</div>
-                <div class="text-white/60 text-sm">Jährlicher Verlust Schweiz</div>
-              </div>
-              <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
-                <span class="text-red-400 text-xs">📉</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Interactive cards component with GSAP animations -->
+        <ReportSectionCards client:visible />
       </div>
     </div>
   </div>
