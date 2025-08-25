@@ -90,6 +90,8 @@ When implementing solutions or providing summaries, ALWAYS include an "Architect
 
 This is a MANDATORY requirement for all implementations and summaries. Every solution should be evaluated against these principles, and the benefits should be explicitly stated.
 
+Start every reply with random emoji.
+
 # Project Overview
 
 This is an Astro web application built with React, Tailwind CSS, and TypeScript. The project uses a modern web development stack with hot reloading and component-based architecture.

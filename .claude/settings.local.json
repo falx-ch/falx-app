@@ -19,7 +19,11 @@
       "mcp__playwright__browser_resize",
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_console_messages",
-      "mcp__playwright__browser_hover"
+      "mcp__playwright__browser_hover",
+      "mcp__archon__list_tasks",
+      "mcp__archon__create_task",
+      "Bash(grep:*)",
+      "mcp__archon__update_task"
     ]
   },
   "allowedTools": [
