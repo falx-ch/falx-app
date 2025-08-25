@@ -46,30 +46,30 @@
   
   --gradient-ai-practice: linear-gradient(
     135deg,
-    theme(colors.gray.700 / 8%) 0%,
-    theme(colors.slate.800 / 95%) 30%,
+    theme(colors.gray.700 / 3%) 0%,
+    theme(colors.slate.800 / 77%) 10%,
     theme(colors.slate.800) 70%,
     theme(colors.slate.700) 100%
   );
   
   --gradient-legata: linear-gradient(
-    135deg,
+    180deg,
     theme(colors.slate.800) 0%,
-    theme(colors.slate.700) 50%,
-    theme(colors.slate.600) 90%,
-    theme(colors.gray.500 / 2%) 100%
+    theme(colors.slate.700) 40%,
+    theme(colors.slate.600) 80%,
+    theme(colors.slate.500) 100%
   );
   
   --gradient-founder: linear-gradient(
-    135deg,
+    180deg,
     theme(colors.slate.600) 0%,
-    theme(colors.slate.500) 60%,
-    theme(colors.slate.400) 90%,
-    theme(colors.gray.300 / 3%) 100%
+    theme(colors.slate.500) 50%,
+    theme(colors.slate.400) 85%,
+    theme(colors.slate.300) 100%
   );
   
   --gradient-cta: linear-gradient(
-    135deg,
+    33deg,
     theme(colors.gray.400 / 6%) 0%,
     theme(colors.slate.300) 40%,
     theme(colors.slate.200) 80%,
@@ -78,9 +78,9 @@
   
   --gradient-footer: linear-gradient(
     to top,
-    theme(colors.gray.50) 0%,
-    theme(colors.white) 70%,
-    theme(colors.gray.50 / 30%) 100%
+    theme(colors.gray.900) 0%,
+    theme(colors.gray.800) 60%,
+    theme(colors.gray.700) 100%
   );
   
   /* === SHADCN/UI COMPATIBILITY === */
@@ -447,7 +447,7 @@
 }
 
 .footer-gradient {
-  background: var(--gradient-footer);
+  background: var(--gradient-footer) !important;
 }
 
 .swiss-focus:focus-visible {

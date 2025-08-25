@@ -3,8 +3,9 @@
 export default function FounderSection() {
   return (
     <section className="h-screen founder-gradient text-white flex relative overflow-hidden">
-      {/* Clean neutral slate background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(148,163,184,0.03),transparent_75%)]" />
+      {/* Soft neutral background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(148,163,184,0.03),transparent_75%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(156,163,175,0.02),transparent_80%)]" />
 
       {/* Left side - Founder photo */}
       <div className="w-1/2 relative overflow-hidden flex items-center justify-center p-8 lg:p-16">

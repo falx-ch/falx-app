@@ -22,23 +22,6 @@ export default function StartNowSection() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-400/30 py-8 relative z-10">
-        <div className="max-w-6xl mx-auto px-8 flex justify-between items-center text-sm text-slate-600">
-          <div>© 2025 Falx GmbH, Bülach</div>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-800 transition-colors duration-200">
-              Impressum
-            </a>
-            <a href="#" className="hover:text-slate-800 transition-colors duration-200">
-              Datenschutz
-            </a>
-            <a href="#" className="hover:text-slate-800 transition-colors duration-200">
-              LinkedIn →
-            </a>
-          </div>
-        </div>
-      </footer>
     </section>
   )
 }

@@ -64,20 +64,23 @@ export default function FooterSection() {
   return (
     <section 
       ref={containerRef} 
-      className="min-h-screen footer-gradient flex flex-col justify-center px-4 sm:px-6 lg:px-8"
+      className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8"
+      style={{
+        background: 'linear-gradient(to top, #111827 0%, #1f2937 60%, #374151 100%)'
+      }}
     >
       <div className="max-w-7xl mx-auto w-full">
         
         {/* Main CTA Section */}
         <div className="text-center mb-16">
           <div className="final-headline mb-6">
-            <h2 className="geist text-4xl lg:text-6xl font-light text-gray-900 leading-tight mb-4">
+            <h2 className="geist text-4xl lg:text-6xl font-light text-white leading-tight mb-4">
               Starten Sie Ihre
             </h2>
           </div>
           
           <div className="ki-transformation mb-12">
-            <h2 className="bitter text-5xl lg:text-7xl font-light text-gray-900 leading-tight">
+            <h2 className="bitter text-5xl lg:text-7xl font-light text-white leading-tight">
               KI-Transformation.
             </h2>
           </div>
@@ -101,7 +104,7 @@ export default function FooterSection() {
           {/* Quick Contact Form */}
           <Card className="contact-form glass-light border-gray-200 shadow-lg">
             <CardContent className="p-8">
-              <h3 className="geist text-2xl font-medium text-gray-900 mb-6">
+              <h3 className="geist text-2xl font-medium text-white mb-6">
                 Sofort-Kontakt
               </h3>
               
@@ -158,7 +161,7 @@ export default function FooterSection() {
           {/* Contact Information */}
           <div className="contact-form space-y-8">
             <div>
-              <h3 className="geist text-2xl font-medium text-gray-900 mb-6">
+              <h3 className="geist text-2xl font-medium text-white mb-6">
                 Direkter Kontakt
               </h3>
               
@@ -168,7 +171,7 @@ export default function FooterSection() {
                     <Phone className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Telefon</p>
+                    <p className="font-medium text-white">Telefon</p>
                     <p className="text-gray-600">+41 44 XXX XX XX</p>
                     <p className="text-swiss-caption text-gray-500">Mo-Fr, 08:00-18:00</p>
                   </div>
@@ -179,7 +182,7 @@ export default function FooterSection() {
                     <Mail className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">E-Mail</p>
+                    <p className="font-medium text-white">E-Mail</p>
                     <p className="text-gray-600">hello@falx.ch</p>
                     <p className="text-swiss-caption text-gray-500">Antwort innerhalb 24h</p>
                   </div>
@@ -190,7 +193,7 @@ export default function FooterSection() {
                     <MapPin className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Büro</p>
+                    <p className="font-medium text-white">Büro</p>
                     <p className="text-gray-600">Falx GmbH</p>
                     <p className="text-gray-600">8180 Bülach, Schweiz</p>
                   </div>
@@ -200,7 +203,7 @@ export default function FooterSection() {
 
             {/* Trust Indicators */}
             <div className="bg-gray-50 rounded-xl p-6">
-              <h4 className="font-medium text-gray-900 mb-4">Warum Falx?</h4>
+              <h4 className="font-medium text-white mb-4">Warum Falx?</h4>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
@@ -236,19 +239,19 @@ export default function FooterSection() {
             <div className="flex items-center space-x-8">
               <a 
                 href="#" 
-                className="footer-links text-swiss-body text-gray-600 hover:text-gray-900 transition-colors"
+                className="footer-links text-swiss-body text-gray-600 hover:text-white transition-colors"
               >
                 Impressum
               </a>
               <a 
                 href="#" 
-                className="footer-links text-swiss-body text-gray-600 hover:text-gray-900 transition-colors"
+                className="footer-links text-swiss-body text-gray-600 hover:text-white transition-colors"
               >
                 Datenschutz
               </a>
               <a 
                 href="#" 
-                className="footer-links text-gray-600 hover:text-gray-900 transition-colors"
+                className="footer-links text-gray-600 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
