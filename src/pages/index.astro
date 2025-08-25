@@ -11,7 +11,7 @@ import LegataFuture from '../components/legata-future.tsx';
 import FounderSection from '../components/founder-section.tsx';
 import StartNowSection from '../components/start-now-section.tsx';
 import SimpleFooter from '../components/simple-footer.tsx';
-import AnimationInitializer from '../components/animation-initializer.tsx';
+import GlobalAnimations from '../components/global-animations.tsx';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -27,7 +27,7 @@ import AnimationInitializer from '../components/animation-initializer.tsx';
 	</head>
 
 	<body>
-		<AnimationInitializer client:load />
+		<GlobalAnimations client:load />
 		<ShaderBackground client:load>
 			<Header client:load />
 			<HeroContent client:load />

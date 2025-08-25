@@ -2,14 +2,10 @@
 
 import { useState, useRef, useEffect } from "react"
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Progress } from "@/components/ui/progress"
 import { GlassCard } from '@/components/ui/glass-card'
 import { Button } from '@/components/ui/button'
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-}
+import { gsapManager } from '@/lib/gsap-manager'
 
 export default function AiInPractice() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
@@ -19,135 +15,91 @@ export default function AiInPractice() {
   const card2Ref = useRef<HTMLDivElement>(null)
   const card3Ref = useRef<HTMLDivElement>(null)
 
-  // Setup card animations with proper GSAP context
+  // Setup card animations using GSAP manager
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined' || !containerRef.current) return
 
-    const ctx = gsap.context(() => {
-      const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
+    const ctx = gsapManager.createContext(containerRef.current)
+    const cards = [card1Ref.current, card2Ref.current, card3Ref.current]
+    const cleanupFunctions: (() => void)[] = []
 
-      // Header content animation
-      if (containerRef.current) {
-        ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: "top 80%",
-          once: true,
-          onEnter: () => {
-            gsap.fromTo(".header-content", 
-              { y: 30, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.8,
-                ease: "power2.out"
-              }
-            )
-          }
-        })
-      }
-
-      // Advanced 3D card stagger effects
-      if (cardsRef.current && cards.length > 0) {
-        // Initial reveal animation with stagger
-        ScrollTrigger.create({
-          trigger: cardsRef.current,
-          start: "top 80%",
-          once: true,
-          onEnter: () => {
-            gsap.fromTo(cards, 
-              { y: 50, opacity: 0, rotationY: -45, z: -200 },
-              {
-                y: 0,
-                opacity: 1,
-                rotationY: 0,
-                z: 0,
-                duration: 1.2,
-                stagger: 0.15,
-                ease: "power3.out"
-              }
-            )
-            // Progress bars animation
-            const progressBars = cards.map(card => card?.querySelector('.progress-bar')).filter(Boolean)
-            gsap.fromTo(progressBars, 
-              { scaleX: 0 },
-              {
-                scaleX: 1,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "elastic.out(1, 0.3)",
-                transformOrigin: "left",
-                delay: 0.5
-              }
-            )
-          }
-        })
-        
-        // 3D hover effects for each card
-        cards.forEach((card, index) => {
-          if (!card) return
-          
-          gsap.set(card, { 
-            transformOrigin: "center",
-            transformStyle: "preserve-3d"
-          })
-          
-          const cardContent = card.querySelector('.card-content') || card.firstElementChild
-          if (cardContent) {
-            gsap.set(cardContent, { transformOrigin: "center" })
-          }
-          
-          const handleMouseMove = (e: MouseEvent) => {
-            const rect = card.getBoundingClientRect()
-            const centerX = rect.left + rect.width / 2
-            const centerY = rect.top + rect.height / 2
-            const rotateX = (e.clientY - centerY) / 15
-            const rotateY = (centerX - e.clientX) / 15
-            
-            gsap.to(card, {
-              rotationX: rotateX,
-              rotationY: rotateY,
-              z: 30,
-              duration: 0.4,
-              ease: "power2.out"
-            })
-            
-            if (cardContent) {
-              gsap.to(cardContent, {
-                x: (e.clientX - centerX) / 20,
-                y: (e.clientY - centerY) / 20,
-                duration: 0.4,
-                ease: "power2.out"
-              })
+    // Small delay to ensure components are fully rendered
+    const timer = setTimeout(() => {
+      ctx.add(() => {
+        // Header content animation
+        gsap.fromTo(containerRef.current!.querySelector(".header-content"), 
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 80%",
+              once: true
             }
           }
-          
-          const handleMouseLeave = () => {
-            gsap.to(card, {
-              rotationX: 0,
+        )
+
+        // Card reveal animation using manager pattern
+        const validCards = cards.filter(Boolean) as HTMLElement[]
+        if (cardsRef.current && validCards.length > 0) {
+          // Custom animation for AI practice cards
+          gsap.fromTo(validCards, 
+            { y: 50, opacity: 0, rotationY: -45, z: -200 },
+            {
+              y: 0,
+              opacity: 1,
               rotationY: 0,
               z: 0,
-              duration: 0.6,
-              ease: "power3.out"
-            })
-            
-            if (cardContent) {
-              gsap.to(cardContent, {
-                x: 0,
-                y: 0,
-                duration: 0.6,
-                ease: "power3.out"
-              })
+              duration: 1.2,
+              stagger: 0.15,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: cardsRef.current,
+                start: "top 80%",
+                once: true
+              }
             }
-          }
+          )
           
-          card.addEventListener('mousemove', handleMouseMove)
-          card.addEventListener('mouseleave', handleMouseLeave)
+          // Progress bars animation
+          const progressBars = validCards.map(card => card.querySelector('.progress-bar')).filter(Boolean)
+          gsap.fromTo(progressBars, 
+            { scaleX: 0 },
+            {
+              scaleX: 1,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "elastic.out(1, 0.3)",
+              transformOrigin: "left",
+              delay: 0.5,
+              scrollTrigger: {
+                trigger: cardsRef.current,
+                start: "top 80%",
+                once: true
+              }
+            }
+          )
+        
+        // Apply 3D tilt effects using GSAP manager
+        validCards.forEach((card) => {
+          if (card) {
+            const cleanup = gsapManager.apply3DTilt(card)
+            cleanupFunctions.push(cleanup)
+          }
         })
-      }
-    }, containerRef) // GSAP context scope
+        }
+      })
+    }, 50)
     
     return () => {
-      ctx.revert() // This will kill all animations and ScrollTriggers in this context
+      clearTimeout(timer)
+      // Cleanup event listeners
+      cleanupFunctions.forEach(cleanup => cleanup())
+      // Revert GSAP context
+      ctx.revert()
     }
   }, [])
 

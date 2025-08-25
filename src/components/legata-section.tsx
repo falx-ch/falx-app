@@ -2,14 +2,10 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mic, FileText, Zap, ArrowRight, PlayCircle, CheckCircle } from 'lucide-react';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { gsapManager } from '@/lib/gsap-manager';
 
 export default function LegataSection() {
   const containerRef = useRef<HTMLDivElement>(null);

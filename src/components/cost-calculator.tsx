@@ -5,14 +5,9 @@ import { Slider } from "@/components/ui/slider"
 import { Card, CardContent } from "@/components/ui/card"
 import { GlassCard } from '@/components/ui/glass-card'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { gsapManager } from '@/lib/gsap-manager'
 
-// Register GSAP plugins
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-}
-
-export default function ReportSectionInteractive() {
+export default function CostCalculator() {
   const [sliderValue, setSliderValue] = useState([10])
   const mainNumberRef = useRef<HTMLDivElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -62,36 +57,48 @@ export default function ReportSectionInteractive() {
 
   // Setup animations on mount with proper GSAP context
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined' || !sliderRef.current) return
 
-    const ctx = gsap.context(() => {
-      const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
+    const ctx = gsapManager.createContext()
+    const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
     
-    // Progressive Value Reveal: ScrollTrigger-based initial slider animation
-    if (sliderRef.current) {
-      ScrollTrigger.create({
-        trigger: sliderRef.current,
-        start: "top 80%",
-        once: true,
-        onEnter: () => {
-          // Start from 1 and animate to default value smoothly
-          setSliderValue([1]) // Set initial value immediately
-          
-          // Animate the slider value with smooth decimal precision
-          const obj = { value: 1 }
-          gsap.to(obj, {
-            value: 10, // Animate to default value
-            duration: 2.5, // Slower, more elegant animation
-            ease: "power3.out",
-            delay: 0.5,
-            onUpdate: function() {
-              // Use precise decimal value for smooth animation, round for display only
-              setSliderValue([obj.value])
+    // Small delay to ensure components are fully rendered
+    const timer = setTimeout(() => {
+      ctx.add(() => {
+        // Progressive Value Reveal: ScrollTrigger-based initial slider animation
+        if (sliderRef.current) {
+          gsap.fromTo(sliderRef.current,
+            { opacity: 0, y: 20 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: sliderRef.current,
+                start: "top 80%",
+                once: true,
+                onEnter: () => {
+                  // Start from 1 and animate to default value smoothly
+                  setSliderValue([1]) // Set initial value immediately
+                  
+                  // Animate the slider value with smooth decimal precision
+                  const obj = { value: 1 }
+                  gsap.to(obj, {
+                    value: 10, // Animate to default value
+                    duration: 2.5, // Slower, more elegant animation
+                    ease: "power3.out",
+                    delay: 0.5,
+                    onUpdate: function() {
+                      // Use precise decimal value for smooth animation, round for display only
+                      setSliderValue([obj.value])
+                    }
+                  })
+                }
+              }
             }
-          })
+          )
         }
-      })
-    }
     
     // Swiss-precision slider micro-interactions
     if (sliderRef.current) {
@@ -243,10 +250,12 @@ export default function ReportSectionInteractive() {
       })
     }
 
-    }) // GSAP context scope
+      })
+    }, 50)
     
     return () => {
-      ctx.revert() // This will kill all animations and ScrollTriggers in this context
+      clearTimeout(timer)
+      ctx.revert()
     }
   }, [])
 

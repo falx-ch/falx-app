@@ -8,7 +8,7 @@ export interface Props {
 const { class: className } = Astro.props;
 
 // Import the interactive React components
-import ReportSectionInteractive from './report-section-interactive.tsx';
+import CostCalculator from './cost-calculator.tsx';
 import ReportSectionCards from './report-section-cards.tsx';
 ---
 
@@ -38,7 +38,7 @@ import ReportSectionCards from './report-section-cards.tsx';
       <!-- Left column - Interactive calculator component (60%) -->
       <div class="lg:col-span-3">
         <!-- Interactive component island - only hydrate when visible -->
-        <ReportSectionInteractive client:visible />
+        <CostCalculator client:visible />
       </div>
 
       <!-- Right column - Interactive problem indicators with animations (40%) -->

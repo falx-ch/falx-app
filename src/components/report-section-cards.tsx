@@ -1,14 +1,8 @@
 "use client"
 
 import { useRef, useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { GlassCard } from '@/components/ui/glass-card'
-
-// Register GSAP plugins
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-}
+import { gsapManager } from '@/lib/gsap-manager'
 
 export default function ReportSectionCards() {
   const cardsRef = useRef<HTMLDivElement>(null)
@@ -16,101 +10,36 @@ export default function ReportSectionCards() {
   const card2Ref = useRef<HTMLDivElement>(null)
   const card3Ref = useRef<HTMLDivElement>(null)
 
-  // Setup card animations with proper GSAP context
+  // Setup card animations using GSAP manager
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined' || !cardsRef.current) return
 
-    const ctx = gsap.context(() => {
-      const cards = [card1Ref.current, card2Ref.current, card3Ref.current].filter(Boolean)
+    const ctx = gsapManager.createContext(cardsRef.current)
+    const cards = [card1Ref.current, card2Ref.current, card3Ref.current]
+    const cleanupFunctions: (() => void)[] = []
 
-      // Advanced 3D card tilt effects and reveal
-      if (cardsRef.current && cards.length > 0) {
-        // Initial reveal animation
-        ScrollTrigger.create({
-          trigger: cardsRef.current,
-          start: "top 80%",
-          once: true,
-          onEnter: () => {
-            gsap.fromTo(cards, 
-              { y: 50, opacity: 0, rotationX: -15 },
-              {
-                y: 0,
-                opacity: 1,
-                rotationX: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-              }
-            )
-          }
-        })
+    // Small delay to ensure components are fully rendered
+    const timer = setTimeout(() => {
+      ctx.add(() => {
+        // Initial reveal animation using manager
+        gsapManager.animateCardReveal(cards, cardsRef.current!)
         
-        // 3D tilt effects for each card
-        cards.forEach((card, index) => {
-          if (!card) return
-          
-          gsap.set(card, { 
-            transformOrigin: "center",
-            transformStyle: "preserve-3d"
-          })
-          
-          const cardContent = card.querySelector('.card-content') || card.firstElementChild
-          if (cardContent) {
-            gsap.set(cardContent, { transformOrigin: "center" })
+        // Apply 3D tilt effects to each card
+        cards.forEach((card) => {
+          if (card) {
+            const cleanup = gsapManager.apply3DTilt(card)
+            cleanupFunctions.push(cleanup)
           }
-          
-          const handleMouseMove = (e: MouseEvent) => {
-            const rect = card.getBoundingClientRect()
-            const centerX = rect.left + rect.width / 2
-            const centerY = rect.top + rect.height / 2
-            const rotateX = (e.clientY - centerY) / 10
-            const rotateY = (centerX - e.clientX) / 10
-            
-            gsap.to(card, {
-              rotationX: rotateX,
-              rotationY: rotateY,
-              z: 30,
-              duration: 0.4,
-              ease: "power2.out"
-            })
-            
-            if (cardContent) {
-              gsap.to(cardContent, {
-                x: (e.clientX - centerX) / 20,
-                y: (e.clientY - centerY) / 20,
-                duration: 0.4,
-                ease: "power2.out"
-              })
-            }
-          }
-          
-          const handleMouseLeave = () => {
-            gsap.to(card, {
-              rotationX: 0,
-              rotationY: 0,
-              z: 0,
-              duration: 0.6,
-              ease: "power3.out"
-            })
-            
-            if (cardContent) {
-              gsap.to(cardContent, {
-                x: 0,
-                y: 0,
-                duration: 0.6,
-                ease: "power3.out"
-              })
-            }
-          }
-          
-          card.addEventListener('mousemove', handleMouseMove)
-          card.addEventListener('mouseleave', handleMouseLeave)
         })
-      }
-    }, cardsRef) // GSAP context scope
+      })
+    }, 50)
     
     return () => {
-      ctx.revert() // This will kill all animations and ScrollTriggers in this context
+      clearTimeout(timer)
+      // Cleanup event listeners
+      cleanupFunctions.forEach(cleanup => cleanup())
+      // Revert GSAP context
+      ctx.revert()
     }
   }, [])
 
