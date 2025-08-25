@@ -76,12 +76,6 @@
     theme(colors.white) 100%
   );
   
-  --gradient-footer: linear-gradient(
-    to top,
-    theme(colors.gray.900) 0%,
-    theme(colors.gray.800) 60%,
-    theme(colors.gray.700) 100%
-  );
   
   /* === SHADCN/UI COMPATIBILITY === */
   /* Updated to use Swiss red theme with Tailwind colors */
@@ -446,9 +440,6 @@
   background: var(--gradient-cta);
 }
 
-.footer-gradient {
-  background: var(--gradient-footer) !important;
-}
 
 .swiss-focus:focus-visible {
   outline: 2px solid theme(colors.red.600 / 40%);
