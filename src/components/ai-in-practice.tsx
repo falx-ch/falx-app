@@ -6,10 +6,10 @@ export default function AiInPractice() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white flex items-center justify-center relative overflow-hidden py-20">
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/12 via-transparent to-blue-900/8" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(16,185,129,0.1),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.08),transparent_60%)]" />
+    <section className="min-h-screen ai-practice-gradient text-white flex items-center justify-center relative overflow-hidden py-20">
+      {/* Neutral slate background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(71,85,105,0.06),transparent_65%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(100,116,139,0.04),transparent_65%)]" />
 
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" viewBox="0 0 800 600">

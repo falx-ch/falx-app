@@ -2,8 +2,9 @@
 
 export default function StartNowSection() {
   return (
-    <section className="h-screen bg-gradient-to-br from-slate-400 via-slate-300 to-slate-200 text-slate-900 flex flex-col">
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-300/40 via-transparent to-white/20" />
+    <section className="h-screen cta-gradient text-slate-900 flex flex-col relative">
+      {/* Subtle neutral light background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(156,163,175,0.05),transparent_70%)]" />
 
       {/* Main content */}
       <div className="flex-1 flex items-center justify-center relative z-10">

@@ -64,7 +64,7 @@ export default function FooterSection() {
   return (
     <section 
       ref={containerRef} 
-      className="min-h-screen bg-gradient-to-t from-gray-100 to-white flex flex-col justify-center px-4 sm:px-6 lg:px-8"
+      className="min-h-screen footer-gradient flex flex-col justify-center px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto w-full">
         

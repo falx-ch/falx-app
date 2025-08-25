@@ -128,8 +128,9 @@ export default function LegataFuture() {
   }
 
   return (
-    <section className="h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-600 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-slate-500/20" />
+    <section className="h-screen legata-gradient text-white relative overflow-hidden">
+      {/* Clean slate background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(71,85,105,0.04),transparent_75%)]" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />

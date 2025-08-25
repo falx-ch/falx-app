@@ -249,10 +249,10 @@ export default function WorkflowBreakdown() {
   }
 
   return (
-    <section className="min-h-screen bg-slate-800 text-white flex items-center justify-center relative overflow-hidden py-12 md:py-20">
-      <div className="absolute inset-0 bg-gradient-to-br from-red-900/15 via-slate-800 to-orange-900/10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(239,68,68,0.12),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(249,115,22,0.08),transparent_60%)]" />
+    <section className="min-h-screen workflow-gradient text-white flex items-center justify-center relative overflow-hidden py-12 md:py-20">
+      {/* Soft neutral background effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(55,65,81,0.08),transparent_65%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(75,85,99,0.05),transparent_65%)]" />
 
       <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">

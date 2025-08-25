@@ -21,12 +21,67 @@
   --glass-border-medium: theme(colors.white / 15%); /* 15% white borders */
   --glass-border-strong: theme(colors.white / 30%); /* 30% white borders */
   
-  /* Swiss Background Gradients */
+  /* Clean Neutral Background Gradients - Soft Dark to Light Flow */
   --gradient-hero: linear-gradient(180deg, 
-    theme(colors.red.600 / 25%) 0%, 
-    theme(colors.red.900 / 15%) 15%, 
+    theme(colors.gray.800 / 15%) 0%, 
+    theme(colors.gray.900 / 10%) 15%, 
     theme(colors.black / 95%) 40%, 
     theme(colors.black) 100%);
+    
+  --gradient-calculator: linear-gradient(
+    135deg,
+    theme(colors.gray.800 / 12%) 0%,
+    theme(colors.gray.900 / 8%) 15%,
+    theme(colors.gray.900 / 95%) 40%,
+    theme(colors.black) 100%
+  );
+  
+  --gradient-workflow: linear-gradient(
+    135deg,
+    theme(colors.gray.700 / 10%) 0%,
+    theme(colors.gray.800 / 6%) 15%,
+    theme(colors.slate.800 / 90%) 50%,
+    theme(colors.slate.900) 100%
+  );
+  
+  --gradient-ai-practice: linear-gradient(
+    135deg,
+    theme(colors.gray.700 / 8%) 0%,
+    theme(colors.slate.800 / 95%) 30%,
+    theme(colors.slate.800) 70%,
+    theme(colors.slate.700) 100%
+  );
+  
+  --gradient-legata: linear-gradient(
+    135deg,
+    theme(colors.slate.800) 0%,
+    theme(colors.slate.700) 50%,
+    theme(colors.slate.600) 90%,
+    theme(colors.gray.500 / 2%) 100%
+  );
+  
+  --gradient-founder: linear-gradient(
+    135deg,
+    theme(colors.slate.600) 0%,
+    theme(colors.slate.500) 60%,
+    theme(colors.slate.400) 90%,
+    theme(colors.gray.300 / 3%) 100%
+  );
+  
+  --gradient-cta: linear-gradient(
+    135deg,
+    theme(colors.gray.400 / 6%) 0%,
+    theme(colors.slate.300) 40%,
+    theme(colors.slate.200) 80%,
+    theme(colors.white) 100%
+  );
+  
+  --gradient-footer: linear-gradient(
+    to top,
+    theme(colors.gray.50) 0%,
+    theme(colors.white) 70%,
+    theme(colors.gray.50 / 30%) 100%
+  );
   
   /* === SHADCN/UI COMPATIBILITY === */
   /* Updated to use Swiss red theme with Tailwind colors */
@@ -365,6 +420,34 @@
 /* Swiss Layout Helpers */
 .hero-gradient {
   background: var(--gradient-hero);
+}
+
+.calculator-gradient {
+  background: var(--gradient-calculator);
+}
+
+.workflow-gradient {
+  background: var(--gradient-workflow);
+}
+
+.ai-practice-gradient {
+  background: var(--gradient-ai-practice);
+}
+
+.legata-gradient {
+  background: var(--gradient-legata);
+}
+
+.founder-gradient {
+  background: var(--gradient-founder);
+}
+
+.cta-gradient {
+  background: var(--gradient-cta);
+}
+
+.footer-gradient {
+  background: var(--gradient-footer);
 }
 
 .swiss-focus:focus-visible {

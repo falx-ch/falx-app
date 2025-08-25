@@ -65,7 +65,7 @@ export default function SolutionsSection() {
   return (
     <section 
       ref={containerRef} 
-      className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="min-h-screen footer-gradient flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
       {/* Background Flow Graphic */}
       <div className="flow-graphic absolute inset-0 pointer-events-none opacity-10">
