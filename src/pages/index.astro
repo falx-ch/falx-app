@@ -5,6 +5,11 @@ import ShaderBackground from '../components/shader-background.tsx';
 import Header from '../components/header.tsx';
 import HeroContent from '../components/hero-content.tsx';
 import ReportSection from '../components/ReportSection.astro';
+import WorkflowBreakdown from '../components/workflow-breakdown.tsx';
+import AiInPractice from '../components/ai-in-practice.tsx';
+import LegataFuture from '../components/legata-future.tsx';
+import FounderSection from '../components/founder-section.tsx';
+import StartNowSection from '../components/start-now-section.tsx';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -25,5 +30,10 @@ import ReportSection from '../components/ReportSection.astro';
 			<HeroContent client:load />
 		</ShaderBackground>
 		<ReportSection />
+		<WorkflowBreakdown client:load />
+		<AiInPractice client:load />
+		<LegataFuture client:load />
+		<FounderSection client:load />
+		<StartNowSection client:load />
 	</body>
 </html>
