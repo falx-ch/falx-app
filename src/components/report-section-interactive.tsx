@@ -253,12 +253,12 @@ export default function ReportSectionInteractive() {
     <>
       {/* Dynamic CHF Display with rolling numbers - adapted for left column */}
       <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-red-500/30 transition-all duration-300">
-        <div className="text-center lg:text-left">
-          <div className="inline-flex items-baseline space-x-2 mb-3">
-            <span className="text-sm text-white/60 font-medium">CHF</span>
+        <div className="text-center lg:text-left space-y-4">
+          <div className="flex items-baseline mb-3">
+            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-2">CHF</span>
             <div 
               ref={mainNumberRef}
-              className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight inline-block w-48 sm:w-56 lg:w-72 text-right"
               style={{
                 textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
                 minHeight: '1.2em'
@@ -266,18 +266,24 @@ export default function ReportSectionInteractive() {
             >
               {yearlyCostPerEmployee.toLocaleString('de-CH')}
             </div>
+            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium ml-2">pro Jahr</span>
           </div>
-          <p className="text-red-300 text-lg font-medium">Pro Mitarbeiter und Jahr</p>
-          <p className="text-white/50 text-sm mt-1">Basierend auf unserem KI 2025 Schweiz Report</p>
+          
+          <div className="space-y-2">
+            <p className="text-white/60 text-sm font-normal">
+              Vollzeit-Mitarbeiter (<span className="inline-block w-5 text-right tabular-nums">{displayHours}</span> Std. Administration wöchentlich)
+            </p>
+          </div>
+          
+          <div className="space-y-1">
+            <p className="text-white/40 text-xs">Basis: CHF 150/h Vollkosten</p>
+          </div>
         </div>
       </div>
 
-      {/* Interactive Slider with Custom Tooltip - adapted for left column */}
-      <div className="space-y-4 lg:space-y-6">
+      {/* Interactive Slider - adapted for left column */}
+      <div className="mt-6 lg:mt-6 space-y-4 lg:space-y-6">
         <div className="space-y-2">
-          <label className="text-sm text-white/70 font-medium">
-            <span className="inline-block w-6 text-center tabular-nums">{displayHours}</span> Std./Woche für Administration
-          </label>
           <div ref={sliderRef}>
             <Slider
               value={sliderValue}
@@ -287,9 +293,6 @@ export default function ReportSectionInteractive() {
               step={0.1}
               className="w-full h-2 transition-all duration-300"
             />
-          </div>
-          <div className="text-center">
-            <span className="text-xs text-white/60 font-light">Basis: CHF 150/h Vollkosten</span>
           </div>
         </div>
       </div>
