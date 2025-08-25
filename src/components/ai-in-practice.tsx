@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Progress } from "@/components/ui/progress"
 import { GlassCard } from '@/components/ui/glass-card'
+import { Button } from '@/components/ui/button'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -39,16 +40,6 @@ export default function AiInPractice() {
                 opacity: 1,
                 duration: 0.8,
                 ease: "power2.out"
-              }
-            )
-            gsap.fromTo(".cta-button", 
-              { scale: 0.8, opacity: 0 },
-              {
-                scale: 1,
-                opacity: 1,
-                duration: 0.8,
-                ease: "elastic.out(1, 0.3)",
-                delay: 0.3
               }
             )
           }
@@ -240,9 +231,9 @@ export default function AiInPractice() {
               </div>
             </div>
 
-            <button className="cta-button px-8 py-4 rounded-full bg-white text-black font-medium text-sm transition-all duration-300 hover:bg-white/90 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
+            <Button variant="primary" className="animate-on-scroll">
               Kostenloses Beratungsgespräch
-            </button>
+            </Button>
           </div>
 
           {/* Right column - Solution cards */}

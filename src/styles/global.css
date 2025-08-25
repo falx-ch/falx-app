@@ -447,6 +447,12 @@
   border-radius: theme(borderRadius.DEFAULT);
 }
 
+/* Animation System - Initial states for GSAP */
+.animate-on-scroll {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
 /* Responsive Typography */
 @media (min-width: 768px) {
   .text-swiss-hero {

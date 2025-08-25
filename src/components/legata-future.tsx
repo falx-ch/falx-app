@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { gsap } from "gsap"
 import { GlassCard } from '@/components/ui/glass-card'
+import { Button } from '@/components/ui/button'
 
 export default function LegataFuture() {
   const [animationStep, setAnimationStep] = useState(0)
@@ -556,9 +557,9 @@ export default function LegataFuture() {
             Voice-first AI that understands Swiss inheritance law, creating legally compliant wills with empathy and
             precision.
           </p>
-          <button className="text-white/90 text-base hover:text-white transition-all duration-300 border-b-2 border-white/20 hover:border-white/60 pb-1">
+          <Button variant="ghost" className="text-white/90 text-base hover:text-white transition-all duration-300 border-b-2 border-white/20 hover:border-white/60 pb-1 p-0 h-auto">
             Experience Legata →
-          </button>
+          </Button>
           </GlassCard>
         </div>
       </div>

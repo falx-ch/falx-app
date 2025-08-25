@@ -1,5 +1,7 @@
 "use client"
 
+import { Button } from '@/components/ui/button'
+
 export default function StartNowSection() {
   return (
     <section className="min-h-screen cta-gradient text-slate-900 flex flex-col relative py-16 lg:py-24">
@@ -17,9 +19,9 @@ export default function StartNowSection() {
             KI-Transformation.
           </h2>
 
-          <button className="px-12 py-4 rounded-full bg-slate-900 text-white font-normal text-lg transition-all duration-200 hover:bg-slate-800 cursor-pointer transform hover:scale-105 shadow-lg">
+          <Button variant="primary-dark" className="animate-on-scroll">
             Kostenlose Analyse buchen
-          </button>
+          </Button>
           </div>
         </div>
       </div>

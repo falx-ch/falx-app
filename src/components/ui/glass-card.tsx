@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils"
 import { forwardRef } from "react"
+import { Card } from "@/components/ui/card"
 
 interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'interactive' | 'solution' | 'modal' | 'badge'
+  variant?: 'default' | 'interactive' | 'solution' | 'modal'
   intensity?: 'light' | 'medium' | 'strong'  // Glass effect strength
   hover?: 'none' | 'lift' | 'glow'
   size?: 'sm' | 'md' | 'lg' | 'xl'
@@ -19,9 +20,12 @@ const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(({
   ...props
 }, ref) => {
   return (
-    <div
+    <Card
       ref={ref}
       className={cn(
+        // Override shadcn Card defaults for glass effect
+        "bg-transparent shadow-none border-0",
+        
         // Base glass effect
         "backdrop-blur-sm border transition-all duration-300",
         
@@ -46,7 +50,7 @@ const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(({
           "backdrop-blur-xl": intensity === 'strong',
         },
         
-        // Size variants
+        // Size variants (override shadcn Card padding)
         {
           "rounded-lg p-3": size === 'sm',
           "rounded-2xl p-4 lg:p-6": size === 'md',
@@ -65,7 +69,6 @@ const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(({
           "cursor-pointer opacity-0": variant === 'interactive', // For GSAP animations
           "max-w-sm mx-auto lg:mx-0 lg:max-w-md": variant === 'solution',
           "max-w-lg text-center shadow-2xl pointer-events-auto": variant === 'modal',
-          "inline-flex items-center px-3 py-1 rounded-full": variant === 'badge',
         },
         
         className
@@ -73,7 +76,7 @@ const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(({
       {...props}
     >
       {children}
-    </div>
+    </Card>
   )
 })
 

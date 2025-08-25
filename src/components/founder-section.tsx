@@ -1,6 +1,7 @@
 "use client"
 
 import { GlassCard } from '@/components/ui/glass-card'
+import { Button } from '@/components/ui/button'
 
 export default function FounderSection() {
   return (
@@ -60,9 +61,9 @@ export default function FounderSection() {
                 </a>
               </div>
 
-              <button className="px-8 py-3 rounded-full bg-white text-slate-900 font-normal text-sm transition-all duration-200 hover:bg-white/90 cursor-pointer">
+              <Button variant="primary" className="animate-on-scroll">
                 Book a Founder Consultation
-              </button>
+              </Button>
             </div>
           </div>
         </div>
