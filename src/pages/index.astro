@@ -1,43 +1,31 @@
 ---
-import '../styles/global.css';
-// Component Imports
+// Layout Import
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Component Imports - Mix of Astro (static) and React (interactive) components
 import ShaderBackground from '../components/shader-background.tsx';
 import Header from '../components/header.tsx';
 import HeroContent from '../components/hero-content.tsx';
 import ReportSection from '../components/ReportSection.astro';
-import WorkflowBreakdown from '../components/workflow-breakdown.tsx';
-import AiInPractice from '../components/ai-in-practice.tsx';
-import LegataFuture from '../components/legata-future.tsx';
-import FounderSection from '../components/founder-section.tsx';
-import StartNowSection from '../components/start-now-section.tsx';
+import WorkflowBreakdown from '../components/WorkflowBreakdown.astro';
+import AiInPractice from '../components/AiInPractice.astro';
+import LegataFuture from '../components/LegataFuture.astro';
+import FounderSection from '../components/FounderSection.astro';
+import StartNowSection from '../components/StartNowSection.astro';
 import SimpleFooter from '../components/simple-footer.tsx';
 import GlobalAnimations from '../components/global-animations.tsx';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>KI-Strategien für Schweizer KMU</title>
-	</head>
-
-	<body>
-		<GlobalAnimations client:load />
-		<ShaderBackground client:load>
-			<Header client:load />
-			<HeroContent client:load />
-		</ShaderBackground>
-		<ReportSection />
-		<WorkflowBreakdown client:visible />
-		<AiInPractice client:visible />
-		<LegataFuture client:visible />
-		<FounderSection client:visible />
-		<StartNowSection client:visible />
-		<SimpleFooter client:idle />
-	</body>
-</html>
+<BaseLayout>
+	<GlobalAnimations client:load />
+	<ShaderBackground client:load>
+		<Header client:load />
+		<HeroContent client:load />
+	</ShaderBackground>
+	<ReportSection />
+	<WorkflowBreakdown />
+	<AiInPractice />
+	<LegataFuture />
+	<FounderSection />
+	<StartNowSection />
+	<SimpleFooter client:idle />
+</BaseLayout>
