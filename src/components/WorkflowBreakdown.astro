@@ -1,0 +1,62 @@
+---
+// Astro wrapper component for Workflow Breakdown Section
+// Static structure with selective hydration for interactive elements
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+// Import the interactive React component (to be refactored)
+import WorkflowBreakdownCards from './workflow-breakdown-cards.tsx';
+---
+
+<section 
+  class={`min-h-screen workflow-gradient text-white flex items-center justify-center relative overflow-hidden py-16 lg:py-24 ${className || ''}`}
+>
+  <!-- Soft neutral background effects -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(55,65,81,0.08),transparent_65%)]" />
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(75,85,99,0.05),transparent_65%)]" />
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-20 gap-8 lg:gap-16 items-center">
+      <!-- Left column - Interactive Problem Cards Grid (65%) -->
+      <div class="lg:col-span-13 order-2 lg:order-1 relative">
+        <!-- Interactive cards with animations - only hydrate when visible -->
+        <WorkflowBreakdownCards client:visible />
+      </div>
+
+      <!-- Right column - Static Content (35%) -->
+      <div class="lg:col-span-7 space-y-6 lg:space-y-8 order-1 lg:order-2">
+        <div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
+            Der <span class="font-serif italic text-red-300">Workflow</span>-<br />
+            Zusammenbruch
+          </h2>
+          <p class="text-white/60 text-base lg:text-lg leading-relaxed mb-6 lg:mb-8">
+            Fragmentierte Systeme, manuelle Prozesse und Datenchaos kosten Schweizer Unternehmen täglich wertvolle
+            Ressourcen.
+          </p>
+        </div>
+
+        <!-- Static statistics - no interactivity needed -->
+        <div class="space-y-3 lg:space-y-4">
+          <div class="flex items-center space-x-3 lg:space-x-4">
+            <div class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></div>
+            <span class="text-white/70 text-sm lg:text-base">73% der Arbeitszeit für manuelle Aufgaben</span>
+          </div>
+          <div class="flex items-center space-x-3 lg:space-x-4">
+            <div class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></div>
+            <span class="text-white/70 text-sm lg:text-base">41% Produktivitätsverlust durch Systembrüche</span>
+          </div>
+          <div class="flex items-center space-x-3 lg:space-x-4">
+            <div class="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></div>
+            <span class="text-white/70 text-sm lg:text-base">
+              28% höhere Fehlerrate bei manuellen Prozessen
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

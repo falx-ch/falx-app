@@ -1,0 +1,101 @@
+---
+// Astro wrapper component for AI in Practice Section
+// Static structure with selective hydration for interactive cards
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+// Import the interactive React component
+import AiInPracticeSolutions from './ai-in-practice-solutions.tsx';
+---
+
+<section 
+  class={`min-h-screen ai-practice-gradient text-white flex items-center justify-center relative overflow-hidden py-16 lg:py-24 ${className || ''}`}
+>
+  <!-- Neutral slate background -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(71,85,105,0.06),transparent_65%)]" />
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(100,116,139,0.04),transparent_65%)]" />
+
+  <!-- Static decorative SVG background -->
+  <div class="absolute inset-0 opacity-5">
+    <svg class="w-full h-full" viewBox="0 0 800 600">
+      <defs>
+        <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#10b981" />
+          <stop offset="50%" stop-color="#3b82f6" />
+          <stop offset="100%" stop-color="#a855f7" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M100,100 Q200,150 300,100 T500,100"
+        fill="none"
+        stroke="url(#flowGradient)"
+        stroke-width="0.5"
+        opacity="0.3"
+      />
+      <path
+        d="M100,200 Q250,250 400,200 T700,200"
+        fill="none"
+        stroke="url(#flowGradient)"
+        stroke-width="0.5"
+        opacity="0.3"
+      />
+      <path
+        d="M50,300 Q200,350 350,300 T650,300"
+        fill="none"
+        stroke="url(#flowGradient)"
+        stroke-width="0.5"
+        opacity="0.3"
+      />
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start"> <!-- 40/60 split - no margins -->
+      <!-- Left column - Static Header content -->
+      <div class="lg:col-span-2 space-y-8">
+        <div class="header-content">
+          <h2 class="text-5xl lg:text-6xl font-light mb-6 tracking-tight leading-tight">
+            <span class="font-serif italic text-emerald-300">KI</span> in der <br />
+            Praxis
+          </h2>
+          <p class="text-emerald-300/80 text-lg font-medium mb-4">
+            100% Erfolgsgarantie & Schweizer Datensicherheit
+          </p>
+          <p class="text-white/60 text-lg leading-relaxed">
+            Transformieren Sie Ihre Geschäftsprozesse mit bewährten KI-Lösungen, die sofort messbare Ergebnisse
+            liefern.
+          </p>
+        </div>
+
+        <!-- Static feature list -->
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+            <span class="text-white/70 text-sm">DSGVO-konforme Implementierung</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+            <span class="text-white/70 text-sm">Schweizer Hosting & Support</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 rounded-full bg-violet-400"></div>
+            <span class="text-white/70 text-sm">ROI-Garantie innerhalb 90 Tagen</span>
+          </div>
+        </div>
+
+        <!-- Static button (could be made interactive later if needed) -->
+        <button class="px-8 py-3 bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-medium rounded-full transition-all duration-300 hover:from-emerald-600 hover:to-blue-600 hover:shadow-lg">
+          Kostenloses Beratungsgespräch
+        </button>
+      </div>
+
+      <!-- Right column - Interactive solution cards (hydrated island) -->
+      <div class="lg:col-span-3">
+        <AiInPracticeSolutions client:visible />
+      </div>
+    </div>
+  </div>
+</section>
