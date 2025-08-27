@@ -8,7 +8,7 @@ export interface Props {
 const { class: className } = Astro.props;
 
 // Import the interactive React component
-import LegataFutureWorkflow from './legata-future-workflow.tsx';
+import ProductDemoWorkflow from './product-demo-workflow.tsx';
 ---
 
 <section 
@@ -19,7 +19,7 @@ import LegataFutureWorkflow from './legata-future-workflow.tsx';
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(100,116,139,0.025),transparent_75%)]" />
 
   <!-- Interactive workflow visualization - hydrated island -->
-  <LegataFutureWorkflow client:visible />
+  <ProductDemoWorkflow client:visible />
 
   <!-- Static content below the visualization -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center justify-center min-h-[50vh]">

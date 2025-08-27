@@ -8,7 +8,7 @@ export interface Props {
 const { class: className } = Astro.props;
 
 // Import the interactive React component
-import AiInPracticeSolutions from './ai-in-practice-solutions.tsx';
+import SolutionsShowcaseCards from './solutions-showcase-cards.tsx';
 ---
 
 <section 
@@ -94,7 +94,7 @@ import AiInPracticeSolutions from './ai-in-practice-solutions.tsx';
 
       <!-- Right column - Interactive solution cards (hydrated island) -->
       <div class="lg:col-span-3">
-        <AiInPracticeSolutions client:visible />
+        <SolutionsShowcaseCards client:visible />
       </div>
     </div>
   </div>

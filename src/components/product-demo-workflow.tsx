@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { gsap } from "gsap"
 
-export default function LegataFutureWorkflow() {
+export default function ProductDemoWorkflow() {
   const [animationStep, setAnimationStep] = useState(0)
   const [isInteractive, setIsInteractive] = useState(false)
   const [showSplitPath, setShowSplitPath] = useState(false)

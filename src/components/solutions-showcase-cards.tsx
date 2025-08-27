@@ -6,7 +6,7 @@ import { Progress } from "@/components/ui/progress"
 import { GlassCard } from '@/components/ui/glass-card'
 import { gsapManager } from '@/lib/gsap-manager'
 
-export default function AiInPracticeSolutions() {
+export default function SolutionsShowcaseCards() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)

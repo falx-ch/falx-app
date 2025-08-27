@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { gsap } from "gsap"
 
-export default function WorkflowBreakdownCards() {
+export default function ProblemShowcaseCards() {
   const [isVisible, setIsVisible] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement[]>([])

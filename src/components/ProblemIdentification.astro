@@ -8,7 +8,7 @@ export interface Props {
 const { class: className } = Astro.props;
 
 // Import the interactive React component (to be refactored)
-import WorkflowBreakdownCards from './workflow-breakdown-cards.tsx';
+import ProblemShowcaseCards from './problem-showcase-cards.tsx';
 ---
 
 <section 
@@ -23,7 +23,7 @@ import WorkflowBreakdownCards from './workflow-breakdown-cards.tsx';
       <!-- Left column - Interactive Problem Cards Grid (65%) -->
       <div class="lg:col-span-13 order-2 lg:order-1 relative">
         <!-- Interactive cards with animations - only hydrate when visible -->
-        <WorkflowBreakdownCards client:visible />
+        <ProblemShowcaseCards client:visible />
       </div>
 
       <!-- Right column - Static Content (35%) -->
