@@ -18,6 +18,25 @@ export const ANIMATION_CONFIGS = {
   card3D: {
     tilt: { duration: 0.4, ease: "power2.out" },
     reset: { duration: 0.6, ease: "power3.out" }
+  },
+  workflow: {
+    voiceWave: {
+      scale: { duration: 1, ease: "power2.out" },
+      pulse: { duration: 0.8, ease: "power2.inOut" }
+    },
+    connectionLine: {
+      duration: 2, 
+      ease: "power1.inOut", 
+      drawSVG: "0% 100%"
+    },
+    toolReveal: {
+      scale: { duration: 0.8, ease: "back.out(2)", stagger: 0.2 },
+      elastic: { duration: 0.6, ease: "elastic.out(1.2, 0.3)", stagger: 0.15 }
+    },
+    documentGeneration: {
+      appear: { duration: 0.8, ease: "back.out(1.5)" },
+      complete: { duration: 0.7, ease: "elastic.out(1.2, 0.5)", stagger: 0.2 }
+    }
   }
 } as const
 
@@ -208,6 +227,47 @@ export class GSAPManager {
     if (typeof window !== 'undefined') {
       ScrollTrigger.refresh()
     }
+  }
+
+  /**
+   * Create workflow animation timeline with optimized performance
+   */
+  createWorkflowTimeline(): gsap.core.Timeline {
+    return gsap.timeline({ 
+      repeat: -1, 
+      repeatDelay: 3,
+      defaults: { ease: "power2.out" }
+    })
+  }
+
+  /**
+   * Animate SVG path drawing with DrawSVGPlugin
+   */
+  animatePathDraw(path: string | Element, config = ANIMATION_CONFIGS.workflow.connectionLine): gsap.core.Tween {
+    return gsap.fromTo(path, 
+      { drawSVG: "0% 0%" },
+      { ...config }
+    )
+  }
+
+  /**
+   * Animate element appearance with scale and opacity
+   */
+  animateElementAppear(element: string | Element, config = ANIMATION_CONFIGS.workflow.toolReveal.scale): gsap.core.Tween {
+    return gsap.fromTo(element,
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, ...config }
+    )
+  }
+
+  /**
+   * Create pulsing wave effect
+   */
+  createPulseEffect(element: string | Element): gsap.core.Timeline {
+    const tl = gsap.timeline({ repeat: -1 })
+    return tl
+      .to(element, { scale: 1.2, opacity: 1, ...ANIMATION_CONFIGS.workflow.voiceWave.scale })
+      .to(element, { scale: 1, opacity: 0.8, ...ANIMATION_CONFIGS.workflow.voiceWave.pulse })
   }
 }
 
