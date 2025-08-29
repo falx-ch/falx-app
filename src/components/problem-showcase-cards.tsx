@@ -2,6 +2,12 @@
 
 import { useEffect, useState, useRef } from "react"
 import { gsap } from "gsap"
+import { Flip } from "gsap/Flip"
+import { GlassCard } from '@/components/ui/glass-card'
+import { cn } from '@/lib/utils'
+
+// Register GSAP plugins
+gsap.registerPlugin(Flip)
 
 export default function ProblemShowcaseCards() {
   const [isVisible, setIsVisible] = useState(false)
@@ -11,6 +17,7 @@ export default function ProblemShowcaseCards() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [cardPositions, setCardPositions] = useState<{ x: number; y: number }[]>([])
+  const [isMeshLayout, setIsMeshLayout] = useState(true) // Start with mesh layout
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 500)
@@ -84,6 +91,7 @@ export default function ProblemShowcaseCards() {
     }
   }, [isVisible])
 
+  // Handle initial card entrance animation
   useEffect(() => {
     if (!isVisible || cardsRef.current.length === 0) return
 
@@ -104,53 +112,90 @@ export default function ProblemShowcaseCards() {
         ease: "power2.out",
       }
     )
+  }, [isVisible])
 
-    // Connection line animations
-    if (webRef.current) {
-      const paths = webRef.current.querySelectorAll("path")
-      gsap.fromTo(
-        paths,
-        {
-          strokeDasharray: "0 1000",
-        },
-        {
-          strokeDasharray: "1000 0",
-          duration: 1.5,
-          stagger: 0.2,
-          ease: "power2.inOut",
-        }
-      )
-    }
+  // Handle connection line animation only
+  useEffect(() => {
+    if (!isVisible) return
+    
+    // Delay for layout to settle, then animate connections
+    const timer = setTimeout(() => {
+      if (webRef.current) {
+        const paths = webRef.current.querySelectorAll("path")
+        gsap.fromTo(
+          paths,
+          { strokeDasharray: "0 1000", opacity: 0 },
+          {
+            strokeDasharray: "1000 0",
+            opacity: 0.4,
+            duration: 2,
+            stagger: 0.15,
+            ease: "power2.inOut",
+          }
+        )
+      }
+    }, 800)
+    
+    return () => clearTimeout(timer)
   }, [isVisible])
 
   const getConnectionPath = (fromIndex: number, toIndex: number) => {
-    if (cardPositions.length === 0 || !cardPositions[fromIndex] || !cardPositions[toIndex]) {
+    if (!cardsRef.current[fromIndex] || !cardsRef.current[toIndex] || !containerRef.current) {
       return "M0,0 L0,0"
     }
 
-    const from = cardPositions[fromIndex]
-    const to = cardPositions[toIndex]
+    const fromCard = cardsRef.current[fromIndex]
+    const toCard = cardsRef.current[toIndex]
+    const containerRect = containerRef.current.getBoundingClientRect()
+    
+    // Get actual card positions after GSAP transforms
+    const fromRect = fromCard.getBoundingClientRect()
+    const toRect = toCard.getBoundingClientRect()
+    
+    // Convert to relative coordinates within container
+    const fromX = ((fromRect.left + fromRect.width / 2) - containerRect.left) / containerRect.width * 100
+    const fromY = ((fromRect.top + fromRect.height / 2) - containerRect.top) / containerRect.height * 100
+    const toX = ((toRect.left + toRect.width / 2) - containerRect.left) / containerRect.width * 100
+    const toY = ((toRect.top + toRect.height / 2) - containerRect.top) / containerRect.height * 100
 
-    const dx = to.x - from.x
-    const dy = to.y - from.y
+    // Calculate edge connection points
+    const dx = toX - fromX
+    const dy = toY - fromY
     const distance = Math.sqrt(dx * dx + dy * dy)
+    const angle = Math.atan2(dy, dx)
+    
+    // Card dimensions in SVG coordinates
+    const cardWidth = (fromRect.width / containerRect.width) * 100
+    const cardHeight = (fromRect.height / containerRect.height) * 100
+    
+    // Connect at card edges, not centers
+    const fromEdgeX = fromX + (cardWidth * 0.35) * Math.cos(angle)
+    const fromEdgeY = fromY + (cardHeight * 0.35) * Math.sin(angle)
+    const toEdgeX = toX - (cardWidth * 0.35) * Math.cos(angle)
+    const toEdgeY = toY - (cardHeight * 0.35) * Math.sin(angle)
 
-    // Control point for curve (perpendicular to the line)
-    const midX = (from.x + to.x) / 2
-    const midY = (from.y + to.y) / 2
-    const controlOffset = Math.min(distance * 0.3, 15) // Curve intensity
-    const controlX = midX + (dy / distance) * controlOffset
-    const controlY = midY - (dx / distance) * controlOffset
+    // Create organic curve with varying intensity
+    const curveIntensity = 6 + Math.sin(fromIndex + toIndex) * 4
+    const midX = (fromEdgeX + toEdgeX) / 2
+    const midY = (fromEdgeY + toEdgeY) / 2
+    const controlX = midX + (dy / distance) * curveIntensity
+    const controlY = midY - (dx / distance) * curveIntensity
 
-    return `M${from.x},${from.y} Q${controlX},${controlY} ${to.x},${to.y}`
+    return `M${fromEdgeX},${fromEdgeY} Q${controlX},${controlY} ${toEdgeX},${toEdgeY}`
   }
 
+  // Create fully interconnected web - every card connects to every other card
   const connections = [
-    { from: 0, to: 1, color: "#ef4444" }, // Manual data → Communication
-    { from: 1, to: 2, color: "#f97316" }, // Communication → Compliance
-    { from: 0, to: 3, color: "#eab308" }, // Manual data → Endless loops
-    { from: 3, to: 4, color: "#a855f7" }, // Endless loops → Hidden costs
-    { from: 2, to: 4, color: "#ec4899" }, // Compliance → Hidden costs
+    { from: 0, to: 1, color: "#ef4444" }, // Manual → Communication
+    { from: 0, to: 2, color: "#f97316" }, // Manual → Compliance
+    { from: 0, to: 3, color: "#eab308" }, // Manual → Loops
+    { from: 0, to: 4, color: "#a855f7" }, // Manual → Costs
+    { from: 1, to: 2, color: "#22c55e" }, // Communication → Compliance
+    { from: 1, to: 3, color: "#06b6d4" }, // Communication → Loops
+    { from: 1, to: 4, color: "#3b82f6" }, // Communication → Costs
+    { from: 2, to: 3, color: "#ec4899" }, // Compliance → Loops
+    { from: 2, to: 4, color: "#f43f5e" }, // Compliance → Costs
+    { from: 3, to: 4, color: "#8b5cf6" }, // Loops → Costs
   ]
 
   const problemCards = [
@@ -218,53 +263,79 @@ export default function ProblemShowcaseCards() {
             d={getConnectionPath(connection.from, connection.to)}
             fill="none"
             stroke={connection.color}
-            strokeWidth={hoveredCard === connection.from || hoveredCard === connection.to ? "0.8" : "0.5"}
-            opacity={hoveredCard === connection.from || hoveredCard === connection.to ? "0.8" : "0.3"}
+            strokeWidth={hoveredCard === connection.from || hoveredCard === connection.to ? "1.2" : "0.6"}
+            opacity={hoveredCard === connection.from || hoveredCard === connection.to ? "0.9" : "0.4"}
             filter="url(#glow)"
             className="transition-all duration-300"
           />
         ))}
       </svg>
 
-      {/* Problem Cards Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6 relative z-10">
-        {problemCards.map((card, index) => (
-          <div
-            key={index}
-            ref={(el) => {
-              if (el) cardsRef.current[index] = el
-            }}
-            className="cursor-pointer transform transition-all duration-300 hover:scale-105 select-none"
-            onMouseEnter={() => handleCardHover(index)}
-            onMouseLeave={handleCardLeave}
-          >
+      {/* Problem Cards - Organic Mesh Layout */}
+      <div className="relative z-10 w-full h-[350px] md:h-[400px] lg:h-[450px]">
+        {/* Card positioning using CSS Grid as base with transforms for organic feel */}
+        <div className="grid grid-cols-12 grid-rows-8 h-full w-full gap-0">
+          {problemCards.map((card, index) => {
+            // CSS Grid positioning for organic mesh (no GSAP positioning)
+            const gridPositions = [
+              { col: "2 / span 3", row: "1 / span 2", transform: "rotate(-3deg) translate(10px, 5px)" },  // Top left
+              { col: "8 / span 3", row: "1 / span 2", transform: "rotate(2deg) translate(-5px, 10px)" },   // Top right
+              { col: "10 / span 3", row: "4 / span 2", transform: "rotate(-4deg) translate(-10px, 0px)" }, // Right
+              { col: "1 / span 3", row: "6 / span 2", transform: "rotate(5deg) translate(15px, -5px)" },  // Bottom left
+              { col: "5 / span 3", row: "6 / span 2", transform: "rotate(-2deg) translate(0px, 5px)" },   // Bottom center
+            ]
+            
+            const pos = gridPositions[index]
+            
+            return (
             <div
-              className={`bg-slate-900/80 backdrop-blur-sm rounded-xl p-4 border-2 transition-all duration-300 shadow-lg h-full
-                ${
-                  hoveredCard === index
-                    ? `border-${card.color}-400 shadow-${card.color}-500/30`
-                    : `border-${card.color}-500/30 hover:border-${card.color}-500/60`
-                }`}
+              key={index}
+              ref={(el) => {
+                if (el) cardsRef.current[index] = el
+              }}
+              className="cursor-pointer select-none transition-all duration-300 place-self-center"
+              style={{
+                gridColumn: pos.col,
+                gridRow: pos.row,
+                transform: pos.transform,
+              }}
+              onMouseEnter={() => handleCardHover(index)}
+              onMouseLeave={handleCardLeave}
             >
-              <div className="flex items-start space-x-3 mb-3">
+            <GlassCard
+              intensity="medium"
+              hover="none"
+              size="sm"
+              className={cn(
+                "relative overflow-hidden transition-all duration-300 rounded-2xl",
+                "w-32 md:w-36 lg:w-40", // Fixed responsive widths
+                hoveredCard === index
+                  ? "border-white/25"
+                  : "border-white/15"
+              )}
+            >
+              {/* Subtle gradient overlay for color accent */}
+              <div className="absolute inset-0 opacity-10 rounded-2xl" 
+              style={{
+                background: `radial-gradient(circle at top left, var(--${card.color}-glow) 0%, transparent 70%)`
+              }}/>
+              
+              <div className="relative flex items-start space-x-2 mb-2">
                 <div
-                  className={`w-10 h-10 rounded-full bg-${card.color}-500/20 flex items-center justify-center flex-shrink-0 transition-all duration-300`}
+                  className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-white/10 backdrop-blur-sm border border-white/20"
                 >
-                  <span className={`text-${card.color}-400 text-lg`}>{card.icon}</span>
+                  <span className="text-white/90 text-sm">{card.icon}</span>
                 </div>
                 <div className="min-w-0">
-                  <div className="text-sm font-medium text-white mb-1">{card.title}</div>
-                  <div className="text-xs text-white/60">{card.subtitle}</div>
+                  <div className="text-xs font-light text-white/90 mb-0.5">{card.title}</div>
+                  <div className="text-xs text-white/50 font-light leading-tight">{card.subtitle}</div>
                 </div>
               </div>
-              {hoveredCard === index && (
-                <div className="mt-3 pt-3 border-t border-white/10 text-xs text-white/50">
-                  Problem-Kategorie: {card.color}
-                </div>
-              )}
+            </GlassCard>
             </div>
-          </div>
-        ))}
+            )
+          })}
+        </div>
       </div>
     </div>
   )

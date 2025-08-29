@@ -113,6 +113,13 @@
   --sidebar-border: var(--glass-border-subtle); /* Subtle sidebar borders */
   --sidebar-ring: theme(colors.red.600 / 40%); /* Red sidebar focus */
   
+  /* Problem Card Color Glows */
+  --red-glow: theme(colors.red.500 / 40%);
+  --orange-glow: theme(colors.orange.500 / 40%);
+  --yellow-glow: theme(colors.yellow.500 / 40%);
+  --purple-glow: theme(colors.purple.500 / 40%);
+  --pink-glow: theme(colors.pink.500 / 40%);
+  
   /* Core Typography - Only used fonts */
   --font-geist: "Geist", sans-serif;
   --font-geist-mono: "Geist Mono", monospace;
