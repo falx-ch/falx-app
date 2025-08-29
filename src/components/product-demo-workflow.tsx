@@ -122,26 +122,38 @@ export default function ProductDemoWorkflow() {
   useEffect(() => {
     if (!isVisible || !svgRef.current) return
 
-    // Initialize tools as hidden
-    gsap.set(".dynamic-tool, .workflow-step", { scale: 0, opacity: 0 })
+    // Initialize all cards and lines as hidden
+    gsap.set(".dynamic-tool, .workflow-step, .voice-wave, .ai-agent-hub, .final-document, .handwritten-option, .notary-option", { scale: 0, opacity: 0 })
+    gsap.set(".voice-to-agent-line, .agent-to-eth-line, .tool-connection, .document-flow, .choice-flow-1, .choice-flow-2", { drawSVG: "0%" })
 
-    // Create timeline
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 3, defaults: { ease: "power2.out" } })
+    // Create timeline - play only once
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } })
 
-    // Voice wave pulse animation
-    tl.to(".voice-wave", {
-      ...ANIMATION_CONFIGS.workflow.voiceWave.scale,
+    // 1. Voice input appears first
+    tl.fromTo(".voice-wave", {
+      scale: 0, 
+      opacity: 0
+    }, {
       scale: 1.2,
       opacity: 1,
-      duration: 0.6
+      duration: 0.6,
+      ease: "back.out(2)"
     })
+      // Voice wave pulse effect
       .to(".voice-wave", {
-        ...ANIMATION_CONFIGS.workflow.voiceWave.pulse,
         scale: 1,
         opacity: 0.9,
         duration: 0.4
       })
-      // AI Agent hub appearance
+      // 2. Voice to AI Agent connection line animates
+      .fromTo(".voice-to-agent-line",
+        { drawSVG: "0%" },
+        { 
+          drawSVG: "100%",
+          duration: 0.8,
+          ease: "power2.out"
+        }, "+=0.2")
+      // 3. AI Agent hub appears
       .fromTo(".ai-agent-hub",
         { scale: 0, opacity: 0 },
         { 
@@ -149,16 +161,18 @@ export default function ProductDemoWorkflow() {
           opacity: 1, 
           duration: 0.8,
           ease: "back.out(2)"
-        }, "+=0.3")
-      // Tool connections and tools appear simultaneously
+        }, "-=0.3")
+      // 4. All tool connections animate simultaneously (ETH LLM and others)
       .add(() => setActiveTools([1, 2, 3, 4, 5]))
-      .fromTo(".tool-connection", 
+      .fromTo(".agent-to-eth-line, .tool-connection", 
         { drawSVG: "0%" },
         { 
           drawSVG: "100%",
           duration: 0.8,
-          ease: "power2.out"
-        }, "+=0.2")
+          ease: "power2.out",
+          stagger: 0.1
+        }, "+=0.3")
+      // 5. Tool cards appear
       .fromTo(".dynamic-tool", {
         scale: 0, 
         opacity: 0
@@ -167,8 +181,8 @@ export default function ProductDemoWorkflow() {
         opacity: 1,
         duration: 0.8,
         stagger: 0.1
-      }, "<")
-      // Document generation flow
+      }, "-=0.5")
+      // 6. Document connection line appears after tools are revealed
       .fromTo(".document-flow",
         { drawSVG: "0%" },
         { 
@@ -176,7 +190,7 @@ export default function ProductDemoWorkflow() {
           duration: 1.2,
           ease: "power1.inOut"
         }, "+=0.5")
-      // Final document appearance  
+      // 7. Final document appears after connection line
       .fromTo(".final-document",
         { scale: 0, opacity: 0 },
         { 
@@ -184,8 +198,8 @@ export default function ProductDemoWorkflow() {
           opacity: 1, 
           duration: 0.8,
           ease: "back.out(1.5)"
-        }, "-=0.6")
-      // Choice flows
+        }, "-=0.8")
+      // 8. Choice flows animate after document is revealed
       .fromTo(".choice-flow-1, .choice-flow-2",
         { drawSVG: "0%" },
         { 
@@ -194,7 +208,7 @@ export default function ProductDemoWorkflow() {
           stagger: 0.2,
           ease: "power2.out"
         }, "+=0.3")
-      // Choice options
+      // 9. Choice options appear after their connection lines
       .fromTo(".handwritten-option, .notary-option", {
         scale: 0,
         opacity: 0
@@ -283,20 +297,30 @@ export default function ProductDemoWorkflow() {
           </filter>
         </defs>
         
-        {connections.map((connection, index) => (
-          <path
-            key={index}
-            className={index <= 1 ? "main-flow-line" : index <= 6 ? "tool-connection" : index === 7 ? "document-flow" : "choice-flow-" + (index - 7)}
-            d={getConnectionPath(connection.from, connection.to)}
-            fill="none"
-            stroke={index <= 6 ? "url(#toolGradient)" : "url(#flowGradient)"}
-            strokeWidth={index === 1 || index === 7 ? "1.2" : "0.8"}
-            opacity="0.7"
-            filter="url(#glow)"
-            strokeLinecap="round"
-            strokeDasharray={index > 7 ? "3,2" : "none"}
-          />
-        ))}
+        {connections.map((connection, index) => {
+          let className = "";
+          if (index === 0) className = "voice-to-agent-line"; // Voice to AI Agent
+          else if (index === 1) className = "agent-to-eth-line"; // AI Agent to ETH LLM 
+          else if (index >= 2 && index <= 5) className = "tool-connection"; // Other tool connections
+          else if (index === 6) className = "document-flow"; // AI Agent to Document
+          else if (index === 7) className = "choice-flow-1"; // Document to Handwritten
+          else if (index === 8) className = "choice-flow-2"; // Document to Notary
+          
+          return (
+            <path
+              key={index}
+              className={className}
+              d={getConnectionPath(connection.from, connection.to)}
+              fill="none"
+              stroke={index <= 6 ? "url(#toolGradient)" : "url(#flowGradient)"}
+              strokeWidth={index === 0 || index === 6 ? "1.2" : "0.8"}
+              opacity="0.7"
+              filter="url(#glow)"
+              strokeLinecap="round"
+              strokeDasharray={index > 6 ? "3,2" : "none"}
+            />
+          )
+        })}
       </svg>
 
       {/* Workflow Cards - Grid Layout like problem showcase */}
