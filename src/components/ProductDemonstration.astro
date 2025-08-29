@@ -12,64 +12,48 @@ import ProductDemoWorkflow from './product-demo-workflow.tsx';
 ---
 
 <section 
-  class={`min-h-screen legata-gradient text-white relative overflow-hidden py-16 lg:py-24 ${className || ''}`}
+  class={`min-h-screen legata-gradient text-white relative overflow-hidden ${className || ''}`}
 >
-  <!-- Soft neutral background with gentle depth -->
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(71,85,105,0.04),transparent_70%)]" />
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_75%_75%,rgba(100,116,139,0.025),transparent_75%)]" />
+  <!-- Clean minimal background -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(71,85,105,0.03),transparent_70%)]" />
 
-  <!-- Interactive workflow visualization - hydrated island -->
-  <ProductDemoWorkflow client:visible />
+  <!-- Hero title - clean and minimal -->
+  <div class="relative z-10 text-center pt-16 lg:pt-20 pb-8">
+    <h2 class="text-4xl lg:text-5xl font-light tracking-tight leading-tight text-white/95">
+      <span class="font-serif italic text-purple-300">Legata</span>, die Zukunft in Legal Tech
+    </h2>
+    <p class="text-white/60 text-sm lg:text-base mt-4 max-w-2xl mx-auto px-6">
+      Legata macht Rechtsvorsorge zugänglich. Ihr persönlicher KI-Assistent für rechtsgültige Testamente: verständlich, sicher, kostenlos
+    </p>
+  </div>
 
-  <!-- Static content below the visualization -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center justify-center min-h-[50vh]">
-    <div class="text-center max-w-4xl">
-      <h2 class="text-5xl lg:text-6xl font-light mb-6 tracking-tight leading-tight">
-        Die <span class="font-serif italic text-purple-300">Zukunft</span> ist <br />
-        Legata
-      </h2>
-      
-      <p class="text-white/60 text-lg leading-relaxed mb-12">
-        Stellen Sie sich vor: Ein Anruf genügt, und Ihre komplexen Geschäftsprozesse werden automatisch orchestriert –
-        von der Ideenfindung bis zur fertigen Lösung.
+  <!-- Interactive workflow animation - hero section with maximum space -->
+  <div class="relative flex items-center justify-center px-6 lg:px-8" style="height: calc(100vh - 300px);">
+    <div class="w-full max-w-7xl">
+      <ProductDemoWorkflow client:visible />
+    </div>
+  </div>
+
+  <!-- Authentic mission-driven CTA -->
+  <div class="relative z-10 text-center pb-16 lg:pb-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="text-white/70 text-sm mb-6 max-w-2xl mx-auto leading-relaxed">
+        Dieses Tool entsteht aus sozialer Verantwortung, um der AHV-Krise zu begegnen und 
+        Schweizer Familien den Zugang zu rechtlicher Vorsorge zu erleichtern.
       </p>
-
-      <!-- Static feature grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        <div class="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center mb-4">
-            <span class="text-xl">🎙️</span>
-          </div>
-          <h3 class="text-white font-medium mb-2">Natürliche Sprache</h3>
-          <p class="text-white/60 text-sm">Sprechen Sie in Ihrer Sprache – Schweizerdeutsch, Hochdeutsch oder Französisch</p>
-        </div>
-
-        <div class="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center mb-4">
-            <span class="text-xl">🤖</span>
-          </div>
-          <h3 class="text-white font-medium mb-2">KI-Orchestrierung</h3>
-          <p class="text-white/60 text-sm">Intelligente Agenten koordinieren sich selbstständig für optimale Ergebnisse</p>
-        </div>
-
-        <div class="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 flex items-center justify-center mb-4">
-            <span class="text-xl">📄</span>
-          </div>
-          <h3 class="text-white font-medium mb-2">Perfekte Dokumente</h3>
-          <p class="text-white/60 text-sm">Von Verträgen bis Reports – alles automatisch erstellt und formatiert</p>
-        </div>
-      </div>
-
-      <!-- Static CTA -->
-      <div class="mt-12">
-        <button class="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium rounded-full hover:from-purple-600 hover:to-blue-600 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
-          Zukunft erleben
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <button class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium rounded-full hover:from-blue-600 hover:to-purple-600 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+          Bei Launch benachrichtigen
         </button>
-        <p class="text-white/50 text-sm mt-4">
-          Early Access für Schweizer Unternehmen – limitierte Plätze verfügbar
-        </p>
+        <button class="px-6 py-3 border border-white/20 text-white/80 font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all duration-300">
+          Ähnliches für Ihr Business?
+        </button>
       </div>
+      
+      <p class="text-white/40 text-xs mt-4">
+        Bald verfügbar • Kostenlos für alle Schweizer Einwohner
+      </p>
     </div>
   </div>
 </section>
