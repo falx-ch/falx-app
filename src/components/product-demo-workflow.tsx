@@ -15,6 +15,7 @@ export default function ProductDemoWorkflow() {
   const [activeTools, setActiveTools] = useState<number[]>([])
   const [isVisible, setIsVisible] = useState(false)
   const [cardPositions, setCardPositions] = useState<{ x: number; y: number }[]>([])
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const svgRef = useRef<SVGSVGElement>(null)
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -100,7 +101,7 @@ export default function ProductDemoWorkflow() {
     const angle = Math.atan2(dy, dx)
     
     // Card dimensions in SVG coordinates (estimated)
-    const cardWidth = 8
+    const cardWidth = 6
     const cardHeight = 6
     
     // Connect at card edges, not centers
@@ -255,15 +256,15 @@ export default function ProductDemoWorkflow() {
     { from: 7, to: 9 }, // Document to Notary
   ]
 
-  // Workflow items with grid positioning
+  // Workflow items with precise half-moon layout above AI agent
   const workflowItems = [
-    { key: 'voice', component: 'WorkflowStep', icon: "🎤", title: "Voice Input", subtitle: "DE | FR | IT | EN", size: "md", variant: "primary", className: "voice-wave", gridCol: "1 / span 2", gridRow: "6 / span 1" },
+    { key: 'voice', component: 'WorkflowStep', icon: "🎤", title: "Voice Input", subtitle: "DE | FR | IT | EN", size: "md", variant: "primary", className: "voice-wave", gridCol: "2 / span 2", gridRow: "8 / span 1" },
     { key: 'ai-agent', component: 'WorkflowStep', icon: "🤖", title: "AI Agent", subtitle: "Dynamic Tool Access", size: "lg", variant: "secondary", className: "ai-agent-hub", gridCol: "5 / span 2", gridRow: "5 / span 2" },
-    { key: 'llm', component: 'WorkflowTool', icon: "🧠", title: "ETH LLM", subtitle: "OpenSource", color: "purple", className: "dynamic-tool", gridCol: "2 / span 2", gridRow: "1 / span 1" },
-    { key: 'swiss-law', component: 'WorkflowTool', icon: "⚖️", title: "Swiss Law", subtitle: "RAG Database", color: "red", className: "dynamic-tool", gridCol: "4 / span 2", gridRow: "1 / span 1" },
-    { key: 'memory', component: 'WorkflowTool', icon: "💾", title: "Long-Term", subtitle: "Memory", color: "emerald", className: "dynamic-tool", gridCol: "6 / span 2", gridRow: "1 / span 1" },
-    { key: 'legal-draft', component: 'WorkflowTool', icon: "📝", title: "Legal Draft", subtitle: "Generator", color: "amber", className: "dynamic-tool", gridCol: "8 / span 2", gridRow: "1 / span 1" },
-    { key: 'voice-gen', component: 'WorkflowTool', icon: "🔊", title: "Voice", subtitle: "Generator", color: "cyan", className: "dynamic-tool", gridCol: "10 / span 2", gridRow: "2 / span 1" },
+    { key: 'llm', component: 'WorkflowTool', icon: "🧠", title: "ETH LLM", subtitle: "OpenSource", color: "red", className: "dynamic-tool", gridCol: "3 / span 1", gridRow: "2 / span 1" },
+    { key: 'swiss-law', component: 'WorkflowTool', icon: "⚖️", title: "Swiss Law", subtitle: "RAG Database", color: "red", className: "dynamic-tool", gridCol: "5 / span 1", gridRow: "1 / span 1" },
+    { key: 'memory', component: 'WorkflowTool', icon: "💾", title: "Long-Term", subtitle: "Memory", color: "red", className: "dynamic-tool", gridCol: "7 / span 1", gridRow: "1 / span 1" },
+    { key: 'legal-draft', component: 'WorkflowTool', icon: "📝", title: "Legal Draft", subtitle: "Generator", color: "red", className: "dynamic-tool", gridCol: "9 / span 1", gridRow: "2 / span 1" },
+    { key: 'voice-gen', component: 'WorkflowTool', icon: "🔊", title: "Voice", subtitle: "Generator", color: "red", className: "dynamic-tool", gridCol: "9 / span 1", gridRow: "3 / span 1" },
     { key: 'document', component: 'WorkflowStep', icon: "📄", title: "Final Document", size: "md", variant: "success", className: "final-document", gridCol: "9 / span 2", gridRow: "5 / span 2" },
     { key: 'handwritten', component: 'WorkflowStep', icon: "✍️", title: "Handschriftlich", subtitle: "Selbst erstellen", size: "md", variant: "success", className: "handwritten-option", gridCol: "11 / span 2", gridRow: "3 / span 1" },
     { key: 'notary', component: 'WorkflowStep', icon: "🏛️", title: "Notar-Termin", subtitle: "Beglaubigung", size: "md", variant: "success", className: "notary-option", gridCol: "11 / span 2", gridRow: "7 / span 1" }
@@ -288,13 +289,6 @@ export default function ProductDemoWorkflow() {
             <stop offset="0%" stopColor="#7c3aed" />
             <stop offset="100%" stopColor="#a855f7" />
           </linearGradient>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
         </defs>
         
         {connections.map((connection, index) => {
@@ -309,15 +303,14 @@ export default function ProductDemoWorkflow() {
           return (
             <path
               key={index}
-              className={className}
+              className={`${className} transition-all duration-300`}
               d={getConnectionPath(connection.from, connection.to)}
               fill="none"
-              stroke={index <= 6 ? "url(#toolGradient)" : "url(#flowGradient)"}
-              strokeWidth={index === 0 || index === 6 ? "1.2" : "0.8"}
-              opacity="0.7"
-              filter="url(#glow)"
+              stroke="#6b7280"
+              strokeWidth="0.6"
+              opacity={hoveredCard === connection.from || hoveredCard === connection.to ? "0.7" : "0.3"}
+              strokeDasharray={index > 6 ? "3,2" : (hoveredCard === connection.from || hoveredCard === connection.to ? "4,2" : "none")}
               strokeLinecap="round"
-              strokeDasharray={index > 6 ? "3,2" : "none"}
             />
           )
         })}
@@ -338,6 +331,8 @@ export default function ProductDemoWorkflow() {
                 gridRow: item.gridRow,
               }}
               onClick={() => handleInteraction(index + 1)}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
               {item.component === 'WorkflowStep' ? (
                 <WorkflowStep

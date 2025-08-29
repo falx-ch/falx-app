@@ -8,37 +8,17 @@ interface WorkflowToolProps {
   icon: string
   title: string
   subtitle: string
-  color: 'purple' | 'red' | 'emerald' | 'amber' | 'cyan'
+  color: 'red'
   isActive?: boolean
   onClick?: () => void
   className?: string
 }
 
 const colorClasses = {
-  purple: {
-    bg: 'bg-purple-500/90',
-    glow: 'shadow-purple-500/30',
-    gradient: 'from-purple-600/20 to-purple-400/10'
-  },
   red: {
-    bg: 'bg-red-500/90', 
-    glow: 'shadow-red-500/30',
-    gradient: 'from-red-600/20 to-red-400/10'
-  },
-  emerald: {
-    bg: 'bg-emerald-500/90',
-    glow: 'shadow-emerald-500/30', 
-    gradient: 'from-emerald-600/20 to-emerald-400/10'
-  },
-  amber: {
-    bg: 'bg-amber-500/90',
-    glow: 'shadow-amber-500/30',
-    gradient: 'from-amber-600/20 to-amber-400/10'
-  },
-  cyan: {
-    bg: 'bg-cyan-500/90',
-    glow: 'shadow-cyan-500/30',
-    gradient: 'from-cyan-600/20 to-cyan-400/10'
+    bg: 'bg-red-600/20',
+    glow: 'shadow-red-600/20',
+    gradient: 'from-red-600/10 to-red-500/5'
   }
 }
 
@@ -58,11 +38,11 @@ export const WorkflowTool = forwardRef<HTMLDivElement, WorkflowToolProps>(
       >
         <GlassCard
           intensity="medium"
-          hover="lift"
+          hover="none"
           size="sm"
           className={cn(
             "relative overflow-hidden rounded-2xl border transition-all duration-300",
-            "w-28 h-16 sm:w-32 sm:h-18 md:w-36 md:h-20",
+            "w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28",
             isActive 
               ? `border-white/40 ${colors.glow} shadow-lg` 
               : "border-white/20 hover:border-white/30"
@@ -77,21 +57,12 @@ export const WorkflowTool = forwardRef<HTMLDivElement, WorkflowToolProps>(
             )}
           />
           
-          {/* Glow effect for active state */}
-          {isActive && (
-            <div 
-              className={cn(
-                "absolute inset-0 rounded-2xl opacity-60 blur-xl transition-opacity duration-300",
-                colors.bg
-              )}
-            />
-          )}
           
           {/* Content */}
           <div className="relative flex flex-col items-center justify-center h-full p-2 space-y-1">
             <div className={cn(
               "text-lg sm:text-xl transition-all duration-300",
-              isActive ? "scale-110 filter drop-shadow-sm" : ""
+              isActive ? "scale-105" : ""
             )}>
               {icon}
             </div>

@@ -186,16 +186,16 @@ export default function ProblemShowcaseCards() {
 
   // Create fully interconnected web - every card connects to every other card
   const connections = [
-    { from: 0, to: 1, color: "#ef4444" }, // Manual → Communication
-    { from: 0, to: 2, color: "#f97316" }, // Manual → Compliance
-    { from: 0, to: 3, color: "#eab308" }, // Manual → Loops
-    { from: 0, to: 4, color: "#a855f7" }, // Manual → Costs
-    { from: 1, to: 2, color: "#22c55e" }, // Communication → Compliance
-    { from: 1, to: 3, color: "#06b6d4" }, // Communication → Loops
-    { from: 1, to: 4, color: "#3b82f6" }, // Communication → Costs
-    { from: 2, to: 3, color: "#ec4899" }, // Compliance → Loops
-    { from: 2, to: 4, color: "#f43f5e" }, // Compliance → Costs
-    { from: 3, to: 4, color: "#8b5cf6" }, // Loops → Costs
+    { from: 0, to: 1 }, // Manual → Communication
+    { from: 0, to: 2 }, // Manual → Compliance
+    { from: 0, to: 3 }, // Manual → Loops
+    { from: 0, to: 4 }, // Manual → Costs
+    { from: 1, to: 2 }, // Communication → Compliance
+    { from: 1, to: 3 }, // Communication → Loops
+    { from: 1, to: 4 }, // Communication → Costs
+    { from: 2, to: 3 }, // Compliance → Loops
+    { from: 2, to: 4 }, // Compliance → Costs
+    { from: 3, to: 4 }, // Loops → Costs
   ]
 
   const problemCards = [
@@ -209,25 +209,25 @@ export default function ProblemShowcaseCards() {
       icon: "💬",
       title: "Fragmentierte Kommunikation",
       subtitle: "Informationsverlust garantiert",
-      color: "orange",
+      color: "red",
     },
     {
       icon: "⚠️",
       title: "Compliance-Risiken",
       subtitle: "Datenschutz in Gefahr",
-      color: "yellow",
+      color: "red",
     },
     {
       icon: "🔄",
       title: "Endlose Schleifen",
       subtitle: "Ineffiziente Workflows",
-      color: "purple",
+      color: "red",
     },
     {
       icon: "💸",
       title: "Versteckte Kosten",
       subtitle: "Ressourcenverschwendung",
-      color: "pink",
+      color: "red",
     },
   ]
 
@@ -248,24 +248,15 @@ export default function ProblemShowcaseCards() {
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        <defs>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
         {connections.map((connection, index) => (
           <path
             key={index}
             d={getConnectionPath(connection.from, connection.to)}
             fill="none"
-            stroke={connection.color}
-            strokeWidth={hoveredCard === connection.from || hoveredCard === connection.to ? "1.2" : "0.6"}
-            opacity={hoveredCard === connection.from || hoveredCard === connection.to ? "0.9" : "0.4"}
-            filter="url(#glow)"
+            stroke="#6b7280"
+            strokeWidth="0.6"
+            opacity={hoveredCard === connection.from || hoveredCard === connection.to ? "0.7" : "0.3"}
+            strokeDasharray={hoveredCard === connection.from || hoveredCard === connection.to ? "4,2" : "none"}
             className="transition-all duration-300"
           />
         ))}
@@ -327,8 +318,7 @@ export default function ProblemShowcaseCards() {
                   <span className="text-white/90 text-sm">{card.icon}</span>
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs font-light text-white/90 mb-0.5">{card.title}</div>
-                  <div className="text-xs text-white/50 font-light leading-tight">{card.subtitle}</div>
+                  <div className="text-xs font-medium text-white/90">{card.title}</div>
                 </div>
               </div>
             </GlassCard>
