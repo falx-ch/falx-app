@@ -3,7 +3,7 @@ import { forwardRef } from "react"
 import { Card } from "@/components/ui/card"
 
 interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'interactive' | 'solution' | 'modal'
+  variant?: 'default' | 'solution' | 'modal'
   intensity?: 'light' | 'medium' | 'strong'  // Glass effect strength
   hover?: 'none' | 'lift' | 'glow'
   size?: 'sm' | 'md' | 'lg' | 'xl'
@@ -60,13 +60,12 @@ const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(({
         
         // Hover effects
         {
-          "hover:bg-white/12 hover:border-white/25 hover:shadow-2xl hover:-translate-y-1 hover:scale-[1.02]": hover === 'lift',
-          "hover:bg-white/8 hover:border-white/20": hover === 'glow',
+          "hover:!bg-white/12 hover:!border-white/25 hover:!shadow-2xl hover:!-translate-y-1 hover:!scale-[1.02] transition-all duration-300": hover === 'lift',
+          "hover:!bg-white/8 hover:!border-white/20 transition-all duration-300": hover === 'glow',
         },
         
         // Special variants
         {
-          "cursor-pointer opacity-0": variant === 'interactive', // For GSAP animations
           "max-w-sm mx-auto lg:mx-0 lg:max-w-md": variant === 'solution',
           "max-w-lg text-center shadow-2xl pointer-events-auto": variant === 'modal',
         },

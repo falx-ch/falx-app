@@ -125,8 +125,8 @@ export default function SolutionsShowcaseCards() {
               {/* Content Section */}
               <div className="flex-1 min-w-0">
                 {/* Header with Title and Metric Badge */}
-                <div className="flex items-start justify-between mb-3 sm:mb-4">
-                  <h3 className="text-lg sm:text-xl font-light text-white leading-tight tracking-tight pr-4">
+                <div className="flex items-start gap-3 mb-3 sm:mb-4">
+                  <h3 className="flex-1 min-w-0 text-lg sm:text-xl font-light text-white leading-tight tracking-tight">
                     {solution.title}
                   </h3>
                   <Badge 
@@ -134,7 +134,7 @@ export default function SolutionsShowcaseCards() {
                     className={cn(
                       "metric-badge flex-shrink-0 opacity-0",
                       "bg-white/10 text-white border-white/20 backdrop-blur-sm",
-                      "text-xs font-medium px-3 py-1.5"
+                      "text-[10px] sm:text-xs font-medium px-2 py-1 sm:px-3 sm:py-1.5"
                     )}
                   >
                     {solution.metric}

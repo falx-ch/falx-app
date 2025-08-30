@@ -271,7 +271,7 @@ export default function ProductDemoWorkflow() {
   ]
 
   return (
-    <div ref={containerRef} className="relative w-full h-[400px]">
+    <div ref={containerRef} className="relative w-full h-[300px] sm:h-[350px] lg:h-[400px] xl:h-[450px]">
       {/* SVG overlay for connections */}
       <svg
         ref={svgRef}

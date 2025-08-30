@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button';
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(71,85,105,0.03),transparent_70%)]" />
 
   <!-- Hero title - clean and minimal -->
-  <div class="relative z-10 text-center pt-16 lg:pt-20 pb-8">
+  <div class="relative z-10 text-center pt-8 sm:pt-12 lg:pt-16 pb-6 sm:pb-8">
     <h2 class="text-4xl lg:text-5xl font-light tracking-tight leading-tight text-white/95">
       <span class="font-serif italic text-red-300">Legata</span>, die Zukunft in Legal Tech
     </h2>
@@ -28,19 +28,19 @@ import { Button } from '@/components/ui/button';
     </p>
   </div>
 
-  <!-- Interactive workflow animation - hero section with maximum space -->
-  <div class="relative flex items-center justify-center px-6 lg:px-8" style="height: calc(100vh - 300px);">
-    <div class="w-full max-w-7xl">
+  <!-- Interactive workflow animation - hero section with responsive sizing -->
+  <div class="relative flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 min-h-[50vh] sm:min-h-[60vh] lg:min-h-[70vh] xl:min-h-[calc(100vh-300px)]">
+    <div class="w-full max-w-4xl lg:max-w-6xl xl:max-w-7xl">
       <ProductDemoWorkflow client:visible />
     </div>
   </div>
 
   <!-- Authentic mission-driven CTA -->
-  <div class="relative z-10 text-center pb-16 lg:pb-20">
+  <div class="relative z-10 text-center pb-12 sm:pb-16 lg:pb-20">
     <div class="max-w-4xl mx-auto px-6">
       <p class="text-white/70 text-sm mb-6 max-w-2xl mx-auto leading-relaxed">
         Dieses Tool entsteht aus sozialer Verantwortung, um der AHV-Krise zu begegnen und 
-        Schweizer Familien den Zugang zu rechtlicher Vorsorge zu erleichtern.
+        Familien in der Schweiz den Zugang zu rechtlicher Vorsorge zu erleichtern.
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -52,9 +52,6 @@ import { Button } from '@/components/ui/button';
         </Button>
       </div>
       
-      <p class="text-white/40 text-xs mt-4">
-        Bald verfügbar • Kostenlos für alle Einwohner der Schweiz
-      </p>
     </div>
   </div>
 </section>
