@@ -40,51 +40,60 @@ export default function ReportSectionCards() {
     <div ref={cardsRef} className="grid grid-cols-1 gap-4">
       <GlassCard 
         ref={card1Ref}
-        variant="interactive"
+        variant="default"
         hover="lift"
         size="md"
+        className="opacity-0"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
-        <div className="flex items-center justify-between card-content">
-          <div>
-            <div className="text-lg lg:text-xl font-normal text-white/90 mb-1">+7 Std. Verwaltung pro Woche</div>
+        <div className="flex items-center gap-3 sm:gap-4 card-content">
+          <div className="flex-shrink-0">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
+              <span className="text-xl sm:text-2xl">🕰️</span>
+            </div>
           </div>
-          <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
-            <span className="text-red-400 text-xs">⏱</span>
+          <div className="flex-1 min-w-0">
+            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">+7 Std. Verwaltung pro Woche</div>
           </div>
         </div>
       </GlassCard>
 
       <GlassCard 
         ref={card2Ref}
-        variant="interactive"
+        variant="default"
         hover="lift"
         size="md"
+        className="opacity-0"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
-        <div className="flex items-center justify-between card-content">
-          <div>
-            <div className="text-lg lg:text-xl font-normal text-white/90 mb-1">6.8 Tage verschwendet pro Monat</div>
+        <div className="flex items-center gap-3 sm:gap-4 card-content">
+          <div className="flex-shrink-0">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
+              <span className="text-xl sm:text-2xl">⚠️</span>
+            </div>
           </div>
-          <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
-            <span className="text-orange-400 text-xs">⚠</span>
+          <div className="flex-1 min-w-0">
+            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">6.8 Tage verschwendet pro Monat</div>
           </div>
         </div>
       </GlassCard>
 
       <GlassCard 
         ref={card3Ref}
-        variant="interactive"
+        variant="default"
         hover="lift"
         size="md"
+        className="opacity-0"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
-        <div className="flex items-center justify-between card-content">
-          <div>
-            <div className="text-lg lg:text-xl font-normal text-white/90 mb-1">CHF 6 Mia. schweizweit pro Jahr</div>
+        <div className="flex items-center gap-3 sm:gap-4 card-content">
+          <div className="flex-shrink-0">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
+              <span className="text-xl sm:text-2xl">💸</span>
+            </div>
           </div>
-          <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center">
-            <span className="text-red-400 text-xs">📉</span>
+          <div className="flex-1 min-w-0">
+            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">CHF 6 Mia. schweizweit pro Jahr</div>
           </div>
         </div>
       </GlassCard>

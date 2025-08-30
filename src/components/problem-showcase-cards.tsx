@@ -326,9 +326,9 @@ export default function ProblemShowcaseCards() {
               
               <div className="relative flex items-start space-x-2 mb-2">
                 <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-white/10 backdrop-blur-sm border border-white/20"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20"
                 >
-                  <span className="text-white/90 text-sm">{card.icon}</span>
+                  <span className="text-xl sm:text-2xl">{card.icon}</span>
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs font-medium text-white/90">{card.title}</div>

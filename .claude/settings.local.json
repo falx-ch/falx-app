@@ -23,7 +23,9 @@
       "mcp__archon__list_tasks",
       "mcp__archon__create_task",
       "Bash(grep:*)",
-      "mcp__archon__update_task"
+      "mcp__archon__update_task",
+      "mcp__archon__get_project",
+      "mcp__archon__list_projects"
     ]
   },
   "allowedTools": [
