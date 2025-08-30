@@ -43,7 +43,7 @@ export default function ReportSectionCards() {
         variant="default"
         hover="lift"
         size="md"
-        className="opacity-0"
+        className="opacity-0 cursor-pointer"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
         <div className="flex items-center gap-3 sm:gap-4 card-content">
@@ -63,7 +63,7 @@ export default function ReportSectionCards() {
         variant="default"
         hover="lift"
         size="md"
-        className="opacity-0"
+        className="opacity-0 cursor-pointer"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
         <div className="flex items-center gap-3 sm:gap-4 card-content">
@@ -83,7 +83,7 @@ export default function ReportSectionCards() {
         variant="default"
         hover="lift"
         size="md"
-        className="opacity-0"
+        className="opacity-0 cursor-pointer"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
         <div className="flex items-center gap-3 sm:gap-4 card-content">

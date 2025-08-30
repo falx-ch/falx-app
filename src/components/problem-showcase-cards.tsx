@@ -267,7 +267,7 @@ export default function ProblemShowcaseCards() {
               stroke={isHovered ? "#9ca3af" : "#6b7280"}
               strokeWidth="0.6"
               opacity={isHovered ? "0.7" : "0.3"}
-              strokeDasharray={isHovered ? "4,2" : "none"}
+              strokeDasharray="none"
               filter={isHovered ? "url(#glowEffect)" : "none"}
               className="transition-all duration-300"
             />
@@ -312,7 +312,7 @@ export default function ProblemShowcaseCards() {
               size="sm"
               className={cn(
                 "relative overflow-hidden transition-all duration-300 rounded-2xl",
-                "w-32 md:w-36 lg:w-40", // Fixed responsive widths
+                "w-36 h-18 sm:w-40 sm:h-20 md:w-44 md:h-22 lg:w-48 lg:h-24", // Larger cards for readable text
                 hoveredCard === index
                   ? "border-white/25"
                   : "border-white/15"
@@ -324,14 +324,16 @@ export default function ProblemShowcaseCards() {
                 background: `radial-gradient(circle at top left, var(--${card.color}-glow) 0%, transparent 70%)`
               }}/>
               
-              <div className="relative flex items-start space-x-2 mb-2">
-                <div
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20"
-                >
-                  <span className="text-xl sm:text-2xl">{card.icon}</span>
+              <div className="relative flex items-center gap-2 h-full px-2 py-2">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
+                    <span className="text-xl sm:text-2xl leading-none">{card.icon}</span>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-medium text-white/90">{card.title}</div>
+                <div className="flex-1 min-w-0 flex flex-col justify-center">
+                  <div className="text-xs sm:text-sm md:text-sm font-medium text-white/90 leading-tight">
+                    {card.title}
+                  </div>
                 </div>
               </div>
             </GlassCard>
