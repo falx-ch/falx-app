@@ -30,7 +30,8 @@ export const WorkflowTool = forwardRef<HTMLDivElement, WorkflowToolProps>(
       <div
         ref={ref}
         className={cn(
-          "workflow-tool cursor-pointer select-none transition-all duration-300",
+          "workflow-tool select-none transition-all duration-300",
+          onClick && "cursor-pointer",
           "transform-gpu will-change-transform",
           className
         )}

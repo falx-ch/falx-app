@@ -317,7 +317,7 @@ export default function ProductDemoWorkflow() {
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="cursor-pointer select-none transition-all duration-300 place-self-center pointer-events-auto opacity-0 relative z-20"
+              className="select-none transition-all duration-300 place-self-center pointer-events-auto opacity-0 relative z-20"
               style={{
                 gridColumn: item.gridCol,
                 gridRow: item.gridRow,
@@ -330,7 +330,7 @@ export default function ProductDemoWorkflow() {
               {item.component === 'WorkflowStep' ? (
                 index === 0 ? (
                   // Special voice assistant component for index 0
-                  <div className="workflow-step cursor-pointer select-none transition-all duration-300 transform-gpu will-change-transform relative">
+                  <div className="workflow-step select-none transition-all duration-300 transform-gpu will-change-transform relative">
                     {/* Voice assistant orb - calm and confident */}
                     <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28">
                       {/* Subtle breathing glow - very gentle white */}

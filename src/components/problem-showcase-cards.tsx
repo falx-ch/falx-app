@@ -297,7 +297,7 @@ export default function ProblemShowcaseCards() {
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="cursor-pointer select-none transition-all duration-300 place-self-center opacity-0"
+              className="select-none transition-all duration-300 place-self-center opacity-0"
               style={{
                 gridColumn: pos.col,
                 gridRow: pos.row,
