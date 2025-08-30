@@ -1,385 +1,378 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin"
-import { ANIMATION_CONFIGS } from '@/lib/gsap-manager'
-import { WorkflowTool } from '@/components/ui/workflow-tool'
-import { WorkflowStep } from '@/components/ui/workflow-step'
+import { MotionPathPlugin } from "gsap/MotionPathPlugin"
 
-gsap.registerPlugin(DrawSVGPlugin)
+gsap.registerPlugin(DrawSVGPlugin, MotionPathPlugin)
 
 export default function ProductDemoWorkflow() {
-  const [animationStep, setAnimationStep] = useState(0)
-  const [isInteractive, setIsInteractive] = useState(false)
-  const [activeTools, setActiveTools] = useState<number[]>([])
-  const [isVisible, setIsVisible] = useState(false)
-  const [cardPositions, setCardPositions] = useState<{ x: number; y: number }[]>([])
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-  const svgRef = useRef<SVGSVGElement>(null)
   const timelineRef = useRef<gsap.core.Timeline | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<HTMLDivElement[]>([])
 
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    if (!containerRef.current) return
 
-  useEffect(() => {
-    if (!isVisible || cardsRef.current.length === 0) return
-
-    const updatePositions = () => {
-      if (!containerRef.current || !svgRef.current) return
-
-      const containerRect = containerRef.current.getBoundingClientRect()
-      const svgRect = svgRef.current.getBoundingClientRect()
-
-      const positions = cardsRef.current.map((card) => {
-        if (!card) return { x: 0, y: 0 }
-
-        const cardRect = card.getBoundingClientRect()
-        const cardCenterX = cardRect.left + cardRect.width / 2
-        const cardCenterY = cardRect.top + cardRect.height / 2
-
-        // Convert to SVG viewBox coordinates (0-100)
-        const x = ((cardCenterX - svgRect.left) / svgRect.width) * 100
-        const y = ((cardCenterY - svgRect.top) / svgRect.height) * 100
-
-        return { x, y }
-      })
-
-      setCardPositions(positions)
-    }
-
-    // Initial position calculation with delay for grid layout
-    const initialTimer = setTimeout(updatePositions, 100)
-
-    // Update positions on window resize
-    const handleResize = () => {
-      setTimeout(updatePositions, 50) // Small delay for layout changes
-    }
-    window.addEventListener("resize", handleResize)
-
-    // Observe card position changes for dynamic updates
-    const observer = new ResizeObserver(() => {
-      setTimeout(updatePositions, 10)
+    // Set initial states
+    gsap.set('.node-pill', { scale: 0, opacity: 0 })
+    gsap.set('#cognitive-pill rect', { fill: '#9ca3af' }) // Toolbox starts grayed out
+    gsap.set('#cognitive-pill .toolbox-text', { fill: 'rgba(156, 163, 175, 0.7)', opacity: 1 })
+    gsap.set('#cognitive-pill .thinking-dot', { fill: 'rgba(156, 163, 175, 0.4)', opacity: 1 })
+    gsap.set('.connection-path', { drawSVG: '0%' })
+    gsap.set('.tool-indicator', { scale: 0, opacity: 0 })
+    gsap.set('.pulse-dot', { scale: 0, opacity: 0 })
+    gsap.set('.thinking-dot', { y: 0, opacity: 1 })
+    
+    // Create main timeline
+    const tl = gsap.timeline({ 
+      defaults: { duration: 0.6, ease: 'power2.out' },
+      delay: 0.5
     })
 
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card)
-    })
-
-    return () => {
-      clearTimeout(initialTimer)
-      window.removeEventListener("resize", handleResize)
-      observer.disconnect()
-    }
-  }, [isVisible])
-
-  // Dynamic position calculation using tracked positions
-  const getConnectionPath = (fromIndex: number, toIndex: number) => {
-    if (cardPositions.length === 0 || !cardPositions[fromIndex] || !cardPositions[toIndex]) {
-      return "M0,0 L0,0"
-    }
-
-    const fromPos = cardPositions[fromIndex]
-    const toPos = cardPositions[toIndex]
-    
-    const fromX = fromPos.x
-    const fromY = fromPos.y
-    const toX = toPos.x
-    const toY = toPos.y
-
-    // Calculate edge connection points
-    const dx = toX - fromX
-    const dy = toY - fromY
-    const distance = Math.sqrt(dx * dx + dy * dy)
-    
-    if (distance < 1) return "M0,0 L0,0"
-    
-    const angle = Math.atan2(dy, dx)
-    
-    // Card dimensions in SVG coordinates (estimated)
-    const cardWidth = 6
-    const cardHeight = 6
-    
-    // Connect at card edges, not centers
-    const fromEdgeX = fromX + (cardWidth * 0.35) * Math.cos(angle)
-    const fromEdgeY = fromY + (cardHeight * 0.35) * Math.sin(angle)
-    const toEdgeX = toX - (cardWidth * 0.35) * Math.cos(angle)
-    const toEdgeY = toY - (cardHeight * 0.35) * Math.sin(angle)
-
-    // Create organic curve with varying intensity
-    const curveIntensity = 6 + Math.sin(fromIndex + toIndex) * 4
-    const midX = (fromEdgeX + toEdgeX) / 2
-    const midY = (fromEdgeY + toEdgeY) / 2
-    const controlX = midX + (dy / distance) * curveIntensity
-    const controlY = midY - (dx / distance) * curveIntensity
-
-    return `M${fromEdgeX},${fromEdgeY} Q${controlX},${controlY} ${toEdgeX},${toEdgeY}`
-  }
-
-  useEffect(() => {
-    if (!isVisible || !svgRef.current) return
-
-    // Initialize SVG lines as hidden (elements already hidden via CSS)
-    gsap.set(".voice-to-agent-line, .agent-to-eth-line, .tool-connection, .document-flow, .choice-flow-1, .choice-flow-2", { drawSVG: "0%" })
-
-    // Create timeline - play only once
-    const tl = gsap.timeline({ defaults: { ease: "power2.out" } })
-
-    // 1. Voice input appears first (index 0) - elegant entrance
-    tl.fromTo(cardsRef.current[0], {
-      scale: 0, 
-      opacity: 0
-    }, {
-      scale: 1,
-      opacity: 1,
-      duration: 0.8,
-      ease: "back.out(1.7)"
-    })
-      // 2. Voice to AI Agent connection line animates (with delay for position calculation)
-      .fromTo(".voice-to-agent-line",
-        { drawSVG: "0%" },
-        { 
-          drawSVG: "100%",
-          duration: 0.8,
-          ease: "power2.out"
-        }, "+=0.4")
-      // 3. AI Agent hub appears (index 1)
-      .fromTo(cardsRef.current[1],
-        { scale: 0, opacity: 0 },
-        { 
-          scale: 1, 
-          opacity: 1, 
-          duration: 0.8,
-          ease: "back.out(2)"
-        }, "-=0.3")
-      // 4. All tool connections animate simultaneously (ETH LLM and others)
-      .add(() => setActiveTools([1, 2, 3, 4, 5]))
-      .fromTo(".agent-to-eth-line, .tool-connection", 
-        { drawSVG: "0%" },
-        { 
-          drawSVG: "100%",
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.1
-        }, "+=0.3")
-      // 5. Tool cards appear (indices 2-6)
-      .fromTo([cardsRef.current[2], cardsRef.current[3], cardsRef.current[4], cardsRef.current[5], cardsRef.current[6]], {
-        scale: 0, 
-        opacity: 0
-      }, {
-        scale: 1,
+    // Phase 1: Scene Setup - Legata-centric approach
+    tl
+      // Central Legata appears first
+      .to('#legata-pill', { 
+        scale: 1, 
         opacity: 1,
         duration: 0.8,
-        stagger: 0.1
-      }, "-=0.5")
-      // 6. Document connection line appears after tools are revealed
-      .fromTo(".document-flow",
-        { drawSVG: "0%" },
-        { 
-          drawSVG: "100%",
-          duration: 1.2,
-          ease: "power1.inOut"
-        }, "+=0.5")
-      // 7. Final document appears after connection line (index 7)
-      .fromTo(cardsRef.current[7],
-        { scale: 0, opacity: 0 },
-        { 
-          scale: 1, 
-          opacity: 1, 
-          duration: 0.8,
-          ease: "back.out(1.5)"
-        }, "-=0.8")
-      // 8. Choice flows animate after document is revealed
-      .fromTo(".choice-flow-1, .choice-flow-2",
-        { drawSVG: "0%" },
-        { 
-          drawSVG: "100%",
-          duration: 1.0,
-          stagger: 0.2,
-          ease: "power2.out"
-        }, "+=0.3")
-      // 9. Choice options appear after their connection lines (indices 8, 9)
-      .fromTo([cardsRef.current[8], cardsRef.current[9]], {
-        scale: 0,
-        opacity: 0
-      }, {
+        ease: 'back.out(1.2)'
+      })
+      
+      // Connection line to cognitive toolbox only
+      .to('#path-to-cognitive', { 
+        drawSVG: '100%',
+        duration: 0.6
+      }, '+=0.2')
+      
+      // User and Toolbox appear
+      .to('#user-pill', { 
+        scale: 1, 
+        opacity: 1,
+        duration: 0.5,
+        ease: 'back.out(1.2)'
+      }, '-=0.4')
+      .to('#cognitive-pill', { 
+        scale: 1, 
+        opacity: 1,
+        duration: 0.5,
+        ease: 'back.out(1.2)'
+      }, '-=0.3')
+
+    // Phase 2: First Conversation - Swiss Law
+    tl
+      // 1. User speaks
+      .to('#user-voice-icon', {
         scale: 1,
         opacity: 1,
-        stagger: 0.2,
-        duration: 0.6
-      }, "-=0.6")
+        duration: 0.3
+      }, '+=0.8')
+      .to('#user-pill', {
+        scale: 1.05,
+        duration: 0.2
+      }, '-=0.1')
+      
+      // 2. No signal - direct voice communication
+      // User stops speaking
+      .to('#user-voice-icon', { scale: 0, opacity: 0, duration: 0.2 }, '+=0.3')
+      .to('#user-pill', { scale: 1, duration: 0.2 }, '-=0.1')
+      
+      // 3. Legata activates for processing
+      .to('#legata-pill', {
+        scale: 1.05,
+        duration: 0.2
+      }, '+=0.1')
+      
+      // 4. Legata sends signal to Toolbox along path
+      .set('#pulse-dot-2', { 
+        scale: 1, 
+        opacity: 1,
+        x: 480, // Legata right border
+        y: 100
+      }, '+=0.2')
+      .to('#pulse-dot-2', {
+        x: 560, // Toolbox left border
+        duration: 0.5,
+        ease: 'power1.inOut'
+      })
+      .to('#pulse-dot-2', {
+        scale: 0,
+        opacity: 0,
+        duration: 0.1
+      })
+      
+      // 5. Toolbox activates - becomes white and thinks
+      .to('#cognitive-pill rect', {
+        fill: 'white',
+        duration: 0.3
+      }, '-=0.1')
+      .to('#cognitive-pill .toolbox-text', {
+        fill: '#374151',
+        duration: 0.3
+      }, '-=0.3')
+      .to('#cognitive-pill .thinking-dot', {
+        fill: '#374151',
+        duration: 0.3
+      }, '-=0.3')
+      .to('#cognitive-pill', {
+        scale: 1.05,
+        duration: 0.2
+      }, '-=0.2')
+      
+      // 6. Thinking animation
+      .to('.thinking-dot', {
+        opacity: 1,
+        duration: 0.2
+      })
+      .to('#dot-1', { y: -5, duration: 0.2 })
+      .to('#dot-1', { y: 0, duration: 0.2 })
+      .to('#dot-2', { y: -5, duration: 0.2 }, '-=0.3')
+      .to('#dot-2', { y: 0, duration: 0.2 })
+      .to('#dot-3', { y: -5, duration: 0.2 }, '-=0.3')
+      .to('#dot-3', { y: 0, duration: 0.2 })
+      
+      // 7. Show Swiss Law result
+      .to('.thinking-dot', { y: 0, opacity: 0, duration: 0.2 })
+      .set('#tool-result', { 
+        textContent: '⚖️',
+        scale: 1,
+        opacity: 1
+      })
+      
+      // 8. Send result back to Legata along path
+      .set('#pulse-dot-3', { 
+        scale: 1, 
+        opacity: 1,
+        x: 720, // Toolbox right border
+        y: 100
+      }, '+=0.5')
+      .to('#pulse-dot-3', {
+        x: 480, // Legata right border
+        duration: 0.5,
+        ease: 'power1.inOut'
+      })
+      .to('#pulse-dot-3', {
+        scale: 0,
+        opacity: 0,
+        duration: 0.1
+      })
+      
+      // 9. Toolbox goes back to idle (grayed out)
+      .to('#tool-result', { scale: 0, opacity: 0, duration: 0.2 }, '-=0.3')
+      .to('#cognitive-pill rect', {
+        fill: '#9ca3af',
+        duration: 0.3
+      }, '-=0.2')
+      .to('#cognitive-pill .toolbox-text', {
+        fill: 'rgba(156, 163, 175, 0.7)',
+        duration: 0.3
+      }, '-=0.3')
+      .to('#cognitive-pill .thinking-dot', {
+        fill: 'rgba(156, 163, 175, 0.4)',
+        opacity: 1,
+        duration: 0.3
+      }, '-=0.3')
+      .to('#cognitive-pill', { scale: 1, duration: 0.2 }, '-=0.2')
+      
+      // 10. Legata responds with voice
+      .to('#legata-voice-icon', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.3
+      }, '-=0.1')
+      
+      // 11. Legata responds with voice - no signal needed
+      .to('#legata-voice-icon', { scale: 0, opacity: 0, duration: 0.2 }, '+=0.5')
+      .to('#legata-pill', { scale: 1, duration: 0.2 }, '-=0.1')
+
+    // Phase 3: Second Conversation - Memory
+    tl
+      // Repeat similar flow for Memory tool
+      .to('#user-voice-icon', { scale: 1, opacity: 1, duration: 0.3 }, '+=0.5')
+      .to('#user-pill', { scale: 1.05, duration: 0.2 }, '-=0.1')
+      
+      // No signal for voice communication
+      .to('#user-voice-icon', { scale: 0, opacity: 0, duration: 0.2 }, '+=0.3')
+      .to('#user-pill', { scale: 1, duration: 0.2 }, '-=0.1')
+      
+      .to('#legata-pill', { scale: 1.05, duration: 0.2 }, '+=0.1')
+      
+      .set('#pulse-dot-6', { scale: 1, opacity: 1, x: 480, y: 100 }, '+=0.2')
+      .to('#pulse-dot-6', { x: 560, duration: 0.5, ease: 'power1.inOut' })
+      .to('#pulse-dot-6', { scale: 0, opacity: 0, duration: 0.1 })
+      
+      // Toolbox activates again
+      .to('#cognitive-pill rect', { fill: 'white', duration: 0.3 }, '-=0.1')
+      .to('#cognitive-pill .toolbox-text', { fill: '#374151', duration: 0.3 }, '-=0.3')
+      .to('#cognitive-pill .thinking-dot', { fill: '#374151', duration: 0.3 }, '-=0.3')
+      .to('#cognitive-pill', { scale: 1.05, duration: 0.2 }, '-=0.2')
+      
+      // Thinking for Memory
+      .to('.thinking-dot', { opacity: 1, duration: 0.2 })
+      .to('#dot-1', { y: -5, duration: 0.2 })
+      .to('#dot-1', { y: 0, duration: 0.2 })
+      .to('#dot-2', { y: -5, duration: 0.2 }, '-=0.3')
+      .to('#dot-2', { y: 0, duration: 0.2 })
+      .to('#dot-3', { y: -5, duration: 0.2 }, '-=0.3')
+      .to('#dot-3', { y: 0, duration: 0.2 })
+      
+      .to('.thinking-dot', { opacity: 0, duration: 0.2 })
+      .set('#tool-result', { textContent: '💾', scale: 1, opacity: 1 })
+      
+      // Result back to Legata
+      .set('#pulse-dot-7', { scale: 1, opacity: 1, x: 720, y: 100 }, '+=0.5')
+      .to('#pulse-dot-7', { x: 480, duration: 0.5, ease: 'power1.inOut' })
+      .to('#pulse-dot-7', { scale: 0, opacity: 0, duration: 0.1 })
+      
+      // Toolbox back to idle
+      .to('#tool-result', { scale: 0, opacity: 0, duration: 0.2 }, '-=0.3')
+      .to('#cognitive-pill rect', { fill: '#9ca3af', duration: 0.3 }, '-=0.2')
+      .to('#cognitive-pill .toolbox-text', { fill: 'rgba(156, 163, 175, 0.7)', duration: 0.3 }, '-=0.3')
+      .to('#cognitive-pill .thinking-dot', { fill: 'rgba(156, 163, 175, 0.4)', opacity: 1, duration: 0.3 }, '-=0.3')
+      .to('#cognitive-pill', { scale: 1, duration: 0.2 }, '-=0.2')
+      
+      .to('#legata-voice-icon', { scale: 1, opacity: 1, duration: 0.3 }, '-=0.1')
+      
+      // Legata responds with voice - no signal needed
+      .to('#legata-voice-icon', { scale: 0, opacity: 0, duration: 0.2 }, '+=0.5')
+      .to('#legata-pill', { scale: 1, duration: 0.2 }, '-=0.1')
+
+    // Phase 4: Document Generation
+    tl
+      .to('#legata-pill', { scale: 1.1, duration: 0.4 }, '+=0.8')
+      
+      .to('#path-to-document', { drawSVG: '100%', duration: 0.8 })
+      
+      .to('#document-pill', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'back.out(1.2)'
+      }, '-=0.3')
+      
+      .to('#path-to-handwrite, #path-to-notarize', {
+        drawSVG: '100%',
+        duration: 0.6,
+        stagger: 0.15
+      }, '+=0.3')
+      
+      .to('#handwrite-pill, #notarize-pill', {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'back.out(1.2)'
+      }, '-=0.3')
+      .to('#legata-pill', { scale: 1, duration: 0.3 }, '-=0.5')
 
     timelineRef.current = tl
 
     return () => {
       if (timelineRef.current) timelineRef.current.kill()
     }
-  }, [isVisible])
-
-  const handleInteraction = (step: number) => {
-    setIsInteractive(true)
-    setAnimationStep(step)
-
-    if (timelineRef.current) {
-      timelineRef.current.pause()
-    }
-
-    setTimeout(() => {
-      setIsInteractive(false)
-      if (timelineRef.current) {
-        timelineRef.current.resume()
-      }
-    }, 4000)
-  }
-
-  // Connection definitions (0-indexed to match workflowItems array)
-  const connections = [
-    { from: 0, to: 1 }, // Voice to AI Agent
-    { from: 1, to: 2 }, // AI Agent to LLM
-    { from: 1, to: 3 }, // AI Agent to Swiss Law
-    { from: 1, to: 4 }, // AI Agent to Memory
-    { from: 1, to: 5 }, // AI Agent to Legal Draft
-    { from: 1, to: 6 }, // AI Agent to Voice Gen
-    { from: 1, to: 7 }, // AI Agent to Document
-    { from: 7, to: 8 }, // Document to Handwritten
-    { from: 7, to: 9 }, // Document to Notary
-  ]
-
-  // Workflow items with precise half-moon layout above AI agent
-  const workflowItems = [
-    { key: 'voice', component: 'WorkflowStep', icon: "🎤", title: "Voice Input", subtitle: "DE | FR | IT | EN", size: "md", variant: "primary", className: "voice-wave", gridCol: "2 / span 2", gridRow: "8 / span 1" },
-    { key: 'ai-agent', component: 'WorkflowStep', icon: "🤖", title: "AI Agent", subtitle: "Dynamic Tool Access", size: "lg", variant: "secondary", className: "ai-agent-hub", gridCol: "5 / span 2", gridRow: "5 / span 2" },
-    { key: 'llm', component: 'WorkflowTool', icon: "🧠", title: "ETH LLM", subtitle: "OpenSource", color: "red", className: "dynamic-tool", gridCol: "3 / span 1", gridRow: "2 / span 1" },
-    { key: 'swiss-law', component: 'WorkflowTool', icon: "⚖️", title: "Swiss Law", subtitle: "RAG Database", color: "red", className: "dynamic-tool", gridCol: "5 / span 1", gridRow: "1 / span 1" },
-    { key: 'memory', component: 'WorkflowTool', icon: "💾", title: "Long-Term", subtitle: "Memory", color: "red", className: "dynamic-tool", gridCol: "7 / span 1", gridRow: "1 / span 1" },
-    { key: 'legal-draft', component: 'WorkflowTool', icon: "📝", title: "Legal Draft", subtitle: "Generator", color: "red", className: "dynamic-tool", gridCol: "9 / span 1", gridRow: "2 / span 1" },
-    { key: 'voice-gen', component: 'WorkflowTool', icon: "🔊", title: "Voice", subtitle: "Generator", color: "red", className: "dynamic-tool", gridCol: "9 / span 1", gridRow: "3 / span 1" },
-    { key: 'document', component: 'WorkflowStep', icon: "📄", title: "Final Document", size: "md", variant: "success", className: "final-document", gridCol: "9 / span 2", gridRow: "5 / span 2" },
-    { key: 'handwritten', component: 'WorkflowStep', icon: "✍️", title: "Handschriftlich", subtitle: "Selbst erstellen", size: "md", variant: "success", className: "handwritten-option", gridCol: "11 / span 2", gridRow: "3 / span 1" },
-    { key: 'notary', component: 'WorkflowStep', icon: "🏛️", title: "Notar-Termin", subtitle: "Beglaubigung", size: "md", variant: "success", className: "notary-option", gridCol: "11 / span 2", gridRow: "7 / span 1" }
-  ]
+  }, [])
 
   return (
-    <div ref={containerRef} className="relative w-full h-[300px] sm:h-[350px] lg:h-[400px] xl:h-[450px]">
-      {/* SVG overlay for connections */}
-      <svg
-        ref={svgRef}
-        className="absolute inset-0 w-full h-full pointer-events-none z-0"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.9" />
-          </linearGradient>
-          <linearGradient id="toolGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#7c3aed" />
-            <stop offset="100%" stopColor="#a855f7" />
-          </linearGradient>
-        </defs>
-        
-        {connections.map((connection, index) => {
-          let className = "";
-          if (index === 0) className = "voice-to-agent-line"; // Voice to AI Agent
-          else if (index === 1) className = "agent-to-eth-line"; // AI Agent to ETH LLM 
-          else if (index >= 2 && index <= 5) className = "tool-connection"; // Other tool connections
-          else if (index === 6) className = "document-flow"; // AI Agent to Document
-          else if (index === 7) className = "choice-flow-1"; // Document to Handwritten
-          else if (index === 8) className = "choice-flow-2"; // Document to Notary
-          
-          return (
-            <path
-              key={index}
-              className={`${className} transition-all duration-300`}
-              d={getConnectionPath(connection.from, connection.to)}
-              fill="none"
-              stroke="#6b7280"
-              strokeWidth="0.6"
-              opacity={hoveredCard === connection.from || hoveredCard === connection.to ? "0.7" : "0.3"}
-              strokeDasharray={index > 6 ? "3,2" : (hoveredCard === connection.from || hoveredCard === connection.to ? "4,2" : "none")}
-              strokeLinecap="round"
-            />
-          )
-        })}
-      </svg>
-
-      {/* Workflow Cards - Grid Layout like problem showcase */}
-      <div className="relative z-10 w-full h-full">
-        <div className="grid grid-cols-12 grid-rows-8 h-full w-full gap-0">
-          {workflowItems.map((item, index) => (
-            <div
-              key={index}
-              ref={(el) => {
-                if (el) cardsRef.current[index] = el
-              }}
-              className="select-none transition-all duration-300 place-self-center pointer-events-auto opacity-0 relative z-20"
-              style={{
-                gridColumn: item.gridCol,
-                gridRow: item.gridRow,
-                transform: 'scale(0)',
-              }}
-              onClick={() => handleInteraction(index + 1)}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              {item.component === 'WorkflowStep' ? (
-                index === 0 ? (
-                  // Special voice assistant component for index 0
-                  <div className="workflow-step select-none transition-all duration-300 transform-gpu will-change-transform relative">
-                    {/* Voice assistant orb - calm and confident */}
-                    <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28">
-                      {/* Subtle breathing glow - very gentle white */}
-                      <div className="absolute inset-2 rounded-full bg-white/15 animate-pulse" style={{ animationDuration: '3s' }}></div>
-                      
-                      {/* Main orb - premium white/silver */}
-                      <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-gradient-to-br from-white/70 to-white/40 shadow-xl shadow-white/20 backdrop-blur-sm border border-white/30">
-                        {/* Inner luminosity */}
-                        <div className="absolute inset-1 rounded-full bg-gradient-to-br from-white/50 via-white/30 to-transparent"></div>
-                        {/* Core glow */}
-                        <div className="absolute inset-3 rounded-full bg-gradient-to-br from-white/40 to-transparent"></div>
-                      </div>
-                    </div>
-                    
-                    {/* Label */}
-                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-center whitespace-nowrap">
-                      <div className="text-xs font-medium text-white/90 leading-tight">
-                        {item.title}
-                      </div>
-                      <div className="text-xs text-white/60 font-light leading-tight">
-                        {item.subtitle}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <WorkflowStep
-                    icon={item.icon}
-                    title={item.title}
-                    subtitle={item.subtitle}
-                    size={item.size as any}
-                    variant={item.variant as any}
-                    isActive={animationStep >= index + 1}
-                    className={item.className}
-                  />
-                )
-              ) : (
-                <WorkflowTool
-                  icon={item.icon}
-                  title={item.title}
-                  subtitle={item.subtitle}
-                  color={item.color as any}
-                  isActive={activeTools.includes(index - 1)}
-                  className={item.className}
-                />
-              )}
-            </div>
-          ))}
+    <div ref={containerRef} className="relative w-full h-[400px] flex items-center justify-center">
+      {/* Toolbox Legend */}
+      <div className="absolute top-4 right-4 text-xs text-white/60 bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2">
+        <div className="font-medium text-white/80 mb-1">Toolbox</div>
+        <div className="space-y-1">
+          <div>⚖️ Swiss Law Database</div>
+          <div>💾 Long-Term Memory</div>
         </div>
       </div>
+      
+      {/* Clean SVG Layout */}
+      <svg 
+        viewBox="0 0 800 400" 
+        className="w-full max-w-4xl"
+        style={{ maxHeight: '380px' }}
+      >
+        <defs>
+          <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.1"/>
+          </filter>
+        </defs>
+
+        {/* Connection paths - Only to cognitive toolbox */}
+        <path id="path-to-cognitive" className="connection-path" 
+          d="M 480 100 L 560 100" 
+          fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+        
+        <path id="path-to-document" className="connection-path" 
+          d="M 400 140 L 400 200" 
+          fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+        
+        <path id="path-to-split" className="connection-path" 
+          d="M 400 250 L 400 280" 
+          fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+        
+        <path id="path-to-handwrite" className="connection-path" 
+          d="M 400 280 L 210 280 L 210 310" 
+          fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+        
+        <path id="path-to-notarize" className="connection-path" 
+          d="M 400 280 L 600 280 L 600 310" 
+          fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+
+        {/* User Node */}
+        <g id="user-pill" className="node-pill">
+          <rect x="100" y="80" width="140" height="50" rx="8" 
+            fill="white" filter="url(#shadow)" />
+          <text x="170" y="109" className="text-sm font-medium fill-gray-800" textAnchor="middle">👤 User</text>
+          <text id="user-voice-icon" x="230" y="75" className="text-sm tool-indicator">🔊</text>
+        </g>
+
+        {/* Legata Node (Center, more prominent) */}
+        <g id="legata-pill" className="node-pill">
+          <rect x="320" y="70" width="160" height="70" rx="10" 
+            fill="white" filter="url(#shadow)" />
+          <text x="400" y="109" className="text-base font-semibold fill-gray-800" textAnchor="middle">🧠 Legata</text>
+          <text id="legata-voice-icon" x="330" y="75" className="text-sm tool-indicator">🔊</text>
+        </g>
+
+        {/* Toolbox Node - starts grayed out */}
+        <g id="cognitive-pill" className="node-pill">
+          <rect x="560" y="80" width="160" height="50" rx="8" 
+            fill="#9ca3af" filter="url(#shadow)" />
+          <text x="600" y="109" className="toolbox-text text-sm font-medium" fill="rgba(156, 163, 175, 0.7)">Toolbox</text>
+          
+          <circle id="dot-1" cx="680" cy="105" r="2" fill="rgba(156, 163, 175, 0.4)" className="thinking-dot" />
+          <circle id="dot-2" cx="690" cy="105" r="2" fill="rgba(156, 163, 175, 0.4)" className="thinking-dot" />
+          <circle id="dot-3" cx="700" cy="105" r="2" fill="rgba(156, 163, 175, 0.4)" className="thinking-dot" />
+          
+          <text id="tool-result" x="680" y="109" className="text-base tool-indicator"></text>
+        </g>
+
+        {/* Final Document Node */}
+        <g id="document-pill" className="node-pill">
+          <rect x="320" y="200" width="160" height="50" rx="8" 
+            fill="white" filter="url(#shadow)" />
+          <text x="400" y="229" className="text-sm font-medium fill-gray-800" textAnchor="middle">📝 Final Document</text>
+        </g>
+
+        {/* Handwrite & Sign Node */}
+        <g id="handwrite-pill" className="node-pill">
+          <rect x="120" y="310" width="180" height="50" rx="8" 
+            fill="white" filter="url(#shadow)" />
+          <text x="210" y="339" className="text-sm font-medium fill-gray-800" textAnchor="middle">✍️ Handwrite & Sign</text>
+        </g>
+
+        {/* Notarize & Deposit Node */}
+        <g id="notarize-pill" className="node-pill">
+          <rect x="500" y="310" width="200" height="50" rx="8" 
+            fill="white" filter="url(#shadow)" />
+          <text x="600" y="339" className="text-sm font-medium fill-gray-800" textAnchor="middle">🏛️ Notarize & Deposit</text>
+        </g>
+
+        {/* Pulse dots only for Legata-Toolbox communication */}
+        <circle id="pulse-dot-2" cx="480" cy="100" r="4" fill="rgb(220, 38, 38)" className="pulse-dot" />
+        <circle id="pulse-dot-3" cx="720" cy="100" r="4" fill="rgb(220, 38, 38)" className="pulse-dot" />
+        <circle id="pulse-dot-6" cx="480" cy="100" r="4" fill="rgb(220, 38, 38)" className="pulse-dot" />
+        <circle id="pulse-dot-7" cx="720" cy="100" r="4" fill="rgb(220, 38, 38)" className="pulse-dot" />
+      </svg>
     </div>
   )
 }
