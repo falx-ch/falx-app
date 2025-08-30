@@ -248,18 +248,31 @@ export default function ProblemShowcaseCards() {
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
-        {connections.map((connection, index) => (
-          <path
-            key={index}
-            d={getConnectionPath(connection.from, connection.to)}
-            fill="none"
-            stroke="#6b7280"
-            strokeWidth="0.6"
-            opacity={hoveredCard === connection.from || hoveredCard === connection.to ? "0.7" : "0.3"}
-            strokeDasharray={hoveredCard === connection.from || hoveredCard === connection.to ? "4,2" : "none"}
-            className="transition-all duration-300"
-          />
-        ))}
+        <defs>
+          <filter id="glowEffect">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        {connections.map((connection, index) => {
+          const isHovered = hoveredCard === connection.from || hoveredCard === connection.to
+          return (
+            <path
+              key={index}
+              d={getConnectionPath(connection.from, connection.to)}
+              fill="none"
+              stroke={isHovered ? "#9ca3af" : "#6b7280"}
+              strokeWidth="0.6"
+              opacity={isHovered ? "0.7" : "0.3"}
+              strokeDasharray={isHovered ? "4,2" : "none"}
+              filter={isHovered ? "url(#glowEffect)" : "none"}
+              className="transition-all duration-300"
+            />
+          )
+        })}
       </svg>
 
       {/* Problem Cards - Organic Mesh Layout */}
@@ -295,7 +308,7 @@ export default function ProblemShowcaseCards() {
             >
             <GlassCard
               intensity="medium"
-              hover="none"
+              hover="lift"
               size="sm"
               className={cn(
                 "relative overflow-hidden transition-all duration-300 rounded-2xl",

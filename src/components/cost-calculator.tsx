@@ -263,7 +263,7 @@ export default function CostCalculator() {
     <>
       {/* Dynamic CHF Display with rolling numbers - adapted for left column */}
       <GlassCard 
-        hover="glow" 
+        hover="lift" 
         size="lg"
       >
         <div className="text-center lg:text-left space-y-4">

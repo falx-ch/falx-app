@@ -9,6 +9,7 @@ const { class: className } = Astro.props;
 
 // Import the interactive React component
 import ProductDemoWorkflow from './product-demo-workflow.tsx';
+import { Button } from '@/components/ui/button';
 ---
 
 <section 
@@ -43,16 +44,16 @@ import ProductDemoWorkflow from './product-demo-workflow.tsx';
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <button class="px-8 py-3 rounded-full bg-white text-black font-normal text-base hover:bg-white/90 transition-colors duration-200 shadow-lg">
+        <Button variant="primary" className="hover-lift">
           Bei Launch benachrichtigen
-        </button>
-        <button class="px-6 py-3 border border-white/20 text-white/80 font-medium rounded-full hover:bg-white/5 hover:border-white/30 transition-all duration-300">
+        </Button>
+        <Button variant="secondary" className="hover-lift">
           Ähnliches für Ihr Business?
-        </button>
+        </Button>
       </div>
       
       <p class="text-white/40 text-xs mt-4">
-        Bald verfügbar • Kostenlos für alle Schweizer Einwohner
+        Bald verfügbar • Kostenlos für alle Einwohner der Schweiz
       </p>
     </div>
   </div>

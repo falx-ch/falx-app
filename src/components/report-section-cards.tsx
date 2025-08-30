@@ -24,13 +24,6 @@ export default function ReportSectionCards() {
         // Initial reveal animation using manager
         gsapManager.animateCardReveal(cards, cardsRef.current!)
         
-        // Apply 3D tilt effects to each card
-        cards.forEach((card) => {
-          if (card) {
-            const cleanup = gsapManager.apply3DTilt(card)
-            cleanupFunctions.push(cleanup)
-          }
-        })
       })
     }, 50)
     
@@ -48,7 +41,7 @@ export default function ReportSectionCards() {
       <GlassCard 
         ref={card1Ref}
         variant="interactive"
-        hover="glow"
+        hover="lift"
         size="md"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
@@ -65,7 +58,7 @@ export default function ReportSectionCards() {
       <GlassCard 
         ref={card2Ref}
         variant="interactive"
-        hover="glow"
+        hover="lift"
         size="md"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >
@@ -82,7 +75,7 @@ export default function ReportSectionCards() {
       <GlassCard 
         ref={card3Ref}
         variant="interactive"
-        hover="glow"
+        hover="lift"
         size="md"
         style={{ transform: 'translateY(50px) rotateX(-15deg)' }}
       >

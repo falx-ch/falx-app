@@ -17,7 +17,7 @@ interface WorkflowToolProps {
 const colorClasses = {
   red: {
     bg: 'bg-red-600/20',
-    glow: 'shadow-red-600/20',
+    glow: '', // Removed red shadow glow
     gradient: 'from-red-600/10 to-red-500/5'
   }
 }
@@ -38,14 +38,14 @@ export const WorkflowTool = forwardRef<HTMLDivElement, WorkflowToolProps>(
       >
         <GlassCard
           intensity="medium"
-          hover="none"
+          hover="lift"
           size="sm"
           className={cn(
             "relative overflow-hidden rounded-2xl border transition-all duration-300",
             "w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28",
             isActive 
-              ? `border-white/40 ${colors.glow} shadow-lg` 
-              : "border-white/20 hover:border-white/30"
+              ? "border-white/25" 
+              : "border-white/15"
           )}
         >
           {/* Background gradient */}

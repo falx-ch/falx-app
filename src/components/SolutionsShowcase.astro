@@ -9,6 +9,7 @@ const { class: className } = Astro.props;
 
 // Import the interactive React component
 import SolutionsShowcaseCards from './solutions-showcase-cards.tsx';
+import { Button } from '@/components/ui/button';
 ---
 
 <section 
@@ -86,10 +87,10 @@ import SolutionsShowcaseCards from './solutions-showcase-cards.tsx';
           </div>
         </div>
 
-        <!-- Static button (could be made interactive later if needed) -->
-        <button class="px-8 py-3 rounded-full bg-white text-black font-normal text-base hover:bg-white/90 transition-colors duration-200 shadow-lg">
+        <!-- Interactive button with hover-lift effect -->
+        <Button variant="primary" className="hover-lift">
           Kostenloses Beratungsgespräch
-        </button>
+        </Button>
       </div>
 
       <!-- Right column - Interactive solution cards (hydrated island) -->

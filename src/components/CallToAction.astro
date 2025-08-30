@@ -6,6 +6,7 @@ export interface Props {
 }
 
 const { class: className } = Astro.props;
+import { Button } from '@/components/ui/button';
 ---
 
 <section 
@@ -25,9 +26,9 @@ const { class: className } = Astro.props;
           KI-Transformation.
         </h2>
 
-        <button class="px-8 py-4 bg-slate-900 text-white font-medium rounded-full transition-all duration-300 hover:bg-slate-800 hover:shadow-xl transform hover:scale-105">
+        <Button variant="primary-dark" className="hover-lift">
           Kostenlose Analyse buchen
-        </button>
+        </Button>
       </div>
     </div>
   </div>
