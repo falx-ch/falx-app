@@ -3,7 +3,7 @@
 export default function SimpleFooter() {
   return (
     <footer 
-      className="border-t border-gray-600 py-8 relative z-10"
+      className="py-8 relative z-10"
       style={{
         background: 'linear-gradient(to top, #111827 0%, #1f2937 100%)'
       }}

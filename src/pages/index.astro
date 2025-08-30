@@ -21,11 +21,29 @@ import GlobalAnimations from '../components/global-animations.tsx';
 		<Header client:load />
 		<HeroContent client:load />
 	</ShaderBackground>
+	
 	<ReportSection />
+	
+	<!-- Blur transition at section boundary -->
+	<div class="h-8 -mt-4 -mb-4 relative z-10 pointer-events-none" style="backdrop-filter: blur(8px); mask: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);"></div>
+	
 	<ProblemIdentification />
+	
+	<div class="h-8 -mt-4 -mb-4 relative z-10 pointer-events-none" style="backdrop-filter: blur(8px); mask: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);"></div>
+	
 	<SolutionShowcase />
+	
+	<div class="h-8 -mt-4 -mb-4 relative z-10 pointer-events-none" style="backdrop-filter: blur(8px); mask: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);"></div>
+	
 	<ProductDemonstration />
+	
+	<div class="h-8 -mt-4 -mb-4 relative z-10 pointer-events-none" style="backdrop-filter: blur(8px); mask: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);"></div>
+	
 	<FounderSection />
+	
+	<div class="h-8 -mt-4 -mb-4 relative z-10 pointer-events-none" style="backdrop-filter: blur(8px); mask: linear-gradient(to bottom, transparent 0%, black 50%, transparent 100%);"></div>
+	
 	<CallToAction />
+	
 	<SimpleFooter client:idle />
 </BaseLayout>
