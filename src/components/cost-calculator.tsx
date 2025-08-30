@@ -119,7 +119,7 @@ export default function CostCalculator() {
           // Subtle range glow enhancement
           ranges.forEach(range => {
             gsap.to(range, {
-              boxShadow: "0 0 12px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
+              boxShadow: "0 0 12px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)",
               duration: 0.4,
               ease: "power2.out"
             })
@@ -129,13 +129,14 @@ export default function CostCalculator() {
         const sophisticatedLeave = () => {
           gsap.to(thumb, {
             scale: 1,
+            borderColor: "rgba(255, 255, 255, 0.6)",
             duration: 0.5,
             ease: "power3.out"
           })
           
           ranges.forEach(range => {
             gsap.to(range, {
-              boxShadow: "0 0 8px rgba(220, 38, 38, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 0 8px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
               duration: 0.3,
               ease: "power2.out"
             })
@@ -145,6 +146,7 @@ export default function CostCalculator() {
         const preciseDrag = () => {
           gsap.to(thumb, {
             scale: 0.95,
+            borderColor: "rgba(255, 255, 255, 0.8)",
             duration: 0.15,
             ease: "power2.out"
           })
@@ -153,6 +155,7 @@ export default function CostCalculator() {
         const dragRelease = () => {
           gsap.to(thumb, {
             scale: 1.08,
+            borderColor: "rgba(255, 255, 255, 0.6)",
             duration: 0.4,
             ease: "back.out(1.2)"
           })
@@ -162,6 +165,10 @@ export default function CostCalculator() {
         thumb.addEventListener('mouseleave', sophisticatedLeave)
         thumb.addEventListener('mousedown', preciseDrag)
         thumb.addEventListener('mouseup', dragRelease)
+        thumb.addEventListener('pointerdown', preciseDrag)
+        thumb.addEventListener('pointerup', dragRelease)
+        thumb.addEventListener('dragstart', preciseDrag)
+        thumb.addEventListener('dragend', dragRelease)
       })
     }
 
@@ -273,7 +280,7 @@ export default function CostCalculator() {
               ref={mainNumberRef}
               className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight inline-block w-48 sm:w-56 lg:w-72 text-right"
               style={{
-                textShadow: '0 4px 20px rgba(220, 38, 38, 0.2)',
+                textShadow: '0 4px 20px rgba(255, 255, 255, 0.2)',
                 minHeight: '1.2em'
               }}
             >

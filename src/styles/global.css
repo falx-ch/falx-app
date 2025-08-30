@@ -13,6 +13,10 @@
   --swiss-red-secondary: theme(colors.red.500); /* rgb(239, 68, 68) - lighter accent */
   --swiss-red-dark: theme(colors.red.900); /* rgb(127, 29, 29) - darker depth */
   
+  /* Slider overrides - force white colors */
+  --slider-thumb-border: rgba(255, 255, 255, 0.6);
+  --slider-thumb-ring: rgba(255, 255, 255, 0.2);
+  
   /* Swiss Glassmorphism Tokens */
   --glass-light: theme(colors.white / 5%); /* backdrop-blur with 5% opacity */
   --glass-medium: theme(colors.white / 10%); /* backdrop-blur with 10% opacity */
@@ -249,14 +253,14 @@
 [data-slot="slider-range"] {
   position: absolute;
   background: linear-gradient(90deg, 
-    theme(colors.red.600 / 80%) 0%,
-    theme(colors.red.500 / 90%) 50%,
-    theme(colors.red.600) 100%
+    theme(colors.white / 70%) 0%,
+    theme(colors.white / 80%) 50%,
+    theme(colors.white / 75%) 100%
   ) !important;
   border-radius: 2px;
   height: 100%;
   box-shadow: 
-    0 0 8px theme(colors.red.600 / 30%),
+    0 0 8px theme(colors.white / 30%),
     inset 0 1px 0 theme(colors.white / 10%);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -270,7 +274,7 @@
     theme(colors.slate.50 / 90%) 50%,
     theme(colors.slate.100 / 85%) 100%
   ) !important;
-  border: 1px solid theme(colors.red.600 / 40%) !important;
+  border: 1px solid theme(colors.white / 60%) !important;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
@@ -279,7 +283,7 @@
   backdrop-filter: blur(8px);
   box-shadow: 
     0 2px 8px theme(colors.black / 10%),
-    0 1px 3px theme(colors.red.600 / 20%),
+    0 1px 3px theme(colors.white / 20%),
     inset 0 1px 0 theme(colors.white / 80%) !important;
 }
 
@@ -289,25 +293,25 @@
   inset: 3px;
   border-radius: 50%;
   background: linear-gradient(135deg, 
-    theme(colors.red.600 / 10%) 0%,
-    theme(colors.red.500 / 5%) 100%
+    theme(colors.white / 10%) 0%,
+    theme(colors.white / 5%) 100%
   );
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-slot="slider-thumb"]:hover {
   transform: scale(1.05) !important;
-  border-color: theme(colors.red.600 / 60%) !important;
+  border-color: theme(colors.white / 80%) !important;
   box-shadow: 
     0 4px 16px theme(colors.black / 15%),
-    0 2px 6px theme(colors.red.600 / 30%),
+    0 2px 6px theme(colors.white / 30%),
     inset 0 1px 0 theme(colors.white / 90%) !important;
 }
 
 [data-slot="slider-thumb"]:hover::before {
   background: linear-gradient(135deg, 
-    theme(colors.red.600 / 15%) 0%,
-    theme(colors.red.500 / 10%) 100%
+    theme(colors.white / 15%) 0%,
+    theme(colors.white / 10%) 100%
   );
 }
 
@@ -317,7 +321,7 @@
 }
 
 [data-slot="slider-thumb"]:focus-visible {
-  outline: 2px solid theme(colors.red.600 / 40%) !important;
+  outline: 2px solid theme(colors.white / 40%) !important;
   outline-offset: 3px;
 }
 
