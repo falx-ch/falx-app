@@ -86,11 +86,12 @@ export default function ProductDemoWorkflow() {
       
       // 4. Legata sends signal to Toolbox along path
       .set('#pulse-dot-2', { 
-        scale: 1, 
+        scale: 1.2, 
         opacity: 1,
         x: 480, // Legata right border
         y: 100
       }, '+=0.2')
+      .to('#legata-pill', { scale: 1, duration: 0.2 }, '-=0.1') // Legata returns to normal
       .to('#pulse-dot-2', {
         x: 560, // Toolbox left border
         duration: 0.5,
@@ -99,7 +100,7 @@ export default function ProductDemoWorkflow() {
       .to('#pulse-dot-2', {
         scale: 0,
         opacity: 0,
-        duration: 0.1
+        duration: 0.2
       })
       
       // 5. Toolbox activates - becomes white and thinks
@@ -142,7 +143,7 @@ export default function ProductDemoWorkflow() {
       
       // 8. Send result back to Legata along path
       .set('#pulse-dot-3', { 
-        scale: 1, 
+        scale: 1.2, 
         opacity: 1,
         x: 720, // Toolbox right border
         y: 100
@@ -152,10 +153,11 @@ export default function ProductDemoWorkflow() {
         duration: 0.5,
         ease: 'power1.inOut'
       })
+      .to('#legata-pill', { scale: 1.05, duration: 0.2 }, '-=0.2') // Legata activates when receiving result
       .to('#pulse-dot-3', {
         scale: 0,
         opacity: 0,
-        duration: 0.1
+        duration: 0.2
       })
       
       // 9. Toolbox goes back to idle (grayed out)
@@ -198,9 +200,10 @@ export default function ProductDemoWorkflow() {
       
       .to('#legata-pill', { scale: 1.05, duration: 0.2 }, '+=0.1')
       
-      .set('#pulse-dot-6', { scale: 1, opacity: 1, x: 480, y: 100 }, '+=0.2')
+      .set('#pulse-dot-6', { scale: 1.2, opacity: 1, x: 480, y: 100 }, '+=0.2')
+      .to('#legata-pill', { scale: 1, duration: 0.2 }, '-=0.1') // Legata returns to normal
       .to('#pulse-dot-6', { x: 560, duration: 0.5, ease: 'power1.inOut' })
-      .to('#pulse-dot-6', { scale: 0, opacity: 0, duration: 0.1 })
+      .to('#pulse-dot-6', { scale: 0, opacity: 0, duration: 0.2 })
       
       // Toolbox activates again
       .to('#cognitive-pill rect', { fill: 'white', duration: 0.3 }, '-=0.1')
@@ -221,9 +224,10 @@ export default function ProductDemoWorkflow() {
       .set('#tool-result', { textContent: '💾', scale: 1, opacity: 1 })
       
       // Result back to Legata
-      .set('#pulse-dot-7', { scale: 1, opacity: 1, x: 720, y: 100 }, '+=0.5')
+      .set('#pulse-dot-7', { scale: 1.2, opacity: 1, x: 720, y: 100 }, '+=0.5')
       .to('#pulse-dot-7', { x: 480, duration: 0.5, ease: 'power1.inOut' })
-      .to('#pulse-dot-7', { scale: 0, opacity: 0, duration: 0.1 })
+      .to('#legata-pill', { scale: 1.05, duration: 0.2 }, '-=0.2') // Legata activates when receiving result
+      .to('#pulse-dot-7', { scale: 0, opacity: 0, duration: 0.2 })
       
       // Toolbox back to idle
       .to('#tool-result', { scale: 0, opacity: 0, duration: 0.2 }, '-=0.3')
@@ -305,16 +309,12 @@ export default function ProductDemoWorkflow() {
           d="M 400 140 L 400 200" 
           fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
         
-        <path id="path-to-split" className="connection-path" 
-          d="M 400 250 L 400 280" 
-          fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
-        
         <path id="path-to-handwrite" className="connection-path" 
-          d="M 400 280 L 210 280 L 210 310" 
+          d="M 320 225 L 210 225 L 210 310" 
           fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
         
         <path id="path-to-notarize" className="connection-path" 
-          d="M 400 280 L 600 280 L 600 310" 
+          d="M 480 225 L 600 225 L 600 310" 
           fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
 
         {/* User Node */}
@@ -330,7 +330,7 @@ export default function ProductDemoWorkflow() {
           <rect x="320" y="70" width="160" height="70" rx="10" 
             fill="white" filter="url(#shadow)" />
           <text x="400" y="109" className="text-base font-semibold fill-gray-800" textAnchor="middle">🧠 Legata</text>
-          <text id="legata-voice-icon" x="330" y="75" className="text-sm tool-indicator">🔊</text>
+          <text id="legata-voice-icon" x="330" y="65" className="text-sm tool-indicator">🔊</text>
         </g>
 
         {/* Toolbox Node - starts grayed out */}
@@ -368,10 +368,10 @@ export default function ProductDemoWorkflow() {
         </g>
 
         {/* Pulse dots only for Legata-Toolbox communication */}
-        <circle id="pulse-dot-2" cx="480" cy="100" r="4" fill="rgb(220, 38, 38)" className="pulse-dot" />
-        <circle id="pulse-dot-3" cx="720" cy="100" r="4" fill="rgb(220, 38, 38)" className="pulse-dot" />
-        <circle id="pulse-dot-6" cx="480" cy="100" r="4" fill="rgb(220, 38, 38)" className="pulse-dot" />
-        <circle id="pulse-dot-7" cx="720" cy="100" r="4" fill="rgb(220, 38, 38)" className="pulse-dot" />
+        <circle id="pulse-dot-2" cx="480" cy="100" r="5" fill="#ef4444" className="pulse-dot" />
+        <circle id="pulse-dot-3" cx="720" cy="100" r="5" fill="#ef4444" className="pulse-dot" />
+        <circle id="pulse-dot-6" cx="480" cy="100" r="5" fill="#ef4444" className="pulse-dot" />
+        <circle id="pulse-dot-7" cx="720" cy="100" r="5" fill="#ef4444" className="pulse-dot" />
       </svg>
     </div>
   )
