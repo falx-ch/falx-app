@@ -1,45 +1,18 @@
 import FalxLogo from './FalxLogo';
 import { Button } from '@/components/ui/button';
+import Navigation from './Navigation';
 
 export default function Header() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
   return (
     <header className="relative z-20 flex items-center justify-between p-6 backdrop-blur-sm bg-black/5">
       {/* Logo */}
-      <div className="flex items-end gap-2.5 group">
+      <a href="/" className="flex items-end gap-2.5 group hover:opacity-90 transition-opacity duration-200">
         <FalxLogo size={32} className="group-hover:scale-105 transition-transform duration-200" />
         <span className="text-white font-medium text-base tracking-tight leading-none">Falx</span>
-      </div>
+      </a>
 
       {/* Navigation */}
-      <nav className="flex items-center space-x-2">
-        <button
-          onClick={() => scrollToSection('report')}
-          className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200 cursor-pointer"
-        >
-          KI 2025
-        </button>
-        <button
-          onClick={() => scrollToSection('solution')}
-          className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200 cursor-pointer"
-        >
-          Lösung
-        </button>
-        <button
-          onClick={() => scrollToSection('legata')}
-          className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200 cursor-pointer"
-        >
-          Legata
-        </button>
-      </nav>
+      <Navigation />
 
       {/* Login Button Group with Arrow */}
       <div id="gooey-btn" className="relative flex items-center group" style={{ filter: "url(#gooey-filter)" }}>

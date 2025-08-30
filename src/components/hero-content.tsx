@@ -38,7 +38,7 @@ export default function HeroContent() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-          <Button variant="secondary" className="hover-lift">
+          <Button variant="secondary" className="opacity-50 cursor-not-allowed" disabled>
             Report herunterladen
           </Button>
           <Button variant="primary" className="hover-lift">
