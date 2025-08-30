@@ -68,13 +68,13 @@ export const WorkflowTool = forwardRef<HTMLDivElement, WorkflowToolProps>(
             </div>
             <div className="text-center">
               <div className={cn(
-                "text-xs font-medium text-white/90 leading-tight transition-colors duration-300",
+                "text-base font-medium text-white/90 leading-tight transition-colors duration-300",
                 isActive && "text-white"
               )}>
                 {title}
               </div>
               <div className={cn(
-                "text-xs text-white/60 font-light leading-tight transition-colors duration-300",
+                "text-sm text-white/60 font-light leading-tight transition-colors duration-300",
                 isActive && "text-white/80"
               )}>
                 {subtitle}
