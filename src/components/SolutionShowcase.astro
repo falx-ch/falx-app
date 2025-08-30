@@ -8,7 +8,7 @@ export interface Props {
 const { class: className } = Astro.props;
 
 // Import the interactive React component
-import SolutionsShowcaseCards from './solutions-showcase-cards.tsx';
+import SolutionShowcaseCards from './solution-showcase-cards.tsx';
 import { Button } from '@/components/ui/button';
 ---
 
@@ -54,13 +54,13 @@ import { Button } from '@/components/ui/button';
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start"> <!-- 40/60 split - no margins -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center"> <!-- 40/60 split - centered alignment -->
       <!-- Left column - Static Header content -->
       <div class="lg:col-span-2 space-y-8">
         <div class="header-content">
           <h2 class="text-5xl lg:text-6xl font-light mb-6 tracking-tight leading-tight">
-            <span class="font-serif italic text-red-300">KI</span> in der <br />
-            Praxis
+            <span class="font-serif italic text-red-300">KI-Lösungen</span> <br />
+            in der Praxis
           </h2>
           <p class="text-lg font-medium mb-4 text-red-300">
             100% Erfolgsgarantie & Schweizer Datensicherheit
@@ -94,8 +94,8 @@ import { Button } from '@/components/ui/button';
       </div>
 
       <!-- Right column - Interactive solution cards (hydrated island) -->
-      <div class="lg:col-span-3">
-        <SolutionsShowcaseCards client:visible />
+      <div class="lg:col-span-3 flex items-center justify-center">
+        <SolutionShowcaseCards client:visible />
       </div>
     </div>
   </div>

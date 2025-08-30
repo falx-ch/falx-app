@@ -18,7 +18,7 @@ export default function HeroContent() {
               <path d="m0 0h32v32h-32z" fill="#f00"/>
               <path d="m13 6h6v7h7v6h-7v7h-6v-7h-7v-6h7z" fill="#fff"/>
             </svg>
-            Made in Zurich • 🔒 DSG konform • 🎯 Gratis KI-Analyse
+            Swiss Made • 🔒 DSG konform • 🎯 Gratis KI-Analyse
           </span>
         </SwissBadge>
 
