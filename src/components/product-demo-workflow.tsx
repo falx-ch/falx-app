@@ -259,9 +259,9 @@ export default function ProductDemoWorkflow() {
   // Workflow items with precise half-moon layout above AI agent
   const workflowItems = [
     { key: 'voice', component: 'WorkflowStep', icon: "🎤", title: "Voice Input", subtitle: "DE | FR | IT | EN", size: "md", variant: "primary", className: "voice-wave", gridCol: "2 / span 2", gridRow: "8 / span 1" },
-    { key: 'ai-agent', component: 'WorkflowStep', icon: "🤖", title: "Legata", subtitle: "AI Agent", size: "lg", variant: "secondary", className: "ai-agent-hub", gridCol: "5 / span 2", gridRow: "5 / span 2" },
+    { key: 'ai-agent', component: 'WorkflowStep', icon: "🤖", title: "AI Agent", subtitle: "Dynamic Tool Access", size: "lg", variant: "secondary", className: "ai-agent-hub", gridCol: "5 / span 2", gridRow: "5 / span 2" },
     { key: 'llm', component: 'WorkflowTool', icon: "🧠", title: "ETH LLM", subtitle: "OpenSource", color: "red", className: "dynamic-tool", gridCol: "3 / span 1", gridRow: "2 / span 1" },
-    { key: 'swiss-law', component: 'WorkflowTool', icon: "⚖️", title: "Swiss Law", subtitle: "Vector DB", color: "red", className: "dynamic-tool", gridCol: "5 / span 1", gridRow: "1 / span 1" },
+    { key: 'swiss-law', component: 'WorkflowTool', icon: "⚖️", title: "Swiss Law", subtitle: "RAG Database", color: "red", className: "dynamic-tool", gridCol: "5 / span 1", gridRow: "1 / span 1" },
     { key: 'memory', component: 'WorkflowTool', icon: "💾", title: "Long-Term", subtitle: "Memory", color: "red", className: "dynamic-tool", gridCol: "7 / span 1", gridRow: "1 / span 1" },
     { key: 'legal-draft', component: 'WorkflowTool', icon: "📝", title: "Legal Draft", subtitle: "Generator", color: "red", className: "dynamic-tool", gridCol: "9 / span 1", gridRow: "2 / span 1" },
     { key: 'voice-gen', component: 'WorkflowTool', icon: "🔊", title: "Voice", subtitle: "Generator", color: "red", className: "dynamic-tool", gridCol: "9 / span 1", gridRow: "3 / span 1" },

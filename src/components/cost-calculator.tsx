@@ -274,11 +274,11 @@ export default function CostCalculator() {
         size="lg"
       >
         <div className="text-center lg:text-left space-y-4">
-          <div className="flex items-baseline mb-3 flex-nowrap justify-center lg:justify-start">
-            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-1 sm:mr-2 flex-shrink-0">CHF</span>
+          <div className="flex items-baseline mb-3">
+            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-2">CHF</span>
             <div 
               ref={mainNumberRef}
-              className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight inline-block w-40 sm:w-48 lg:w-72 text-center lg:text-right flex-shrink-0"
+              className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight inline-block w-48 sm:w-56 lg:w-72 text-right"
               style={{
                 textShadow: '0 4px 20px rgba(255, 255, 255, 0.2)',
                 minHeight: '1.2em'
@@ -286,17 +286,17 @@ export default function CostCalculator() {
             >
               {yearlyCostPerEmployee.toLocaleString('de-CH')}
             </div>
-            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium ml-1 sm:ml-2 flex-shrink-0 whitespace-nowrap">pro Jahr</span>
+            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium ml-2">pro Jahr</span>
           </div>
           
           <div className="space-y-2">
-            <p className="text-white/60 text-base font-normal">
+            <p className="text-white/60 text-sm font-normal">
               Vollzeit-Mitarbeiter (<span className="inline-block w-5 text-right tabular-nums">{displayHours}</span> Std. Administration wöchentlich)
             </p>
           </div>
           
           <div className="space-y-1">
-            <p className="text-white/40 text-sm">Basis: CHF 150/h Vollkosten</p>
+            <p className="text-white/40 text-xs">Basis: CHF 150/h Vollkosten</p>
           </div>
         </div>
       </GlassCard>

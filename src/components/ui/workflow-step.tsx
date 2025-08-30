@@ -121,14 +121,14 @@ export const WorkflowStep = forwardRef<HTMLDivElement, WorkflowStepProps>(
         {title && (
           <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-center whitespace-nowrap">
             <div className={cn(
-              "text-base font-medium text-white/90 leading-tight transition-colors duration-300",
+              "text-xs font-medium text-white/90 leading-tight transition-colors duration-300",
               isActive && "text-white scale-105"
             )}>
               {title}
             </div>
             {subtitle && (
               <div className={cn(
-                "text-sm text-white/60 font-light leading-tight transition-colors duration-300",
+                "text-xs text-white/60 font-light leading-tight transition-colors duration-300",
                 isActive && "text-white/80"
               )}>
                 {subtitle}

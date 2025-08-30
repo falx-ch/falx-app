@@ -331,7 +331,7 @@ export default function ProblemShowcaseCards() {
                   </div>
                 </div>
                 <div className="flex-1 min-w-0 flex flex-col justify-center">
-                  <div className="text-sm md:text-base font-medium text-white/90 leading-tight">
+                  <div className="text-xs sm:text-sm md:text-sm font-medium text-white/90 leading-tight">
                     {card.title}
                   </div>
                 </div>
