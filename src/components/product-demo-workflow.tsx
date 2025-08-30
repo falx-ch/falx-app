@@ -22,8 +22,7 @@ export default function ProductDemoWorkflow() {
   const cardsRef = useRef<HTMLDivElement[]>([])
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 500)
-    return () => clearTimeout(timer)
+    setIsVisible(true)
   }, [])
 
   useEffect(() => {
@@ -123,39 +122,32 @@ export default function ProductDemoWorkflow() {
   useEffect(() => {
     if (!isVisible || !svgRef.current) return
 
-    // Initialize all cards and lines as hidden
-    gsap.set(".dynamic-tool, .workflow-step, .voice-wave, .ai-agent-hub, .final-document, .handwritten-option, .notary-option", { scale: 0, opacity: 0 })
+    // Initialize SVG lines as hidden (elements already hidden via CSS)
     gsap.set(".voice-to-agent-line, .agent-to-eth-line, .tool-connection, .document-flow, .choice-flow-1, .choice-flow-2", { drawSVG: "0%" })
 
     // Create timeline - play only once
     const tl = gsap.timeline({ defaults: { ease: "power2.out" } })
 
-    // 1. Voice input appears first
-    tl.fromTo(".voice-wave", {
+    // 1. Voice input appears first (index 0) - elegant entrance
+    tl.fromTo(cardsRef.current[0], {
       scale: 0, 
       opacity: 0
     }, {
-      scale: 1.2,
+      scale: 1,
       opacity: 1,
-      duration: 0.6,
-      ease: "back.out(2)"
+      duration: 0.8,
+      ease: "back.out(1.7)"
     })
-      // Voice wave pulse effect
-      .to(".voice-wave", {
-        scale: 1,
-        opacity: 0.9,
-        duration: 0.4
-      })
-      // 2. Voice to AI Agent connection line animates
+      // 2. Voice to AI Agent connection line animates (with delay for position calculation)
       .fromTo(".voice-to-agent-line",
         { drawSVG: "0%" },
         { 
           drawSVG: "100%",
           duration: 0.8,
           ease: "power2.out"
-        }, "+=0.2")
-      // 3. AI Agent hub appears
-      .fromTo(".ai-agent-hub",
+        }, "+=0.4")
+      // 3. AI Agent hub appears (index 1)
+      .fromTo(cardsRef.current[1],
         { scale: 0, opacity: 0 },
         { 
           scale: 1, 
@@ -173,8 +165,8 @@ export default function ProductDemoWorkflow() {
           ease: "power2.out",
           stagger: 0.1
         }, "+=0.3")
-      // 5. Tool cards appear
-      .fromTo(".dynamic-tool", {
+      // 5. Tool cards appear (indices 2-6)
+      .fromTo([cardsRef.current[2], cardsRef.current[3], cardsRef.current[4], cardsRef.current[5], cardsRef.current[6]], {
         scale: 0, 
         opacity: 0
       }, {
@@ -191,8 +183,8 @@ export default function ProductDemoWorkflow() {
           duration: 1.2,
           ease: "power1.inOut"
         }, "+=0.5")
-      // 7. Final document appears after connection line
-      .fromTo(".final-document",
+      // 7. Final document appears after connection line (index 7)
+      .fromTo(cardsRef.current[7],
         { scale: 0, opacity: 0 },
         { 
           scale: 1, 
@@ -209,8 +201,8 @@ export default function ProductDemoWorkflow() {
           stagger: 0.2,
           ease: "power2.out"
         }, "+=0.3")
-      // 9. Choice options appear after their connection lines
-      .fromTo(".handwritten-option, .notary-option", {
+      // 9. Choice options appear after their connection lines (indices 8, 9)
+      .fromTo([cardsRef.current[8], cardsRef.current[9]], {
         scale: 0,
         opacity: 0
       }, {
@@ -325,25 +317,55 @@ export default function ProductDemoWorkflow() {
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="cursor-pointer select-none transition-all duration-300 place-self-center pointer-events-auto"
+              className="cursor-pointer select-none transition-all duration-300 place-self-center pointer-events-auto opacity-0 relative z-20"
               style={{
                 gridColumn: item.gridCol,
                 gridRow: item.gridRow,
+                transform: 'scale(0)',
               }}
               onClick={() => handleInteraction(index + 1)}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
               {item.component === 'WorkflowStep' ? (
-                <WorkflowStep
-                  icon={item.icon}
-                  title={item.title}
-                  subtitle={item.subtitle}
-                  size={item.size as any}
-                  variant={item.variant as any}
-                  isActive={animationStep >= index + 1}
-                  className={item.className}
-                />
+                index === 0 ? (
+                  // Special voice assistant component for index 0
+                  <div className="workflow-step cursor-pointer select-none transition-all duration-300 transform-gpu will-change-transform relative">
+                    {/* Voice assistant orb - calm and confident */}
+                    <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28">
+                      {/* Subtle breathing glow - very gentle white */}
+                      <div className="absolute inset-2 rounded-full bg-white/15 animate-pulse" style={{ animationDuration: '3s' }}></div>
+                      
+                      {/* Main orb - premium white/silver */}
+                      <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-gradient-to-br from-white/70 to-white/40 shadow-xl shadow-white/20 backdrop-blur-sm border border-white/30">
+                        {/* Inner luminosity */}
+                        <div className="absolute inset-1 rounded-full bg-gradient-to-br from-white/50 via-white/30 to-transparent"></div>
+                        {/* Core glow */}
+                        <div className="absolute inset-3 rounded-full bg-gradient-to-br from-white/40 to-transparent"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Label */}
+                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-center whitespace-nowrap">
+                      <div className="text-xs font-medium text-white/90 leading-tight">
+                        {item.title}
+                      </div>
+                      <div className="text-xs text-white/60 font-light leading-tight">
+                        {item.subtitle}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <WorkflowStep
+                    icon={item.icon}
+                    title={item.title}
+                    subtitle={item.subtitle}
+                    size={item.size as any}
+                    variant={item.variant as any}
+                    isActive={animationStep >= index + 1}
+                    className={item.className}
+                  />
+                )
               ) : (
                 <WorkflowTool
                   icon={item.icon}

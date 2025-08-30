@@ -304,7 +304,7 @@ export default function CostCalculator() {
       {/* Interactive Slider - adapted for left column */}
       <div className="mt-6 lg:mt-6 space-y-4 lg:space-y-6">
         <div className="space-y-2">
-          <div ref={sliderRef}>
+          <div ref={sliderRef} className="opacity-0" style={{ transform: 'translateY(20px)' }}>
             <Slider
               value={sliderValue}
               onValueChange={setSliderValue}

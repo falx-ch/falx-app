@@ -266,8 +266,8 @@ export default function ProblemShowcaseCards() {
               fill="none"
               stroke={isHovered ? "#9ca3af" : "#6b7280"}
               strokeWidth="0.6"
-              opacity={isHovered ? "0.7" : "0.3"}
-              strokeDasharray="none"
+              opacity="0"
+              strokeDasharray="0 1000"
               filter={isHovered ? "url(#glowEffect)" : "none"}
               className="transition-all duration-300"
             />
@@ -297,11 +297,11 @@ export default function ProblemShowcaseCards() {
               ref={(el) => {
                 if (el) cardsRef.current[index] = el
               }}
-              className="cursor-pointer select-none transition-all duration-300 place-self-center"
+              className="cursor-pointer select-none transition-all duration-300 place-self-center opacity-0"
               style={{
                 gridColumn: pos.col,
                 gridRow: pos.row,
-                transform: pos.transform,
+                transform: `${pos.transform} scale(0.8) translateY(20px)`,
               }}
               onMouseEnter={() => handleCardHover(index)}
               onMouseLeave={handleCardLeave}
