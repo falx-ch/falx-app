@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button'
 
 export default function HeroContent() {
   return (
-    <main className="absolute bottom-8 left-8 z-20 max-w-xl">
-      <GlassCard className="text-left bg-black/10" size="lg">
+    <main className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-20 max-w-sm sm:max-w-xl max-h-[50vh] sm:max-h-none">
+      <GlassCard className="text-left bg-black/10" size="md">
         <SwissBadge 
           className="mb-1 relative"
           style={{
@@ -23,21 +23,21 @@ export default function HeroContent() {
         </SwissBadge>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-1 -mt-1">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-1 -mt-1">
           <span className="font-medium italic bitter">KI-Strategien</span> für
           <br />
           <span className="font-light tracking-tight text-white">Schweizer KMU</span>
         </h1>
 
         {/* Description */}
-        <p className="text-sm font-light text-white/70 mb-2 -mt-1 leading-relaxed">
+        <p className="text-xs sm:text-sm font-light text-white/70 mb-2 -mt-1 leading-relaxed">
         Schweizer Unternehmen verlieren jährlich CHF 6 Milliarden durch ineffiziente 
         Prozesse. Unsere KI-Lösungen reduzieren administrative 
         Belastung um bis zu 54 Stunden pro Monat.
         </p>
 
         {/* Buttons */}
-        <div className="flex items-center gap-4 flex-wrap">
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
           <Button variant="secondary" className="hover-lift">
             Report herunterladen
           </Button>
