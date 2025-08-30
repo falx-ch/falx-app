@@ -2,6 +2,15 @@ import FalxLogo from './FalxLogo';
 import { Button } from '@/components/ui/button';
 
 export default function Header() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   return (
     <header className="relative z-20 flex items-center justify-between p-6 backdrop-blur-sm bg-black/5">
       {/* Logo */}
@@ -12,24 +21,24 @@ export default function Header() {
 
       {/* Navigation */}
       <nav className="flex items-center space-x-2">
-        <a
-          href="#"
+        <button
+          onClick={() => scrollToSection('report')}
           className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
         >
           KI 2025
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
+          onClick={() => scrollToSection('solution')}
           className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
         >
           Lösung
-        </a>
-        <a
-          href="#"
+        </button>
+        <button
+          onClick={() => scrollToSection('legata')}
           className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
         >
           Legata
-        </a>
+        </button>
       </nav>
 
       {/* Login Button Group with Arrow */}
