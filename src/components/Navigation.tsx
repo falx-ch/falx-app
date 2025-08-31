@@ -13,15 +13,22 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-      // Close mobile menu after navigation
-      setIsOpen(false);
-    }
+    // Close menu first
+    setIsOpen(false);
+    
+    // Then scroll after a small delay to ensure menu is closed
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const yOffset = -80; // Offset for fixed header
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+      }
+    }, 300); // Wait for sheet close animation
   };
 
   const navigationItems = [
@@ -117,11 +124,8 @@ export default function Navigation() {
               {/* Divider with gradient */}
               <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
               
-              {/* CTA Section */}
+              {/* CTA Button */}
               <div className="px-6">
-                <p className="text-white/60 text-sm mb-4">
-                  Bereit für Ihre KI-Transformation?
-                </p>
                 <a 
                   href="https://calendly.com/falx-ch/free-strategy-call" 
                   target="_blank" 
@@ -133,7 +137,7 @@ export default function Navigation() {
                     className="w-full bg-white text-black hover:bg-white/90 font-medium transition-all duration-300 hover:scale-[1.02]"
                     size="lg"
                   >
-                    Kostenloses Strategiegespräch
+                    Ausbrechen
                   </Button>
                 </a>
               </div>
