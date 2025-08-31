@@ -55,7 +55,7 @@ export default function Navigation() {
         </button>
 
         {/* Mobile Menu Overlay */}
-        <div className={`fixed inset-0 bg-black/95 backdrop-blur-md z-50 transition-all duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className={`fixed inset-0 bg-black/95 backdrop-blur-md transition-all duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} style={{ zIndex: 99999, top: 0, left: 0, right: 0, bottom: 0, position: 'fixed' }}>
           {/* Close Button */}
           <button
             onClick={() => setIsOpen(false)}
@@ -87,10 +87,10 @@ export default function Navigation() {
             >
               Legata
             </button>
-            <div className="mt-8">
+            <div className="mt-8 space-y-4">
               <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer">
                 <button className="px-8 py-4 min-h-[44px] rounded-full bg-white text-black font-normal text-lg hover:bg-white/90 transition-all duration-200">
-                  Kostenlos beraten
+                  Ausbrechen
                 </button>
               </a>
             </div>
