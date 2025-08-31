@@ -1,4 +1,13 @@
 import { useState } from 'react';
+import { 
+  Sheet, 
+  SheetContent, 
+  SheetHeader, 
+  SheetTitle, 
+  SheetTrigger,
+  SheetClose 
+} from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,87 +24,130 @@ export default function Navigation() {
     }
   };
 
+  const navigationItems = [
+    { id: 'report', label: 'KI 2025' },
+    { id: 'solution', label: 'Lösung' },
+    { id: 'legata', label: 'Legata' },
+  ];
+
   return (
     <>
       {/* Desktop Navigation - hidden on mobile */}
       <nav className="hidden sm:flex items-center space-x-2">
-        <button
-          onClick={() => scrollToSection('report')}
-          className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200 cursor-pointer"
-        >
-          KI 2025
-        </button>
-        <button
-          onClick={() => scrollToSection('solution')}
-          className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200 cursor-pointer"
-        >
-          Lösung
-        </button>
-        <button
-          onClick={() => scrollToSection('legata')}
-          className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200 cursor-pointer"
-        >
-          Legata
-        </button>
+        {navigationItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200 cursor-pointer"
+          >
+            {item.label}
+          </button>
+        ))}
       </nav>
 
-      {/* Mobile Hamburger Menu - visible on mobile */}
+      {/* Mobile Navigation with Sheet */}
       <div className="sm:hidden">
-        {/* Hamburger Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="relative w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/10 transition-all duration-200"
-          aria-label="Menu"
-        >
-          <div className="w-5 flex flex-col gap-1">
-            <span className={`block h-0.5 w-full bg-white transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-            <span className={`block h-0.5 w-full bg-white transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-            <span className={`block h-0.5 w-full bg-white transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
-          </div>
-        </button>
-
-        {/* Mobile Menu Overlay */}
-        <div className={`fixed inset-0 bg-black/95 backdrop-blur-md transition-all duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} style={{ zIndex: 99999, top: 0, left: 0, right: 0, bottom: 0, position: 'fixed' }}>
-          {/* Close Button */}
-          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-6 right-6 w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/10 transition-all duration-200"
-            aria-label="Close menu"
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <button
+              className="relative w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/10 transition-all duration-200 group"
+              aria-label="Menu"
+            >
+              <div className="w-5 flex flex-col gap-1.5 relative">
+                <span 
+                  className={`block h-0.5 w-full bg-white transition-all duration-300 transform origin-center ${
+                    isOpen ? 'rotate-45 translate-y-2' : ''
+                  }`} 
+                />
+                <span 
+                  className={`block h-0.5 w-full bg-white transition-all duration-200 ${
+                    isOpen ? 'opacity-0 scale-x-0' : ''
+                  }`} 
+                />
+                <span 
+                  className={`block h-0.5 w-full bg-white transition-all duration-300 transform origin-center ${
+                    isOpen ? '-rotate-45 -translate-y-2' : ''
+                  }`} 
+                />
+              </div>
+            </button>
+          </SheetTrigger>
+          
+          <SheetContent 
+            side="right" 
+            className="w-[85vw] sm:w-[400px] bg-gradient-to-br from-black/98 via-gray-900/98 to-black/98 backdrop-blur-2xl border-l border-white/20 overflow-y-auto"
           >
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
-          {/* Mobile Menu Items */}
-          <nav className="flex flex-col items-center justify-center h-full space-y-8">
-            <button
-              onClick={() => scrollToSection('report')}
-              className="text-white text-2xl font-light px-8 py-4 min-h-[44px] rounded-full hover:bg-white/10 transition-all duration-200"
-            >
-              KI 2025
-            </button>
-            <button
-              onClick={() => scrollToSection('solution')}
-              className="text-white text-2xl font-light px-8 py-4 min-h-[44px] rounded-full hover:bg-white/10 transition-all duration-200"
-            >
-              Lösung
-            </button>
-            <button
-              onClick={() => scrollToSection('legata')}
-              className="text-white text-2xl font-light px-8 py-4 min-h-[44px] rounded-full hover:bg-white/10 transition-all duration-200"
-            >
-              Legata
-            </button>
-            <div className="mt-8 space-y-4">
-              <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer">
-                <button className="px-8 py-4 min-h-[44px] rounded-full bg-white text-black font-normal text-lg hover:bg-white/90 transition-all duration-200">
-                  Ausbrechen
-                </button>
-              </a>
+            {/* Gradient overlay for depth */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
+            
+            <div className="relative z-10">
+              <SheetHeader className="mb-10 border-b border-white/10 pb-6">
+                <SheetTitle className="text-white font-light text-xl tracking-tight">Menu</SheetTitle>
+              </SheetHeader>
+              
+              {/* Mobile Menu Items */}
+              <nav className="flex flex-col space-y-1 px-2">
+                {navigationItems.map((item, index) => (
+                  <SheetClose key={item.id} asChild>
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className="group relative text-white text-xl font-light px-4 py-4 rounded-xl hover:bg-white/5 transition-all duration-300 text-left flex items-center justify-between"
+                      style={{
+                        animationDelay: `${index * 50}ms`,
+                        animation: 'slideInRight 0.5s ease-out forwards',
+                        opacity: 0
+                      }}
+                    >
+                      <span className="group-hover:translate-x-2 transition-transform duration-300">
+                        {item.label}
+                      </span>
+                      <svg 
+                        className="w-5 h-5 opacity-0 group-hover:opacity-50 transition-all duration-300 transform group-hover:translate-x-0 -translate-x-2" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </SheetClose>
+                ))}
+              </nav>
+              
+              {/* Divider with gradient */}
+              <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              
+              {/* CTA Section */}
+              <div className="px-6">
+                <p className="text-white/60 text-sm mb-4">
+                  Bereit für Ihre KI-Transformation?
+                </p>
+                <a 
+                  href="https://calendly.com/falx-ch/free-strategy-call" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Button 
+                    variant="default" 
+                    className="w-full bg-white text-black hover:bg-white/90 font-medium transition-all duration-300 hover:scale-[1.02]"
+                    size="lg"
+                  >
+                    Kostenloses Strategiegespräch
+                  </Button>
+                </a>
+              </div>
+              
+              {/* Footer Content */}
+              <div className="absolute bottom-8 left-6 right-6">
+                <p className="text-white/30 text-xs">
+                  © 2025 Falx. Swiss Made 🇨🇭
+                </p>
+              </div>
             </div>
-          </nav>
-        </div>
+            
+          </SheetContent>
+        </Sheet>
       </div>
     </>
   );

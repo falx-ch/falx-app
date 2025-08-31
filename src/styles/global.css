@@ -299,6 +299,18 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Mobile Navigation Animations */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 [data-slot="slider-thumb"]:hover {
   transform: scale(1.05) !important;
   border-color: theme(colors.white / 80%) !important;
