@@ -5,8 +5,13 @@ import { gsap } from 'gsap'
 import { GlassCard } from '@/components/ui/glass-card'
 import { gsapManager } from '@/lib/gsap-manager'
 import { cn } from "@/lib/utils"
+import type { Translations } from '@/lib/i18n'
 
-export default function SolutionShowcaseCards() {
+export interface Props {
+  translations: Translations;
+}
+
+export default function SolutionShowcaseCards({ translations }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
   const card1Ref = useRef<HTMLDivElement>(null)
@@ -55,24 +60,24 @@ export default function SolutionShowcaseCards() {
 
   const solutions = [
     {
-      title: "Administration automatisieren",
-      description: "Rechnungen verarbeiten sich selbst. Dokumente sortieren sich automatisch. Berichte entstehen auf Knopfdruck. Integration in Ihre bestehenden Systeme.",
-      metric: "90% Zeitersparnis. Aus 31 Stunden werden 3.",
-      icon: "📋",
+      title: translations.solution_showcase_cards.card1.title,
+      description: translations.solution_showcase_cards.card1.description,
+      metric: translations.solution_showcase_cards.card1.metric,
+      icon: translations.solution_showcase_cards.card1.icon,
       ref: card1Ref,
     },
     {
-      title: "Marketing optimieren",
-      description: "Inhalte in allen Schweizer Landessprachen. Personalisierte Kundenansprache. Automatische Follow-ups, die nie vergessen werden.",
-      metric: "Spart CHF 2,000-20,000 Agenturkosten. Jeden Monat.",
-      icon: "🎯",
+      title: translations.solution_showcase_cards.card2.title,
+      description: translations.solution_showcase_cards.card2.description,
+      metric: translations.solution_showcase_cards.card2.metric,
+      icon: translations.solution_showcase_cards.card2.icon,
       ref: card2Ref,
     },
     {
-      title: "Verkauf beschleunigen",
-      description: "Leads qualifizieren sich selbst. Angebote in Minuten statt Stunden. Termine buchen sich automatisch.",
-      metric: "45% mehr qualifizierte Meetings. Messbar mehr Umsatz.",
-      icon: "⚡",
+      title: translations.solution_showcase_cards.card3.title,
+      description: translations.solution_showcase_cards.card3.description,
+      metric: translations.solution_showcase_cards.card3.metric,
+      icon: translations.solution_showcase_cards.card3.icon,
       ref: card3Ref,
     },
   ]

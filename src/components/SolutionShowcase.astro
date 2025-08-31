@@ -1,11 +1,14 @@
 ---
 // Astro wrapper component for AI in Practice Section
 // Static structure with selective hydration for interactive cards
+import type { Translations } from '@/lib/i18n';
+
 export interface Props {
   class?: string;
+  translations: Translations;
 }
 
-const { class: className } = Astro.props;
+const { class: className, translations } = Astro.props;
 
 // Import the interactive React component
 import SolutionShowcaseCards from './solution-showcase-cards.tsx';
@@ -60,35 +63,27 @@ import { Button } from '@/components/ui/button';
       <div class="lg:col-span-2 space-y-8">
         <div class="header-content">
           <h2 class="text-3xl sm:text-4xl lg:text-6xl font-light mb-6 tracking-tight leading-tight text-left">
-            <span class="font-serif italic font-medium text-red-300">KI-Lösungen</span> <span class="whitespace-nowrap">in der Praxis</span>
+            <span class="font-serif italic font-medium text-red-300">{translations.solution_showcase.headline}</span> <span class="whitespace-nowrap">{translations.solution_showcase.headline_suffix}</span>
           </h2>
-          <p class="text-white/60 text-lg leading-relaxed">
-            Schluss mit Theorie. Hier ist, was wir für Sie tun.<br />
-            Ob KI-Agent, Workflow-Automatisierung oder API-Integration: Wir nutzen, was für Sie funktioniert.
+          <p class="text-white/60 text-lg leading-relaxed" set:html={translations.solution_showcase.description}>
           </p>
         </div>
 
         <!-- Static feature list -->
         <div class="space-y-3">
-          <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 rounded-full bg-red-300"></div>
-            <span class="text-white/70 text-sm">Garantiert DSG-konform, Ihre Daten bleiben in der Schweiz</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 rounded-full bg-red-300"></div>
-            <span class="text-white/70 text-sm">Festpreis pro Lösung, keine versteckten Kosten</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 rounded-full bg-red-300"></div>
-            <span class="text-white/70 text-sm">Erste Automatisierung läuft in 14 Tagen</span>
-          </div>
+          {translations.solution_showcase.features.map((feature, index) => (
+            <div class="flex items-center space-x-3">
+              <div class="w-2 h-2 rounded-full bg-red-300"></div>
+              <span class="text-white/70 text-sm">{feature}</span>
+            </div>
+          ))}
         </div>
 
         <!-- Interactive button with hover-lift effect - desktop only -->
         <div class="hidden lg:block text-center lg:text-left">
           <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" class="w-full lg:w-auto inline-block">
             <Button variant="primary" className="hover-lift animate-on-scroll w-full lg:w-auto">
-              Kostenloses Beratungsgespräch
+              {translations.solution_showcase.cta_button}
             </Button>
           </a>
         </div>
@@ -96,7 +91,7 @@ import { Button } from '@/components/ui/button';
 
       <!-- Right column - Interactive solution cards (hydrated island) -->
       <div class="lg:col-span-3 flex items-center justify-center">
-        <SolutionShowcaseCards client:visible />
+        <SolutionShowcaseCards translations={translations} client:visible />
       </div>
     </div>
     
@@ -104,7 +99,7 @@ import { Button } from '@/components/ui/button';
     <div class="lg:hidden text-center mt-8">
       <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" class="w-full inline-block">
         <Button variant="primary" className="hover-lift animate-on-scroll w-full">
-          Kostenloses Beratungsgespräch
+          {translations.solution_showcase.cta_button}
         </Button>
       </a>
     </div>
