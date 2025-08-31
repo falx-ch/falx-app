@@ -47,9 +47,10 @@ export function useTranslations() {
   /**
    * Translation function with dot notation support
    * Usage: t('hero.headline') or t('hero.cta_primary')
+   * Assumes translations are always available and complete
    */
-  const t = (key: string, fallback?: string): string => {
-    if (!translations) return fallback || key;
+  const t = (key: string): string => {
+    if (!translations) return key;
     
     const keys = key.split('.');
     let value: any = translations;
@@ -58,11 +59,11 @@ export function useTranslations() {
       if (value && typeof value === 'object' && k in value) {
         value = value[k];
       } else {
-        return fallback || key; // Return fallback or key if translation not found
+        return key; // Return key if translation not found
       }
     }
     
-    return typeof value === 'string' ? value : (fallback || key);
+    return typeof value === 'string' ? value : key;
   };
 
   return {
