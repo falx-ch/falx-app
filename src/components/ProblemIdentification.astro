@@ -26,7 +26,7 @@ import ProblemShowcaseCards from './problem-showcase-cards.tsx';
       <!-- Left column - Interactive Problem Cards Grid (60%) -->
       <div class="lg:col-span-3 order-2 lg:order-1 relative">
         <!-- Interactive cards with animations - only hydrate when visible -->
-        <ProblemShowcaseCards client:visible />
+        <ProblemShowcaseCards translations={translations} client:visible />
       </div>
 
       <!-- Right column - Static Content (40%) -->
