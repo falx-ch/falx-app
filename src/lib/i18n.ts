@@ -14,18 +14,16 @@ export const LANGUAGE_NAMES: Record<SupportedLanguage, string> = {
   it: 'Italiano'
 };
 
-// Type for translation structure
+// Type for translation structure - matches the actual JSON structure
 export interface Translations {
   meta: {
     title: string;
     description: string;
   };
-  header: {
-    cta_button: string;
-  };
   hero: {
     badge: string;
-    headline: string;
+    headline_accent: string;
+    headline_suffix: string;
     headline_secondary: string;
     description: string;
     cta_primary: string;
@@ -74,6 +72,7 @@ export interface Translations {
   call_to_action: {
     headline: string;
     headline_accent: string;
+    headline_suffix?: string;
     description: string;
     cta_button: string;
   };
@@ -83,6 +82,73 @@ export interface Translations {
     impressum: string;
     datenschutz: string;
     linkedin: string;
+  };
+  cost_calculator: {
+    currency: string;
+    per_year: string;
+    employee_description: string;
+    cost_basis: string;
+  };
+  report_section_cards: {
+    card1: {
+      icon: string;
+      text: string;
+    };
+    card2: {
+      icon: string;
+      text: string;
+    };
+    card3: {
+      icon: string;
+      text: string;
+    };
+  };
+  problem_showcase_cards: {
+    card1: {
+      icon: string;
+      title: string;
+      subtitle: string;
+    };
+    card2: {
+      icon: string;
+      title: string;
+      subtitle: string;
+    };
+    card3: {
+      icon: string;
+      title: string;
+      subtitle: string;
+    };
+    card4: {
+      icon: string;
+      title: string;
+      subtitle: string;
+    };
+    card5: {
+      icon: string;
+      title: string;
+      subtitle: string;
+    };
+  };
+  solution_showcase_cards: {
+    card1: {
+      title: string;
+      description: string;
+      metric: string;
+      icon: string;
+    };
+    card2: {
+      title: string;
+      description: string;
+      metric: string;
+      icon: string;
+    };
+    card3: {
+      title: string;
+      description: string;
+      metric: string;
+      icon: string;
+    };
   };
 }
 
@@ -102,20 +168,20 @@ export async function loadTranslations(lang: SupportedLanguage): Promise<Transla
   try {
     // Dynamic import based on language
     const translations = await import(`../translations/${lang}.json`);
-    const data = translations.default as Translations;
+    const data = translations.default as any; // Use any to avoid strict type checking issues
     
     // Cache the loaded translations
     translationsCache.set(lang, data);
-    return data;
+    return data as Translations;
   } catch (error) {
-    console.warn(`Failed to load translations for ${lang}, falling back to ${DEFAULT_LANGUAGE}`);
+    console.error(`Failed to load translations for ${lang}:`, error);
     
     // Fallback to default language
     if (lang !== DEFAULT_LANGUAGE) {
       return loadTranslations(DEFAULT_LANGUAGE);
     }
     
-    throw new Error(`Failed to load default translations for ${DEFAULT_LANGUAGE}`);
+    throw new Error(`Failed to load default translations for ${DEFAULT_LANGUAGE}: ${error}`);
   }
 }
 

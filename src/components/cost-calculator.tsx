@@ -6,8 +6,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { GlassCard } from '@/components/ui/glass-card'
 import { gsap } from 'gsap'
 import { gsapManager } from '@/lib/gsap-manager'
+import { useTranslations } from '@/hooks/useTranslations'
 
 export default function CostCalculator() {
+  const { t, isReady } = useTranslations();
   const [sliderValue, setSliderValue] = useState([7])
   const mainNumberRef = useRef<HTMLDivElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -184,7 +186,7 @@ export default function CostCalculator() {
       >
         <div className="text-left space-y-4">
           <div className="flex items-baseline mb-3">
-            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-2">CHF</span>
+            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-2">{t('cost_calculator.currency', 'CHF')}</span>
             <div 
               ref={mainNumberRef}
               className="text-4xl sm:text-5xl lg:text-7xl font-mono text-white tracking-tight inline-block w-48 sm:w-56 lg:w-72 text-right"
@@ -195,17 +197,17 @@ export default function CostCalculator() {
             >
               {yearlyCostPerEmployee.toLocaleString('de-CH')}
             </div>
-            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium ml-2">pro Jahr</span>
+            <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium ml-2">{t('cost_calculator.per_year', 'pro Jahr')}</span>
           </div>
           
           <div className="space-y-2">
             <p className="text-white/60 text-sm font-normal text-left">
-              Vollzeit-Mitarbeiter (<span className="inline-block w-5 text-right tabular-nums">{displayHours}</span> Std. Administration wöchentlich)
+{t('cost_calculator.employee_description', 'Vollzeit-Mitarbeiter ({hours} Std. Administration wöchentlich)').replace('{hours}', displayHours.toString())}
             </p>
           </div>
           
           <div className="space-y-1">
-            <p className="text-white/40 text-xs text-left">Basis: CHF 150/h Vollkosten</p>
+            <p className="text-white/40 text-xs text-left">{t('cost_calculator.cost_basis', 'Basis: CHF 150/h Vollkosten')}</p>
           </div>
         </div>
       </GlassCard>

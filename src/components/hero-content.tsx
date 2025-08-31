@@ -1,8 +1,29 @@
 import { GlassCard } from '@/components/ui/glass-card'
 import { SwissBadge } from '@/components/ui/swiss-badge'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from '@/hooks/useTranslations'
 
 export default function HeroContent() {
+  const { t, isReady } = useTranslations();
+
+  // Show minimal loading state to prevent flash
+  if (!isReady) {
+    return (
+      <main className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-20 max-w-sm sm:max-w-xl max-h-[50vh] sm:max-h-none">
+        <GlassCard className="text-left bg-black/10" size="md">
+          <div className="animate-pulse">
+            <div className="h-6 bg-white/10 rounded mb-4"></div>
+            <div className="h-16 bg-white/10 rounded mb-2"></div>
+            <div className="h-12 bg-white/10 rounded mb-4"></div>
+            <div className="flex gap-3">
+              <div className="h-11 bg-white/10 rounded flex-1"></div>
+              <div className="h-11 bg-white/10 rounded flex-1"></div>
+            </div>
+          </div>
+        </GlassCard>
+      </main>
+    );
+  }
   return (
     <main className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-20 max-w-sm sm:max-w-xl max-h-[50vh] sm:max-h-none">
       <GlassCard className="text-left bg-black/10" size="md">
@@ -18,37 +39,35 @@ export default function HeroContent() {
               <path d="m0 0h32v32h-32z" fill="#f00"/>
               <path d="m13 6h6v7h7v6h-7v7h-6v-7h-7v-6h7z" fill="#fff"/>
             </svg>
-            Swiss Made • 🔒 DSG konform • 🎯 Gratis KI-Analyse
+{t('hero.badge')}
           </span>
         </SwissBadge>
 
         {/* Main Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-1 -mt-1">
-          <span className="font-medium italic bitter">KI-Strategien</span> für
+          <span className="font-medium italic bitter">{t('hero.headline_accent')}</span> {t('hero.headline_suffix')}
           <br />
-          <span className="font-light tracking-tight text-white">Schweizer KMU</span>
+          <span className="font-light tracking-tight text-white">{t('hero.headline_secondary')}</span>
         </h1>
 
         {/* Description */}
         <p className="text-xs sm:text-sm font-light text-white/70 mb-2 -mt-1 leading-relaxed">
-        Schweizer KMU verlieren jeden Monat 31 Stunden an Administration. 
-        Schweizweit sind das CHF 6 Milliarden pro Jahr. Wir holen Ihre Zeit zurück 
-        mit KI-Agenten, Automatisierungen oder hybriden Lösungen. Erste Resultate in 2 Wochen.
+          {t('hero.description')}
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
           <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
             <Button variant="primary" className="hover-lift w-full sm:w-auto min-h-[44px]">
-              Kostenlos beraten
+              {t('hero.cta_primary')}
             </Button>
           </a>
           <div className="relative group hidden lg:block">
             <Button variant="secondary" className="opacity-50 cursor-not-allowed w-full sm:w-auto min-h-[44px]" disabled>
-              Report herunterladen
+              {t('hero.cta_secondary')}
             </Button>
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
-              Bald verfügbar
+              {t('hero.cta_secondary_tooltip')}
             </div>
           </div>
         </div>

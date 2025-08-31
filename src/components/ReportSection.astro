@@ -1,11 +1,14 @@
 ---
 // Astro wrapper component for Report Section
 // This provides the static structure with minimal hydration
+import type { Translations } from '@/lib/i18n';
+
 export interface Props {
   class?: string;
+  translations?: Translations;
 }
 
-const { class: className } = Astro.props;
+const { class: className, translations } = Astro.props;
 
 // Import the interactive React components
 import CostCalculator from './cost-calculator.tsx';
@@ -25,11 +28,11 @@ import ReportSectionCards from './report-section-cards.tsx';
     <!-- Static heading - centered above everything -->
     <div class="text-center mb-12 lg:mb-16">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-4 lg:mb-6 tracking-tight leading-tight">
-        Was kostet Sie <br />
-        <span class="font-serif italic font-medium text-red-300">Ineffizienz</span> wirklich?
+        {translations?.report_section?.headline || 'Was kostet Sie'} <br />
+        <span class="font-serif italic font-medium text-red-300">{translations?.report_section?.headline_accent || 'Ineffizienz'}</span> {translations?.report_section?.headline_suffix || 'wirklich?'}
       </h2>
       <p class="text-white/60 text-base lg:text-lg leading-relaxed max-w-3xl mx-auto text-center lg:text-center">
-        <span class="block text-left lg:text-center">Schweizer Unternehmen verlieren täglich Tausende Franken durch manuelle Prozesse. Berechnen Sie Ihr Einsparpotenzial.</span>
+        <span class="block text-left lg:text-center">{translations?.report_section?.description || 'Schweizer Unternehmen verlieren täglich Tausende Franken durch manuelle Prozesse. Berechnen Sie Ihr Einsparpotenzial.'}</span>
       </p>
     </div>
 
