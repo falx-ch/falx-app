@@ -11,6 +11,7 @@ gsap.registerPlugin(Flip)
 
 export default function ProblemShowcaseCards() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement[]>([])
   const webRef = useRef<SVGSVGElement>(null)
@@ -18,6 +19,16 @@ export default function ProblemShowcaseCards() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [cardPositions, setCardPositions] = useState<{ x: number; y: number }[]>([])
   const [isMeshLayout, setIsMeshLayout] = useState(true) // Start with mesh layout
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 500)
@@ -275,18 +286,54 @@ export default function ProblemShowcaseCards() {
         })}
       </svg>
 
-      {/* Problem Cards - Organic Mesh Layout */}
-      <div className="relative z-10 w-full h-[350px] md:h-[400px] lg:h-[450px]">
-        {/* Card positioning using CSS Grid as base with transforms for organic feel */}
-        <div className="grid grid-cols-12 grid-rows-8 h-full w-full gap-0">
+      {/* Problem Cards - Responsive Layout */}
+      <div className="relative z-10 w-full h-[500px] sm:h-[600px] md:h-[400px] lg:h-[450px]">
+        {/* Card positioning - mobile stack, desktop organic mesh */}
+        <div className="grid grid-cols-12 grid-rows-10 md:grid-rows-8 h-full w-full gap-0">
           {problemCards.map((card, index) => {
-            // CSS Grid positioning for organic mesh (no GSAP positioning)
+            // CSS Grid positioning - mobile-first to prevent overlapping
             const gridPositions = [
-              { col: "2 / span 3", row: "1 / span 2", transform: "rotate(-3deg) translate(10px, 5px)" },  // Top left
-              { col: "8 / span 3", row: "1 / span 2", transform: "rotate(2deg) translate(-5px, 10px)" },   // Top right
-              { col: "10 / span 3", row: "4 / span 2", transform: "rotate(-4deg) translate(-10px, 0px)" }, // Right
-              { col: "1 / span 3", row: "6 / span 2", transform: "rotate(5deg) translate(15px, -5px)" },  // Bottom left
-              { col: "5 / span 3", row: "6 / span 2", transform: "rotate(-2deg) translate(0px, 5px)" },   // Bottom center
+              { 
+                // Mobile: vertical stack, Desktop: organic mesh
+                col: "1 / span 12", 
+                row: "1 / span 2", 
+                transform: "rotate(-1deg) translate(0px, 0px)",
+                mdCol: "2 / span 3",
+                mdRow: "1 / span 2", 
+                mdTransform: "rotate(-3deg) translate(10px, 5px)"
+              },
+              { 
+                col: "1 / span 12", 
+                row: "3 / span 2", 
+                transform: "rotate(1deg) translate(0px, 0px)",
+                mdCol: "8 / span 3",
+                mdRow: "1 / span 2", 
+                mdTransform: "rotate(2deg) translate(-5px, 10px)"
+              },
+              { 
+                col: "1 / span 12", 
+                row: "5 / span 2", 
+                transform: "rotate(-1deg) translate(0px, 0px)",
+                mdCol: "10 / span 3",
+                mdRow: "4 / span 2", 
+                mdTransform: "rotate(-4deg) translate(-10px, 0px)"
+              },
+              { 
+                col: "1 / span 12", 
+                row: "7 / span 2", 
+                transform: "rotate(1deg) translate(0px, 0px)",
+                mdCol: "1 / span 3",
+                mdRow: "6 / span 2", 
+                mdTransform: "rotate(5deg) translate(15px, -5px)"
+              },
+              { 
+                col: "1 / span 12", 
+                row: "9 / span 2", 
+                transform: "rotate(-1deg) translate(0px, 0px)",
+                mdCol: "5 / span 3",
+                mdRow: "6 / span 2", 
+                mdTransform: "rotate(-2deg) translate(0px, 5px)"
+              },
             ]
             
             const pos = gridPositions[index]
@@ -299,9 +346,9 @@ export default function ProblemShowcaseCards() {
               }}
               className="select-none transition-all duration-300 place-self-center opacity-0"
               style={{
-                gridColumn: pos.col,
-                gridRow: pos.row,
-                transform: `${pos.transform} scale(0.8) translateY(20px)`,
+                gridColumn: !isMobile ? pos.mdCol : pos.col,
+                gridRow: !isMobile ? pos.mdRow : pos.row,
+                transform: `${!isMobile ? pos.mdTransform : pos.transform} scale(0.8) translateY(20px)`,
               }}
               onMouseEnter={() => handleCardHover(index)}
               onMouseLeave={handleCardLeave}
@@ -311,8 +358,8 @@ export default function ProblemShowcaseCards() {
               hover="lift"
               size="sm"
               className={cn(
-                "relative overflow-hidden transition-all duration-300 rounded-2xl",
-                "w-36 h-18 sm:w-40 sm:h-20 md:w-44 md:h-22 lg:w-48 lg:h-24", // Larger cards for readable text
+                "relative overflow-hidden transition-all duration-300 rounded-2xl mx-auto",
+                "w-72 h-20 sm:w-80 sm:h-22 md:w-44 md:h-22 lg:w-48 lg:h-24", // Full width on mobile, smaller on desktop
                 hoveredCard === index
                   ? "border-white/25"
                   : "border-white/15"
