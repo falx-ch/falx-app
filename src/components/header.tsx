@@ -11,7 +11,7 @@ export default function Header() {
         <span className="text-white font-medium text-base tracking-tight leading-none">Falx</span>
       </a>
 
-      {/* Navigation */}
+      {/* Navigation - Now includes hamburger menu for mobile */}
       <Navigation />
 
       {/* Login Button Group with Arrow */}
