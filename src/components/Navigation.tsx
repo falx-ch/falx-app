@@ -122,11 +122,8 @@ export default function Navigation() {
                 ))}
               </nav>
               
-              {/* Divider with gradient */}
-              <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-              
               {/* CTA Button - matching desktop style */}
-              <div className="px-6">
+              <div className="px-6 mt-8">
                 <a 
                   href="https://calendly.com/falx-ch/free-strategy-call" 
                   target="_blank" 
@@ -141,9 +138,11 @@ export default function Navigation() {
                 </a>
               </div>
               
-              {/* Footer Content */}
+              {/* Footer Content - positioned at bottom */}
               <div className="absolute bottom-8 left-6 right-6">
-                <p className="text-white/30 text-xs">
+                {/* Divider with gradient */}
+                <div className="mb-4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                <p className="text-white/30 text-xs text-center">
                   © 2025 Falx. Swiss Made 🇨🇭
                 </p>
               </div>
