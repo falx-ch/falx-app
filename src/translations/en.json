@@ -145,5 +145,102 @@
       "metric": "45% more qualified meetings. Measurably more revenue.",
       "icon": "⚡"
     }
+  },
+  "legal": {
+    "meta": {
+      "title": "Legal Notice & Privacy | Falx GmbH",
+      "description": "Legal information and privacy policy of Falx GmbH"
+    },
+    "page_header": {
+      "title": "Legal Notice & Privacy",
+      "subtitle": "Legal information and privacy policy of Falx GmbH"
+    },
+    "navigation": {
+      "impressum": "→ Legal Notice",
+      "datenschutz": "→ Privacy"
+    },
+    "impressum": {
+      "title": "Legal Notice",
+      "legal_basis": "Information according to Art. 3 Para. 1 lit. s UWG",
+      "company_info": {
+        "name": "Falx GmbH",
+        "address": "Gussstrasse 6<br />8180 Bülach<br />Switzerland"
+      },
+      "contact": {
+        "label": "Contact:",
+        "email_placeholder": "Please enable JavaScript to view the email address"
+      },
+      "representative": {
+        "label": "Authorized representative(s):",
+        "name": "Christopher Kobler"
+      },
+      "registration": {
+        "label": "Commercial register entry:",
+        "company_name": "Registered company name: Falx GmbH",
+        "uid": "Enterprise identification number (UID): CHE-330.745.750"
+      },
+      "disclaimer": {
+        "label": "Disclaimer:",
+        "text": "The author assumes no responsibility for the correctness, accuracy, timeliness, reliability and completeness of the information. Claims for damages against the author due to material or immaterial damage arising from access to or use or non-use of the published information, through misuse of the connection or through technical malfunctions are excluded. All offers are non-binding."
+      },
+      "links_disclaimer": {
+        "label": "Disclaimer for links:",
+        "text": "References and links to third-party websites are outside our area of responsibility. Any responsibility for such websites is disclaimed. Access to and use of such websites is at the user's own risk."
+      }
+    },
+    "datenschutz": {
+      "title": "Privacy",
+      "subtitle": "Privacy Policy",
+      "version": "Version dated August 31, 2025",
+      "intro": "We are pleased about your interest in our website. The protection of your privacy is very important to us. Below we inform you in detail about how we handle your data.",
+      "sections": {
+        "responsible_entity": {
+          "title": "1. Responsible Entity",
+          "text": "Responsible for data processing on this website within the meaning of the Federal Act on Data Protection (FADP) is:",
+          "company_details": "Falx GmbH<br />Represented by: Christopher Kobler<br />Gussstrasse 6, 8180, Bülach<br />Switzerland",
+          "contact_info": "Email: <span id=\"legal-email-address\" class=\"text-red-600\"><noscript>Please enable JavaScript to view the email address</noscript></span><br />Website: https://falx.ch"
+        },
+        "server_logs": {
+          "title": "2. Collection of General Data and Information (Server Log Files)",
+          "hosting_info": "Our website is hosted by Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, California 94104, USA (hereinafter \"Netlify\").",
+          "data_collection": "Each time our website is accessed, Netlify's server automatically collects a series of general data and information that is stored in log files. The following may be collected:",
+          "data_types": [
+            "the browser types and versions used,",
+            "the operating system used by the accessing system,",
+            "the website from which an accessing system reaches our site (so-called referrers),",
+            "the sub-websites that are accessed on our website through an accessing system,",
+            "the date and time of access to the website,",
+            "an Internet Protocol address (IP address),",
+            "the Internet service provider of the accessing system."
+          ],
+          "purpose": "This data cannot be assigned by us to specific persons. The collection of this data is technically necessary to display our website to you and to ensure its stability and security."
+        },
+        "email_service": {
+          "title": "3. Email Sending via Resend",
+          "description": "For sending emails, such as reports or other correspondence, we use the \"Resend\" service of Resend, Inc., 548 Market St PMB 98451, San Francisco, CA 94104-5401, USA.",
+          "data_transfer": "When we send you an email, the data required for this purpose (e.g. your email address, name and the content of the message) is transmitted to Resend's servers in the USA. Resend acts as our processor and uses this information exclusively to send emails on our behalf and to ensure deliverability.",
+          "protection": "Data transmission to the USA is secured by appropriate data protection guarantees, such as the application of standard contractual clauses, to ensure an adequate level of protection. Further information on data protection at Resend can be found at: <a href=\"https://resend.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://resend.com/privacy</a>"
+        },
+        "calendly": {
+          "title": "4. Appointment Booking via Calendly",
+          "description": "We offer you the possibility to make appointments with us via our website. For this we use the \"Calendly\" service, offered by Calendly LLC, 271 17th St NW, Ste 1000, Atlanta, GA 30363, USA.",
+          "booking_process": "When you book an appointment, you will be redirected to the Calendly website (or a corresponding module will be loaded). There you can enter your contact details (such as name, email address) and appointment details. Calendly itself is responsible for data processing on the Calendly platform. Further information can be found in Calendly's privacy policy: <a href=\"https://calendly.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://calendly.com/privacy</a>.",
+          "data_usage": "The data you enter at Calendly is transmitted to us. We process this data exclusively for the purpose of appointment planning, implementation and for related communication (e.g. confirmations or reminders)."
+        },
+        "analytics": {
+          "title": "5. Web Analysis with Netlify Analytics",
+          "description": "We use Netlify Analytics on our website. This is a web analytics service from Netlify, Inc. Netlify Analytics does not use cookies and does not collect personal data that would allow direct identification of the user. Anonymized data such as the number of page views, referral sites and browsers used are analyzed to evaluate the use of our website and to compile reports on website activities. The collected IP addresses are anonymized."
+        },
+        "user_rights": {
+          "title": "6. Your Rights",
+          "description": "Within the framework of the applicable legal provisions, you have the right at any time to free information about your stored personal data, their origin and recipients and the purpose of data processing and, if applicable, a right to correction, blocking or deletion of this data. For this as well as for further questions on the subject of personal data, you can contact us at any time at the address given in section 1."
+        },
+        "policy_changes": {
+          "title": "7. Changes to this Privacy Policy",
+          "description": "We may adapt this privacy policy at any time without prior notice. The current version published on our website applies."
+        }
+      }
+    },
+    "back_to_top": "Back to top"
   }
 }

@@ -1,30 +1,36 @@
 ---
-// German legal page using translations
-// Uses German translations from de.json
+// Multi-language legal page
+// German uses /legal (no prefix)
+// Other languages use this file with [lang] parameter
 
 // Import utilities
-import { loadTranslations, type SupportedLanguage } from '@/lib/i18n';
+import { loadTranslations, getLanguageFromPath, type SupportedLanguage } from '@/lib/i18n';
 
-// Load German translations
-const translations = await loadTranslations('de');
+// Get language from URL parameter
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } }
+    // { params: { lang: 'fr' } }, // Ready for future
+    // { params: { lang: 'it' } }, // Ready for future
+  ];
+}
+
+const { lang } = Astro.params as { lang: SupportedLanguage };
+
+// Load translations for this language
+const translations = await loadTranslations(lang);
 
 // Set up meta data
 const meta = {
   title: translations.legal.meta.title,
   description: translations.legal.meta.description,
-  lang: 'de' as SupportedLanguage
+  lang: lang
 };
 
-export interface Props {
-  class?: string;
-}
-
-const { class: className } = Astro.props;
-
 // Import layout and components
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/header.tsx';
-import SimpleFooter from '../components/simple-footer.tsx';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/header.tsx';
+import SimpleFooter from '../../components/simple-footer.tsx';
 ---
 
 <BaseLayout title={meta.title} description={meta.description} lang={meta.lang}>
@@ -50,7 +56,7 @@ import SimpleFooter from '../components/simple-footer.tsx';
   </div>
   
   <!-- Legal Content -->
-  <main class={`min-h-screen bg-slate-50 text-slate-900 py-16 lg:py-24 ${className || ''}`}>
+  <main class="min-h-screen bg-slate-50 text-slate-900 py-16 lg:py-24">
     <div class="max-w-4xl mx-auto px-6 lg:px-8">
       
       <!-- Page Header -->
@@ -242,8 +248,8 @@ import SimpleFooter from '../components/simple-footer.tsx';
 </BaseLayout>
 
 <!-- Make translations available to components -->
-<script define:vars={{ translations }}>
+<script define:vars={{ translations, lang }}>
   // Make translations globally available for React components
   window.__TRANSLATIONS__ = translations;
-  window.__CURRENT_LANG__ = 'de';
+  window.__CURRENT_LANG__ = lang;
 </script>

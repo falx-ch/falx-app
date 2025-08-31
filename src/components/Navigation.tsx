@@ -19,8 +19,22 @@ export default function Navigation() {
     // Close menu first
     setIsOpen(false);
     
+    // Check if we're on the homepage or a language variant
+    const currentPath = window.location.pathname;
+    const isHomepage = currentPath === '/' || currentPath.match(/^\/[a-z]{2}$/);
+    
     // Then scroll after a small delay to ensure menu is closed
     setTimeout(() => {
+      // If we're not on homepage, navigate to homepage first
+      if (!isHomepage) {
+        // Use the current language from the translation system
+        const currentLang = window.__CURRENT_LANG__ || 'de';
+        const homePath = currentLang === 'de' ? '/' : `/${currentLang}`;
+        window.location.href = `${homePath}#${sectionId}`;
+        return;
+      }
+      
+      // If we're on homepage, scroll to section as usual
       const element = document.getElementById(sectionId);
       if (element) {
         const yOffset = 0; // No offset - scroll to exact section start

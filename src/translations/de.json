@@ -144,5 +144,102 @@
       "metric": "45% mehr qualifizierte Meetings. Messbar mehr Umsatz.",
       "icon": "⚡"
     }
+  },
+  "legal": {
+    "meta": {
+      "title": "Impressum & Datenschutz | Falx GmbH",
+      "description": "Rechtliche Informationen und Datenschutzbestimmungen der Falx GmbH"
+    },
+    "page_header": {
+      "title": "Impressum & Datenschutz",
+      "subtitle": "Rechtliche Informationen und Datenschutzbestimmungen der Falx GmbH"
+    },
+    "navigation": {
+      "impressum": "→ Impressum",
+      "datenschutz": "→ Datenschutz"
+    },
+    "impressum": {
+      "title": "Impressum",
+      "legal_basis": "Angaben gemäss Art. 3 Abs. 1 lit. s UWG",
+      "company_info": {
+        "name": "Falx GmbH",
+        "address": "Gussstrasse 6<br />8180 Bülach<br />Schweiz"
+      },
+      "contact": {
+        "label": "Kontakt:",
+        "email_placeholder": "Bitte JavaScript aktivieren, um die E-Mail-Adresse zu sehen"
+      },
+      "representative": {
+        "label": "Vertretungsberechtigte Person(en):",
+        "name": "Christopher Kobler"
+      },
+      "registration": {
+        "label": "Handelsregistereintrag:",
+        "company_name": "Eingetragener Firmenname: Falx GmbH",
+        "uid": "Unternehmens-Identifikationsnummer (UID): CHE-330.745.750"
+      },
+      "disclaimer": {
+        "label": "Haftungsausschluss:",
+        "text": "Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen. Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen. Alle Angebote sind unverbindlich."
+      },
+      "links_disclaimer": {
+        "label": "Haftungsausschluss für Links:",
+        "text": "Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des jeweiligen Nutzers."
+      }
+    },
+    "datenschutz": {
+      "title": "Datenschutz",
+      "subtitle": "Datenschutzerklärung",
+      "version": "Version vom 31.8.2025",
+      "intro": "Wir freuen uns über Ihr Interesse an unserer Website. Der Schutz Ihrer Privatsphäre ist für uns sehr wichtig. Nachstehend informieren wir Sie ausführlich über den Umgang mit Ihren Daten.",
+      "sections": {
+        "responsible_entity": {
+          "title": "1. Verantwortliche Stelle",
+          "text": "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne des Bundesgesetzes über den Datenschutz (DSG) ist:",
+          "company_details": "Falx GmbH<br />Vertreten durch: Christopher Kobler<br />Gussstrasse 6, 8180, Bülach<br />Schweiz",
+          "contact_info": "E-Mail: <span id=\"legal-email-address\" class=\"text-red-600\"><noscript>Bitte JavaScript aktivieren, um die E-Mail-Adresse zu sehen</noscript></span><br />Website: https://falx.ch"
+        },
+        "server_logs": {
+          "title": "2. Erfassung von allgemeinen Daten und Informationen (Server-Logfiles)",
+          "hosting_info": "Unsere Website wird bei Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, California 94104, USA (nachfolgend \"Netlify\") gehostet.",
+          "data_collection": "Bei jedem Zugriff auf unsere Website erfasst der Server von Netlify automatisch eine Reihe von allgemeinen Daten und Informationen, die in Logfiles gespeichert werden. Erfasst werden können:",
+          "data_types": [
+            "die verwendete Browser-Typen und Versionen,",
+            "das vom zugreifenden System verwendete Betriebssystem,",
+            "die Internetseite, von welcher ein zugreifendes System auf unsere Seite gelangt (sogenannte Referrer),",
+            "die Unterwebseiten, welche über ein zugreifendes System auf unserer Internetseite angesteuert werden,",
+            "das Datum und die Uhrzeit eines Zugriffs auf die Internetseite,",
+            "eine Internet-Protokoll-Adresse (IP-Adresse),",
+            "der Internet-Service-Provider des zugreifenden Systems."
+          ],
+          "purpose": "Diese Daten sind für uns nicht bestimmten Personen zuordenbar. Die Erhebung dieser Daten ist technisch erforderlich, um Ihnen unsere Website anzuzeigen und deren Stabilität und Sicherheit zu gewährleisten."
+        },
+        "email_service": {
+          "title": "3. E-Mail-Versand via Resend",
+          "description": "Für den Versand von E-Mails, wie beispielsweise Berichte oder andere Korrespondenz, nutzen wir den Dienst \"Resend\" der Resend, Inc., 548 Market St PMB 98451, San Francisco, CA 94104-5401, USA.",
+          "data_transfer": "Wenn wir Ihnen eine E-Mail senden, werden die hierfür erforderlichen Daten (z.B. Ihre E-Mail-Adresse, Name und der Inhalt der Nachricht) an die Server von Resend in den USA übermittelt. Resend agiert dabei als unser Auftragsverarbeiter und verwendet diese Informationen ausschliesslich, um die E-Mails in unserem Auftrag zu versenden und die Zustellbarkeit sicherzustellen.",
+          "protection": "Die Datenübermittlung in die USA ist durch entsprechende Datenschutzgarantien, wie die Anwendung von Standardvertragsklauseln, abgesichert, um ein angemessenes Schutzniveau zu gewährleisten. Weitere Informationen zum Datenschutz bei Resend finden Sie unter: <a href=\"https://resend.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://resend.com/privacy</a>"
+        },
+        "calendly": {
+          "title": "4. Terminvereinbarung über Calendly",
+          "description": "Wir bieten Ihnen die Möglichkeit, über unsere Website Termine mit uns zu vereinbaren. Hierfür nutzen wir den Dienst \"Calendly\", angeboten von Calendly LLC, 271 17th St NW, Ste 1000, Atlanta, GA 30363, USA.",
+          "booking_process": "Wenn Sie einen Termin buchen, werden Sie auf die Website von Calendly weitergeleitet (oder es wird ein entsprechendes Modul geladen). Dort können Sie Ihre Kontaktdaten (wie Name, E-Mail-Adresse) und Termindetails eingeben. Für die Datenverarbeitung auf der Plattform von Calendly ist Calendly selbst verantwortlich. Weitere Informationen finden Sie in der Datenschutzerklärung von Calendly: <a href=\"https://calendly.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://calendly.com/privacy</a>.",
+          "data_usage": "Die von Ihnen bei Calendly eingegebenen Daten werden an uns übermittelt. Wir verarbeiten diese Daten ausschliesslich zum Zweck der Terminplanung, -durchführung und für die damit verbundene Kommunikation (z.B. Bestätigungen oder Erinnerungen)."
+        },
+        "analytics": {
+          "title": "5. Web-Analyse mit Netlify Analytics",
+          "description": "Wir nutzen auf unserer Website Netlify Analytics. Dies ist ein Webanalysedient von Netlify, Inc. Netlify Analytics verwendet keine Cookies und erfasst keine persönlichen Daten, die eine direkte Identifizierung des Nutzers ermöglichen. Es werden anonymisierte Daten wie die Anzahl der Seitenaufrufe, die Herkunftsseiten und die verwendeten Browser analysiert, um die Nutzung unserer Website auszuwerten und Reports über die Websiteaktivitäten zusammenzustellen. Die erfassten IP-Adressen werden dabei anonymisiert."
+        },
+        "user_rights": {
+          "title": "6. Ihre Rechte",
+          "description": "Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Abschnitt 1 angegebenen Adresse an uns wenden."
+        },
+        "policy_changes": {
+          "title": "7. Änderung dieser Datenschutzerklärung",
+          "description": "Wir können diese Datenschutzerklärung jederzeit ohne Vorankündigung anpassen. Es gilt die jeweils aktuelle, auf unserer Website publizierte Fassung."
+        }
+      }
+    },
+    "back_to_top": "Zurück nach oben"
   }
 }
