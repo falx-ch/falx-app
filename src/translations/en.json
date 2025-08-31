@@ -3,12 +3,10 @@
     "title": "AI Strategies for Swiss SMEs | Falx",
     "description": "Swiss SMEs lose 31 hours every month to admin work. We help you reclaim time with AI agents and automations. FADP-compliant, first results in 2 weeks."
   },
-  "header": {
-    "cta_button": "Break Free"
-  },
   "hero": {
     "badge": "Swiss Made • 🔒 FADP Compliant • 🎯 Free AI Analysis",
-    "headline": "AI Strategies for",
+    "headline_accent": "AI strategies",
+    "headline_suffix": "for",
     "headline_secondary": "Swiss SMEs",
     "description": "Swiss SMEs lose 31 hours every month to admin work. That's CHF 6 billion annually nationwide. We help you reclaim time with AI agents, automations, or hybrid solutions. First results in 2 weeks.",
     "cta_primary": "Free Consultation",
@@ -33,8 +31,8 @@
     ]
   },
   "solution_showcase": {
-    "headline": "AI Solutions",
-    "headline_suffix": "in Practice",
+    "headline": "AI solutions",
+    "headline_suffix": "in practice",
     "description": "No more theory. Here's what we actually do.<br />Whether AI agent, workflow automation, or API integration: We use what works for you.",
     "features": [
       "Guaranteed FADP-compliant, your data stays in Switzerland",
@@ -44,12 +42,12 @@
     "cta_button": "Free Strategy Call"
   },
   "product_demonstration": {
-    "headline": "Where Empathy",
-    "headline_suffix": "Meets Legal Tech",
+    "headline": "Where empathy",
+    "headline_suffix": "meets legal tech",
     "description": "A free tool for all families in Switzerland: Legally valid wills, understandable and secure. FADP-compliant.",
     "mission_statement": "Legata shows what's possible: Will drafts that replace multiple consultation appointments. Notary costs reduced through optimal preparation. We create similar efficiency gains for your processes."
-    "cta_primary": "What if your business thought with you?"
-    "cta_secondary": "Notify at launch",
+    "cta_primary": "What If Your Business Thought With You?"
+    "cta_secondary": "Notify At Launch",
     "cta_secondary_tooltip": "Coming Soon"
   },
   "founder_section": {
