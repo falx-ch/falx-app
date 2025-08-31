@@ -82,69 +82,76 @@ export default function Navigation() {
           
           <SheetContent 
             side="right" 
-            className="w-[85vw] sm:w-[400px] bg-gradient-to-br from-black/98 via-gray-900/98 to-black/98 backdrop-blur-2xl border-l border-white/20 overflow-y-auto"
+            className="w-[85vw] sm:w-[400px] bg-gradient-to-br from-black/98 via-gray-900/98 to-black/98 backdrop-blur-2xl border-l border-white/20 flex flex-col"
             hideCloseButton={false}
           >
             {/* Gradient overlay for depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
             
-            <div className="relative z-10">
-              <SheetHeader className="mb-10 border-b border-white/10 pb-6">
+            {/* Content Container - flex grow to push footer down */}
+            <div className="relative z-10 flex flex-col flex-1">
+              <SheetHeader className="mb-10 border-b border-white/10 pb-6 flex-shrink-0">
                 <SheetTitle className="text-white font-light text-xl tracking-tight">Menu</SheetTitle>
               </SheetHeader>
               
-              {/* Mobile Menu Items */}
-              <nav className="flex flex-col space-y-1 px-2">
-                {navigationItems.map((item, index) => (
-                  <SheetClose key={item.id} asChild>
-                    <button
-                      onClick={() => scrollToSection(item.id)}
-                      className="group relative text-white text-xl font-light px-4 py-4 rounded-xl hover:bg-white/5 transition-all duration-300 text-left flex items-center justify-between"
-                      style={{
-                        animationDelay: `${index * 50}ms`,
-                        animation: 'slideInRight 0.5s ease-out forwards',
-                        opacity: 0
-                      }}
-                    >
-                      <span className="group-hover:translate-x-2 transition-transform duration-300">
-                        {item.label}
-                      </span>
-                      <svg 
-                        className="w-5 h-5 opacity-0 group-hover:opacity-50 transition-all duration-300 transform group-hover:translate-x-0 -translate-x-2" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
+              {/* Main Content - flex grow */}
+              <div className="flex-1 flex flex-col">
+                {/* Mobile Menu Items */}
+                <nav className="flex flex-col space-y-1 px-2 flex-shrink-0">
+                  {navigationItems.map((item, index) => (
+                    <SheetClose key={item.id} asChild>
+                      <button
+                        onClick={() => scrollToSection(item.id)}
+                        className="group relative text-white text-xl font-light px-4 py-4 rounded-xl hover:bg-white/5 transition-all duration-300 text-left flex items-center justify-between"
+                        style={{
+                          animationDelay: `${index * 50}ms`,
+                          animation: 'slideInRight 0.5s ease-out forwards',
+                          opacity: 0
+                        }}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </SheetClose>
-                ))}
-              </nav>
-              
-              {/* CTA Button - matching desktop style */}
-              <div className="px-6 mt-8">
-                <a 
-                  href="https://calendly.com/falx-ch/free-strategy-call" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Button 
-                    className="w-full px-6 py-2 rounded-full bg-white text-black font-normal text-sm transition-all duration-300 hover:bg-white/90"
+                        <span className="group-hover:translate-x-2 transition-transform duration-300">
+                          {item.label}
+                        </span>
+                        <svg 
+                          className="w-5 h-5 opacity-0 group-hover:opacity-50 transition-all duration-300 transform group-hover:translate-x-0 -translate-x-2" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </SheetClose>
+                  ))}
+                </nav>
+                
+                {/* CTA Button */}
+                <div className="px-6 mt-8 flex-shrink-0">
+                  <a 
+                    href="https://calendly.com/falx-ch/free-strategy-call" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
                   >
-                    Ausbrechen
-                  </Button>
-                </a>
-              </div>
-              
-              {/* Footer Content - positioned at bottom */}
-              <div className="absolute bottom-8 left-6 right-6">
-                {/* Divider with gradient */}
-                <div className="mb-4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                <p className="text-white/30 text-xs text-center">
-                  © 2025 Falx. Swiss Made 🇨🇭
-                </p>
+                    <Button 
+                      className="w-full px-6 py-2 rounded-full bg-white text-black font-normal text-sm transition-all duration-300 hover:bg-white/90"
+                    >
+                      Ausbrechen
+                    </Button>
+                  </a>
+                </div>
+                
+                {/* Spacer - pushes footer to bottom */}
+                <div className="flex-1 min-h-[2rem]" />
+                
+                {/* Footer Content - now properly positioned at bottom */}
+                <div className="px-6 pb-8 pt-4 flex-shrink-0">
+                  {/* Divider with gradient */}
+                  <div className="mb-4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <p className="text-white/30 text-xs text-center">
+                    © 2025 Falx GmbH. Swiss Made 🇨🇭
+                  </p>
+                </div>
               </div>
             </div>
             
