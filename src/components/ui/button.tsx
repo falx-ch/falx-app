@@ -12,11 +12,11 @@ const buttonVariants = cva(
         default:
           "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
         primary:
-          "px-8 py-3 rounded-full bg-white text-black font-normal text-base hover:bg-white/90 transition-colors duration-200 shadow-lg",
+          "px-8 py-3 rounded-full bg-white text-black font-normal text-base hover:bg-white/90 transition-colors duration-200 shadow-lg min-h-[44px]",
         "primary-dark":
-          "px-12 py-4 rounded-full bg-slate-900 text-white font-normal text-base hover:bg-slate-800 transition-colors duration-200 shadow-lg",
+          "px-12 py-4 rounded-full bg-slate-900 text-white font-normal text-base hover:bg-slate-800 transition-colors duration-200 shadow-lg min-h-[44px]",
         secondary:
-          "px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-base hover:bg-white/10 hover:border-white/50 transition-all duration-200",
+          "px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-base hover:bg-white/10 hover:border-white/50 transition-all duration-200 min-h-[44px]",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:

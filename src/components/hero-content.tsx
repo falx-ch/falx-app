@@ -37,15 +37,15 @@ export default function HeroContent() {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-          <Button variant="secondary" className="opacity-50 cursor-not-allowed" disabled>
-            Report herunterladen
-          </Button>
-          <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer">
-            <Button variant="primary" className="hover-lift">
+        <div className="flex flex-col gap-2 w-full">
+          <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" className="w-full">
+            <Button variant="primary" className="hover-lift w-full min-h-[44px] sm:w-auto">
               Kostenlos beraten
             </Button>
           </a>
+          <Button variant="secondary" className="opacity-50 cursor-not-allowed w-full min-h-[44px] sm:w-auto" disabled>
+            Report herunterladen
+          </Button>
         </div>
       </GlassCard>
     </main>
