@@ -17,21 +17,7 @@ interface Props {
 export default function ProblemShowcaseCards({ translations }: Props) {
   const [isVisible, setIsVisible] = useState(false)
 
-  // Simple translation function using passed props
-  const t = (key: string): string => {
-    const keys = key.split('.');
-    let value: any = translations;
-    
-    for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k];
-      } else {
-        return key; // Return key if translation not found
-      }
-    }
-    
-    return typeof value === 'string' ? value : key;
-  };
+  // Direct access to translation data - no fallbacks needed
   const [isMobile, setIsMobile] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement[]>([])
@@ -385,12 +371,12 @@ export default function ProblemShowcaseCards({ translations }: Props) {
               <div className="relative flex items-center gap-2 h-full px-2 py-2">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
-                    <span className="text-xl sm:text-2xl leading-none">{t(`problem_showcase_cards.card${card.index}.icon`, card.index === 1 ? '📊' : card.index === 2 ? '💬' : card.index === 3 ? '⚠️' : card.index === 4 ? '🔄' : '💸')}</span>
+                    <span className="text-xl sm:text-2xl leading-none">{translations.problem_showcase_cards[`card${card.index}` as keyof typeof translations.problem_showcase_cards].icon}</span>
                   </div>
                 </div>
                 <div className="flex-1 min-w-0 flex flex-col justify-center">
                   <div className="text-xs sm:text-sm md:text-sm font-medium text-white/90 leading-tight">
-                    {t(`problem_showcase_cards.card${card.index}.title`)}
+                    {translations.problem_showcase_cards[`card${card.index}` as keyof typeof translations.problem_showcase_cards].title}
                   </div>
                 </div>
               </div>
