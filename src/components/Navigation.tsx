@@ -20,7 +20,7 @@ export default function Navigation() {
     setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
-        const yOffset = -80; // Offset for fixed header
+        const yOffset = 0; // No offset - scroll to exact section start
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
         
         window.scrollTo({
@@ -28,7 +28,7 @@ export default function Navigation() {
           behavior: 'smooth'
         });
       }
-    }, 300); // Wait for sheet close animation
+    }, 350); // Wait for sheet close animation
   };
 
   const navigationItems = [
@@ -83,6 +83,7 @@ export default function Navigation() {
           <SheetContent 
             side="right" 
             className="w-[85vw] sm:w-[400px] bg-gradient-to-br from-black/98 via-gray-900/98 to-black/98 backdrop-blur-2xl border-l border-white/20 overflow-y-auto"
+            hideCloseButton={false}
           >
             {/* Gradient overlay for depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
@@ -124,7 +125,7 @@ export default function Navigation() {
               {/* Divider with gradient */}
               <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
               
-              {/* CTA Button */}
+              {/* CTA Button - matching desktop style */}
               <div className="px-6">
                 <a 
                   href="https://calendly.com/falx-ch/free-strategy-call" 
@@ -133,9 +134,7 @@ export default function Navigation() {
                   className="block"
                 >
                   <Button 
-                    variant="default" 
-                    className="w-full bg-white text-black hover:bg-white/90 font-medium transition-all duration-300 hover:scale-[1.02]"
-                    size="lg"
+                    className="w-full px-6 py-2 rounded-full bg-white text-black font-normal text-sm transition-all duration-300 hover:bg-white/90"
                   >
                     Ausbrechen
                   </Button>
