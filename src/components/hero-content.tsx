@@ -6,37 +6,17 @@ import { useTranslations } from '@/hooks/useTranslations'
 export default function HeroContent() {
   const { t, isReady } = useTranslations();
 
-  // Show loading state that matches final layout dimensions
-  if (!isReady) {
-    return (
-      <main className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-20 max-w-sm sm:max-w-xl max-h-[50vh] sm:max-h-none">
-        <GlassCard className="text-left bg-black/10" size="md">
-          <div className="animate-pulse">
-            {/* Badge placeholder */}
-            <div className="h-6 w-3/4 bg-white/10 rounded-full mb-1"></div>
-            
-            {/* Main heading placeholder - two lines to match actual content */}
-            <div className="mb-1 -mt-1">
-              <div className="h-12 sm:h-14 md:h-16 bg-white/10 rounded mb-1"></div>
-              <div className="h-12 sm:h-14 md:h-16 w-4/5 bg-white/10 rounded"></div>
-            </div>
-            
-            {/* Description placeholder - matches actual height */}
-            <div className="mb-2 -mt-1">
-              <div className="h-4 bg-white/10 rounded mb-1"></div>
-              <div className="h-4 w-5/6 bg-white/10 rounded"></div>
-            </div>
-            
-            {/* Buttons placeholder */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-              <div className="h-11 bg-white/10 rounded w-full sm:w-auto sm:min-w-[160px]"></div>
-              <div className="h-11 bg-white/10 rounded w-full sm:w-auto sm:min-w-[140px] hidden lg:block"></div>
-            </div>
-          </div>
-        </GlassCard>
-      </main>
-    );
-  }
+  // Show actual layout with default content until translations load
+  const displayText = {
+    badge: isReady ? t('hero.badge') : 'Swiss Made • 🔒 FADP Compliant • 🎯 Free AI Analysis',
+    headlineAccent: isReady ? t('hero.headline_accent') : 'AI strategies',
+    headlineSuffix: isReady ? t('hero.headline_suffix') : 'for',
+    headlineSecondary: isReady ? t('hero.headline_secondary') : 'Swiss SMEs',
+    description: isReady ? t('hero.description') : 'Swiss SMEs lose 31 hours every month to admin work. That\'s CHF 6 billion annually nationwide. We help you reclaim time with AI agents, automations, or hybrid solutions. First results in 2 weeks.',
+    ctaPrimary: isReady ? t('hero.cta_primary') : 'Free Consultation',
+    ctaSecondary: isReady ? t('hero.cta_secondary') : 'Download Report',
+    ctaSecondaryTooltip: isReady ? t('hero.cta_secondary_tooltip') : 'Coming Soon'
+  };
   return (
     <main className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-20 max-w-sm sm:max-w-xl max-h-[50vh] sm:max-h-none">
       <GlassCard className="text-left bg-black/10" size="md">
@@ -52,35 +32,35 @@ export default function HeroContent() {
               <path d="m0 0h32v32h-32z" fill="#f00"/>
               <path d="m13 6h6v7h7v6h-7v7h-6v-7h-7v-6h7z" fill="#fff"/>
             </svg>
-{t('hero.badge')}
+{displayText.badge}
           </span>
         </SwissBadge>
 
         {/* Main Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-1 -mt-1">
-          <span className="font-medium italic bitter">{t('hero.headline_accent')}</span> {t('hero.headline_suffix')}
+          <span className="font-medium italic bitter">{displayText.headlineAccent}</span> {displayText.headlineSuffix}
           <br />
-          <span className="font-light tracking-tight text-white">{t('hero.headline_secondary')}</span>
+          <span className="font-light tracking-tight text-white">{displayText.headlineSecondary}</span>
         </h1>
 
         {/* Description */}
         <p className="text-xs sm:text-sm font-light text-white/70 mb-2 -mt-1 leading-relaxed">
-          {t('hero.description')}
+          {displayText.description}
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
           <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
             <Button variant="primary" className="hover-lift w-full sm:w-auto min-h-[44px]">
-              {t('hero.cta_primary')}
+              {displayText.ctaPrimary}
             </Button>
           </a>
           <div className="relative group hidden lg:block">
             <Button variant="secondary" className="opacity-50 cursor-not-allowed w-full sm:w-auto min-h-[44px]" disabled>
-              {t('hero.cta_secondary')}
+              {displayText.ctaSecondary}
             </Button>
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
-              {t('hero.cta_secondary_tooltip')}
+              {displayText.ctaSecondaryTooltip}
             </div>
           </div>
         </div>
