@@ -12,4 +12,14 @@ export default defineConfig({
 	},
 
   integrations: [react()],
+  
+  // i18n configuration
+  i18n: {
+    defaultLocale: 'de',
+    locales: ['de', 'en'], // fr, it ready for future
+    routing: {
+      prefixDefaultLocale: false, // German gets no prefix (falx.ch/)
+      redirectToDefaultLocale: true
+    }
+  }
 });

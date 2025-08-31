@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "AI Strategies for Swiss SMEs | Falx",
+    "description": "Swiss SMEs lose 31 hours every month to admin work. We help you reclaim time with AI agents and automations. GDPR-compliant, first results in 2 weeks."
+  },
+  "header": {
+    "cta_button": "Break Free"
+  },
+  "hero": {
+    "badge": "Swiss Made • 🔒 GDPR Compliant • 🎯 Free AI Analysis",
+    "headline": "AI Strategies for",
+    "headline_secondary": "Swiss SMEs",
+    "description": "Swiss SMEs lose 31 hours every month to admin work. That's CHF 6 billion annually nationwide. We help you reclaim time with AI agents, automations, or hybrid solutions. First results in 2 weeks.",
+    "cta_primary": "Free Consultation",
+    "cta_secondary": "Download Report",
+    "cta_secondary_tooltip": "Coming Soon"
+  },
+  "report_section": {
+    "headline": "What does",
+    "headline_accent": "inefficiency",
+    "headline_suffix": "really cost you?",
+    "description": "Swiss companies lose thousands of francs daily through manual processes. Calculate your savings potential."
+  },
+  "problem_identification": {
+    "headline": "Your time isn't",
+    "headline_accent": "yours",
+    "headline_suffix": "anymore",
+    "description": "Fragmented systems, manual processes, and data chaos cost Swiss companies valuable resources daily.",
+    "stats": [
+      "53% of Swiss SMEs have no digitalization strategy",
+      "56% already share company data with insecure AI tools",
+      "Only 50% conduct annual technology analyses"
+    ]
+  },
+  "solution_showcase": {
+    "headline": "AI Solutions",
+    "headline_suffix": "in Practice",
+    "description": "No more theory. Here's what we actually do.<br />Whether AI agent, workflow automation, or API integration: We use what works for you.",
+    "features": [
+      "Guaranteed GDPR-compliant, your data stays in Switzerland",
+      "Fixed pricing per solution, no hidden costs",
+      "First automation running within 14 days"
+    ],
+    "cta_button": "Free Strategy Call"
+  },
+  "product_demonstration": {
+    "headline": "Where Empathy",
+    "headline_suffix": "Meets Legal Tech",
+    "description": "A free tool for all families in Switzerland: Legally valid wills, understandable and secure. GDPR-compliant.",
+    "mission_statement": "Legata shows what's possible: Will drafts that replace multiple consultation appointments. Notary costs reduced through optimal preparation. We create similar efficiency gains for your processes."
+    "cta_primary": "What if your business thought with you?"
+    "cta_secondary": "Notify at launch",
+    "cta_secondary_tooltip": "Coming Soon"
+  },
+  "founder_section": {
+    "tagline": "Creating",
+    "tagline_accent": "greatness",
+    "tagline_suffix": "together",
+    "name": "Chris Kobler",
+    "title": "Founder & AI Strategy Consultant",
+    "quote": "I want to be part of a great work - do you?",
+    "cta_button": "Connect on LinkedIn",
+    "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
+  },
+  "call_to_action": {
+    "headline": "Invest 30 minutes.<br />Win back 31 hours",
+    "headline_accent": "back.",
+    "description": "In a free strategy session, we identify your biggest time waste and show you the right solution. No buzzwords, just concrete steps.",
+    "cta_button": "Schedule Free Strategy Call"
+  },
+  "footer": {
+    "copyright": "© 2025 Falx GmbH",
+    "location": "Bülach",
+    "impressum": "Legal Notice",
+    "datenschutz": "Privacy",
+    "linkedin": "LinkedIn →"
+  }
+}

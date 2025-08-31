@@ -4,12 +4,17 @@ import '../styles/global.css';
 export interface Props {
 	title?: string;
 	description?: string;
+	lang?: string;
 }
 
-const { title = "KI-Strategien für Schweizer KMU | Falx", description = "Sparen Sie 31 Stunden Administration pro Monat mit massgeschneiderten KI-Lösungen für Schweizer KMU. DSG-konform. Erste Lösung in 14 Tagen. Kostenlose Beratung." } = Astro.props;
+const { 
+	title = "KI-Strategien für Schweizer KMU | Falx", 
+	description = "Sparen Sie 31 Stunden Administration pro Monat mit massgeschneiderten KI-Lösungen für Schweizer KMU. DSG-konform. Erste Lösung in 14 Tagen. Kostenlose Beratung.",
+	lang = "de"
+} = Astro.props;
 ---
 
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />

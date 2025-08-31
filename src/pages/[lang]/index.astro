@@ -1,11 +1,24 @@
 ---
-// German index page (default language - no prefix)
-// Import i18n utilities
-import { loadTranslations, DEFAULT_LANGUAGE } from '@/lib/i18n';
+// Multi-language index page
+// German uses /src/pages/index.astro (no prefix)
+// Other languages use this file with [lang] parameter
 
-// Load German translations
-const translations = await loadTranslations(DEFAULT_LANGUAGE);
-const lang = DEFAULT_LANGUAGE;
+// Import utilities
+import { loadTranslations, getLanguageFromPath, type SupportedLanguage } from '@/lib/i18n';
+
+// Get language from URL parameter
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } }
+    // { params: { lang: 'fr' } }, // Ready for future
+    // { params: { lang: 'it' } }, // Ready for future
+  ];
+}
+
+const { lang } = Astro.params as { lang: SupportedLanguage };
+
+// Load translations for this language
+const translations = await loadTranslations(lang);
 
 // Set up meta data
 const meta = {
@@ -14,20 +27,19 @@ const meta = {
   lang: lang
 };
 
-// Layout Import
-import BaseLayout from '../layouts/BaseLayout.astro';
-// Component Imports - Mix of Astro (static) and React (interactive) components
-import ShaderBackground from '../components/shader-background.tsx';
-import Header from '../components/header.tsx';
-import HeroContent from '../components/hero-content.tsx';
-import ReportSection from '../components/ReportSection.astro';
-import ProblemIdentification from '../components/ProblemIdentification.astro';
-import SolutionShowcase from '../components/SolutionShowcase.astro';
-import ProductDemonstration from '../components/ProductDemonstration.astro';
-import FounderSection from '../components/FounderSection.astro';
-import CallToAction from '../components/CallToAction.astro';
-import SimpleFooter from '../components/simple-footer.tsx';
-import GlobalAnimations from '../components/global-animations.tsx';
+// Layout and Component Imports
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ShaderBackground from '../../components/shader-background.tsx';
+import Header from '../../components/header.tsx';
+import HeroContent from '../../components/hero-content.tsx';
+import ReportSection from '../../components/ReportSection.astro';
+import ProblemIdentification from '../../components/ProblemIdentification.astro';
+import SolutionShowcase from '../../components/SolutionShowcase.astro';
+import ProductDemonstration from '../../components/ProductDemonstration.astro';
+import FounderSection from '../../components/FounderSection.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import SimpleFooter from '../../components/simple-footer.tsx';
+import GlobalAnimations from '../../components/global-animations.tsx';
 ---
 
 <BaseLayout title={meta.title} description={meta.description} lang={meta.lang}>

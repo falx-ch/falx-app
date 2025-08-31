@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "KI-Strategien für Schweizer KMU | Falx",
+    "description": "Schweizer KMU verlieren 31 Stunden/Monat an Administration. Wir holen Ihre Zeit zurück mit KI-Agenten und Automatisierungen. DSG-konform, erste Resultate in 2 Wochen."
+  },
+  "header": {
+    "cta_button": "Ausbrechen"
+  },
+  "hero": {
+    "badge": "Swiss Made • 🔒 DSG konform • 🎯 Gratis KI-Analyse",
+    "headline": "KI-Strategien für",
+    "headline_secondary": "Schweizer KMU",
+    "description": "Schweizer KMU verlieren jeden Monat 31 Stunden an Administration. Schweizweit sind das CHF 6 Milliarden pro Jahr. Wir holen Ihre Zeit zurück mit KI-Agenten, Automatisierungen oder hybriden Lösungen. Erste Resultate in 2 Wochen.",
+    "cta_primary": "Kostenlos beraten",
+    "cta_secondary": "Report herunterladen",
+    "cta_secondary_tooltip": "Bald verfügbar"
+  },
+  "report_section": {
+    "headline": "Was kostet Sie",
+    "headline_accent": "Ineffizienz",
+    "headline_suffix": "wirklich?",
+    "description": "Schweizer Unternehmen verlieren täglich Tausende Franken durch manuelle Prozesse. Berechnen Sie Ihr Einsparpotenzial."
+  },
+  "problem_identification": {
+    "headline": "Sie besitzen Ihre",
+    "headline_accent": "Zeit",
+    "headline_suffix": "nicht",
+    "description": "Fragmentierte Systeme, manuelle Prozesse und Datenchaos kosten Schweizer Unternehmen täglich wertvolle Ressourcen.",
+    "stats": [
+      "53% der Schweizer KMU ohne Digitalisierungsstrategie",
+      "56% teilen bereits Firmendaten mit unsicheren KI-Tools",
+      "Nur 50% führen jährliche Technologie-Analysen durch"
+    ]
+  },
+  "solution_showcase": {
+    "headline": "KI-Lösungen",
+    "headline_suffix": "in der Praxis",
+    "description": "Schluss mit Theorie. Hier ist, was wir für Sie tun.<br />Ob KI-Agent, Workflow-Automatisierung oder API-Integration: Wir nutzen, was für Sie funktioniert.",
+    "features": [
+      "Garantiert DSG-konform, Ihre Daten bleiben in der Schweiz",
+      "Festpreis pro Lösung, keine versteckten Kosten",
+      "Erste Automatisierung läuft in 14 Tagen"
+    ],
+    "cta_button": "Kostenloses Beratungsgespräch"
+  },
+  "product_demonstration": {
+    "headline": "Empathie",
+    "headline_suffix": "trifft Legal Tech",
+    "description": "Ein kostenloses Tool für alle Familien in der Schweiz: Rechtsgültige Testamente, verständlich und sicher. DSG-konform.",
+    "mission_statement": "Legata zeigt, was möglich ist: Testament-Entwürfe statt mehreren Beratungsterminen. Notariatskosten reduziert durch optimale Vorbereitung. Ähnliche Effizienzgewinne schaffen wir für Ihre Prozesse.",
+    "cta_primary": "Was wenn Ihr Business mitdenkt?",
+    "cta_secondary": "Bei Launch benachrichtigen",
+    "cta_secondary_tooltip": "Bald verfügbar"
+  },
+  "founder_section": {
+    "tagline": "Gemeinsam",
+    "tagline_accent": "Grosses",
+    "tagline_suffix": "schaffen",
+    "name": "Chris Kobler",
+    "title": "Founder & AI Strategy Consultant",
+    "quote": "Ich will Teil eines grossen Werkes sein - Sie auch?",
+    "cta_button": "Auf LinkedIn vernetzen",
+    "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
+  },
+  "call_to_action": {
+    "headline": "30 Minuten investieren.<br />31 Stunden",
+    "headline_accent": "gewinnen.",
+    "description": "In einem kostenlosen Strategiegespräch identifizieren wir Ihre grösste Zeitverschwendung und zeigen Ihnen die passende Lösung. Keine Buzzwords, nur konkrete Schritte.",
+    "cta_button": "Kostenloses Strategiegespräch vereinbaren"
+  },
+  "footer": {
+    "copyright": "© 2025 Falx GmbH",
+    "location": "Bülach",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz",
+    "linkedin": "LinkedIn →"
+  }
+}

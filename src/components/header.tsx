@@ -1,6 +1,7 @@
 import FalxLogo from './FalxLogo';
 import { Button } from '@/components/ui/button';
 import Navigation from './Navigation';
+import LanguageSwitcher from './language-switcher';
 
 export default function Header() {
   return (
@@ -13,6 +14,9 @@ export default function Header() {
 
       {/* Navigation - Now includes hamburger menu for mobile */}
       <Navigation />
+
+      {/* Language Switcher */}
+      <LanguageSwitcher className="hidden sm:block" />
 
       {/* Login Button Group with Arrow - Desktop only */}
       <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" className="hidden sm:block">
