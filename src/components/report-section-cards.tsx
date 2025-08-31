@@ -53,7 +53,7 @@ className="opacity-0"
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">+7 Std. Verwaltung pro Woche</div>
+            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">31 Std. Administration pro Monat (SECO-Durchschnitt)</div>
           </div>
         </div>
       </GlassCard>
@@ -73,7 +73,7 @@ className="opacity-0"
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">6.8 Tage verschwendet pro Monat</div>
+            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">Fast 4 volle Arbeitstage für Papierkram statt Wachstum</div>
           </div>
         </div>
       </GlassCard>

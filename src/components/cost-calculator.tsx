@@ -8,7 +8,7 @@ import { gsap } from 'gsap'
 import { gsapManager } from '@/lib/gsap-manager'
 
 export default function CostCalculator() {
-  const [sliderValue, setSliderValue] = useState([10])
+  const [sliderValue, setSliderValue] = useState([7])
   const mainNumberRef = useRef<HTMLDivElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
   
@@ -80,7 +80,7 @@ export default function CostCalculator() {
                   // Animate the slider value with smooth decimal precision
                   const obj = { value: 1 }
                   gsap.to(obj, {
-                    value: 10, // Animate to default value
+                    value: 7, // Animate to 7 hours (CHF 54,600)
                     duration: 2.5, // Slower, more elegant animation
                     ease: "power3.out",
                     delay: 0.5,

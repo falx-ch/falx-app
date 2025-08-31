@@ -56,19 +56,22 @@ export default function SolutionShowcaseCards() {
   const solutions = [
     {
       title: "Administration automatisieren",
-      description: "OCR-Texterkennung + GPT-4 Verarbeitung für Rechnungen, Verträge und Berichte. Integration in bestehende ERP-Systeme via REST API.",
+      description: "Rechnungen verarbeiten sich selbst. Dokumente sortieren sich automatisch. Berichte entstehen auf Knopfdruck. Integration in Ihre bestehenden Systeme.",
+      metric: "90% Zeitersparnis. Aus 31 Stunden werden 3.",
       icon: "📋",
       ref: card1Ref,
     },
     {
       title: "Marketing optimieren",
-      description: "Claude-3.5 Sonnet für Copywriting + Salesforce Integration. Automatische LinkedIn/Email-Sequenzen basierend auf Kundenverhalten.",
+      description: "Inhalte in allen Schweizer Landessprachen. Personalisierte Kundenansprache. Automatische Follow-ups, die nie vergessen werden.",
+      metric: "Spart CHF 2,000-20,000 Agenturkosten. Jeden Monat.",
       icon: "🎯",
       ref: card2Ref,
     },
     {
       title: "Verkauf beschleunigen",
-      description: "GPT-4 Lead Scoring + HubSpot Workflows. Automatische Angebotserstellung und Meeting-Scheduling via Calendly API.",
+      description: "Leads qualifizieren sich selbst. Angebote in Minuten statt Stunden. Termine buchen sich automatisch.",
+      metric: "45% mehr qualifizierte Meetings. Messbar mehr Umsatz.",
       icon: "⚡",
       ref: card3Ref,
     },
@@ -99,6 +102,9 @@ export default function SolutionShowcaseCards() {
                 <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">{solution.title}</div>
                 <p className="text-white/60 text-sm leading-relaxed mt-1">
                   {solution.description}
+                </p>
+                <p className="text-white/80 text-sm font-medium mt-2">
+                  {solution.metric}
                 </p>
               </div>
             </div>

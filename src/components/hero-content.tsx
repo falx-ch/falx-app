@@ -31,9 +31,9 @@ export default function HeroContent() {
 
         {/* Description */}
         <p className="text-xs sm:text-sm font-light text-white/70 mb-2 -mt-1 leading-relaxed">
-        Schweizer Unternehmen verlieren jährlich CHF 6 Milliarden durch ineffiziente 
-        Prozesse. Unsere KI-Lösungen reduzieren administrative 
-        Belastung um bis zu 54 Stunden pro Monat.
+        Schweizer KMU verlieren jeden Monat 31 Stunden an Administration. 
+        Schweizweit sind das CHF 6 Milliarden pro Jahr. Wir holen Ihre Zeit zurück 
+        mit KI-Agenten, Automatisierungen oder hybriden Lösungen. Erste Resultate in 2 Wochen.
         </p>
 
         {/* Buttons */}
