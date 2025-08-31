@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "AI Strategies for Swiss SMEs | Falx",
-    "description": "Swiss SMEs lose 31 hours every month to admin work. We help you reclaim time with AI agents and automations. GDPR-compliant, first results in 2 weeks."
+    "description": "Swiss SMEs lose 31 hours every month to admin work. We help you reclaim time with AI agents and automations. FADP-compliant, first results in 2 weeks."
   },
   "header": {
     "cta_button": "Break Free"
   },
   "hero": {
-    "badge": "Swiss Made • 🔒 GDPR Compliant • 🎯 Free AI Analysis",
+    "badge": "Swiss Made • 🔒 FADP Compliant • 🎯 Free AI Analysis",
     "headline": "AI Strategies for",
     "headline_secondary": "Swiss SMEs",
     "description": "Swiss SMEs lose 31 hours every month to admin work. That's CHF 6 billion annually nationwide. We help you reclaim time with AI agents, automations, or hybrid solutions. First results in 2 weeks.",
@@ -37,7 +37,7 @@
     "headline_suffix": "in Practice",
     "description": "No more theory. Here's what we actually do.<br />Whether AI agent, workflow automation, or API integration: We use what works for you.",
     "features": [
-      "Guaranteed GDPR-compliant, your data stays in Switzerland",
+      "Guaranteed FADP-compliant, your data stays in Switzerland",
       "Fixed pricing per solution, no hidden costs",
       "First automation running within 14 days"
     ],
@@ -46,7 +46,7 @@
   "product_demonstration": {
     "headline": "Where Empathy",
     "headline_suffix": "Meets Legal Tech",
-    "description": "A free tool for all families in Switzerland: Legally valid wills, understandable and secure. GDPR-compliant.",
+    "description": "A free tool for all families in Switzerland: Legally valid wills, understandable and secure. FADP-compliant.",
     "mission_statement": "Legata shows what's possible: Will drafts that replace multiple consultation appointments. Notary costs reduced through optimal preparation. We create similar efficiency gains for your processes."
     "cta_primary": "What if your business thought with you?"
     "cta_secondary": "Notify at launch",
