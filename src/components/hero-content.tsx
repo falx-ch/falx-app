@@ -41,9 +41,11 @@ export default function HeroContent() {
           <Button variant="secondary" className="opacity-50 cursor-not-allowed" disabled>
             Report herunterladen
           </Button>
-          <Button variant="primary" className="hover-lift">
-            Kostenlos beraten
-          </Button>
+          <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer">
+            <Button variant="primary" className="hover-lift">
+              Kostenlos beraten
+            </Button>
+          </a>
         </div>
       </GlassCard>
     </main>
