@@ -6,18 +6,31 @@ import { useTranslations } from '@/hooks/useTranslations'
 export default function HeroContent() {
   const { t, isReady } = useTranslations();
 
-  // Show minimal loading state to prevent flash
+  // Show loading state that matches final layout dimensions
   if (!isReady) {
     return (
       <main className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-20 max-w-sm sm:max-w-xl max-h-[50vh] sm:max-h-none">
         <GlassCard className="text-left bg-black/10" size="md">
           <div className="animate-pulse">
-            <div className="h-6 bg-white/10 rounded mb-4"></div>
-            <div className="h-16 bg-white/10 rounded mb-2"></div>
-            <div className="h-12 bg-white/10 rounded mb-4"></div>
-            <div className="flex gap-3">
-              <div className="h-11 bg-white/10 rounded flex-1"></div>
-              <div className="h-11 bg-white/10 rounded flex-1"></div>
+            {/* Badge placeholder */}
+            <div className="h-6 w-3/4 bg-white/10 rounded-full mb-1"></div>
+            
+            {/* Main heading placeholder - two lines to match actual content */}
+            <div className="mb-1 -mt-1">
+              <div className="h-12 sm:h-14 md:h-16 bg-white/10 rounded mb-1"></div>
+              <div className="h-12 sm:h-14 md:h-16 w-4/5 bg-white/10 rounded"></div>
+            </div>
+            
+            {/* Description placeholder - matches actual height */}
+            <div className="mb-2 -mt-1">
+              <div className="h-4 bg-white/10 rounded mb-1"></div>
+              <div className="h-4 w-5/6 bg-white/10 rounded"></div>
+            </div>
+            
+            {/* Buttons placeholder */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+              <div className="h-11 bg-white/10 rounded w-full sm:w-auto sm:min-w-[160px]"></div>
+              <div className="h-11 bg-white/10 rounded w-full sm:w-auto sm:min-w-[140px] hidden lg:block"></div>
             </div>
           </div>
         </GlassCard>

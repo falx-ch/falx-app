@@ -12,7 +12,7 @@ import LanguageSwitcher from './language-switcher';
 import { useTranslations } from '@/hooks/useTranslations';
 
 export default function Navigation() {
-  const { t } = useTranslations();
+  const { t, isReady } = useTranslations();
   const [isOpen, setIsOpen] = useState(false);
   
   const scrollToSection = (sectionId: string) => {
@@ -35,10 +35,32 @@ export default function Navigation() {
   };
 
   const navigationItems = [
-    { id: 'report', label: t('navigation.report', 'KI Report') },
-    { id: 'solution', label: t('navigation.solution', 'Lösung') },
-    { id: 'legata', label: t('navigation.legata', 'Legata') },
+    { id: 'report', label: t('navigation.report') },
+    { id: 'solution', label: t('navigation.solution') },
+    { id: 'legata', label: t('navigation.legata') },
   ];
+
+  // Show minimal loading placeholders until ready
+  if (!isReady) {
+    return (
+      <>
+        {/* Desktop Navigation - hidden on mobile */}
+        <nav className="hidden sm:flex items-center space-x-2">
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="h-8 w-16 bg-white/10 rounded-full animate-pulse"
+            />
+          ))}
+        </nav>
+
+        {/* Mobile Navigation placeholder */}
+        <div className="sm:hidden">
+          <div className="w-11 h-11 bg-white/10 rounded-full animate-pulse" />
+        </div>
+      </>
+    );
+  }
 
   return (
     <>

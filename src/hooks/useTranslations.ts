@@ -19,30 +19,42 @@ export function useTranslations() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Check if translations are available
-    if (typeof window !== 'undefined') {
-      const windowTranslations = window.__TRANSLATIONS__;
-      const windowLang = window.__CURRENT_LANG__;
-      
-      if (windowTranslations && windowLang) {
-        setTranslations(windowTranslations);
-        setCurrentLang(windowLang);
-        setIsReady(true);
-      } else {
-        // Wait for translations to be loaded
-        const checkTranslations = () => {
-          if (window.__TRANSLATIONS__ && window.__CURRENT_LANG__) {
-            setTranslations(window.__TRANSLATIONS__);
-            setCurrentLang(window.__CURRENT_LANG__);
+    const updateTranslations = () => {
+      if (typeof window !== 'undefined') {
+        const windowTranslations = window.__TRANSLATIONS__;
+        const windowLang = window.__CURRENT_LANG__;
+        
+        if (windowTranslations && windowLang) {
+          // Only update if changed to prevent unnecessary re-renders
+          if (windowLang !== currentLang || windowTranslations !== translations) {
+            setTranslations(windowTranslations);
+            setCurrentLang(windowLang);
             setIsReady(true);
-          } else {
-            requestAnimationFrame(checkTranslations);
           }
-        };
-        checkTranslations();
+          return true;
+        }
       }
-    }
-  }, []);
+      return false;
+    };
+
+    // Initial check
+    updateTranslations();
+
+    // Set up polling for initial load and language switches
+    const pollInterval = setInterval(() => {
+      updateTranslations();
+    }, 16); // ~60fps polling for smooth updates
+
+    // Also listen for page navigation events
+    const handlePageShow = () => updateTranslations();
+    window.addEventListener('pageshow', handlePageShow);
+
+    // Clean up
+    return () => {
+      clearInterval(pollInterval);
+      window.removeEventListener('pageshow', handlePageShow);
+    };
+  }, [currentLang, translations]); // Re-run when these change
 
   /**
    * Translation function with dot notation support
