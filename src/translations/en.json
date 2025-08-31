@@ -3,6 +3,11 @@
     "title": "AI Strategies for Swiss SMEs | Falx",
     "description": "Swiss SMEs lose 31 hours every month to admin work. We help you reclaim time with AI agents and automations. FADP-compliant, first results in 2 weeks."
   },
+  "navigation": {
+    "ai_2025": "AI 2025",
+    "solution": "Solution",
+    "legata": "Legata"
+  },
   "hero": {
     "badge": "Swiss Made • 🔒 FADP Compliant • 🎯 Free AI Analysis",
     "headline_accent": "AI strategies",

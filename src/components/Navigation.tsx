@@ -9,8 +9,10 @@ import {
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import LanguageSwitcher from './language-switcher';
+import { useTranslations } from '@/hooks/useTranslations';
 
 export default function Navigation() {
+  const { t } = useTranslations();
   const [isOpen, setIsOpen] = useState(false);
   
   const scrollToSection = (sectionId: string) => {
@@ -33,9 +35,9 @@ export default function Navigation() {
   };
 
   const navigationItems = [
-    { id: 'report', label: 'KI 2025' },
-    { id: 'solution', label: 'Lösung' },
-    { id: 'legata', label: 'Legata' },
+    { id: 'report', label: t('navigation.ai_2025', 'KI 2025') },
+    { id: 'solution', label: t('navigation.solution', 'Lösung') },
+    { id: 'legata', label: t('navigation.legata', 'Legata') },
   ];
 
   return (

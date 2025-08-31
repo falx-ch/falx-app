@@ -3,6 +3,11 @@
     "title": "KI-Strategien für Schweizer KMU | Falx",
     "description": "Schweizer KMU verlieren 31 Stunden/Monat an Administration. Wir holen Ihre Zeit zurück mit KI-Agenten und Automatisierungen. DSG-konform, erste Resultate in 2 Wochen."
   },
+  "navigation": {
+    "ai_2025": "KI 2025",
+    "solution": "Lösung", 
+    "legata": "Legata"
+  },
   "hero": {
     "badge": "Swiss Made • 🔒 DSG konform • 🎯 Gratis KI-Analyse",
     "headline_accent": "KI-Strategien",
