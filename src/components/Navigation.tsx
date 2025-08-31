@@ -35,7 +35,7 @@ export default function Navigation() {
   };
 
   const navigationItems = [
-    { id: 'report', label: t('navigation.ai_2025', 'KI 2025') },
+    { id: 'report', label: t('navigation.report', 'KI Report') },
     { id: 'solution', label: t('navigation.solution', 'Lösung') },
     { id: 'legata', label: t('navigation.legata', 'Legata') },
   ];
