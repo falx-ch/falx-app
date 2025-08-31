@@ -72,5 +72,72 @@
     "impressum": "Impressum",
     "datenschutz": "Datenschutz",
     "linkedin": "LinkedIn →"
+  },
+  "cost_calculator": {
+    "currency": "CHF",
+    "per_year": "pro Jahr",
+    "employee_description": "Vollzeit-Mitarbeiter ({hours} Std. Administration wöchentlich)",
+    "cost_basis": "Basis: CHF 150/h Vollkosten"
+  },
+  "report_section_cards": {
+    "card1": {
+      "icon": "🕰️",
+      "text": "31 Std. Administration pro Monat (SECO-Durchschnitt)"
+    },
+    "card2": {
+      "icon": "⚠️", 
+      "text": "Fast 4 volle Arbeitstage für Papierkram statt Wachstum"
+    },
+    "card3": {
+      "icon": "💸",
+      "text": "CHF 6 Mia. schweizweit pro Jahr"
+    }
+  },
+  "problem_showcase_cards": {
+    "card1": {
+      "icon": "📊",
+      "title": "Manuelle Datenerfassung",
+      "subtitle": "Fehleranfällig & zeitaufwändig"
+    },
+    "card2": {
+      "icon": "💬",
+      "title": "Fragmentierte Kommunikation", 
+      "subtitle": "Informationsverlust garantiert"
+    },
+    "card3": {
+      "icon": "⚠️",
+      "title": "Compliance-Risiken",
+      "subtitle": "Datenschutz in Gefahr"
+    },
+    "card4": {
+      "icon": "🔄",
+      "title": "Endlose Schleifen",
+      "subtitle": "Ineffiziente Workflows"
+    },
+    "card5": {
+      "icon": "💸",
+      "title": "Versteckte Kosten",
+      "subtitle": "Ressourcenverschwendung"
+    }
+  },
+  "solution_showcase_cards": {
+    "card1": {
+      "title": "Administration automatisieren",
+      "description": "Rechnungen verarbeiten sich selbst. Dokumente sortieren sich automatisch. Berichte entstehen auf Knopfdruck. Integration in Ihre bestehenden Systeme.",
+      "metric": "90% Zeitersparnis. Aus 31 Stunden werden 3.",
+      "icon": "📋"
+    },
+    "card2": {
+      "title": "Marketing optimieren", 
+      "description": "Inhalte in allen Schweizer Landessprachen. Personalisierte Kundenansprache. Automatische Follow-ups, die nie vergessen werden.",
+      "metric": "Spart CHF 2,000-20,000 Agenturkosten. Jeden Monat.",
+      "icon": "🎯"
+    },
+    "card3": {
+      "title": "Verkauf beschleunigen",
+      "description": "Leads qualifizieren sich selbst. Angebote in Minuten statt Stunden. Termine buchen sich automatisch.",
+      "metric": "45% mehr qualifizierte Meetings. Messbar mehr Umsatz.",
+      "icon": "⚡"
+    }
   }
 }

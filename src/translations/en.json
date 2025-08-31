@@ -20,9 +20,9 @@
     "description": "Swiss companies lose thousands of francs daily through manual processes. Calculate your savings potential."
   },
   "problem_identification": {
-    "headline": "Your time isn't",
-    "headline_accent": "yours",
-    "headline_suffix": "anymore",
+    "headline": "Your",
+    "headline_accent": "time", 
+    "headline_suffix": "isn't yours anymore",
     "description": "Fragmented systems, manual processes, and data chaos cost Swiss companies valuable resources daily.",
     "stats": [
       "53% of Swiss SMEs have no digitalization strategy",
@@ -61,8 +61,9 @@
     "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
   },
   "call_to_action": {
-    "headline": "Invest 30 minutes.<br />Win back 31 hours",
-    "headline_accent": "back.",
+    "headline": "Invest 30 minutes.<br />",
+    "headline_accent": "Win",
+    "headline_suffix": "31 hours",
     "description": "In a free strategy session, we identify your biggest time waste and show you the right solution. No buzzwords, just concrete steps.",
     "cta_button": "Schedule Free Strategy Call"
   },
@@ -72,5 +73,72 @@
     "impressum": "Legal Notice",
     "datenschutz": "Privacy",
     "linkedin": "LinkedIn →"
+  },
+  "cost_calculator": {
+    "currency": "CHF",
+    "per_year": "per year",
+    "employee_description": "Full-time employee ({hours} hrs. administration weekly)",
+    "cost_basis": "Basis: CHF 150/hr full costs"
+  },
+  "report_section_cards": {
+    "card1": {
+      "icon": "🕰️",
+      "text": "31 hrs. administration per month (SECO average)"
+    },
+    "card2": {
+      "icon": "⚠️", 
+      "text": "Nearly 4 full work days for paperwork instead of growth"
+    },
+    "card3": {
+      "icon": "💸",
+      "text": "CHF 6 billion nationwide per year"
+    }
+  },
+  "problem_showcase_cards": {
+    "card1": {
+      "icon": "📊",
+      "title": "Manual data entry",
+      "subtitle": "Error-prone & time-consuming"
+    },
+    "card2": {
+      "icon": "💬",
+      "title": "Fragmented communication", 
+      "subtitle": "Information loss guaranteed"
+    },
+    "card3": {
+      "icon": "⚠️",
+      "title": "Compliance risks",
+      "subtitle": "Data protection in danger"
+    },
+    "card4": {
+      "icon": "🔄",
+      "title": "Endless loops",
+      "subtitle": "Inefficient workflows"
+    },
+    "card5": {
+      "icon": "💸",
+      "title": "Hidden costs",
+      "subtitle": "Resource waste"
+    }
+  },
+  "solution_showcase_cards": {
+    "card1": {
+      "title": "Automate administration",
+      "description": "Invoices process themselves. Documents sort automatically. Reports created at the push of a button. Integration into your existing systems.",
+      "metric": "90% time savings. From 31 hours to 3.",
+      "icon": "📋"
+    },
+    "card2": {
+      "title": "Optimize marketing", 
+      "description": "Content in all Swiss national languages. Personalized customer approach. Automatic follow-ups that never forget.",
+      "metric": "Saves CHF 2,000-20,000 agency costs. Every month.",
+      "icon": "🎯"
+    },
+    "card3": {
+      "title": "Accelerate sales",
+      "description": "Leads qualify themselves. Quotes in minutes instead of hours. Appointments book automatically.",
+      "metric": "45% more qualified meetings. Measurably more revenue.",
+      "icon": "⚡"
+    }
   }
 }
