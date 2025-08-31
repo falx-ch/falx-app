@@ -1,16 +1,38 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useMemo } from "react"
 import { gsap } from "gsap"
 import { Flip } from "gsap/Flip"
 import { GlassCard } from '@/components/ui/glass-card'
 import { cn } from '@/lib/utils'
+import { useTranslations } from '@/hooks/useTranslations'
 
 // Register GSAP plugins
 gsap.registerPlugin(Flip)
 
 export default function ProblemShowcaseCards() {
+  const { t, currentLang } = useTranslations();
   const [isVisible, setIsVisible] = useState(false)
+
+  // Language-specific fallbacks
+  const getFallback = (cardIndex: number, type: 'icon' | 'title') => {
+    const fallbacks = {
+      de: {
+        icons: ['📊', '💬', '⚠️', '🔄', '💸'],
+        titles: ['Manuelle Datenerfassung', 'Fragmentierte Kommunikation', 'Compliance-Risiken', 'Endlose Schleifen', 'Versteckte Kosten']
+      },
+      en: {
+        icons: ['📊', '💬', '⚠️', '🔄', '💸'],
+        titles: ['Manual data entry', 'Fragmented communication', 'Compliance risks', 'Endless loops', 'Hidden costs']
+      }
+    };
+    
+    const lang = currentLang || 'de';
+    if (type === 'icon') {
+      return fallbacks[lang].icons[cardIndex - 1] || '📊';
+    }
+    return fallbacks[lang].titles[cardIndex - 1] || 'Fallback';
+  };
   const [isMobile, setIsMobile] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement[]>([])
@@ -211,33 +233,23 @@ export default function ProblemShowcaseCards() {
 
   const problemCards = [
     {
-      icon: "📊",
-      title: "Manuelle Datenerfassung",
-      subtitle: "Fehleranfällig & zeitaufwändig",
+      index: 1,
       color: "red",
     },
     {
-      icon: "💬",
-      title: "Fragmentierte Kommunikation",
-      subtitle: "Informationsverlust garantiert",
+      index: 2,
       color: "red",
     },
     {
-      icon: "⚠️",
-      title: "Compliance-Risiken",
-      subtitle: "Datenschutz in Gefahr",
+      index: 3,
       color: "red",
     },
     {
-      icon: "🔄",
-      title: "Endlose Schleifen",
-      subtitle: "Ineffiziente Workflows",
+      index: 4,
       color: "red",
     },
     {
-      icon: "💸",
-      title: "Versteckte Kosten",
-      subtitle: "Ressourcenverschwendung",
+      index: 5,
       color: "red",
     },
   ]
@@ -374,12 +386,12 @@ export default function ProblemShowcaseCards() {
               <div className="relative flex items-center gap-2 h-full px-2 py-2">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
-                    <span className="text-xl sm:text-2xl leading-none">{card.icon}</span>
+                    <span className="text-xl sm:text-2xl leading-none">{t(`problem_showcase_cards.card${card.index}.icon`, getFallback(card.index, 'icon'))}</span>
                   </div>
                 </div>
                 <div className="flex-1 min-w-0 flex flex-col justify-center">
                   <div className="text-xs sm:text-sm md:text-sm font-medium text-white/90 leading-tight">
-                    {card.title}
+                    {t(`problem_showcase_cards.card${card.index}.title`, getFallback(card.index, 'title'))}
                   </div>
                 </div>
               </div>
