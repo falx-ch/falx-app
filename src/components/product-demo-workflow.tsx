@@ -347,7 +347,7 @@ export default function ProductDemoWorkflow() {
         <g id="legata-node" className="workflow-node">
           <rect x="320" y="70" width="160" height="70" rx="10" 
             fill="white" filter="url(#shadow)" />
-          <text x="400" y="109" className="text-base font-semibold fill-gray-800" textAnchor="middle">🧠 Legata</text>
+          <text x="400" y="109" className="text-base font-semibold fill-gray-800" textAnchor="middle">🤖 Legata</text>
           <text id="legata-voice-icon" x="303" y="68" className="text-base tool-indicator">🔊</text>
         </g>
 
