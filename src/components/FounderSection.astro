@@ -18,6 +18,13 @@ import { Button } from '@/components/ui/button';
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
+      <!-- Mobile tagline - shown before photo on mobile only -->
+      <div class="lg:hidden col-span-1 mb-4">
+        <h2 class="text-3xl font-light tracking-tight leading-tight text-left">
+          Ihr direkter Draht zum <span class="font-serif italic font-medium text-white">Founder</span>
+        </h2>
+      </div>
+
       <!-- Left column - Founder photo (40%) -->
       <div class="lg:col-span-2 relative overflow-hidden flex items-center justify-center">
         <div class="relative w-full max-w-lg">
@@ -39,28 +46,38 @@ import { Button } from '@/components/ui/button';
       <div class="lg:col-span-3 space-y-6 lg:space-y-8">
         <div class="space-y-8">
           <div class="space-y-6">
-            <h2 class="text-3xl lg:text-4xl xl:text-5xl font-light tracking-tight leading-tight">
+            <!-- Desktop tagline - hidden on mobile -->
+            <h2 class="hidden lg:block text-3xl lg:text-4xl xl:text-5xl font-light tracking-tight leading-tight">
               Ihr direkter Draht zum <span class="font-serif italic font-medium text-white">Founder</span>
             </h2>
 
           </div>
+          
+          <div class="space-y-6 flex flex-col lg:gap-4">
+            <!-- Name - shown first on mobile, second on desktop -->
+            <div class="order-1 lg:order-2">
+              <p class="text-white/90 lg:text-white/80 text-sm font-medium text-left lg:[text-shadow:none]" style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
+                <strong class="text-white lg:text-white">Chris Kobler</strong>, Founder & AI Strategy Consultant
+              </p>
+            </div>
 
-          <blockquote class="relative">
-            <p class="text-xl lg:text-2xl font-light italic text-white/90 leading-relaxed border-l-2 border-white/20 pl-6">
-              Ich will Teil eines grossen Werkes sein - Sie auch?
-            </p>
-          </blockquote>
+            <!-- Quote - shown second on mobile, first on desktop -->
+            <blockquote class="relative order-2 lg:order-1">
+              <p class="text-xl lg:text-2xl font-light italic text-white/90 lg:[text-shadow:none] leading-relaxed border-l-2 border-white/20 pl-6" style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
+                Ich will Teil eines grossen Werkes sein - Sie auch?
+              </p>
+            </blockquote>
+          </div>
 
           <div class="space-y-6">
-            <p class="text-white/80 text-sm font-medium">
-              <strong class="text-white">Chris Kobler</strong>, Founder & AI Strategy Consultant
-            </p>
             
-            <a href="https://www.linkedin.com/in/chrispkobler/" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" className="hover-lift animate-on-scroll">
-                Auf LinkedIn vernetzen
-              </Button>
-            </a>
+            <div class="text-center lg:text-left">
+              <a href="https://www.linkedin.com/in/chrispkobler/" target="_blank" rel="noopener noreferrer" class="w-full lg:w-auto inline-block">
+                <Button variant="primary" className="hover-lift animate-on-scroll w-full lg:w-auto">
+                  Auf LinkedIn vernetzen
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </div>

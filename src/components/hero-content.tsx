@@ -23,7 +23,7 @@ export default function HeroContent() {
         </SwissBadge>
 
         {/* Main Heading */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-1 -mt-1">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-1 -mt-1">
           <span className="font-medium italic bitter">KI-Strategien</span> für
           <br />
           <span className="font-light tracking-tight text-white">Schweizer KMU</span>
@@ -37,15 +37,20 @@ export default function HeroContent() {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col gap-2 w-full">
-          <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" className="w-full">
-            <Button variant="primary" className="hover-lift w-full min-h-[44px] sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+          <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <Button variant="primary" className="hover-lift w-full sm:w-auto min-h-[44px]">
               Kostenlos beraten
             </Button>
           </a>
-          <Button variant="secondary" className="opacity-50 cursor-not-allowed w-full min-h-[44px] sm:w-auto" disabled>
-            Report herunterladen
-          </Button>
+          <div className="relative group hidden lg:block">
+            <Button variant="secondary" className="opacity-50 cursor-not-allowed w-full sm:w-auto min-h-[44px]" disabled>
+              Report herunterladen
+            </Button>
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+              Bald verfügbar
+            </div>
+          </div>
         </div>
       </GlassCard>
     </main>

@@ -182,7 +182,7 @@ export default function CostCalculator() {
         hover="lift" 
         size="lg"
       >
-        <div className="text-center lg:text-left space-y-4">
+        <div className="text-left space-y-4">
           <div className="flex items-baseline mb-3">
             <span className="text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mr-2">CHF</span>
             <div 
@@ -199,13 +199,13 @@ export default function CostCalculator() {
           </div>
           
           <div className="space-y-2">
-            <p className="text-white/60 text-sm font-normal">
+            <p className="text-white/60 text-sm font-normal text-left">
               Vollzeit-Mitarbeiter (<span className="inline-block w-5 text-right tabular-nums">{displayHours}</span> Std. Administration wöchentlich)
             </p>
           </div>
           
           <div className="space-y-1">
-            <p className="text-white/40 text-xs">Basis: CHF 150/h Vollkosten</p>
+            <p className="text-white/40 text-xs text-left">Basis: CHF 150/h Vollkosten</p>
           </div>
         </div>
       </GlassCard>

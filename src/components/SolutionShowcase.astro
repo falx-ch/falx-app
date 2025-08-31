@@ -59,13 +59,9 @@ import { Button } from '@/components/ui/button';
       <!-- Left column - Static Header content -->
       <div class="lg:col-span-2 space-y-8">
         <div class="header-content">
-          <h2 class="text-3xl sm:text-4xl lg:text-6xl font-light mb-6 tracking-tight leading-tight">
-            <span class="font-serif italic font-medium text-red-300">KI-Lösungen</span> <br />
-            in der Praxis
+          <h2 class="text-3xl sm:text-4xl lg:text-6xl font-light mb-6 tracking-tight leading-tight text-left">
+            <span class="font-serif italic font-medium text-red-300">KI-Lösungen</span> <span class="whitespace-nowrap">in der Praxis</span>
           </h2>
-          <p class="text-lg font-medium mb-4 text-red-300">
-            100% Erfolgsgarantie & Schweizer Datensicherheit
-          </p>
           <p class="text-white/60 text-lg leading-relaxed">
             Transformieren Sie Ihre Geschäftsprozesse mit bewährten KI-Lösungen, die sofort messbare Ergebnisse
             liefern.
@@ -84,22 +80,33 @@ import { Button } from '@/components/ui/button';
           </div>
           <div class="flex items-center space-x-3">
             <div class="w-2 h-2 rounded-full bg-red-300"></div>
-            <span class="text-white/70 text-sm">ROI-Garantie innerhalb 90 Tagen</span>
+            <span class="text-white/70 text-sm">100% Erfolgsgarantie</span>
           </div>
         </div>
 
-        <!-- Interactive button with hover-lift effect -->
-        <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer">
-          <Button variant="primary" className="hover-lift animate-on-scroll">
-            Kostenloses Beratungsgespräch
-          </Button>
-        </a>
+        <!-- Interactive button with hover-lift effect - desktop only -->
+        <div class="hidden lg:block text-center lg:text-left">
+          <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" class="w-full lg:w-auto inline-block">
+            <Button variant="primary" className="hover-lift animate-on-scroll w-full lg:w-auto">
+              Kostenloses Beratungsgespräch
+            </Button>
+          </a>
+        </div>
       </div>
 
       <!-- Right column - Interactive solution cards (hydrated island) -->
       <div class="lg:col-span-3 flex items-center justify-center">
         <SolutionShowcaseCards client:visible />
       </div>
+    </div>
+    
+    <!-- Mobile CTA button - shown after cards on mobile only -->
+    <div class="lg:hidden text-center mt-8">
+      <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" class="w-full inline-block">
+        <Button variant="primary" className="hover-lift animate-on-scroll w-full">
+          Kostenloses Beratungsgespräch
+        </Button>
+      </a>
     </div>
   </div>
 </section>
