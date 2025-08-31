@@ -8,6 +8,7 @@ import {
   SheetClose 
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
+import LanguageSwitcher from './language-switcher';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -125,20 +126,12 @@ export default function Navigation() {
                   ))}
                 </nav>
                 
-                {/* CTA Button */}
+                {/* Language Switcher in mobile menu */}
                 <div className="px-6 mt-8 flex-shrink-0">
-                  <a 
-                    href="https://calendly.com/falx-ch/free-strategy-call" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <Button 
-                      className="w-full px-6 py-2 rounded-full bg-white text-black font-normal text-sm transition-all duration-300 hover:bg-white/90"
-                    >
-                      Ausbrechen
-                    </Button>
-                  </a>
+                  <div className="mb-4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <div className="flex justify-center">
+                    <LanguageSwitcher />
+                  </div>
                 </div>
                 
                 {/* Spacer - pushes footer to bottom */}
