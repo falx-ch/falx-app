@@ -1,11 +1,14 @@
 ---
 // Astro wrapper component for Founder Section
 // Mostly static content with glass card styling
+import type { Translations } from '@/lib/i18n';
+
 export interface Props {
   class?: string;
+  translations: Translations;
 }
 
-const { class: className } = Astro.props;
+const { class: className, translations } = Astro.props;
 import { Button } from '@/components/ui/button';
 ---
 
@@ -21,7 +24,7 @@ import { Button } from '@/components/ui/button';
       <!-- Mobile tagline - shown before photo on mobile only -->
       <div class="lg:hidden col-span-1 mb-4">
         <h2 class="text-3xl font-light tracking-tight leading-tight text-left">
-          Gemeinsam <span class="font-serif italic font-medium text-white">Grosses</span> schaffen
+          {translations.founder_section.tagline} <span class="font-serif italic font-medium text-white">{translations.founder_section.tagline_accent}</span> {translations.founder_section.tagline_suffix}
         </h2>
       </div>
 
@@ -32,7 +35,7 @@ import { Button } from '@/components/ui/button';
             <div class="relative aspect-[3/4] overflow-hidden rounded-3xl">
               <img
                 src="/chris_kobler_founder.jpg"
-                alt="Chris Kobler, Founder & AI Strategy Consultant"
+                alt={translations.founder_section.image_alt}
                 class="w-full h-full object-cover object-center"
               />
               <!-- Subtle top highlight like hero badge -->
@@ -48,7 +51,7 @@ import { Button } from '@/components/ui/button';
           <div class="space-y-6">
             <!-- Desktop tagline - hidden on mobile -->
             <h2 class="hidden lg:block text-3xl lg:text-4xl xl:text-5xl font-light tracking-tight leading-tight">
-              Gemeinsam <span class="font-serif italic font-medium text-white">Grosses</span> schaffen
+              {translations.founder_section.tagline} <span class="font-serif italic font-medium text-white">{translations.founder_section.tagline_accent}</span> {translations.founder_section.tagline_suffix}
             </h2>
 
           </div>
@@ -57,14 +60,14 @@ import { Button } from '@/components/ui/button';
             <!-- Name - shown first on mobile, second on desktop -->
             <div class="order-1 lg:order-2">
               <p class="text-white/90 lg:text-white/80 text-sm font-medium text-left lg:[text-shadow:none]" style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
-                <strong class="text-white lg:text-white">Chris Kobler</strong>, Founder & AI Strategy Consultant
+                <strong class="text-white lg:text-white">{translations.founder_section.name}</strong>, {translations.founder_section.title}
               </p>
             </div>
 
             <!-- Quote - shown second on mobile, first on desktop -->
             <blockquote class="relative order-2 lg:order-1">
               <p class="text-xl lg:text-2xl font-light italic text-white/90 lg:[text-shadow:none] leading-relaxed border-l-2 border-white/20 pl-6" style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
-                Ich will Teil eines grossen Werkes sein - Sie auch?
+                {translations.founder_section.quote}
               </p>
             </blockquote>
           </div>
@@ -74,7 +77,7 @@ import { Button } from '@/components/ui/button';
             <div class="text-center lg:text-left">
               <a href="https://www.linkedin.com/in/chrispkobler/" target="_blank" rel="noopener noreferrer" class="w-full lg:w-auto inline-block">
                 <Button variant="primary" className="hover-lift animate-on-scroll w-full lg:w-auto">
-                  Auf LinkedIn vernetzen
+                  {translations.founder_section.cta_button}
                 </Button>
               </a>
             </div>

@@ -1,11 +1,14 @@
 ---
 // Astro wrapper component for Start Now CTA Section
 // Fully static CTA section - no JavaScript needed
+import type { Translations } from '@/lib/i18n';
+
 export interface Props {
   class?: string;
+  translations: Translations;
 }
 
-const { class: className } = Astro.props;
+const { class: className, translations } = Astro.props;
 import { Button } from '@/components/ui/button';
 ---
 
@@ -19,19 +22,17 @@ import { Button } from '@/components/ui/button';
   <div class="flex-1 flex items-center justify-center relative z-10">
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex justify-center">
       <div class="text-center max-w-2xl">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-8 sm:mb-12 tracking-tight leading-tight text-slate-900">
-          30 Minuten investieren.<br />
-          31 Stunden <span class="font-medium italic font-serif text-slate-800">gewinnen.</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-8 sm:mb-12 tracking-tight leading-tight text-slate-900" set:html={`${translations.call_to_action.headline}<span class="font-medium italic font-serif text-slate-800">${translations.call_to_action.headline_accent}</span>${translations.call_to_action.headline_suffix || ''}`}>
         </h2>
 
         <p class="text-slate-600 text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-          In einem kostenlosen Strategiegespräch identifizieren wir Ihre grösste Zeitverschwendung und zeigen Ihnen die passende Lösung. Keine Buzzwords, nur konkrete Schritte.
+          {translations.call_to_action.description}
         </p>
 
         <div class="text-center">
           <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-block">
             <Button variant="primary-dark" className="hover-lift animate-on-scroll w-full sm:w-auto">
-              Kostenloses Strategiegespräch vereinbaren
+              {translations.call_to_action.cta_button}
             </Button>
           </a>
         </div>
