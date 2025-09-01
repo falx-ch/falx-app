@@ -51,11 +51,11 @@ className="opacity-0"
         <div className="flex items-center gap-3 sm:gap-4 card-content">
           <div className="flex-shrink-0">
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
-              <span className="text-xl sm:text-2xl">{t('report_section_cards.card1.icon')}</span>
+              <span className="text-xl sm:text-2xl">{t('report_section_cards.card1.icon') || '🕰️'}</span>
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">{t('report_section_cards.card1.text')}</div>
+            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">{t('report_section_cards.card1.text') || '31 Std. Administration pro Monat (SECO-Durchschnitt)'}</div>
           </div>
         </div>
       </GlassCard>
@@ -71,11 +71,11 @@ className="opacity-0"
         <div className="flex items-center gap-3 sm:gap-4 card-content">
           <div className="flex-shrink-0">
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
-              <span className="text-xl sm:text-2xl">{t('report_section_cards.card2.icon')}</span>
+              <span className="text-xl sm:text-2xl">{t('report_section_cards.card2.icon') || '⚠️'}</span>
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">{t('report_section_cards.card2.text')}</div>
+            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">{t('report_section_cards.card2.text') || 'Fast 4 volle Arbeitstage für Papierkram statt Wachstum'}</div>
           </div>
         </div>
       </GlassCard>
@@ -91,11 +91,11 @@ className="opacity-0"
         <div className="flex items-center gap-3 sm:gap-4 card-content">
           <div className="flex-shrink-0">
             <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
-              <span className="text-xl sm:text-2xl">{t('report_section_cards.card3.icon')}</span>
+              <span className="text-xl sm:text-2xl">{t('report_section_cards.card3.icon') || '💸'}</span>
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">{t('report_section_cards.card3.text')}</div>
+            <div className="text-base sm:text-lg lg:text-xl font-normal text-white/90">{t('report_section_cards.card3.text') || 'CHF 54\'600 versteckte Kosten pro Mitarbeiter'}</div>
           </div>
         </div>
       </GlassCard>

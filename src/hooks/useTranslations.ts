@@ -59,10 +59,10 @@ export function useTranslations() {
   /**
    * Translation function with dot notation support
    * Usage: t('hero.headline') or t('hero.cta_primary')
-   * Assumes translations are always available and complete
+   * Returns null when translations aren't loaded to allow fallbacks
    */
-  const t = (key: string): string => {
-    if (!translations) return key;
+  const t = (key: string): string | null => {
+    if (!translations) return null;
     
     const keys = key.split('.');
     let value: any = translations;
@@ -71,11 +71,11 @@ export function useTranslations() {
       if (value && typeof value === 'object' && k in value) {
         value = value[k];
       } else {
-        return key; // Return key if translation not found
+        return null; // Return null if translation not found to allow fallbacks
       }
     }
     
-    return typeof value === 'string' ? value : key;
+    return typeof value === 'string' ? value : null;
   };
 
   return {

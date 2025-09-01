@@ -18,15 +18,15 @@ export function useTranslation() {
   }, []);
 
   // Simple translation getter with dot notation support
-  const t = (key: string): string => {
-    // During SSR or before hydration, return the key to match server rendering
+  const t = (key: string): string | null => {
+    // During SSR or before hydration, return null to allow fallbacks
     if (!isHydrated || typeof window === 'undefined') {
-      return key;
+      return null;
     }
 
     const translations = (window as any).__TRANSLATIONS__;
     if (!translations) {
-      return key;
+      return null;
     }
     
     const keys = key.split('.');
@@ -35,11 +35,11 @@ export function useTranslation() {
     for (const k of keys) {
       value = value?.[k];
       if (value === undefined) {
-        return key;
+        return null;
       }
     }
     
-    return typeof value === 'string' ? value : key;
+    return typeof value === 'string' ? value : null;
   };
 
   // Get current values directly from window
