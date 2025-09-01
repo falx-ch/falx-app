@@ -187,7 +187,11 @@ export async function loadTranslations(lang: SupportedLanguage): Promise<Transla
 
 /**
  * Detect preferred language from browser or URL
- * Priority: URL param > URL path > Browser language > Default
+ * Priority: URL path > Browser language > Default
+ * 
+ * For browser language detection:
+ * - If browser is German/Swiss/Austrian German variants, use German (default)
+ * - Otherwise, use English for better international accessibility
  */
 export function detectLanguage(
   url?: string,
@@ -204,11 +208,16 @@ export function detectLanguage(
     }
   }
 
-  // Check browser language (first two characters)
+  // Check browser language for automatic detection
   if (browserLang) {
-    const browserLangCode = browserLang.slice(0, 2) as SupportedLanguage;
-    if (SUPPORTED_LANGUAGES.includes(browserLangCode)) {
-      return browserLangCode;
+    // Check for German variants (standard, Swiss, Austrian)
+    const isGermanVariant = /^de(-[A-Z]{2})?$/i.test(browserLang);
+    
+    if (isGermanVariant) {
+      return DEFAULT_LANGUAGE; // German
+    } else {
+      // For all other languages, default to English for international users
+      return 'en';
     }
   }
 

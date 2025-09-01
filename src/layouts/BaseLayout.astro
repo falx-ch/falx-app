@@ -36,6 +36,39 @@ const {
 			window.addEventListener('load', () => {
 				window.scrollTo(0, 0);
 			});
+
+			// Automatic language detection based on browser language
+			// Only runs once per session, non-intrusive
+			function detectAndRedirectLanguage() {
+				// Skip if already on a language-specific page or detection already done
+				if (window.location.pathname.match(/^\/[a-z]{2}\//) || sessionStorage.getItem('langDetected')) {
+					return;
+				}
+
+				// Mark detection as completed for this session
+				sessionStorage.setItem('langDetected', 'true');
+
+				// Get browser language
+				const browserLang = navigator.language || navigator.userLanguage;
+				if (!browserLang) return;
+
+				// Check for German variants (de, de-DE, de-CH, de-AT)
+				const isGermanVariant = /^de(-[A-Z]{2})?$/i.test(browserLang);
+
+				// If not German variant, redirect to English
+				if (!isGermanVariant) {
+					const currentPath = window.location.pathname;
+					const englishPath = currentPath === '/' ? '/en' : `/en${currentPath}`;
+					window.location.href = englishPath;
+				}
+			}
+
+			// Run detection when DOM is loaded
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', detectAndRedirectLanguage);
+			} else {
+				detectAndRedirectLanguage();
+			}
 		</script>
 	</body>
 </html>
