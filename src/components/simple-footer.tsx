@@ -18,7 +18,6 @@ export default function SimpleFooter() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-300">
             <div className="text-center sm:text-left">
               <div className="h-4 bg-gray-600 rounded animate-pulse w-32"></div>
-              <div className="h-3 bg-gray-600 rounded animate-pulse w-16 mt-1"></div>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
               <div className="h-4 bg-gray-600 rounded animate-pulse w-20"></div>
@@ -41,7 +40,6 @@ export default function SimpleFooter() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-300">
           <div className="text-center sm:text-left">
             <div>{t('footer.copyright')}</div>
-            <div className="text-xs text-gray-400 mt-1">{t('footer.location')}</div>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
             <a href="/legal#impressum" className="hover:text-white transition-colors duration-200 py-1">

@@ -159,7 +159,7 @@ export default function Navigation() {
                   {/* Divider with gradient */}
                   <div className="mb-4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                   <p className="text-white/30 text-xs text-center">
-                    © 2025 Falx GmbH. Swiss Made 🇨🇭
+                    © 2025 Falx GmbH
                   </p>
                 </div>
               </div>
