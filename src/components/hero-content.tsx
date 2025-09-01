@@ -8,14 +8,14 @@ export default function HeroContent() {
 
   // Show actual layout with default content until translations load
   const displayText = {
-    badge: isReady ? t('hero.badge') : 'Swiss Made • 🔒 FADP Compliant • 🎯 Free AI Analysis',
-    headlineAccent: isReady ? t('hero.headline_accent') : 'AI strategies',
-    headlineSuffix: isReady ? t('hero.headline_suffix') : 'for',
-    headlineSecondary: isReady ? t('hero.headline_secondary') : 'Swiss SMEs',
-    description: isReady ? t('hero.description') : 'Swiss SMEs lose 31 hours every month to admin work. That\'s CHF 6 billion annually nationwide. We help you reclaim time with AI agents, automations, or hybrid solutions. First results in 2 weeks.',
-    ctaPrimary: isReady ? t('hero.cta_primary') : 'Free Consultation',
-    ctaSecondary: isReady ? t('hero.cta_secondary') : 'Download Report',
-    ctaSecondaryTooltip: isReady ? t('hero.cta_secondary_tooltip') : 'Coming Soon'
+    badge: isReady ? t('hero.badge') : 'Swiss Made • 🔒 DSG konform • 🎯 Gratis KI-Analyse',
+    headlineAccent: isReady ? t('hero.headline_accent') : 'KI-Strategien',
+    headlineSuffix: isReady ? t('hero.headline_suffix') : 'für',
+    headlineSecondary: isReady ? t('hero.headline_secondary') : 'Schweizer KMU',
+    description: isReady ? t('hero.description') : 'Schweizer KMU verlieren jeden Monat 31 Stunden an Administration. Schweizweit sind das CHF 6 Milliarden pro Jahr. Wir holen Ihre Zeit zurück mit KI-Agenten, Automatisierungen oder hybriden Lösungen. Erste Resultate in 2 Wochen.',
+    ctaPrimary: isReady ? t('hero.cta_primary') : 'Kostenlos beraten',
+    ctaSecondary: isReady ? t('hero.cta_secondary') : 'Report herunterladen',
+    ctaSecondaryTooltip: isReady ? t('hero.cta_secondary_tooltip') : 'Bald verfügbar'
   };
   return (
     <main className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto z-20 max-w-sm sm:max-w-xl max-h-[50vh] sm:max-h-none">

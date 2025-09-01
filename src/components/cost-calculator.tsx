@@ -10,9 +10,10 @@ import { useTranslations } from '@/hooks/useTranslations'
 
 export default function CostCalculator() {
   const { t, isReady } = useTranslations();
-  const [sliderValue, setSliderValue] = useState([7])
+  const [sliderValue, setSliderValue] = useState([1])
   const mainNumberRef = useRef<HTMLDivElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
+  const [hasAnimated, setHasAnimated] = useState(false)
   
   // Calculate yearly cost per employee based on weekly administrative hours
   const calculateYearlyCost = (weeklyHours: number) => {
@@ -76,8 +77,8 @@ export default function CostCalculator() {
                 start: "top 80%",
                 once: true,
                 onEnter: () => {
-                  // Start from 1 and animate to default value smoothly
-                  setSliderValue([1]) // Set initial value immediately
+                  // Mark that animation has started
+                  setHasAnimated(true)
                   
                   // Animate the slider value with smooth decimal precision
                   const obj = { value: 1 }
@@ -202,7 +203,17 @@ export default function CostCalculator() {
           
           <div className="space-y-2">
             <p className="text-white/60 text-sm font-normal text-left">
-{t('cost_calculator.employee_description', 'Vollzeit-Mitarbeiter ({hours} Std. Administration wöchentlich)').replace('{hours}', displayHours.toString())}
+              {(() => {
+                const template = t('cost_calculator.employee_description', 'Vollzeit-Mitarbeiter ({hours} Std. Administration wöchentlich)');
+                const parts = template.split('{hours}');
+                return (
+                  <>
+                    {parts[0]}
+                    <span className="inline-block min-w-[1.25rem] text-center tabular-nums">{displayHours}</span>
+                    {parts[1]}
+                  </>
+                );
+              })()}
             </p>
           </div>
           
