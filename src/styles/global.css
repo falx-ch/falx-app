@@ -434,6 +434,16 @@
   color: theme(colors.white / 60%);
 }
 
+/* Subtle text shadow for better readability on dark backgrounds */
+.text-shadow-subtle {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Remove shadow on larger screens where contrast is typically better */
+.lg\:text-shadow-none {
+  text-shadow: none;
+}
+
 /* Swiss Layout Helpers */
 .hero-gradient {
   background: var(--gradient-hero);

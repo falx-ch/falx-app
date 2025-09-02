@@ -23,7 +23,7 @@ import { Button } from '@/components/ui/button';
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
       <!-- Mobile tagline - shown before photo on mobile only -->
       <div class="lg:hidden col-span-1 mb-4">
-        <h2 class="text-3xl font-light tracking-tight leading-tight text-left">
+        <h2 class="text-3xl font-light tracking-tight leading-tight text-left text-shadow-subtle">
           {translations.founder_section.tagline} <span class="font-serif italic font-medium text-white">{translations.founder_section.tagline_accent}</span> {translations.founder_section.tagline_suffix}
         </h2>
       </div>
@@ -50,7 +50,7 @@ import { Button } from '@/components/ui/button';
         <div class="space-y-8">
           <div class="space-y-6">
             <!-- Desktop tagline - hidden on mobile -->
-            <h2 class="hidden lg:block text-3xl lg:text-4xl xl:text-5xl font-light tracking-tight leading-tight">
+            <h2 class="hidden lg:block text-3xl lg:text-4xl xl:text-5xl font-light tracking-tight leading-tight text-shadow-subtle">
               {translations.founder_section.tagline} <span class="font-serif italic font-medium text-white">{translations.founder_section.tagline_accent}</span> {translations.founder_section.tagline_suffix}
             </h2>
 
@@ -59,14 +59,14 @@ import { Button } from '@/components/ui/button';
           <div class="space-y-6 flex flex-col lg:gap-4">
             <!-- Name - shown first on mobile, second on desktop -->
             <div class="order-1 lg:order-2">
-              <p class="text-white/90 lg:text-white/80 text-sm font-medium text-left lg:[text-shadow:none]" style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
+              <p class="text-white/90 lg:text-white/80 text-sm font-medium text-left text-shadow-subtle">
                 <strong class="text-white lg:text-white">{translations.founder_section.name}</strong>, {translations.founder_section.title}
               </p>
             </div>
 
             <!-- Quote - shown second on mobile, first on desktop -->
             <blockquote class="relative order-2 lg:order-1">
-              <p class="text-xl lg:text-2xl font-light italic text-white/90 lg:[text-shadow:none] leading-relaxed border-l-2 border-white/20 pl-6" style="text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);">
+              <p class="text-xl lg:text-2xl font-light italic text-white/90 text-shadow-subtle leading-relaxed border-l-2 border-white/20 pl-6">
                 {translations.founder_section.quote}
               </p>
             </blockquote>

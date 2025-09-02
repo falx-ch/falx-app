@@ -62,10 +62,10 @@ import { Button } from '@/components/ui/button';
       <!-- Left column - Static Header content -->
       <div class="lg:col-span-2 space-y-8">
         <div class="header-content">
-          <h2 class="text-3xl sm:text-4xl lg:text-6xl font-light mb-6 tracking-tight leading-tight text-left">
+          <h2 class="text-3xl sm:text-4xl lg:text-6xl font-light mb-6 tracking-tight leading-tight text-left text-shadow-subtle">
             <span class="font-serif italic font-medium text-red-300">{translations.solution_showcase.headline}</span> <span class="whitespace-nowrap">{translations.solution_showcase.headline_suffix}</span>
           </h2>
-          <p class="text-white/60 text-lg leading-relaxed" set:html={translations.solution_showcase.description}>
+          <p class="text-white/60 text-lg leading-relaxed text-shadow-subtle" set:html={translations.solution_showcase.description}>
           </p>
         </div>
 
@@ -74,7 +74,7 @@ import { Button } from '@/components/ui/button';
           {translations.solution_showcase.features.map((feature, index) => (
             <div class="flex items-center space-x-3">
               <div class="w-2 h-2 rounded-full bg-red-300"></div>
-              <span class="text-white/70 text-sm">{feature}</span>
+              <span class="text-white/70 text-sm text-shadow-subtle">{feature}</span>
             </div>
           ))}
         </div>
