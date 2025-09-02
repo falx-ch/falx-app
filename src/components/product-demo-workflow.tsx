@@ -340,7 +340,7 @@ export default function ProductDemoWorkflow() {
           <rect x="100" y="80" width="140" height="50" rx="8" 
             fill="white" filter="url(#shadow)" />
           <text x="170" y="109" className="text-base font-semibold fill-gray-800" textAnchor="middle">👤 User</text>
-          <text id="user-voice-icon" x="230" y="75" className="text-base tool-indicator">🔊</text>
+          <text id="user-voice-icon" x="230" y="75" className="text-base tool-indicator">💬</text>
         </g>
 
         {/* Legata Node (Center, more prominent) */}
@@ -348,7 +348,7 @@ export default function ProductDemoWorkflow() {
           <rect x="320" y="70" width="160" height="70" rx="10" 
             fill="white" filter="url(#shadow)" />
           <text x="400" y="109" className="text-base font-semibold fill-gray-800" textAnchor="middle">🤖 Legata</text>
-          <text id="legata-voice-icon" x="303" y="68" className="text-base tool-indicator">🔊</text>
+          <text id="legata-voice-icon" x="303" y="68" className="text-base tool-indicator">💬</text>
         </g>
 
         {/* Toolbox Node - starts grayed out */}
