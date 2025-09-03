@@ -8,7 +8,7 @@ export default function HeroContent() {
 
   // Show actual layout with default content until translations load
   const displayText = {
-    badge: isReady ? t('hero.badge') : 'Swiss Made • 🔒 DSG konform • 🎯 Gratis KI-Analyse',
+    badge: isReady ? t('hero.badge') : 'Swiss Made • 🔒 DSG konform • 🎯 Gratis Growth Audit',
     headlineAccent: isReady ? t('hero.headline_accent') : 'KI-Strategien',
     headlineSuffix: isReady ? t('hero.headline_suffix') : 'für',
     headlineSecondary: isReady ? t('hero.headline_secondary') : 'Schweizer KMU',
@@ -50,7 +50,7 @@ export default function HeroContent() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-          <a href="https://calendly.com/falx-ch/free-strategy-call" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+          <a href="https://calendly.com/falx-ch/free-growth-audit" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
             <Button variant="primary" className="hover-lift w-full sm:w-auto min-h-[44px]">
               {displayText.ctaPrimary}
             </Button>
