@@ -38,10 +38,10 @@
   "solution_showcase": {
     "headline": "KI-Lösungen",
     "headline_suffix": "in der Praxis",
-    "description": "Schluss mit Theorie. Hier ist, was wir für Sie tun.<br />Ob KI-Agent, Workflow-Automatisierung oder API-Integration: Wir nutzen, was für Sie funktioniert.",
+    "description": "Schluss mit Theorie. Hier ist, was wir für Sie tun.<br />Ob KI-Agent, Workflow-Automatisierung oder Datenanalyse: Wir nutzen, was für Sie funktioniert.",
     "features": [
       "Garantiert DSG-konform, Ihre Daten bleiben in der Schweiz",
-      "Festpreis pro Lösung, keine versteckten Kosten",
+      "Fixpreis pro Lösung, keine versteckten Kosten",
       "Erstes System läuft in 14 Tagen"
     ],
     "cta_button": "Kostenloses Beratungsgespräch"
@@ -51,7 +51,7 @@
     "headline_suffix": "trifft Legal Tech",
     "description": "Ein kostenloses Tool für alle Familien in der Schweiz: Rechtsgültige Testamente, verständlich und sicher. DSG-konform.",
     "mission_statement": "Legata zeigt, was möglich ist: Testament-Entwürfe statt mehreren Beratungsterminen. Notariatskosten reduziert durch optimale Vorbereitung. Ähnliche Systeme bauen wir für Ihr Unternehmen.",
-    "cta_primary": "Was wenn Ihr Business mitdenkt?",
+    "cta_primary": "Finden Sie Ihre Legata-Chance",
     "cta_secondary": "Bei Launch benachrichtigen",
     "cta_secondary_tooltip": "Bald verfügbar"
   },
@@ -66,9 +66,10 @@
     "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
   },
   "call_to_action": {
-    "headline": "30 Minuten investieren.<br />Unbegrenzt ",
-    "headline_accent": "skalieren.",
-    "description": "Im kostenlosen Strategiegespräch finden wir Ihren grössten Wachstumsbremser und zeigen die Lösung auf. Keine Buzzwords, nur konkrete Schritte.",
+    "headline": "30 Minuten investieren.<br />",
+    "headline_accent": "Potential",
+    "headline_suffix": " aufwecken.",
+    "description": "Im kostenlosen Strategiegespräch finden wir, wo Ihr Potenzial liegt, und zeigen den Weg auf.",
     "cta_button": "Kostenloses Strategiegespräch vereinbaren"
   },
   "footer": {
@@ -140,7 +141,7 @@
     "card3": {
       "title": "Verkauf beschleunigen",
       "description": "Leads qualifizieren sich selbst. Offerten in Minuten statt Stunden. Termine buchen sich automatisch. Schneller abschliessen mit KI-gestützten Insights.",
-      "metric": "45% mehr qualifizierte Termine. Messbar mehr Umsatz.",
+      "metric": "Hochwertigere Leads. Messbar mehr Umsatz.",
       "icon": "⚡"
     }
   },

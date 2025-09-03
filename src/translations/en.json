@@ -38,7 +38,7 @@
   "solution_showcase": {
     "headline": "AI solutions",
     "headline_suffix": "in practice",
-    "description": "No more theory. Here's what we actually do.<br />Whether AI agent, workflow automation, or API integration: We use what works for you.",
+    "description": "No more theory. Here's what we actually do.<br />Whether AI agent, workflow automation, or data analysis: We use what works for you.",
     "features": [
       "Guaranteed FADP-compliant, your data stays in Switzerland",
       "Fixed pricing per solution, no hidden costs",
@@ -47,8 +47,9 @@
     "cta_button": "Free Strategy Call"
   },
   "product_demonstration": {
-    "headline": "Empathy",
-    "headline_suffix": "meets legal tech",
+    "headline": "Legal tech made",
+    "headline_accent": "human",
+    "headline_suffix": "",
     "description": "A free tool for all families in Switzerland: Legally valid wills, understandable and secure. FADP-compliant.",
     "mission_statement": "Legata shows what's possible: Will drafts that replace multiple consultation appointments. Notary costs reduced through optimal preparation. We build similar systems for your business.",
     "cta_primary": "Find Your Legata Opportunity",
@@ -66,10 +67,10 @@
     "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
   },
   "call_to_action": {
-    "headline": "Invest 30 minutes.<br />",
-    "headline_accent": "Unlock",
-    "headline_suffix": " unlimited scale.",
-    "description": "In a free strategy session, we identify your biggest growth blocker and map out the solution. No buzzwords, just concrete steps.",
+    "headline": "Invest 30 minutes.<br />Unlock ",
+    "headline_accent": "potential",
+    "headline_suffix": ".",
+    "description": "In a free strategy session, we discover where your potential lies and show you the path forward.",
     "cta_button": "Schedule Free Strategy Call"
   },
   "footer": {
@@ -81,13 +82,13 @@
   "cost_calculator": {
     "currency": "CHF",
     "per_year": "per year",
-    "employee_description": "Full-time employee ({hours} hrs. administration weekly)",
+    "employee_description": "Full-time employee ({hours} hrs. admin work weekly)",
     "cost_basis": "Basis: CHF 150/hr full costs"
   },
   "report_section_cards": {
     "card1": {
       "icon": "🕰️",
-      "text": "31 hrs. administration per month (SECO average)"
+      "text": "31 hrs. admin work per month (SECO average)"
     },
     "card2": {
       "icon": "⚠️", 
@@ -127,7 +128,7 @@
   },
   "solution_showcase_cards": {
     "card1": {
-      "title": "Automate administration",
+      "title": "Automate admin work",
       "description": "Invoices process themselves. Documents sort automatically. Reports generate instantly. Handle 10x more clients with the same team.",
       "metric": "Scale without hiring. Zero overtime.",
       "icon": "📋"
@@ -141,7 +142,7 @@
     "card3": {
       "title": "Accelerate sales",
       "description": "Leads qualify themselves. Quotes in minutes not hours. Meetings book automatically. Close deals faster with AI-powered insights.",
-      "metric": "45% more qualified meetings. Measurably more revenue.",
+      "metric": "Higher quality leads. Measurably more revenue.",
       "icon": "⚡"
     }
   },
