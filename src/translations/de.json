@@ -25,14 +25,14 @@
     "description": "Schweizer Unternehmen verlieren täglich Tausende Franken durch manuelle Prozesse. Berechnen Sie Ihr Einsparpotenzial."
   },
   "problem_identification": {
-    "headline": "Sie besitzen Ihre",
-    "headline_accent": "Zeit",
-    "headline_suffix": "nicht",
-    "description": "Fragmentierte Systeme, manuelle Prozesse und Datenchaos kosten Schweizer Unternehmen täglich wertvolle Ressourcen.",
+    "headline": "Das Schweizer Wachstums-",
+    "headline_accent": "Paradox",
+    "headline_suffix": "",
+    "description": "Alle wissen: KI treibt Wachstum. Trotzdem gehen Milliarden verloren, während Firmen Daten preisgeben und Chancen verpassen.",
     "stats": [
-      "53% der Schweizer KMU ohne Digitalisierungsstrategie",
-      "56% teilen bereits Firmendaten mit unsicheren KI-Tools",
-      "Nur 50% führen jährliche Technologie-Analysen durch"
+      "91% sehen KI als Wachstumstreiber – doch nur 13% messen tatsächlich ihre KI-Resultate",
+      "52% nutzen bereits KI zur Automatisierung – verlieren aber trotzdem jährlich 6 Milliarden CHF durch Administration",
+      "56% teilen Firmendaten mit ChatGPT – obwohl sie wissen, dass es ihr grösstes Sicherheitsrisiko ist"
     ]
   },
   "solution_showcase": {
@@ -42,7 +42,7 @@
     "features": [
       "Garantiert DSG-konform, Ihre Daten bleiben in der Schweiz",
       "Festpreis pro Lösung, keine versteckten Kosten",
-      "Erste Automatisierung läuft in 14 Tagen"
+      "Erstes System läuft in 14 Tagen"
     ],
     "cta_button": "Kostenloses Beratungsgespräch"
   },
@@ -50,7 +50,7 @@
     "headline": "Empathie",
     "headline_suffix": "trifft Legal Tech",
     "description": "Ein kostenloses Tool für alle Familien in der Schweiz: Rechtsgültige Testamente, verständlich und sicher. DSG-konform.",
-    "mission_statement": "Legata zeigt, was möglich ist: Testament-Entwürfe statt mehreren Beratungsterminen. Notariatskosten reduziert durch optimale Vorbereitung. Ähnliche Effizienzgewinne schaffen wir für Ihre Prozesse.",
+    "mission_statement": "Legata zeigt, was möglich ist: Testament-Entwürfe statt mehreren Beratungsterminen. Notariatskosten reduziert durch optimale Vorbereitung. Ähnliche Systeme bauen wir für Ihr Unternehmen.",
     "cta_primary": "Was wenn Ihr Business mitdenkt?",
     "cta_secondary": "Bei Launch benachrichtigen",
     "cta_secondary_tooltip": "Bald verfügbar"
@@ -66,9 +66,9 @@
     "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
   },
   "call_to_action": {
-    "headline": "30 Minuten investieren.<br />31 Stunden ",
-    "headline_accent": "gewinnen.",
-    "description": "In einem kostenlosen Strategiegespräch identifizieren wir Ihre grösste Zeitverschwendung und zeigen Ihnen die passende Lösung. Keine Buzzwords, nur konkrete Schritte.",
+    "headline": "30 Minuten investieren.<br />Unbegrenzt ",
+    "headline_accent": "skalieren.",
+    "description": "Im kostenlosen Strategiegespräch finden wir Ihren grössten Wachstumsbremser und zeigen die Lösung auf. Keine Buzzwords, nur konkrete Schritte.",
     "cta_button": "Kostenloses Strategiegespräch vereinbaren"
   },
   "footer": {
@@ -127,20 +127,20 @@
   "solution_showcase_cards": {
     "card1": {
       "title": "Administration automatisieren",
-      "description": "Rechnungen verarbeiten sich selbst. Dokumente sortieren sich automatisch. Berichte entstehen auf Knopfdruck. Integration in Ihre bestehenden Systeme.",
-      "metric": "90% Zeitersparnis. Aus 31 Stunden werden 3.",
+      "description": "Rechnungen verarbeiten sich selbst. Dokumente sortieren sich automatisch. Reports entstehen sofort. 10x mehr Kunden mit gleichem Team betreuen.",
+      "metric": "Skalieren ohne einzustellen. Null Überstunden.",
       "icon": "📋"
     },
     "card2": {
       "title": "Marketing optimieren", 
-      "description": "Inhalte in allen Schweizer Landessprachen. Personalisierte Kundenansprache. Automatische Follow-ups, die nie vergessen werden.",
-      "metric": "Spart CHF 2,000-20,000 Agenturkosten. Jeden Monat.",
+      "description": "Content in allen Schweizer Sprachen. Personalisierte Ansprache, die konvertiert. Qualifizierte Leads rund um die Uhr generieren. Automatische Follow-ups ohne Unterbruch.",
+      "metric": "Ihre Pipeline füllt sich, während Sie schlafen.",
       "icon": "🎯"
     },
     "card3": {
       "title": "Verkauf beschleunigen",
-      "description": "Leads qualifizieren sich selbst. Angebote in Minuten statt Stunden. Termine buchen sich automatisch.",
-      "metric": "45% mehr qualifizierte Meetings. Messbar mehr Umsatz.",
+      "description": "Leads qualifizieren sich selbst. Offerten in Minuten statt Stunden. Termine buchen sich automatisch. Schneller abschliessen mit KI-gestützten Insights.",
+      "metric": "45% mehr qualifizierte Termine. Messbar mehr Umsatz.",
       "icon": "⚡"
     }
   },

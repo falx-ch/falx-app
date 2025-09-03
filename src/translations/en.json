@@ -25,14 +25,14 @@
     "description": "Swiss companies lose thousands of francs daily through manual processes. Calculate your savings potential."
   },
   "problem_identification": {
-    "headline": "Your",
-    "headline_accent": "time", 
-    "headline_suffix": "isn't yours anymore",
-    "description": "Fragmented systems, manual processes, and data chaos cost Swiss companies valuable resources daily.",
+    "headline": "The Swiss growth",
+    "headline_accent": "paradox", 
+    "headline_suffix": "",
+    "description": "Everyone knows AI drives growth. Yet billions are lost while companies leak data and miss opportunities.",
     "stats": [
-      "53% of Swiss SMEs have no digitalization strategy",
-      "56% already share company data with insecure AI tools",
-      "Only 50% conduct annual technology analyses"
+      "91% see AI as growth driver - but only 13% actually measure their AI results",
+      "52% already use AI for automation - yet still lose CHF 6 billion annually to admin",
+      "56% share company data with ChatGPT - despite knowing it's their biggest security risk"
     ]
   },
   "solution_showcase": {
@@ -42,7 +42,7 @@
     "features": [
       "Guaranteed FADP-compliant, your data stays in Switzerland",
       "Fixed pricing per solution, no hidden costs",
-      "First automation running within 14 days"
+      "First system running within 14 days"
     ],
     "cta_button": "Free Strategy Call"
   },
@@ -50,7 +50,7 @@
     "headline": "Empathy",
     "headline_suffix": "meets legal tech",
     "description": "A free tool for all families in Switzerland: Legally valid wills, understandable and secure. FADP-compliant.",
-    "mission_statement": "Legata shows what's possible: Will drafts that replace multiple consultation appointments. Notary costs reduced through optimal preparation. We create similar efficiency gains for your processes.",
+    "mission_statement": "Legata shows what's possible: Will drafts that replace multiple consultation appointments. Notary costs reduced through optimal preparation. We build similar systems for your business.",
     "cta_primary": "Find Your Legata Opportunity",
     "cta_secondary": "Notify At Launch",
     "cta_secondary_tooltip": "Coming Soon"
@@ -67,9 +67,9 @@
   },
   "call_to_action": {
     "headline": "Invest 30 minutes.<br />",
-    "headline_accent": "Win",
-    "headline_suffix": " 31 hours.",
-    "description": "In a free strategy session, we identify your biggest time waste and show you the right solution. No buzzwords, just concrete steps.",
+    "headline_accent": "Unlock",
+    "headline_suffix": " unlimited scale.",
+    "description": "In a free strategy session, we identify your biggest growth blocker and map out the solution. No buzzwords, just concrete steps.",
     "cta_button": "Schedule Free Strategy Call"
   },
   "footer": {
@@ -128,19 +128,19 @@
   "solution_showcase_cards": {
     "card1": {
       "title": "Automate administration",
-      "description": "Invoices process themselves. Documents sort automatically. Reports created at the push of a button. Integration into your existing systems.",
-      "metric": "90% time savings. From 31 hours to 3.",
+      "description": "Invoices process themselves. Documents sort automatically. Reports generate instantly. Handle 10x more clients with the same team.",
+      "metric": "Scale without hiring. Zero overtime.",
       "icon": "📋"
     },
     "card2": {
       "title": "Optimize marketing", 
-      "description": "Content in all Swiss national languages. Personalized customer approach. Automatic follow-ups that never forget.",
-      "metric": "Saves CHF 2,000-20,000 agency costs. Every month.",
+      "description": "Content in all Swiss languages. Personalized outreach that converts. Generate qualified leads 24/7. Automated follow-ups without interruption.",
+      "metric": "Your pipeline fills while you sleep.",
       "icon": "🎯"
     },
     "card3": {
       "title": "Accelerate sales",
-      "description": "Leads qualify themselves. Quotes in minutes instead of hours. Appointments book automatically.",
+      "description": "Leads qualify themselves. Quotes in minutes not hours. Meetings book automatically. Close deals faster with AI-powered insights.",
       "metric": "45% more qualified meetings. Measurably more revenue.",
       "icon": "⚡"
     }
