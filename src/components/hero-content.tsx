@@ -38,7 +38,7 @@ export default function HeroContent() {
 
         {/* Main Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-1 -mt-1">
-          <span className="font-medium italic bitter">{displayText.headlineAccent}</span> {displayText.headlineSuffix}
+          <span className="font-medium italic bitter">{displayText.headlineAccent}</span>
           <br />
           <span className="font-light tracking-tight text-white">{displayText.headlineSecondary}</span>
         </h1>
