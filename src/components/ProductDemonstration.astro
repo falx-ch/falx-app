@@ -26,7 +26,17 @@ import { Button } from '@/components/ui/button';
   <div class="relative z-10 text-center pt-6 sm:pt-8 lg:pt-10 pb-1 sm:pb-2 lg:pb-3">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight leading-tight text-white/95 text-shadow-subtle">
-        <span class="font-serif italic font-medium text-red-300">{translations.product_demonstration.headline}</span> {translations.product_demonstration.headline_suffix}
+        {translations.product_demonstration.headline_accent ? (
+          // English: "Legal Tech made human" - highlight accent at end
+          <>
+            {translations.product_demonstration.headline} <span class="font-serif italic font-medium text-red-300">{translations.product_demonstration.headline_accent}</span>
+          </>
+        ) : (
+          // German: "Empathie trifft Legal Tech" - highlight headline at start
+          <>
+            <span class="font-serif italic font-medium text-red-300">{translations.product_demonstration.headline}</span> {translations.product_demonstration.headline_suffix}
+          </>
+        )}
       </h2>
       <p class="text-white/60 text-base lg:text-lg mt-3 max-w-2xl mx-auto text-shadow-subtle">
         {translations.product_demonstration.description}
