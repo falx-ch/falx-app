@@ -67,7 +67,7 @@ export default function HeroContent() {
 
         {/* Powered by section */}
         <div className="mt-4 pt-3 border-t border-white/10">
-          <p className="text-xs text-white/50 mb-2 text-center sm:text-left">POWERED BY</p>
+          <p className="text-xs text-white/50 mb-2 text-left">POWERED BY</p>
           <div className="flex items-center justify-center sm:justify-start gap-4 opacity-60">
             <img src="/openai-text.svg" alt="OpenAI" className="h-4 object-contain brightness-0 invert" />
             <img src="/n8n-text.svg" alt="n8n" className="h-3.5 object-contain brightness-0 invert" />
