@@ -55,13 +55,25 @@ export default function HeroContent() {
               {displayText.ctaPrimary}
             </Button>
           </a>
-          <div className="relative group hidden lg:block">
+          <div className="relative group hidden md:block">
             <Button variant="secondary" className="opacity-50 cursor-not-allowed w-full sm:w-auto min-h-[44px]" disabled>
               {displayText.ctaSecondary}
             </Button>
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
               {displayText.ctaSecondaryTooltip}
             </div>
+          </div>
+        </div>
+
+        {/* Powered by section */}
+        <div className="mt-4 pt-3 border-t border-white/10">
+          <p className="text-xs text-white/50 mb-2 text-center sm:text-left">POWERED BY</p>
+          <div className="flex items-center justify-center sm:justify-start gap-4 opacity-60">
+            <img src="/openai-text.svg" alt="OpenAI" className="h-4 object-contain brightness-0 invert" />
+            <img src="/n8n-text.svg" alt="n8n" className="h-3.5 object-contain brightness-0 invert" />
+            <img src="/twilio-text.svg" alt="Twilio" className="h-4 object-contain" />
+            <img src="/retell-text.svg" alt="Retell" className="h-4 object-contain" />
+            <img src="/gemini-text.svg" alt="Gemini" className="h-4 object-contain brightness-0 invert" />
           </div>
         </div>
       </GlassCard>
