@@ -222,10 +222,10 @@
           "protection": "Data transmission to the USA is secured by appropriate data protection guarantees, such as the application of standard contractual clauses, to ensure an adequate level of protection. Further information on data protection at Resend can be found at: <a href=\"https://resend.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://resend.com/privacy</a>"
         },
         "calendly": {
-          "title": "4. Appointment Booking via Calendly",
-          "description": "We offer you the possibility to make appointments with us via our website. For this we use the \"Calendly\" service, offered by Calendly LLC, 271 17th St NW, Ste 1000, Atlanta, GA 30363, USA.",
-          "booking_process": "When you book an appointment, you will be redirected to the Calendly website (or a corresponding module will be loaded). There you can enter your contact details (such as name, email address) and appointment details. Calendly itself is responsible for data processing on the Calendly platform. Further information can be found in Calendly's privacy policy: <a href=\"https://calendly.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://calendly.com/privacy</a>.",
-          "data_usage": "The data you enter at Calendly is transmitted to us. We process this data exclusively for the purpose of appointment planning, implementation and for related communication (e.g. confirmations or reminders)."
+          "title": "4. Appointment Booking via Cal.com",
+          "description": "We offer you the possibility to make appointments with us via our website. For this we use the \"Cal.com\" service, offered by Cal.com, Inc.",
+          "booking_process": "When you book an appointment, you will be redirected to the Cal.com website (or a corresponding module will be loaded). There you can enter your contact details (such as name, email address) and appointment details. Cal.com itself is responsible for data processing on the Cal.com platform. Further information can be found in Cal.com's privacy policy: <a href=\"https://cal.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://cal.com/privacy</a>.",
+          "data_usage": "The data you enter at Cal.com is transmitted to us. We process this data exclusively for the purpose of appointment planning, implementation and for related communication (e.g. confirmations or reminders)."
         },
         "analytics": {
           "title": "5. Web Analysis with Netlify Analytics",

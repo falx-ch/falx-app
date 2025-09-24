@@ -221,10 +221,10 @@
           "protection": "Die Datenübermittlung in die USA ist durch entsprechende Datenschutzgarantien, wie die Anwendung von Standardvertragsklauseln, abgesichert, um ein angemessenes Schutzniveau zu gewährleisten. Weitere Informationen zum Datenschutz bei Resend finden Sie unter: <a href=\"https://resend.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://resend.com/privacy</a>"
         },
         "calendly": {
-          "title": "4. Terminvereinbarung über Calendly",
-          "description": "Wir bieten Ihnen die Möglichkeit, über unsere Website Termine mit uns zu vereinbaren. Hierfür nutzen wir den Dienst \"Calendly\", angeboten von Calendly LLC, 271 17th St NW, Ste 1000, Atlanta, GA 30363, USA.",
-          "booking_process": "Wenn Sie einen Termin buchen, werden Sie auf die Website von Calendly weitergeleitet (oder es wird ein entsprechendes Modul geladen). Dort können Sie Ihre Kontaktdaten (wie Name, E-Mail-Adresse) und Termindetails eingeben. Für die Datenverarbeitung auf der Plattform von Calendly ist Calendly selbst verantwortlich. Weitere Informationen finden Sie in der Datenschutzerklärung von Calendly: <a href=\"https://calendly.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://calendly.com/privacy</a>.",
-          "data_usage": "Die von Ihnen bei Calendly eingegebenen Daten werden an uns übermittelt. Wir verarbeiten diese Daten ausschliesslich zum Zweck der Terminplanung, -durchführung und für die damit verbundene Kommunikation (z.B. Bestätigungen oder Erinnerungen)."
+          "title": "4. Terminvereinbarung über Cal.com",
+          "description": "Wir bieten Ihnen die Möglichkeit, über unsere Website Termine mit uns zu vereinbaren. Hierfür nutzen wir den Dienst \"Cal.com\", angeboten von Cal.com, Inc.",
+          "booking_process": "Wenn Sie einen Termin buchen, werden Sie auf die Website von Cal.com weitergeleitet (oder es wird ein entsprechendes Modul geladen). Dort können Sie Ihre Kontaktdaten (wie Name, E-Mail-Adresse) und Termindetails eingeben. Für die Datenverarbeitung auf der Plattform von Cal.com ist Cal.com selbst verantwortlich. Weitere Informationen finden Sie in der Datenschutzerklärung von Cal.com: <a href=\"https://cal.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://cal.com/privacy</a>.",
+          "data_usage": "Die von Ihnen bei Cal.com eingegebenen Daten werden an uns übermittelt. Wir verarbeiten diese Daten ausschliesslich zum Zweck der Terminplanung, -durchführung und für die damit verbundene Kommunikation (z.B. Bestätigungen oder Erinnerungen)."
         },
         "analytics": {
           "title": "5. Web-Analyse mit Netlify Analytics",
