@@ -70,7 +70,7 @@ export default function HeroContent() {
           <p className="text-xs text-white/50 mb-2 text-left">POWERED BY</p>
           <div className="flex items-center justify-center sm:justify-start gap-4 opacity-60">
             <img src="/openai-text.svg" alt="OpenAI" className="h-4 object-contain brightness-0 invert" />
-            <img src="/make-text.svg" alt="Make" className="h-4 object-contain brightness-0 invert" />
+            <img src="/make-text.svg" alt="Make" className="h-3.5 object-contain brightness-0 invert" />
             <img src="/n8n-text.svg" alt="n8n" className="h-3.5 object-contain brightness-0 invert" />
             <img src="/twilio-text.svg" alt="Twilio" className="h-4 object-contain" />
             <img src="/retell-text.svg" alt="Retell" className="h-4 object-contain" />
