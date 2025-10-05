@@ -50,7 +50,7 @@ export default function HeroContent() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-          <a href="https://cal.com/chrispkobler/discovery-call" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+          <a href="https://cal.com/chrispkobler/discovery" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
             <Button variant="primary" className="hover-lift w-full sm:w-auto min-h-[44px]">
               {displayText.ctaPrimary}
             </Button>
@@ -70,6 +70,7 @@ export default function HeroContent() {
           <p className="text-xs text-white/50 mb-2 text-left">POWERED BY</p>
           <div className="flex items-center justify-center sm:justify-start gap-4 opacity-60">
             <img src="/openai-text.svg" alt="OpenAI" className="h-4 object-contain brightness-0 invert" />
+            <img src="/make-text.svg" alt="Make" className="h-4 object-contain brightness-0 invert" />
             <img src="/n8n-text.svg" alt="n8n" className="h-3.5 object-contain brightness-0 invert" />
             <img src="/twilio-text.svg" alt="Twilio" className="h-4 object-contain" />
             <img src="/retell-text.svg" alt="Retell" className="h-4 object-contain" />
