@@ -181,20 +181,102 @@ import SimpleFooter from '../../components/simple-footer.tsx';
               <div>
                 <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.email_service.title}</h3>
                 <p>{translations.legal.datenschutz.sections.email_service.description}</p>
-                <p class="mt-3">{translations.legal.datenschutz.sections.email_service.data_transfer}</p>
-                <p class="mt-3" set:html={translations.legal.datenschutz.sections.email_service.protection}></p>
+                {translations.legal.datenschutz.sections.email_service.subsections && (
+                  <div class="mt-4 space-y-4">
+                    {Object.values(translations.legal.datenschutz.sections.email_service.subsections).map((subsection: any) => (
+                      <div class="pl-4 border-l-2 border-slate-200">
+                        <h4 class="font-semibold text-slate-800 mb-2">{subsection.title}</h4>
+                        <p class="text-slate-700" set:html={subsection.description}></p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div>
-                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.calendly.title}</h3>
-                <p>{translations.legal.datenschutz.sections.calendly.description}</p>
-                <p class="mt-3" set:html={translations.legal.datenschutz.sections.calendly.booking_process}></p>
-                <p class="mt-3">{translations.legal.datenschutz.sections.calendly.data_usage}</p>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.booking_communication.title}</h3>
+                {translations.legal.datenschutz.sections.booking_communication.subsections && (
+                  <div class="space-y-4">
+                    {Object.values(translations.legal.datenschutz.sections.booking_communication.subsections).map((subsection: any) => (
+                      <div class="pl-4 border-l-2 border-slate-200">
+                        <h4 class="font-semibold text-slate-800 mb-2">{subsection.title}</h4>
+                        <p class="text-slate-700" set:html={subsection.description}></p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.ai_services.title}</h3>
+                <p>{translations.legal.datenschutz.sections.ai_services.description}</p>
+                {translations.legal.datenschutz.sections.ai_services.subsections && (
+                  <div class="mt-4 space-y-4">
+                    {Object.values(translations.legal.datenschutz.sections.ai_services.subsections).map((subsection: any) => (
+                      <div class="pl-4 border-l-2 border-slate-200">
+                        <h4 class="font-semibold text-slate-800 mb-2">{subsection.title}</h4>
+                        <p class="text-slate-700" set:html={subsection.description}></p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.voice_services.title}</h3>
+                {translations.legal.datenschutz.sections.voice_services.subsections && (
+                  <div class="space-y-4">
+                    {Object.values(translations.legal.datenschutz.sections.voice_services.subsections).map((subsection: any) => (
+                      <div class="pl-4 border-l-2 border-slate-200">
+                        <h4 class="font-semibold text-slate-800 mb-2">{subsection.title}</h4>
+                        <p class="text-slate-700" set:html={subsection.description}></p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.automation_services.title}</h3>
+                {translations.legal.datenschutz.sections.automation_services.subsections && (
+                  <div class="space-y-4">
+                    {Object.values(translations.legal.datenschutz.sections.automation_services.subsections).map((subsection: any) => (
+                      <div class="pl-4 border-l-2 border-slate-200">
+                        <h4 class="font-semibold text-slate-800 mb-2">{subsection.title}</h4>
+                        <p class="text-slate-700" set:html={subsection.description}></p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.crm_forms.title}</h3>
+                {translations.legal.datenschutz.sections.crm_forms.subsections && (
+                  <div class="space-y-4">
+                    {Object.values(translations.legal.datenschutz.sections.crm_forms.subsections).map((subsection: any) => (
+                      <div class="pl-4 border-l-2 border-slate-200">
+                        <h4 class="font-semibold text-slate-800 mb-2">{subsection.title}</h4>
+                        <p class="text-slate-700" set:html={subsection.description}></p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div>
                 <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.analytics.title}</h3>
                 <p>{translations.legal.datenschutz.sections.analytics.description}</p>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.data_security.title}</h3>
+                <p>{translations.legal.datenschutz.sections.data_security.description}</p>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.data_retention.title}</h3>
+                <p>{translations.legal.datenschutz.sections.data_retention.description}</p>
               </div>
 
               <div>
