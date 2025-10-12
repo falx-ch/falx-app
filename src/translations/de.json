@@ -214,132 +214,8 @@
           ],
           "purpose": "Diese Daten sind für uns nicht bestimmten Personen zuordenbar. Die Erhebung dieser Daten ist technisch erforderlich, um Ihnen unsere Website anzuzeigen und deren Stabilität und Sicherheit zu gewährleisten."
         },
-        "email_service": {
-          "title": "3. E-Mail-Kommunikation und Newsletter-Dienste",
-          "description": "Für die E-Mail-Kommunikation und Kampagnenverwaltung nutzen wir verschiedene Dienste:",
-          "subsections": {
-            "resend": {
-              "title": "Resend",
-              "description": "Resend, Inc., 548 Market St PMB 98451, San Francisco, CA 94104-5401, USA. Übermittelte Daten: E-Mail-Adresse, Name, Nachrichteninhalt. Zweck: E-Mail-Versand und Zustellbarkeit. Datenschutz: <a href=\"https://resend.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://resend.com/privacy</a>"
-            },
-            "google_workspace": {
-              "title": "Google Workspace",
-              "description": "Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Übermittelte Daten: E-Mail-Adressen, Nachrichteninhalte, Dokumente, Geschäftsdaten. Zweck: Geschäftskommunikation, Dateiverwaltung, Zusammenarbeit. Datenschutz: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://policies.google.com/privacy</a>"
-            },
-            "smartlead": {
-              "title": "Smartlead",
-              "description": "Smartlead Inc. Übermittelte Daten: E-Mail-Adressen, Namen, Kampagneninhalte, Engagement-Metriken. Zweck: Marketing-Automatisierung, Lead-Generierung. Datenschutz: <a href=\"https://www.smartlead.ai/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.smartlead.ai/privacy-policy</a>"
-            },
-            "instantly": {
-              "title": "Instantly",
-              "description": "Instantly.ai. Übermittelte Daten: E-Mail-Adressen, Namen, Kampagneninhalte, Response-Metriken. Zweck: Marketing-Automatisierung, Geschäftskommunikation. Datenschutz: <a href=\"https://instantly.ai/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://instantly.ai/privacy-policy</a>"
-            },
-            "infomaniak": {
-              "title": "Infomaniak",
-              "description": "Infomaniak Network SA, Rue Eugène-Marziano 25, 1227 Genf, Schweiz. Übermittelte Daten: Domain-Informationen, E-Mail-Infrastrukturdaten. Zweck: Domain-Verwaltung, E-Mail-Infrastruktur. Datenschutz: <a href=\"https://www.infomaniak.com/de/rechtliches/datenschutz\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.infomaniak.com/de/rechtliches/datenschutz</a>"
-            }
-          }
-        },
-        "booking_communication": {
-          "title": "4. Terminvereinbarung und Kommunikation",
-          "subsections": {
-            "cal_com": {
-              "title": "Cal.com",
-              "description": "Cal.com, Inc. Übermittelte Daten: Name, E-Mail-Adresse, Termindetails. Zweck: Terminplanung und -verwaltung. Datenschutz: <a href=\"https://cal.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://cal.com/privacy</a>"
-            },
-            "zoom": {
-              "title": "Zoom",
-              "description": "Zoom Video Communications, Inc., 55 Almaden Boulevard, 6th Floor, San Jose, CA 95113, USA. Übermittelte Daten: Name, E-Mail-Adresse, Video/Audio-Daten, Meeting-Metadaten. Zweck: Video-Meetings, geschäftliche Kommunikation. Datenschutz: <a href=\"https://zoom.us/de/privacy.html\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://zoom.us/de/privacy.html</a>"
-            },
-            "fathom": {
-              "title": "Fathom",
-              "description": "Fathom Video Inc. Übermittelte Daten: Audio-/Video-Aufzeichnungen, Transkripte, Meeting-Metadaten. Zweck: Meeting-Dokumentation. Hinweis: Teilnehmer werden über Aufzeichnungen informiert. Datenschutz: <a href=\"https://fathom.video/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://fathom.video/privacy</a>"
-            }
-          }
-        },
-        "ai_services": {
-          "title": "5. KI-Dienste",
-          "description": "Zur Bereitstellung unserer KI-gestützten Dienstleistungen nutzen wir verschiedene KI-Plattformen:",
-          "subsections": {
-            "openai": {
-              "title": "OpenAI",
-              "description": "OpenAI, L.L.C., 3180 18th Street, San Francisco, CA 94110, USA. Übermittelte Daten: Text-Eingaben für KI-Verarbeitung. Zweck: KI-gestützte Analyse und Automatisierung. Datenschutz: <a href=\"https://openai.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://openai.com/privacy</a>"
-            },
-            "anthropic": {
-              "title": "Anthropic",
-              "description": "Anthropic PBC, San Francisco, CA, USA. Übermittelte Daten: Text-Eingaben für KI-Verarbeitung. Zweck: KI-gestützte Analyse und Automatisierung. Datenschutz: <a href=\"https://www.anthropic.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.anthropic.com/privacy</a>"
-            },
-            "perplexity": {
-              "title": "Perplexity",
-              "description": "Perplexity AI, Inc. Übermittelte Daten: Suchanfragen, Text-Eingaben. Zweck: KI-gestützte Recherche und Informationsbeschaffung. Datenschutz: <a href=\"https://www.perplexity.ai/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.perplexity.ai/privacy</a>"
-            },
-            "openrouter": {
-              "title": "OpenRouter",
-              "description": "OpenRouter. Übermittelte Daten: Text-Eingaben für KI-Verarbeitung. Zweck: Zugang zu mehreren KI-Modellen. Datenschutz: <a href=\"https://openrouter.ai/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://openrouter.ai/privacy</a>"
-            }
-          }
-        },
-        "voice_services": {
-          "title": "6. Sprach- und Telefondienste",
-          "subsections": {
-            "retell_ai": {
-              "title": "Retell AI",
-              "description": "Retell AI. Übermittelte Daten: Sprachaufzeichnungen, Gesprächstranskripte, Telefonnummern. Zweck: Automatisierte Sprachkommunikation. Datenschutz: <a href=\"https://www.retellai.com/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.retellai.com/privacy-policy</a>"
-            },
-            "vapi": {
-              "title": "Vapi",
-              "description": "Vapi AI. Übermittelte Daten: Sprachaufzeichnungen, Gesprächsdaten, Telefonnummern. Zweck: Automatisierte Sprachkommunikation. Datenschutz: <a href=\"https://vapi.ai/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://vapi.ai/privacy</a>"
-            },
-            "elevenlabs": {
-              "title": "ElevenLabs",
-              "description": "ElevenLabs Inc. Übermittelte Daten: Text-Eingaben für Sprachsynthese. Zweck: Text-zu-Sprache-Konvertierung für Voice Agents. Datenschutz: <a href=\"https://elevenlabs.io/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://elevenlabs.io/privacy</a>"
-            },
-            "cartesia": {
-              "title": "Cartesia",
-              "description": "Cartesia AI. Übermittelte Daten: Text-Eingaben für Sprachsynthese. Zweck: Text-zu-Sprache-Konvertierung für Voice Agents. Datenschutz: <a href=\"https://cartesia.ai/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://cartesia.ai/privacy</a>"
-            },
-            "twilio": {
-              "title": "Twilio",
-              "description": "Twilio Inc., 101 Spear Street, San Francisco, CA 94105, USA. Übermittelte Daten: Telefonnummern, Anrufdaten, Gesprächsaufzeichnungen (wenn zugestimmt). Zweck: Geschäftliche Telefonie, SMS-Kommunikation. Datenschutz: <a href=\"https://www.twilio.com/legal/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.twilio.com/legal/privacy</a>"
-            }
-          }
-        },
-        "automation_services": {
-          "title": "7. Workflow-Automatisierung",
-          "subsections": {
-            "n8n": {
-              "title": "n8n",
-              "description": "n8n (Open Source, selbst-gehostet auf DigitalOcean). Übermittelte Daten: Geschäftsdaten in automatisierten Workflows. Zweck: Geschäftsprozess-Automatisierung. Hinweis: Da selbst-gehostet, haben wir volle Kontrolle über die Datenverarbeitung. Infrastruktur: DigitalOcean (siehe Abschnitt 9)."
-            },
-            "make": {
-              "title": "Make",
-              "description": "Celonis SE, Theresienstraße 6, 80333 München, Deutschland. Übermittelte Daten: Geschäftsdaten in automatisierten Szenarien. Zweck: Geschäftsprozess-Automatisierung. Datenschutz: <a href=\"https://www.make.com/en/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.make.com/en/privacy</a>"
-            }
-          }
-        },
-        "crm_forms": {
-          "title": "8. CRM, Dokumenten- und Formular-Dienste",
-          "subsections": {
-            "clickup": {
-              "title": "ClickUp",
-              "description": "ClickUp Inc., 3030 N Rocky Point Dr W #150, Tampa, FL 33607, USA. Übermittelte Daten: Kundendaten, Kontaktinformationen, Projektdaten. Zweck: Kundenbeziehungsmanagement, Projektmanagement. Datenschutz: <a href=\"https://clickup.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://clickup.com/privacy</a>"
-            },
-            "airtable": {
-              "title": "Airtable",
-              "description": "Airtable, Inc., 799 Market Street, 8th Floor, San Francisco, CA 94103, USA. Übermittelte Daten: Geschäftsdaten, Kundendaten, Projektinformationen. Zweck: Datenverwaltung, Workflow-Organisation. Datenschutz: <a href=\"https://www.airtable.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.airtable.com/privacy</a>"
-            },
-            "pandadoc": {
-              "title": "PandaDoc",
-              "description": "PandaDoc Inc., 217 1st Ave S, Suite 200, Seattle, WA 98104, USA. Übermittelte Daten: Vertragsdaten, Kundennamen, E-Mail-Adressen, Signaturen. Zweck: Dokumentenerstellung, Vertragsverwaltung, elektronische Signaturen. Datenschutz: <a href=\"https://www.pandadoc.com/privacy-policy/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.pandadoc.com/privacy-policy/</a>"
-            },
-            "tally": {
-              "title": "Tally",
-              "description": "Tally NV, Antwerpsesteenweg 19, 2630 Aartselaar, Belgien. Übermittelte Daten: Formulardaten (z.B. Name, E-Mail, Anfragen). Zweck: Datenerfassung, Kundenanfragen. Datenschutz: <a href=\"https://tally.so/help/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://tally.so/help/privacy-policy</a>"
-            }
-          }
-        },
         "cloud_infrastructure": {
-          "title": "9. Cloud-Infrastruktur, Hosting und Datenbanken",
+          "title": "3. Cloud-Infrastruktur & Hosting",
           "subsections": {
             "netlify": {
               "title": "Netlify",
@@ -367,8 +243,85 @@
             }
           }
         },
+        "automation_services": {
+          "title": "4. Prozessautomatisierung",
+          "subsections": {
+            "n8n": {
+              "title": "n8n",
+              "description": "n8n (Open Source, selbst-gehostet auf DigitalOcean). Übermittelte Daten: Geschäftsdaten in automatisierten Workflows. Zweck: Geschäftsprozess-Automatisierung. Hinweis: Da selbst-gehostet, haben wir volle Kontrolle über die Datenverarbeitung. Infrastruktur: DigitalOcean (siehe Abschnitt 3)."
+            },
+            "make": {
+              "title": "Make",
+              "description": "Celonis SE, Theresienstraße 6, 80333 München, Deutschland. Übermittelte Daten: Geschäftsdaten in automatisierten Szenarien. Zweck: Geschäftsprozess-Automatisierung. Datenschutz: <a href=\"https://www.make.com/en/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.make.com/en/privacy</a>"
+            }
+          }
+        },
+        "booking_communication": {
+          "title": "5. Terminbuchung & Video-Meetings",
+          "subsections": {
+            "cal_com": {
+              "title": "Cal.com",
+              "description": "Cal.com, Inc. Übermittelte Daten: Name, E-Mail-Adresse, Termindetails. Zweck: Terminplanung und -verwaltung. Datenschutz: <a href=\"https://cal.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://cal.com/privacy</a>"
+            },
+            "zoom": {
+              "title": "Zoom",
+              "description": "Zoom Video Communications, Inc., 55 Almaden Boulevard, 6th Floor, San Jose, CA 95113, USA. Übermittelte Daten: Name, E-Mail-Adresse, Video/Audio-Daten, Meeting-Metadaten. Zweck: Video-Meetings, geschäftliche Kommunikation. Datenschutz: <a href=\"https://zoom.us/de/privacy.html\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://zoom.us/de/privacy.html</a>"
+            },
+            "fathom": {
+              "title": "Fathom",
+              "description": "Fathom Video Inc. Übermittelte Daten: Audio-/Video-Aufzeichnungen, Transkripte, Meeting-Metadaten. Zweck: Meeting-Dokumentation. Hinweis: Teilnehmer werden über Aufzeichnungen informiert. Datenschutz: <a href=\"https://fathom.video/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://fathom.video/privacy</a>"
+            }
+          }
+        },
+        "email_service": {
+          "title": "6. E-Mail & Geschäftskommunikation",
+          "description": "Für die E-Mail-Kommunikation und Kampagnenverwaltung nutzen wir verschiedene Dienste:",
+          "subsections": {
+            "resend": {
+              "title": "Resend",
+              "description": "Resend, Inc., 548 Market St PMB 98451, San Francisco, CA 94104-5401, USA. Übermittelte Daten: E-Mail-Adresse, Name, Nachrichteninhalt. Zweck: E-Mail-Versand und Zustellbarkeit. Datenschutz: <a href=\"https://resend.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://resend.com/privacy</a>"
+            },
+            "google_workspace": {
+              "title": "Google Workspace",
+              "description": "Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. Übermittelte Daten: E-Mail-Adressen, Nachrichteninhalte, Dokumente, Geschäftsdaten. Zweck: Geschäftskommunikation, Dateiverwaltung, Zusammenarbeit. Datenschutz: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://policies.google.com/privacy</a>"
+            },
+            "smartlead": {
+              "title": "Smartlead",
+              "description": "Smartlead Inc. Übermittelte Daten: E-Mail-Adressen, Namen, Kampagneninhalte, Engagement-Metriken. Zweck: Marketing-Automatisierung, Lead-Generierung. Datenschutz: <a href=\"https://www.smartlead.ai/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.smartlead.ai/privacy-policy</a>"
+            },
+            "instantly": {
+              "title": "Instantly",
+              "description": "Instantly.ai. Übermittelte Daten: E-Mail-Adressen, Namen, Kampagneninhalte, Response-Metriken. Zweck: Marketing-Automatisierung, Geschäftskommunikation. Datenschutz: <a href=\"https://instantly.ai/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://instantly.ai/privacy-policy</a>"
+            }
+          }
+        },
+        "voice_services": {
+          "title": "7. Sprach- & Telefondienste",
+          "subsections": {
+            "retell_ai": {
+              "title": "Retell AI",
+              "description": "Retell AI. Übermittelte Daten: Sprachaufzeichnungen, Gesprächstranskripte, Telefonnummern. Zweck: Automatisierte Sprachkommunikation. Datenschutz: <a href=\"https://www.retellai.com/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.retellai.com/privacy-policy</a>"
+            },
+            "vapi": {
+              "title": "Vapi",
+              "description": "Vapi AI. Übermittelte Daten: Sprachaufzeichnungen, Gesprächsdaten, Telefonnummern. Zweck: Automatisierte Sprachkommunikation. Datenschutz: <a href=\"https://vapi.ai/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://vapi.ai/privacy</a>"
+            },
+            "elevenlabs": {
+              "title": "ElevenLabs",
+              "description": "ElevenLabs Inc. Übermittelte Daten: Text-Eingaben für Sprachsynthese. Zweck: Text-zu-Sprache-Konvertierung für Voice Agents. Datenschutz: <a href=\"https://elevenlabs.io/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://elevenlabs.io/privacy</a>"
+            },
+            "cartesia": {
+              "title": "Cartesia",
+              "description": "Cartesia AI. Übermittelte Daten: Text-Eingaben für Sprachsynthese. Zweck: Text-zu-Sprache-Konvertierung für Voice Agents. Datenschutz: <a href=\"https://cartesia.ai/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://cartesia.ai/privacy</a>"
+            },
+            "twilio": {
+              "title": "Twilio",
+              "description": "Twilio Inc., 101 Spear Street, San Francisco, CA 94105, USA. Übermittelte Daten: Telefonnummern, Anrufdaten, Gesprächsaufzeichnungen (wenn zugestimmt). Zweck: Geschäftliche Telefonie, SMS-Kommunikation. Datenschutz: <a href=\"https://www.twilio.com/legal/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.twilio.com/legal/privacy</a>"
+            }
+          }
+        },
         "communication_video": {
-          "title": "11. Kommunikations- und Video-Dienste",
+          "title": "8. Team-Kommunikation & Collaboration",
           "subsections": {
             "slack": {
               "title": "Slack",
@@ -380,8 +333,60 @@
             }
           }
         },
+        "ai_services": {
+          "title": "9. KI-Services & Intelligenz",
+          "description": "Zur Bereitstellung unserer KI-gestützten Dienstleistungen nutzen wir verschiedene KI-Plattformen:",
+          "subsections": {
+            "openai": {
+              "title": "OpenAI",
+              "description": "OpenAI, L.L.C., 3180 18th Street, San Francisco, CA 94110, USA. Übermittelte Daten: Text-Eingaben für KI-Verarbeitung. Zweck: KI-gestützte Analyse und Automatisierung. Datenschutz: <a href=\"https://openai.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://openai.com/privacy</a>"
+            },
+            "anthropic": {
+              "title": "Anthropic",
+              "description": "Anthropic PBC, San Francisco, CA, USA. Übermittelte Daten: Text-Eingaben für KI-Verarbeitung. Zweck: KI-gestützte Analyse und Automatisierung. Datenschutz: <a href=\"https://www.anthropic.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.anthropic.com/privacy</a>"
+            },
+            "perplexity": {
+              "title": "Perplexity",
+              "description": "Perplexity AI, Inc. Übermittelte Daten: Suchanfragen, Text-Eingaben. Zweck: KI-gestützte Recherche und Informationsbeschaffung. Datenschutz: <a href=\"https://www.perplexity.ai/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.perplexity.ai/privacy</a>"
+            },
+            "openrouter": {
+              "title": "OpenRouter",
+              "description": "OpenRouter. Übermittelte Daten: Text-Eingaben für KI-Verarbeitung. Zweck: Zugang zu mehreren KI-Modellen. Datenschutz: <a href=\"https://openrouter.ai/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://openrouter.ai/privacy</a>"
+            }
+          }
+        },
+        "analytics": {
+          "title": "10. Web-Analyse",
+          "description": "Wir nutzen auf unserer Website Netlify Analytics. Dies ist ein Webanalysedient von Netlify, Inc. Netlify Analytics verwendet keine Cookies und erfasst keine persönlichen Daten, die eine direkte Identifizierung des Nutzers ermöglichen. Es werden anonymisierte Daten wie die Anzahl der Seitenaufrufe, die Herkunftsseiten und die verwendeten Browser analysiert, um die Nutzung unserer Website auszuwerten und Reports über die Websiteaktivitäten zusammenzustellen. Die erfassten IP-Adressen werden dabei anonymisiert."
+        },
+        "crm_management": {
+          "title": "11. Kundenmanagement & CRM",
+          "subsections": {
+            "clickup": {
+              "title": "ClickUp",
+              "description": "ClickUp Inc., 3030 N Rocky Point Dr W #150, Tampa, FL 33607, USA. Übermittelte Daten: Kundendaten, Kontaktinformationen, Projektdaten. Zweck: Kundenbeziehungsmanagement, Projektmanagement. Datenschutz: <a href=\"https://clickup.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://clickup.com/privacy</a>"
+            },
+            "airtable": {
+              "title": "Airtable",
+              "description": "Airtable, Inc., 799 Market Street, 8th Floor, San Francisco, CA 94103, USA. Übermittelte Daten: Geschäftsdaten, Kundendaten, Projektinformationen. Zweck: Datenverwaltung, Workflow-Organisation. Datenschutz: <a href=\"https://www.airtable.com/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.airtable.com/privacy</a>"
+            }
+          }
+        },
+        "document_services": {
+          "title": "12. Dokumente & Formulare",
+          "subsections": {
+            "pandadoc": {
+              "title": "PandaDoc",
+              "description": "PandaDoc Inc., 217 1st Ave S, Suite 200, Seattle, WA 98104, USA. Übermittelte Daten: Vertragsdaten, Kundennamen, E-Mail-Adressen, Signaturen. Zweck: Dokumentenerstellung, Vertragsverwaltung, elektronische Signaturen. Datenschutz: <a href=\"https://www.pandadoc.com/privacy-policy/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.pandadoc.com/privacy-policy/</a>"
+            },
+            "tally": {
+              "title": "Tally",
+              "description": "Tally NV, Antwerpsesteenweg 19, 2630 Aartselaar, Belgien. Übermittelte Daten: Formulardaten (z.B. Name, E-Mail, Anfragen). Zweck: Datenerfassung, Kundenanfragen. Datenschutz: <a href=\"https://tally.so/help/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://tally.so/help/privacy-policy</a>"
+            }
+          }
+        },
         "payment_services": {
-          "title": "12. Zahlungsdienste",
+          "title": "13. Zahlungsabwicklung",
           "subsections": {
             "stripe": {
               "title": "Stripe",
@@ -393,12 +398,8 @@
             }
           }
         },
-        "analytics": {
-          "title": "13. Web-Analyse",
-          "description": "Wir nutzen auf unserer Website Netlify Analytics. Dies ist ein Webanalysedient von Netlify, Inc. Netlify Analytics verwendet keine Cookies und erfasst keine persönlichen Daten, die eine direkte Identifizierung des Nutzers ermöglichen. Es werden anonymisierte Daten wie die Anzahl der Seitenaufrufe, die Herkunftsseiten und die verwendeten Browser analysiert, um die Nutzung unserer Website auszuwerten und Reports über die Websiteaktivitäten zusammenzustellen. Die erfassten IP-Adressen werden dabei anonymisiert."
-        },
         "data_security": {
-          "title": "14. Datensicherheit und Schutzmaßnahmen",
+          "title": "14. Datensicherheit & Schutzmaßnahmen",
           "description": "Wir treffen geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten gegen unbeabsichtigte oder unrechtmäßige Vernichtung, Verlust, Veränderung, unbefugte Offenlegung oder unbefugten Zugang zu schützen. Bei der Nutzung von Drittanbietern achten wir auf deren Datenschutz-Compliance und nutzen, wo möglich, Dienste mit Servern in der Schweiz oder EU bzw. mit angemessenen Datenschutzgarantien wie Standardvertragsklauseln für Datenübermittlungen in Drittstaaten."
         },
         "data_retention": {
