@@ -1,18 +1,17 @@
 ---
-// German legal page using translations
-// Uses German translations from de.json
-
-// Import utilities
-import { loadTranslations, type SupportedLanguage } from '@/lib/i18n';
+// German legal page (default language - no prefix)
+// Import i18n utilities
+import { loadTranslations, DEFAULT_LANGUAGE, type SupportedLanguage } from '@/lib/i18n';
 
 // Load German translations
-const translations = await loadTranslations('de');
+const translations = await loadTranslations(DEFAULT_LANGUAGE);
+const lang = DEFAULT_LANGUAGE;
 
 // Set up meta data
 const meta = {
   title: translations.legal.meta.title,
   description: translations.legal.meta.description,
-  lang: 'de' as SupportedLanguage
+  lang: lang
 };
 
 export interface Props {
@@ -324,8 +323,8 @@ import SimpleFooter from '../components/simple-footer.tsx';
 </BaseLayout>
 
 <!-- Make translations available to components -->
-<script define:vars={{ translations }}>
+<script define:vars={{ translations, lang }}>
   // Make translations globally available for React components
   window.__TRANSLATIONS__ = translations;
-  window.__CURRENT_LANG__ = 'de';
+  window.__CURRENT_LANG__ = lang;
 </script>
