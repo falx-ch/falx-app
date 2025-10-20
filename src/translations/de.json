@@ -327,7 +327,7 @@
           "subsections": {
             "n8n": {
               "title": "n8n",
-              "description": "n8n (Open Source, selbst-gehostet auf DigitalOcean). Übermittelte Daten: Geschäftsdaten in automatisierten Workflows. Zweck: Geschäftsprozess-Automatisierung. Hinweis: Da selbst-gehostet, haben wir volle Kontrolle über die Datenverarbeitung. Infrastruktur: DigitalOcean (siehe Abschnitt 10)."
+              "description": "n8n (Open Source). Übermittelte Daten: Geschäftsdaten in automatisierten Workflows. Zweck: Geschäftsprozess-Automatisierung. Datenschutz: <a href=\"https://n8n.io/legal/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://n8n.io/legal/privacy</a>"
             },
             "make": {
               "title": "Make",

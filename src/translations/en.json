@@ -328,7 +328,7 @@
           "subsections": {
             "n8n": {
               "title": "n8n",
-              "description": "n8n (open source, self-hosted on DigitalOcean). Data transmitted: Business data in automated workflows. Purpose: Business process automation. Note: Since self-hosted, we have full control over data processing. Infrastructure: DigitalOcean (see Section 10)."
+              "description": "n8n (open source). Data transmitted: Business data in automated workflows. Purpose: Business process automation. Privacy: <a href=\"https://n8n.io/legal/privacy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://n8n.io/legal/privacy</a>"
             },
             "make": {
               "title": "Make",
