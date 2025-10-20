@@ -240,8 +240,26 @@
             }
           }
         },
+        "messaging_social": {
+          "title": "4. Messaging- und Social-Media-Plattformen",
+          "description": "Für die Kommunikation mit Kunden und Interessenten nutzen wir Messaging- und Social-Media-Dienste:",
+          "subsections": {
+            "whatsapp": {
+              "title": "WhatsApp Business API",
+              "description": "Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland. Übermittelte Daten: Telefonnummern, Nachrichteninhalte, Gesprächsverläufe, Metadaten. Zweck: Kundenkommunikation, automatisierte Anfragenbearbeitung, Lead-Qualifizierung. Datenschutz: <a href=\"https://www.whatsapp.com/legal/business-data-processing-terms\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.whatsapp.com/legal/business-data-processing-terms</a>"
+            },
+            "instagram": {
+              "title": "Instagram",
+              "description": "Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland. Übermittelte Daten: Benutzernamen, Direktnachrichten, Interaktionsdaten, Metadaten. Zweck: Kundenkommunikation, Marketing, Lead-Generierung. Datenschutz: <a href=\"https://help.instagram.com/519522125107875\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://help.instagram.com/519522125107875</a>"
+            },
+            "meta_business": {
+              "title": "Meta Business Suite",
+              "description": "Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland. Übermittelte Daten: Kontaktdaten, Kommunikationsdaten, Kampagneninformationen. Zweck: Verwaltung von WhatsApp und Instagram Kommunikation, Marketing-Kampagnen. Datenschutz: <a href=\"https://www.facebook.com/privacy/policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.facebook.com/privacy/policy</a>"
+            }
+          }
+        },
         "booking_communication": {
-          "title": "4. Terminvereinbarung und Kommunikation",
+          "title": "5. Terminvereinbarung und Kommunikation",
           "subsections": {
             "cal_com": {
               "title": "Cal.com",
@@ -280,7 +298,7 @@
           }
         },
         "voice_services": {
-          "title": "6. Sprach- und Telefondienste",
+          "title": "7. Sprach- und Telefondienste",
           "subsections": {
             "retell_ai": {
               "title": "Retell AI",
@@ -305,7 +323,7 @@
           }
         },
         "automation_services": {
-          "title": "7. Workflow-Automatisierung",
+          "title": "8. Workflow-Automatisierung",
           "subsections": {
             "n8n": {
               "title": "n8n",
@@ -318,7 +336,7 @@
           }
         },
         "crm_forms": {
-          "title": "8. CRM, Dokumenten- und Formular-Dienste",
+          "title": "9. CRM, Dokumenten- und Formular-Dienste",
           "subsections": {
             "clickup": {
               "title": "ClickUp",
@@ -339,7 +357,7 @@
           }
         },
         "cloud_infrastructure": {
-          "title": "9. Cloud-Infrastruktur, Hosting und Datenbanken",
+          "title": "10. Cloud-Infrastruktur, Hosting und Datenbanken",
           "subsections": {
             "netlify": {
               "title": "Netlify",
@@ -368,7 +386,7 @@
           }
         },
         "communication_video": {
-          "title": "11. Kommunikations- und Video-Dienste",
+          "title": "12. Kommunikations- und Video-Dienste",
           "subsections": {
             "slack": {
               "title": "Slack",
@@ -381,7 +399,7 @@
           }
         },
         "payment_services": {
-          "title": "12. Zahlungsdienste",
+          "title": "13. Zahlungsdienste",
           "subsections": {
             "stripe": {
               "title": "Stripe",
@@ -394,23 +412,23 @@
           }
         },
         "analytics": {
-          "title": "13. Web-Analyse",
+          "title": "14. Web-Analyse",
           "description": "Wir nutzen auf unserer Website Netlify Analytics. Dies ist ein Webanalysedient von Netlify, Inc. Netlify Analytics verwendet keine Cookies und erfasst keine persönlichen Daten, die eine direkte Identifizierung des Nutzers ermöglichen. Es werden anonymisierte Daten wie die Anzahl der Seitenaufrufe, die Herkunftsseiten und die verwendeten Browser analysiert, um die Nutzung unserer Website auszuwerten und Reports über die Websiteaktivitäten zusammenzustellen. Die erfassten IP-Adressen werden dabei anonymisiert."
         },
         "data_security": {
-          "title": "14. Datensicherheit und Schutzmaßnahmen",
+          "title": "15. Datensicherheit und Schutzmaßnahmen",
           "description": "Wir treffen geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten gegen unbeabsichtigte oder unrechtmäßige Vernichtung, Verlust, Veränderung, unbefugte Offenlegung oder unbefugten Zugang zu schützen. Bei der Nutzung von Drittanbietern achten wir auf deren Datenschutz-Compliance und nutzen, wo möglich, Dienste mit Servern in der Schweiz oder EU bzw. mit angemessenen Datenschutzgarantien wie Standardvertragsklauseln für Datenübermittlungen in Drittstaaten."
         },
         "data_retention": {
-          "title": "15. Speicherdauer",
+          "title": "16. Speicherdauer",
           "description": "Wir speichern personenbezogene Daten nur so lange, wie dies für die Erfüllung der jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Nach Wegfall des Zwecks werden die Daten gelöscht, es sei denn, deren weitere Aufbewahrung ist zur Vertragserfüllung oder zur Erfüllung gesetzlicher Verpflichtungen erforderlich."
         },
         "user_rights": {
-          "title": "16. Ihre Rechte",
+          "title": "17. Ihre Rechte",
           "description": "Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Sie haben zudem das Recht, erteilte Einwilligungen mit Wirkung für die Zukunft zu widerrufen. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Abschnitt 1 angegebenen Adresse an uns wenden."
         },
         "policy_changes": {
-          "title": "17. Änderung dieser Datenschutzerklärung",
+          "title": "18. Änderung dieser Datenschutzerklärung",
           "description": "Wir können diese Datenschutzerklärung jederzeit ohne Vorankündigung anpassen. Es gilt die jeweils aktuelle, auf unserer Website publizierte Fassung."
         }
       }

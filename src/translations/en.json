@@ -241,8 +241,26 @@
             }
           }
         },
+        "messaging_social": {
+          "title": "4. Messaging and Social Media Platforms",
+          "description": "For communication with customers and prospects, we use messaging and social media services:",
+          "subsections": {
+            "whatsapp": {
+              "title": "WhatsApp Business API",
+              "description": "Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland. Transmitted data: Phone numbers, message content, conversation history, metadata. Purpose: Customer communication, automated inquiry processing, lead qualification. Privacy: <a href=\"https://www.whatsapp.com/legal/business-data-processing-terms\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.whatsapp.com/legal/business-data-processing-terms</a>"
+            },
+            "instagram": {
+              "title": "Instagram",
+              "description": "Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland. Transmitted data: Usernames, direct messages, interaction data, metadata. Purpose: Customer communication, marketing, lead generation. Privacy: <a href=\"https://help.instagram.com/519522125107875\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://help.instagram.com/519522125107875</a>"
+            },
+            "meta_business": {
+              "title": "Meta Business Suite",
+              "description": "Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland. Transmitted data: Contact data, communication data, campaign information. Purpose: Management of WhatsApp and Instagram communication, marketing campaigns. Privacy: <a href=\"https://www.facebook.com/privacy/policy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.facebook.com/privacy/policy</a>"
+            }
+          }
+        },
         "booking_communication": {
-          "title": "4. Appointment Booking and Communication",
+          "title": "5. Appointment Booking and Communication",
           "subsections": {
             "cal_com": {
               "title": "Cal.com",
@@ -259,7 +277,7 @@
           }
         },
         "ai_services": {
-          "title": "5. AI Services",
+          "title": "6. AI Services",
           "description": "To provide our AI-powered services, we use various AI platforms:",
           "subsections": {
             "openai": {
@@ -281,7 +299,7 @@
           }
         },
         "voice_services": {
-          "title": "6. Voice and Telephony Services",
+          "title": "7. Voice and Telephony Services",
           "subsections": {
             "retell_ai": {
               "title": "Retell AI",
@@ -306,7 +324,7 @@
           }
         },
         "automation_services": {
-          "title": "7. Workflow Automation",
+          "title": "8. Workflow Automation",
           "subsections": {
             "n8n": {
               "title": "n8n",
@@ -319,7 +337,7 @@
           }
         },
         "crm_forms": {
-          "title": "8. CRM, Document, and Form Services",
+          "title": "9. CRM, Document, and Form Services",
           "subsections": {
             "clickup": {
               "title": "ClickUp",
@@ -340,7 +358,7 @@
           }
         },
         "cloud_infrastructure": {
-          "title": "9. Cloud Infrastructure, Hosting and Databases",
+          "title": "10. Cloud Infrastructure, Hosting and Databases",
           "subsections": {
             "netlify": {
               "title": "Netlify",
@@ -369,7 +387,7 @@
           }
         },
         "communication_video": {
-          "title": "10. Communication and Video Services",
+          "title": "12. Communication and Video Services",
           "subsections": {
             "slack": {
               "title": "Slack",
@@ -382,7 +400,7 @@
           }
         },
         "payment_services": {
-          "title": "11. Payment Services",
+          "title": "13. Payment Services",
           "subsections": {
             "stripe": {
               "title": "Stripe",
@@ -395,23 +413,23 @@
           }
         },
         "analytics": {
-          "title": "12. Web Analysis",
+          "title": "14. Web Analysis",
           "description": "We use Netlify Analytics on our website. This is a web analytics service from Netlify, Inc. Netlify Analytics does not use cookies and does not collect personal data that would allow direct identification of the user. Anonymized data such as the number of page views, referral sites and browsers used are analyzed to evaluate the use of our website and to compile reports on website activities. The collected IP addresses are anonymized."
         },
         "data_security": {
-          "title": "13. Data Security and Protection Measures",
+          "title": "15. Data Security and Protection Measures",
           "description": "We take appropriate technical and organizational security measures to protect your personal data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or unauthorized access. When using third-party providers, we ensure their data protection compliance and use, where possible, services with servers in Switzerland or the EU, or with adequate data protection guarantees such as standard contractual clauses for data transfers to third countries."
         },
         "data_retention": {
-          "title": "14. Data Retention",
+          "title": "16. Data Retention",
           "description": "We store personal data only as long as necessary to fulfill the respective purposes or as required by legal retention obligations. After the purpose ceases to apply, the data will be deleted unless its further retention is necessary for contract fulfillment or to comply with legal obligations."
         },
         "user_rights": {
-          "title": "15. Your Rights",
+          "title": "17. Your Rights",
           "description": "Within the framework of the applicable legal provisions, you have the right at any time to free information about your stored personal data, their origin and recipients and the purpose of data processing, as well as a right to correction, blocking or deletion of this data. You also have the right to withdraw consents given with effect for the future. For this as well as for further questions on the subject of personal data, you can contact us at any time at the address given in section 1."
         },
         "policy_changes": {
-          "title": "16. Changes to this Privacy Policy",
+          "title": "18. Changes to this Privacy Policy",
           "description": "We may adapt this privacy policy at any time without prior notice. The current version published on our website applies."
         }
       }
