@@ -196,7 +196,7 @@
       "sections": {
         "responsible_entity": {
           "title": "1. Responsible Entity",
-          "text": "Responsible for data processing on this website within the meaning of the Federal Act on Data Protection (FADP) is:",
+          "text": "Responsible for data processing on this website within the meaning of the Federal Act on Data Protection (nDSG) is:",
           "company_details": "Falx GmbH<br />Represented by: Christopher Kobler<br />Gussstrasse 6, 8180, Bülach<br />Switzerland",
           "contact_info": "Email: <span id=\"legal-email-address\" class=\"text-red-600\"><noscript>Please enable JavaScript to view the email address</noscript></span><br />Website: https://falx.ch"
         },
