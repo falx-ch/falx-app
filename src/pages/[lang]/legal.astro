@@ -194,10 +194,10 @@ import SimpleFooter from '../../components/simple-footer.tsx';
               </div>
 
               <div>
-                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.booking_communication.title}</h3>
-                {translations.legal.datenschutz.sections.booking_communication.subsections && (
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.messaging_social.title}</h3>
+                {translations.legal.datenschutz.sections.messaging_social.subsections && (
                   <div class="space-y-4">
-                    {Object.values(translations.legal.datenschutz.sections.booking_communication.subsections).map((subsection: any) => (
+                    {Object.values(translations.legal.datenschutz.sections.messaging_social.subsections).map((subsection: any) => (
                       <div class="pl-4 border-l-2 border-slate-200">
                         <h4 class="font-semibold text-slate-800 mb-2">{subsection.title}</h4>
                         <p class="text-slate-700" set:html={subsection.description}></p>
@@ -208,10 +208,10 @@ import SimpleFooter from '../../components/simple-footer.tsx';
               </div>
 
               <div>
-                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.messaging_social.title}</h3>
-                {translations.legal.datenschutz.sections.messaging_social.subsections && (
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.booking_communication.title}</h3>
+                {translations.legal.datenschutz.sections.booking_communication.subsections && (
                   <div class="space-y-4">
-                    {Object.values(translations.legal.datenschutz.sections.messaging_social.subsections).map((subsection: any) => (
+                    {Object.values(translations.legal.datenschutz.sections.booking_communication.subsections).map((subsection: any) => (
                       <div class="pl-4 border-l-2 border-slate-200">
                         <h4 class="font-semibold text-slate-800 mb-2">{subsection.title}</h4>
                         <p class="text-slate-700" set:html={subsection.description}></p>
@@ -279,11 +279,6 @@ import SimpleFooter from '../../components/simple-footer.tsx';
               </div>
 
               <div>
-                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.analytics.title}</h3>
-                <p>{translations.legal.datenschutz.sections.analytics.description}</p>
-              </div>
-
-              <div>
                 <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.cloud_infrastructure.title}</h3>
                 {translations.legal.datenschutz.sections.cloud_infrastructure.subsections && (
                   <div class="space-y-4">
@@ -323,6 +318,11 @@ import SimpleFooter from '../../components/simple-footer.tsx';
                     ))}
                   </div>
                 )}
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.analytics.title}</h3>
+                <p>{translations.legal.datenschutz.sections.analytics.description}</p>
               </div>
 
               <div>
