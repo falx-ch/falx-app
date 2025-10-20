@@ -55,14 +55,15 @@ export default function HeroContent() {
               {displayText.ctaPrimary}
             </Button>
           </a>
-          <div className="relative group hidden md:block">
+          {/* Secondary button hidden for now */}
+          {/* <div className="relative group hidden md:block">
             <Button variant="secondary" className="opacity-50 cursor-not-allowed w-full sm:w-auto min-h-[44px]" disabled>
               {displayText.ctaSecondary}
             </Button>
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
               {displayText.ctaSecondaryTooltip}
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Powered by section */}

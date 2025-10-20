@@ -1,58 +1,58 @@
 {
   "meta": {
-    "title": "Growth Strategies for Swiss SMEs | Falx",
-    "description": "More than automation. Falx develops AI strategies and custom AI agents for Swiss SMEs. Grow securely and FADP-compliant. Discover your potential with a free Growth Strategy Call."
+    "title": "Revenue-First AI Automation | Falx",
+    "description": "Your strategic growth partner for measurable revenue growth. WhatsApp, Instagram, Voice AI & CRM integration. Reactivate your database, accelerate speed-to-lead, automate follow-ups. Free Growth Mapping Call."
   },
   "navigation": {
-    "report": "AI Report",
+    "report": "Revenue",
     "solution": "Solution",
     "legata": "Legata"
   },
   "hero": {
-    "badge": "Swiss Made • 🔒 FADP Compliant • 🎯 Free Audit",
-    "headline_accent": "Growth strategies",
+    "badge": "Swiss Made • 🔒 GDPR & nDSG Compliant • 🎯 Free Growth Mapping",
+    "headline_accent": "Growth Partner",
     "headline_suffix": "",
     "headline_secondary": "for Swiss SMEs",
-    "description": "CHF 6 billion annually - that's what admin work costs Swiss SMEs. We use AI to break the cycle: analyze where you're stuck, find new paths to growth, build systems that free you. First results in 2 weeks.",
-    "cta_primary": "Free Consultation",
+    "description": "Your strategic partner for measurable growth. We identify hidden revenue opportunities, reactivate dormant leads, and build intelligent systems that sell – around the clock. Measurable results guaranteed or money back.",
+    "cta_primary": "Let's talk",
     "cta_secondary": "Download Report",
     "cta_secondary_tooltip": "Coming Soon"
   },
   "report_section": {
     "headline": "What does",
-    "headline_accent": "inefficiency",
-    "headline_suffix": "really cost you?",
-    "description": "Swiss companies lose thousands of francs daily through manual processes.<br />Yours is probably one of them."
+    "headline_accent": "missed",
+    "headline_suffix": "revenue really cost?",
+    "description": "Every missed lead, every slow response, every forgotten follow-up costs revenue.<br />How much is your business losing?"
   },
   "problem_identification": {
-    "headline": "The Swiss growth ",
-    "headline_accent": "paradox", 
-    "headline_suffix": "",
-    "description": "Everyone knows AI drives growth. Yet billions are lost while companies leak data and miss opportunities.",
+    "headline": "Revenue ",
+    "headline_accent": "gaps",
+    "headline_suffix": " in your business",
+    "description": "Leads come in but responses take too long. Your database is full but nobody reactivates it. Inquiries come in the evening but nobody answers. Every delay costs revenue.",
     "stats": [
-      "91% see AI as growth driver - but only 13% actually measure their AI results",
-      "52% already use AI for automation - yet still lose CHF 6 billion annually to admin",
-      "56% share company data with ChatGPT - despite knowing it's their biggest security risk"
+      "Speed to Lead: 78% of deals go to whoever responds in 5 minutes – not 5 hours",
+      "Database Reactivation: 60-80% of your CRM contacts are inactive – pure revenue opportunity lying dormant",
+      "24/7 Response: 35% of inquiries come outside business hours – and get lost"
     ]
   },
   "solution_showcase": {
-    "headline": "AI solutions",
-    "headline_suffix": "in practice",
-    "description": "No more theory. Here's what we actually do.<br />Whether AI agent, workflow automation, or data analysis: We use what works for you.",
+    "headline": "Revenue",
+    "headline_suffix": "-driven<br />automation",
+    "description": "We design custom AI strategies for your business. WhatsApp, Instagram DMs, Voice AI – one unified system with shared memory across all channels. Every conversation synced to your CRM, every workflow orchestrated from first contact to closed deal.<br />Built for your specific growth goals.",
     "features": [
-      "Guaranteed FADP-compliant, your data stays in Switzerland",
-      "Fixed pricing per solution, no hidden costs",
-      "First system running within 14 days"
+      "Omnichannel System: WhatsApp, Instagram, Voice AI with shared context + CRM",
+      "Guaranteed GDPR & nDSG compliant, highest data protection standards",
+      "ROI Guarantee: Measurable results or money back"
     ],
-    "cta_button": "Free Strategy Call"
+    "cta_button": "Let's talk"
   },
   "product_demonstration": {
     "headline": "Legal Tech made ",
     "headline_accent": "human",
     "headline_suffix": "",
-    "description": "We're building a free tool for all families in Switzerland: Legally valid wills, understandable and secure. FADP-compliant.",
-    "mission_statement": "Legata shows what's possible: Will drafts that replace multiple consultation appointments. Notary costs reduced through optimal preparation. We build similar systems for your business.",
-    "cta_primary": "Find Your Legata Opportunity",
+    "description": "We're building a free tool for all families in Switzerland: Legally valid wills, understandable and secure. nDSG-compliant.",
+    "mission_statement": "Legata demonstrates our approach: Automate complex processes without losing humanity. Multi-channel communication (Voice, Chat, Web) connected with intelligent data processing. We build similar end-to-end systems for your business – so you can scale.",
+    "cta_primary": "Let's build something",
     "cta_secondary": "Notify At Launch",
     "cta_secondary_tooltip": "Coming Soon"
   },
@@ -67,11 +67,11 @@
     "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
   },
   "call_to_action": {
-    "headline": "Invest 30 minutes.<br />Wake your ",
-    "headline_accent": "potential",
+    "headline": "Invest 30 minutes.<br />Discover ",
+    "headline_accent": "growth opportunities",
     "headline_suffix": ".",
-    "description": "In a free growth audit, we discover where your potential lies and show you the path forward.",
-    "cta_button": "Schedule Free Growth Audit"
+    "description": "We identify hidden revenue opportunities together and design your custom AI strategy. No sales pitch – just insights.",
+    "cta_button": "Let's talk"
   },
   "footer": {
     "copyright": "© 2025 Falx GmbH",
@@ -87,16 +87,16 @@
   },
   "report_section_cards": {
     "card1": {
-      "icon": "🕰️",
-      "text": "31 hrs. admin work per month (SECO average)"
+      "icon": "⏱️",
+      "text": "5-hour delay = 90% lower conversion"
     },
     "card2": {
-      "icon": "⚠️", 
-      "text": "Nearly 4 full work days for paperwork instead of growth"
+      "icon": "💤",
+      "text": "60-80% of your CRM contacts are inactive"
     },
     "card3": {
-      "icon": "💸",
-      "text": "CHF 6 billion nationwide per year"
+      "icon": "🌙",
+      "text": "35% of inquiries outside business hours"
     }
   },
   "problem_showcase_cards": {
@@ -128,22 +128,22 @@
   },
   "solution_showcase_cards": {
     "card1": {
-      "title": "Automate admin work",
-      "description": "Invoices process themselves. Documents sort automatically. Reports generate instantly. Handle 10x more clients with the same team.",
-      "metric": "Scale without hiring. Zero overtime.",
-      "icon": "📋"
+      "title": "Speed to Lead",
+      "description": "Lead comes via WhatsApp, Instagram DM, or call → instant qualification → automatic CRM entry → follow-up runs. Response time under 2 minutes, 24/7. Every channel synced with your systems.",
+      "metric": "Hours become seconds. Higher conversion.",
+      "icon": "⚡"
     },
     "card2": {
-      "title": "Optimize marketing", 
-      "description": "Content in all Swiss languages. Personalized outreach that converts. Generate qualified leads 24/7. Automated follow-ups without interruption.",
-      "metric": "Your pipeline fills while you sleep.",
-      "icon": "🎯"
+      "title": "Database Reactivation",
+      "description": "Intelligent segmentation of your CRM data. Automated multi-channel campaigns via WhatsApp, Instagram, and Voice. Personalized outreach that reactivates. Systematic follow-up without manual effort.",
+      "metric": "Dormant leads become active revenue.",
+      "icon": "🔄"
     },
     "card3": {
-      "title": "Accelerate sales",
-      "description": "Leads qualify themselves. Quotes in minutes not hours. Meetings book automatically. Close deals faster with AI-powered insights.",
-      "metric": "Higher quality leads. Measurably more revenue.",
-      "icon": "⚡"
+      "title": "AI Receptionist 24/7",
+      "description": "Handle all channels simultaneously – WhatsApp, Instagram, phone. Every inquiry qualified, every conversation logged, every lead in CRM. Your workflows run automatically while you sleep.",
+      "metric": "Never miss an inquiry. Pure revenue opportunity.",
+      "icon": "🤖"
     }
   },
   "legal": {

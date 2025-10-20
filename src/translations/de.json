@@ -1,57 +1,57 @@
 {
   "meta": {
-    "title": "Growth Strategies für Schweizer KMU | Falx",
-    "description": "Mehr als Automatisierung. Falx entwickelt KI-Strategien und massgeschneiderte KI-Agenten für Schweizer KMU. Sicher und DSG-konform wachsen. Entdecken Sie Ihr Potenzial im kostenlosen Growth Strategy Call."
+    "title": "Revenue-First AI Automation | Falx",
+    "description": "Ihr strategischer Growth Partner für messbare Umsatzsteigerung. WhatsApp, Instagram, Voice AI & CRM-Integration. Reaktivieren Sie Ihre Datenbank, verkürzen Sie Speed-to-Lead, automatisieren Sie Follow-ups. Kostenloser Growth Mapping Call."
   },
   "navigation": {
-    "report": "KI Report",
-    "solution": "Lösung", 
+    "report": "Umsatz",
+    "solution": "Lösung",
     "legata": "Legata"
   },
   "hero": {
-    "badge": "Swiss Made • 🔒 DSG konform • 🎯 Gratis Audit",
-    "headline_accent": "Growth Strategies",
+    "badge": "Swiss Made • 🔒 GDPR & nDSG konform • 🎯 Gratis Growth Mapping",
+    "headline_accent": "Growth Partner",
     "headline_suffix": "",
     "headline_secondary": "für Schweizer KMU",
-    "description": "CHF 6 Milliarden pro Jahr - so viel kostet Administration Schweizer KMU. Mit KI brechen wir diesen Kreislauf: Wir analysieren wo Sie feststecken, finden neue Wege zum Wachstum, bauen Systeme die Sie befreien. Erste Resultate in 2 Wochen.",
-    "cta_primary": "Kostenlos beraten",
+    "description": "Ihr strategischer Partner für messbares Wachstum. Wir identifizieren versteckte Umsatzchancen, reaktivieren schlafende Leads und bauen intelligente Systeme die verkaufen – rund um die Uhr. Messbare Resultate garantiert oder Geld zurück.",
+    "cta_primary": "Let's talk",
     "cta_secondary": "Report herunterladen",
     "cta_secondary_tooltip": "Bald verfügbar"
   },
   "report_section": {
-    "headline": "Was kostet Sie",
-    "headline_accent": "Ineffizienz",
-    "headline_suffix": "wirklich?",
-    "description": "Schweizer Unternehmen verlieren täglich Tausende Franken durch manuelle Prozesse.<br />Ihres wahrscheinlich auch."
+    "headline": "Was kostet",
+    "headline_accent": "verpasster",
+    "headline_suffix": "Umsatz wirklich?",
+    "description": "Jeder verpasste Lead, jede langsame Antwort, jeder vergessene Follow-up kostet Umsatz.<br />Wie viel Revenue verliert Ihr Unternehmen?"
   },
   "problem_identification": {
-    "headline": "Das Schweizer Wachstums-",
-    "headline_accent": "Paradox",
-    "headline_suffix": "",
-    "description": "Alle wissen: KI treibt Wachstum. Trotzdem gehen Milliarden verloren, während Firmen Daten preisgeben und Chancen verpassen.",
+    "headline": "Umsatz-",
+    "headline_accent": "Lücken",
+    "headline_suffix": " in Ihrem Business",
+    "description": "Leads kommen rein, aber die Antwort dauert zu lang. Ihre Datenbank ist voll, aber niemand reaktiviert sie. Anfragen kommen abends, aber niemand antwortet. Jede Verzögerung kostet Revenue.",
     "stats": [
-      "91% sehen KI als Wachstumstreiber – doch nur 13% messen tatsächlich ihre KI-Resultate",
-      "52% nutzen bereits KI zur Automatisierung – verlieren aber trotzdem jährlich 6 Milliarden CHF durch Administration",
-      "56% teilen Firmendaten mit ChatGPT – obwohl sie wissen, dass es ihr grösstes Sicherheitsrisiko ist"
+      "Speed to Lead: 78% der Deals gewinnt, wer in 5 Minuten antwortet – nicht in 5 Stunden",
+      "Database Reactivation: 60-80% Ihrer CRM-Kontakte sind inaktiv – pure Umsatzchance liegt brach",
+      "24/7 Response: 35% der Anfragen kommen ausserhalb Geschäftszeiten – und gehen verloren"
     ]
   },
   "solution_showcase": {
-    "headline": "KI-Lösungen",
-    "headline_suffix": "in der Praxis",
-    "description": "Schluss mit Theorie. Hier ist, was wir für Sie tun.<br />Ob KI-Agent, Workflow-Automatisierung oder Datenanalyse: Wir nutzen, was für Sie funktioniert.",
+    "headline": "Umsatz",
+    "headline_suffix": "-getriebene<br />Automatisierung",
+    "description": "Wir designen Custom AI-Strategien für Ihr Business. WhatsApp, Instagram DMs, Voice AI – ein einheitliches System mit gemeinsamem Gedächtnis über alle Kanäle. Jedes Gespräch synchronisiert mit Ihrem CRM, jeder Workflow orchestriert von Erstkontakt bis Abschluss.<br />Gebaut für Ihre spezifischen Wachstumsziele.",
     "features": [
-      "Garantiert DSG-konform, Ihre Daten bleiben in der Schweiz",
-      "Fixpreis pro Lösung, keine versteckten Kosten",
-      "Erstes System läuft in 14 Tagen"
+      "Omnichannel-System: WhatsApp, Instagram, Voice AI mit shared context + CRM",
+      "Garantiert GDPR & nDSG-konform, höchste Datenschutzstandards",
+      "ROI-Garantie: Messbare Resultate oder Geld zurück"
     ],
-    "cta_button": "Kostenloses Beratungsgespräch"
+    "cta_button": "Let's talk"
   },
   "product_demonstration": {
     "headline": "Empathie",
     "headline_suffix": "trifft Legal Tech",
-    "description": "Wir bauen ein kostenloses Tool für alle Familien in der Schweiz: Rechtsgültige Testamente, verständlich und sicher. DSG-konform.",
-    "mission_statement": "Legata zeigt, was möglich ist: Testament-Entwürfe statt mehreren Beratungsterminen. Notariatskosten reduziert durch optimale Vorbereitung. Ähnliche Systeme bauen wir für Ihr Unternehmen.",
-    "cta_primary": "Finden Sie Ihre Legata-Chance",
+    "description": "Wir bauen ein kostenloses Tool für alle Familien in der Schweiz: Rechtsgültige Testamente, verständlich und sicher. nDSG-konform.",
+    "mission_statement": "Legata zeigt unseren Ansatz: Komplexe Prozesse automatisieren, ohne Menschlichkeit zu verlieren. Multi-Channel-Kommunikation (Voice, Chat, Web) verbunden mit intelligenter Datenverarbeitung. Ähnliche End-to-End-Systeme bauen wir für Ihr Business – damit Sie skalieren können.",
+    "cta_primary": "Let's build something",
     "cta_secondary": "Bei Launch benachrichtigen",
     "cta_secondary_tooltip": "Bald verfügbar"
   },
@@ -62,15 +62,15 @@
     "name": "Chris Kobler",
     "title": "Founder & AI Strategy Consultant",
     "quote": "Ich will Teil eines grossen Werkes sein - Sie auch?",
-    "cta_button": "Auf LinkedIn vernetzen",
+    "cta_button": "Connect on LinkedIn",
     "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
   },
   "call_to_action": {
-    "headline": "30 Minuten investieren.<br />Ihr ",
-    "headline_accent": "Potenzial",
-    "headline_suffix": " aufwecken.",
-    "description": "Im kostenlosen Growth Audit finden wir, wo Ihr Potenzial liegt, und zeigen den Weg auf.",
-    "cta_button": "Kostenloses Growth Audit vereinbaren"
+    "headline": "30 Minuten investieren.<br />",
+    "headline_accent": "Wachstumschancen",
+    "headline_suffix": " entdecken.",
+    "description": "Wir identifizieren gemeinsam versteckte Umsatzchancen und designen Ihre Custom AI-Strategie. Keine Verkaufspräsentation – nur Insights.",
+    "cta_button": "Let's talk"
   },
   "footer": {
     "copyright": "© 2025 Falx GmbH",
@@ -86,16 +86,16 @@
   },
   "report_section_cards": {
     "card1": {
-      "icon": "🕰️",
-      "text": "31 Std. Administration pro Monat (SECO-Durchschnitt)"
+      "icon": "⏱️",
+      "text": "5-Stunden-Verzögerung = 90% weniger Conversion"
     },
     "card2": {
-      "icon": "⚠️", 
-      "text": "Fast 4 volle Arbeitstage für Papierkram statt Wachstum"
+      "icon": "💤",
+      "text": "60-80% Ihrer CRM-Kontakte sind inaktiv"
     },
     "card3": {
-      "icon": "💸",
-      "text": "CHF 6 Mia. schweizweit pro Jahr"
+      "icon": "🌙",
+      "text": "35% der Anfragen ausserhalb Geschäftszeiten"
     }
   },
   "problem_showcase_cards": {
@@ -127,22 +127,22 @@
   },
   "solution_showcase_cards": {
     "card1": {
-      "title": "Administration automatisieren",
-      "description": "Rechnungen verarbeiten sich selbst. Dokumente sortieren sich automatisch. Reports entstehen sofort. 10x mehr Kunden mit gleichem Team betreuen.",
-      "metric": "Skalieren ohne einzustellen. Null Überstunden.",
-      "icon": "📋"
+      "title": "Speed to Lead",
+      "description": "Lead kommt via WhatsApp, Instagram DM oder Anruf → sofortige Qualifizierung → automatischer CRM-Eintrag → Follow-up läuft. Antwortzeit unter 2 Minuten, 24/7. Jeder Kanal synchronisiert mit Ihren Systemen.",
+      "metric": "Aus Stunden werden Sekunden. Höhere Conversion.",
+      "icon": "⚡"
     },
     "card2": {
-      "title": "Marketing optimieren", 
-      "description": "Content in allen Schweizer Sprachen. Personalisierte Ansprache, die konvertiert. Qualifizierte Leads rund um die Uhr generieren. Automatische Follow-ups ohne Unterbruch.",
-      "metric": "Ihre Pipeline füllt sich, während Sie schlafen.",
-      "icon": "🎯"
+      "title": "Database Reactivation",
+      "description": "Intelligente Segmentierung Ihrer CRM-Daten. Automatisierte Multi-Channel-Kampagnen über WhatsApp, Instagram und Voice. Personalisierte Ansprache, die reaktiviert. Systematischer Follow-up ohne manuellen Aufwand.",
+      "metric": "Schlafende Leads werden zu aktivem Revenue.",
+      "icon": "🔄"
     },
     "card3": {
-      "title": "Verkauf beschleunigen",
-      "description": "Leads qualifizieren sich selbst. Offerten in Minuten statt Stunden. Termine buchen sich automatisch. Schneller abschliessen mit KI-gestützten Insights.",
-      "metric": "Hochwertigere Leads. Messbar mehr Umsatz.",
-      "icon": "⚡"
+      "title": "AI Receptionist 24/7",
+      "description": "Alle Kanäle gleichzeitig bedienen – WhatsApp, Instagram, Telefon. Jede Anfrage wird qualifiziert, jedes Gespräch geloggt, jeder Lead ins CRM. Ihre Workflows laufen automatisch, während Sie schlafen.",
+      "metric": "Nie wieder verpasste Anfragen. Pure Umsatzchance.",
+      "icon": "🤖"
     }
   },
   "legal": {

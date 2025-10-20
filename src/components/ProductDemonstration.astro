@@ -25,7 +25,7 @@ import { Button } from '@/components/ui/button';
   <!-- Hero title - clean and minimal -->
   <div class="relative z-10 text-center pt-6 sm:pt-8 lg:pt-10 pb-1 sm:pb-2 lg:pb-3">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light tracking-tight leading-tight text-white/95 text-shadow-subtle">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight leading-tight text-white/95 text-shadow-subtle">
         {translations.product_demonstration.headline_accent ? (
           // English: "Legal Tech made human" - highlight accent at end
           <>
@@ -64,14 +64,15 @@ import { Button } from '@/components/ui/button';
             {translations.product_demonstration.cta_primary}
           </Button>
         </a>
-        <div class="relative group w-full sm:w-auto sm:order-2 hidden lg:block">
+        <!-- Secondary button hidden for now -->
+        <!-- <div class="relative group w-full sm:w-auto sm:order-2 hidden lg:block">
           <Button variant="secondary" className="animate-on-scroll opacity-50 cursor-not-allowed w-full sm:w-auto px-6 py-4 text-base !transition-colors !duration-200" disabled>
             {translations.product_demonstration.cta_secondary}
           </Button>
           <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
             {translations.product_demonstration.cta_secondary_tooltip}
           </div>
-        </div>
+        </div> -->
       </div>
       
     </div>
