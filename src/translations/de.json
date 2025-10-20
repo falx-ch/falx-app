@@ -276,7 +276,7 @@
           }
         },
         "ai_services": {
-          "title": "5. KI-Dienste",
+          "title": "6. KI-Dienste",
           "description": "Zur Bereitstellung unserer KI-gestützten Dienstleistungen nutzen wir verschiedene KI-Plattformen:",
           "subsections": {
             "openai": {
@@ -327,7 +327,7 @@
           "subsections": {
             "n8n": {
               "title": "n8n",
-              "description": "n8n (Open Source, selbst-gehostet auf DigitalOcean). Übermittelte Daten: Geschäftsdaten in automatisierten Workflows. Zweck: Geschäftsprozess-Automatisierung. Hinweis: Da selbst-gehostet, haben wir volle Kontrolle über die Datenverarbeitung. Infrastruktur: DigitalOcean (siehe Abschnitt 9)."
+              "description": "n8n (Open Source, selbst-gehostet auf DigitalOcean). Übermittelte Daten: Geschäftsdaten in automatisierten Workflows. Zweck: Geschäftsprozess-Automatisierung. Hinweis: Da selbst-gehostet, haben wir volle Kontrolle über die Datenverarbeitung. Infrastruktur: DigitalOcean (siehe Abschnitt 10)."
             },
             "make": {
               "title": "Make",
@@ -386,7 +386,7 @@
           }
         },
         "communication_video": {
-          "title": "12. Kommunikations- und Video-Dienste",
+          "title": "11. Kommunikations- und Video-Dienste",
           "subsections": {
             "slack": {
               "title": "Slack",
@@ -399,7 +399,7 @@
           }
         },
         "payment_services": {
-          "title": "13. Zahlungsdienste",
+          "title": "12. Zahlungsdienste",
           "subsections": {
             "stripe": {
               "title": "Stripe",
@@ -412,23 +412,23 @@
           }
         },
         "analytics": {
-          "title": "14. Web-Analyse",
+          "title": "13. Web-Analyse",
           "description": "Wir nutzen auf unserer Website Netlify Analytics. Dies ist ein Webanalysedient von Netlify, Inc. Netlify Analytics verwendet keine Cookies und erfasst keine persönlichen Daten, die eine direkte Identifizierung des Nutzers ermöglichen. Es werden anonymisierte Daten wie die Anzahl der Seitenaufrufe, die Herkunftsseiten und die verwendeten Browser analysiert, um die Nutzung unserer Website auszuwerten und Reports über die Websiteaktivitäten zusammenzustellen. Die erfassten IP-Adressen werden dabei anonymisiert."
         },
         "data_security": {
-          "title": "15. Datensicherheit und Schutzmaßnahmen",
+          "title": "14. Datensicherheit und Schutzmaßnahmen",
           "description": "Wir treffen geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre personenbezogenen Daten gegen unbeabsichtigte oder unrechtmäßige Vernichtung, Verlust, Veränderung, unbefugte Offenlegung oder unbefugten Zugang zu schützen. Bei der Nutzung von Drittanbietern achten wir auf deren Datenschutz-Compliance und nutzen, wo möglich, Dienste mit Servern in der Schweiz oder EU bzw. mit angemessenen Datenschutzgarantien wie Standardvertragsklauseln für Datenübermittlungen in Drittstaaten."
         },
         "data_retention": {
-          "title": "16. Speicherdauer",
+          "title": "15. Speicherdauer",
           "description": "Wir speichern personenbezogene Daten nur so lange, wie dies für die Erfüllung der jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Nach Wegfall des Zwecks werden die Daten gelöscht, es sei denn, deren weitere Aufbewahrung ist zur Vertragserfüllung oder zur Erfüllung gesetzlicher Verpflichtungen erforderlich."
         },
         "user_rights": {
-          "title": "17. Ihre Rechte",
+          "title": "16. Ihre Rechte",
           "description": "Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Sie haben zudem das Recht, erteilte Einwilligungen mit Wirkung für die Zukunft zu widerrufen. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Abschnitt 1 angegebenen Adresse an uns wenden."
         },
         "policy_changes": {
-          "title": "18. Änderung dieser Datenschutzerklärung",
+          "title": "17. Änderung dieser Datenschutzerklärung",
           "description": "Wir können diese Datenschutzerklärung jederzeit ohne Vorankündigung anpassen. Es gilt die jeweils aktuelle, auf unserer Website publizierte Fassung."
         }
       }

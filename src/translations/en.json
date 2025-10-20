@@ -328,7 +328,7 @@
           "subsections": {
             "n8n": {
               "title": "n8n",
-              "description": "n8n (open source, self-hosted on DigitalOcean). Data transmitted: Business data in automated workflows. Purpose: Business process automation. Note: Since self-hosted, we have full control over data processing. Infrastructure: DigitalOcean (see Section 9)."
+              "description": "n8n (open source, self-hosted on DigitalOcean). Data transmitted: Business data in automated workflows. Purpose: Business process automation. Note: Since self-hosted, we have full control over data processing. Infrastructure: DigitalOcean (see Section 10)."
             },
             "make": {
               "title": "Make",
@@ -387,7 +387,7 @@
           }
         },
         "communication_video": {
-          "title": "12. Communication and Video Services",
+          "title": "11. Communication and Video Services",
           "subsections": {
             "slack": {
               "title": "Slack",
@@ -400,7 +400,7 @@
           }
         },
         "payment_services": {
-          "title": "13. Payment Services",
+          "title": "12. Payment Services",
           "subsections": {
             "stripe": {
               "title": "Stripe",
@@ -413,23 +413,23 @@
           }
         },
         "analytics": {
-          "title": "14. Web Analysis",
+          "title": "13. Web Analysis",
           "description": "We use Netlify Analytics on our website. This is a web analytics service from Netlify, Inc. Netlify Analytics does not use cookies and does not collect personal data that would allow direct identification of the user. Anonymized data such as the number of page views, referral sites and browsers used are analyzed to evaluate the use of our website and to compile reports on website activities. The collected IP addresses are anonymized."
         },
         "data_security": {
-          "title": "15. Data Security and Protection Measures",
+          "title": "14. Data Security and Protection Measures",
           "description": "We take appropriate technical and organizational security measures to protect your personal data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or unauthorized access. When using third-party providers, we ensure their data protection compliance and use, where possible, services with servers in Switzerland or the EU, or with adequate data protection guarantees such as standard contractual clauses for data transfers to third countries."
         },
         "data_retention": {
-          "title": "16. Data Retention",
+          "title": "15. Data Retention",
           "description": "We store personal data only as long as necessary to fulfill the respective purposes or as required by legal retention obligations. After the purpose ceases to apply, the data will be deleted unless its further retention is necessary for contract fulfillment or to comply with legal obligations."
         },
         "user_rights": {
-          "title": "17. Your Rights",
+          "title": "16. Your Rights",
           "description": "Within the framework of the applicable legal provisions, you have the right at any time to free information about your stored personal data, their origin and recipients and the purpose of data processing, as well as a right to correction, blocking or deletion of this data. You also have the right to withdraw consents given with effect for the future. For this as well as for further questions on the subject of personal data, you can contact us at any time at the address given in section 1."
         },
         "policy_changes": {
-          "title": "18. Changes to this Privacy Policy",
+          "title": "17. Changes to this Privacy Policy",
           "description": "We may adapt this privacy policy at any time without prior notice. The current version published on our website applies."
         }
       }
