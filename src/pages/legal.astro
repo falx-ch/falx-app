@@ -330,8 +330,38 @@ import SimpleFooter from '../components/simple-footer.tsx';
               </div>
 
               <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.data_processing_purposes.title}</h3>
+                <p>{translations.legal.datenschutz.sections.data_processing_purposes.description}</p>
+                <ul class="mt-3 list-disc list-inside space-y-1">
+                  {translations.legal.datenschutz.sections.data_processing_purposes.purposes.map((purpose: string) => (
+                    <li>{purpose}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.consent_withdrawal.title}</h3>
+                <p>{translations.legal.datenschutz.sections.consent_withdrawal.description}</p>
+                <p class="mt-3"><strong>{translations.legal.datenschutz.sections.consent_withdrawal.methods_title}</strong></p>
+                <ul class="mt-2 list-disc list-inside space-y-1">
+                  {translations.legal.datenschutz.sections.consent_withdrawal.methods.map((method: string) => (
+                    <li set:html={method}></li>
+                  ))}
+                </ul>
+                <p class="mt-3">{translations.legal.datenschutz.sections.consent_withdrawal.processing_time}</p>
+              </div>
+
+              <div>
                 <h3 class="text-xl font-semibold text-slate-900 mb-3">{translations.legal.datenschutz.sections.user_rights.title}</h3>
-                <p>{translations.legal.datenschutz.sections.user_rights.description}</p>
+                <p class="mb-3">{translations.legal.datenschutz.sections.user_rights.description}</p>
+                <ul class="space-y-2">
+                  {translations.legal.datenschutz.sections.user_rights.rights.map((right: string) => (
+                    <li set:html={right}></li>
+                  ))}
+                </ul>
+                <p class="mt-4"><strong>{translations.legal.datenschutz.sections.user_rights.supervisory_authority_title}</strong></p>
+                <p class="mt-2" set:html={translations.legal.datenschutz.sections.user_rights.supervisory_authority}></p>
+                <p class="mt-4" set:html={translations.legal.datenschutz.sections.user_rights.contact_info}></p>
               </div>
 
               <div>
@@ -343,14 +373,27 @@ import SimpleFooter from '../components/simple-footer.tsx';
             <script>
               // Email obfuscation for legal email in Datenschutz section
               document.addEventListener('DOMContentLoaded', function() {
+                const user = 'legal';
+                const domain = 'falx.ch';
+                const email = user + '@' + domain;
+                const emailLink = '<a href="mailto:' + email + '" class="text-red-600 hover:text-red-700 transition-colors">' + email + '</a>';
+
+                // Main legal email in responsible entity section
                 const legalEmailElement = document.getElementById('legal-email-address');
                 if (legalEmailElement) {
-                  // Encoded email: legal@falx.ch
-                  const user = 'legal';
-                  const domain = 'falx.ch';
-                  const email = user + '@' + domain;
-                  
-                  legalEmailElement.innerHTML = '<a href="mailto:' + email + '" class="text-red-600 hover:text-red-700 transition-colors">' + email + '</a>';
+                  legalEmailElement.innerHTML = emailLink;
+                }
+
+                // Withdrawal email (German)
+                const withdrawalEmailDE = document.getElementById('withdrawal-email-de');
+                if (withdrawalEmailDE) {
+                  withdrawalEmailDE.innerHTML = emailLink;
+                }
+
+                // Rights email (German)
+                const rightsEmailDE = document.getElementById('rights-email-de');
+                if (rightsEmailDE) {
+                  rightsEmailDE.innerHTML = emailLink;
                 }
               });
             </script>

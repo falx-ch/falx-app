@@ -424,12 +424,50 @@
           "title": "15. Data Retention",
           "description": "We store personal data only as long as necessary to fulfill the respective purposes or as required by legal retention obligations. After the purpose ceases to apply, the data will be deleted unless its further retention is necessary for contract fulfillment or to comply with legal obligations."
         },
+        "data_processing_purposes": {
+          "title": "16. Purposes of Data Processing",
+          "description": "We process personal data for the following purposes:",
+          "purposes": [
+            "Business communication and customer support (email, WhatsApp, Instagram, phone)",
+            "Lead generation, qualification, and CRM management",
+            "Marketing automation and campaign management",
+            "Appointment scheduling and video conferencing",
+            "Provision of AI-powered services and automation",
+            "Contract processing and electronic signatures",
+            "Payment processing and invoicing",
+            "Website hosting and technical operations",
+            "Analysis of website usage (anonymized)",
+            "Compliance with legal retention requirements"
+          ]
+        },
+        "consent_withdrawal": {
+          "title": "17. Withdrawal of Your Consent",
+          "description": "You have the right to withdraw consents given for data processing at any time with effect for the future. The withdrawal does not affect the lawfulness of processing carried out before the withdrawal.",
+          "methods_title": "Methods for withdrawal:",
+          "methods": [
+            "By email to: <span id=\"withdrawal-email-en\" class=\"text-red-600\"><noscript>Please enable JavaScript</noscript></span>",
+            "In writing to: Falx GmbH, Gussstrasse 6, 8180 Bülach, Switzerland",
+            "Directly via the respective communication platform (e.g., WhatsApp, email unsubscribe)"
+          ],
+          "processing_time": "We will process your withdrawal request immediately, at the latest within 30 days of receipt. You will receive confirmation by email."
+        },
         "user_rights": {
-          "title": "16. Your Rights",
-          "description": "Within the framework of the applicable legal provisions, you have the right at any time to free information about your stored personal data, their origin and recipients and the purpose of data processing, as well as a right to correction, blocking or deletion of this data. You also have the right to withdraw consents given with effect for the future. For this as well as for further questions on the subject of personal data, you can contact us at any time at the address given in section 1."
+          "title": "18. Your Rights under nDSG",
+          "description": "According to the Federal Act on Data Protection (nDSG), you have the following rights:",
+          "rights": [
+            "<strong>Right of Access (Art. 25 nDSG):</strong> You have the right to free information about your stored personal data, their origin and recipients, and the purpose of data processing.",
+            "<strong>Right to Rectification (Art. 32 Para. 1 nDSG):</strong> You can request the correction of inaccurate data.",
+            "<strong>Right to Erasure (Art. 32 Para. 2 lit. a nDSG):</strong> You have the right to request the deletion of your data, provided there are no legal retention obligations.",
+            "<strong>Right to Data Portability (Art. 28 nDSG):</strong> You can receive your data in a structured, commonly used, and machine-readable format and have it transmitted to another controller.",
+            "<strong>Right to Object:</strong> You have the right to object to the processing of your data at any time for reasons arising from your particular situation.",
+            "<strong>Right to Lodge a Complaint (Art. 49 nDSG):</strong> You have the right to lodge a complaint with the competent supervisory authority."
+          ],
+          "supervisory_authority_title": "Competent Supervisory Authority:",
+          "supervisory_authority": "Federal Data Protection and Information Commissioner (FDPIC)<br />Feldeggweg 1<br />3003 Bern<br />Switzerland<br />Website: <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.edoeb.admin.ch</a>",
+          "contact_info": "To exercise your rights, please contact:<br />Email: <span id=\"rights-email-en\" class=\"text-red-600\"><noscript>Please enable JavaScript</noscript></span><br />Address: Falx GmbH, Gussstrasse 6, 8180 Bülach, Switzerland"
         },
         "policy_changes": {
-          "title": "17. Changes to this Privacy Policy",
+          "title": "19. Changes to this Privacy Policy",
           "description": "We may adapt this privacy policy at any time without prior notice. The current version published on our website applies."
         }
       }

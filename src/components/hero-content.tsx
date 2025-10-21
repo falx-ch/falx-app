@@ -13,7 +13,7 @@ export default function HeroContent() {
     headlineSuffix: isReady ? t('hero.headline_suffix') : '',
     headlineSecondary: isReady ? t('hero.headline_secondary') : 'für Schweizer KMU',
     description: isReady ? t('hero.description') : 'Ihr strategischer Partner für messbares Wachstum. Wir identifizieren versteckte Umsatzchancen, reaktivieren schlafende Leads und bauen intelligente Systeme die verkaufen – rund um die Uhr. Messbare Resultate garantiert oder Geld zurück.',
-    ctaPrimary: isReady ? t('hero.cta_primary') : 'Let's talk',
+    ctaPrimary: isReady ? t('hero.cta_primary') : "Let's talk",
     ctaSecondary: isReady ? t('hero.cta_secondary') : 'Report herunterladen',
     ctaSecondaryTooltip: isReady ? t('hero.cta_secondary_tooltip') : 'Bald verfügbar'
   };

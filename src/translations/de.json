@@ -423,12 +423,50 @@
           "title": "15. Speicherdauer",
           "description": "Wir speichern personenbezogene Daten nur so lange, wie dies für die Erfüllung der jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Nach Wegfall des Zwecks werden die Daten gelöscht, es sei denn, deren weitere Aufbewahrung ist zur Vertragserfüllung oder zur Erfüllung gesetzlicher Verpflichtungen erforderlich."
         },
+        "data_processing_purposes": {
+          "title": "16. Zwecke der Datenverarbeitung",
+          "description": "Wir verarbeiten personenbezogene Daten zu folgenden Zwecken:",
+          "purposes": [
+            "Geschäftskommunikation und Kundenbetreuung (E-Mail, WhatsApp, Instagram, Telefon)",
+            "Lead-Generierung, -Qualifizierung und CRM-Verwaltung",
+            "Marketing-Automatisierung und Kampagnenverwaltung",
+            "Terminvereinbarung und Videokonferenzen",
+            "Bereitstellung von KI-gestützten Diensten und Automatisierung",
+            "Vertragsabwicklung und elektronische Signaturen",
+            "Zahlungsabwicklung und Rechnungsstellung",
+            "Website-Hosting und technischer Betrieb",
+            "Analyse der Website-Nutzung (anonymisiert)",
+            "Erfüllung gesetzlicher Aufbewahrungspflichten"
+          ]
+        },
+        "consent_withdrawal": {
+          "title": "17. Widerruf Ihrer Einwilligung",
+          "description": "Sie haben das Recht, erteilte Einwilligungen zur Datenverarbeitung jederzeit mit Wirkung für die Zukunft zu widerrufen. Der Widerruf berührt nicht die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung.",
+          "methods_title": "Möglichkeiten zum Widerruf:",
+          "methods": [
+            "Per E-Mail an: <span id=\"withdrawal-email-de\" class=\"text-red-600\"><noscript>Bitte JavaScript aktivieren</noscript></span>",
+            "Schriftlich an: Falx GmbH, Gussstrasse 6, 8180 Bülach, Schweiz",
+            "Direkt über die jeweilige Kommunikationsplattform (z.B. WhatsApp, E-Mail-Abmeldung)"
+          ],
+          "processing_time": "Wir bearbeiten Ihre Widerrufserklärung unverzüglich, spätestens innerhalb von 30 Tagen nach Eingang. Sie erhalten eine Bestätigung per E-Mail."
+        },
         "user_rights": {
-          "title": "16. Ihre Rechte",
-          "description": "Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Sie haben zudem das Recht, erteilte Einwilligungen mit Wirkung für die Zukunft zu widerrufen. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit unter der im Abschnitt 1 angegebenen Adresse an uns wenden."
+          "title": "18. Ihre Rechte gemäss nDSG",
+          "description": "Gemäss dem Bundesgesetz über den Datenschutz (nDSG) stehen Ihnen folgende Rechte zu:",
+          "rights": [
+            "<strong>Auskunftsrecht (Art. 25 nDSG):</strong> Sie haben das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger sowie den Zweck der Datenverarbeitung.",
+            "<strong>Recht auf Berichtigung (Art. 32 Abs. 1 nDSG):</strong> Sie können die Berichtigung unrichtiger Daten verlangen.",
+            "<strong>Recht auf Löschung (Art. 32 Abs. 2 lit. a nDSG):</strong> Sie haben das Recht, die Löschung Ihrer Daten zu verlangen, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
+            "<strong>Recht auf Datenherausgabe/-übertragung (Art. 28 nDSG):</strong> Sie können Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format erhalten und an einen anderen Verantwortlichen übermitteln lassen.",
+            "<strong>Widerspruchsrecht:</strong> Sie haben das Recht, der Verarbeitung Ihrer Daten aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit zu widersprechen.",
+            "<strong>Beschwerderecht (Art. 49 nDSG):</strong> Sie haben das Recht, sich bei der zuständigen Aufsichtsbehörde zu beschweren."
+          ],
+          "supervisory_authority_title": "Zuständige Aufsichtsbehörde:",
+          "supervisory_authority": "Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)<br />Feldeggweg 1<br />3003 Bern<br />Schweiz<br />Website: <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-red-600 hover:text-red-700 underline\">https://www.edoeb.admin.ch</a>",
+          "contact_info": "Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:<br />E-Mail: <span id=\"rights-email-de\" class=\"text-red-600\"><noscript>Bitte JavaScript aktivieren</noscript></span><br />Adresse: Falx GmbH, Gussstrasse 6, 8180 Bülach, Schweiz"
         },
         "policy_changes": {
-          "title": "17. Änderung dieser Datenschutzerklärung",
+          "title": "19. Änderung dieser Datenschutzerklärung",
           "description": "Wir können diese Datenschutzerklärung jederzeit ohne Vorankündigung anpassen. Es gilt die jeweils aktuelle, auf unserer Website publizierte Fassung."
         }
       }
