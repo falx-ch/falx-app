@@ -8,12 +8,12 @@ export default function HeroContent() {
 
   // Show actual layout with default content until translations load
   const displayText = {
-    badge: isReady ? t('hero.badge') : 'Swiss Made • 🔒 DSG konform • 🎯 Gratis Growth Audit',
-    headlineAccent: isReady ? t('hero.headline_accent') : 'KI-Strategien',
-    headlineSuffix: isReady ? t('hero.headline_suffix') : 'für',
-    headlineSecondary: isReady ? t('hero.headline_secondary') : 'Schweizer KMU',
-    description: isReady ? t('hero.description') : 'Schweizer KMU verlieren jeden Monat 31 Stunden an Administration. Schweizweit sind das CHF 6 Milliarden pro Jahr. Wir holen Ihre Zeit zurück mit KI-Agenten, Automatisierungen oder hybriden Lösungen. Erste Resultate in 2 Wochen.',
-    ctaPrimary: isReady ? t('hero.cta_primary') : 'Kostenlos beraten',
+    badge: isReady ? t('hero.badge') : 'Swiss Made • 🔒 GDPR & nDSG konform • 🎯 Gratis Growth Map',
+    headlineAccent: isReady ? t('hero.headline_accent') : 'Growth Partner',
+    headlineSuffix: isReady ? t('hero.headline_suffix') : '',
+    headlineSecondary: isReady ? t('hero.headline_secondary') : 'für Schweizer KMU',
+    description: isReady ? t('hero.description') : 'Ihr strategischer Partner für messbares Wachstum. Wir identifizieren versteckte Umsatzchancen, reaktivieren schlafende Leads und bauen intelligente Systeme die verkaufen – rund um die Uhr. Messbare Resultate garantiert oder Geld zurück.',
+    ctaPrimary: isReady ? t('hero.cta_primary') : 'Let's talk',
     ctaSecondary: isReady ? t('hero.cta_secondary') : 'Report herunterladen',
     ctaSecondaryTooltip: isReady ? t('hero.cta_secondary_tooltip') : 'Bald verfügbar'
   };
