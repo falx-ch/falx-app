@@ -36,11 +36,11 @@
     ]
   },
   "solution_showcase": {
-    "headline": "Strategie",
-    "headline_suffix": "<br />vor Tools",
-    "description": "AI-Transformation durch bewährte Business-Methodik, nicht nur Tool-Deployment. Wir starten mit Bedarfsanalyse, prüfen Ihren Revenue-Funnel, identifizieren echte Bottlenecks – dann bauen wir Systeme, die zu Ihren Prozessen passen.<br />Erste messbare Erfolge in 30 Tagen.",
+    "headline": "Strategie zuerst,",
+    "headline_suffix": "<br />Tools danach",
+    "description": "AI-Transformation durch bewährte Business-Methodik, nicht nur Tool-Deployment. Wir starten mit Bedarfsanalyse, prüfen Ihren Revenue-Funnel, identifizieren echte Bottlenecks – dann bauen wir Systeme, die zu Ihren Prozessen passen. Erste messbare Erfolge in 30 Tagen.",
     "features": [
-      "Methodologie-getrieben: Verstehen → Prüfen → Implementieren",
+      "Vorgehen: Verstehen → Prüfen → Implementieren",
       "GDPR & nDSG-konform, höchste Datenschutzstandards",
       "ROI-Garantie: Messbare Resultate oder Geld zurück"
     ],
@@ -111,8 +111,8 @@
     },
     "card3": {
       "icon": "🌙",
-      "title": "Anfragen nach Feierabend",
-      "subtitle": "Gehen ohne Coverage verloren"
+      "title": "After-Hours Anfragen",
+      "subtitle": "Gehen verloren"
     },
     "card4": {
       "icon": "📊",
@@ -128,13 +128,13 @@
   "solution_showcase_cards": {
     "card1": {
       "title": "Speed to Lead",
-      "description": "Lead kommt via beliebigem Kanal → sofortige Qualifizierung → automatischer CRM-Eintrag → Follow-up läuft. Antwortzeit unter 10 Sekunden, 24/7. Jeder Kanal synchronisiert mit Ihren Systemen.",
-      "metric": "391% höhere Conversion unter 60 Sekunden.",
+      "description": "Lead kommt via beliebigem Kanal → sofortige Qualifizierung → automatischer CRM-Eintrag → Follow-up läuft. Antwortzeit unter 10 Sekunden, 24/7.",
+      "metric": "Studie: 391% höhere Conversion unter 60 Sekunden.",
       "icon": "⚡"
     },
     "card2": {
       "title": "Database Reactivation",
-      "description": "Intelligente Segmentierung Ihrer CRM-Daten. Automatisierte Multi-Channel-Kampagnen über alle Touchpoints. Personalisierte Ansprache, die reaktiviert. Systematischer Follow-up ohne manuellen Aufwand.",
+      "description": "Intelligente Segmentierung Ihrer CRM-Daten. Automatisierte Kampagnen über alle Touchpoints. Personalisierte Ansprache. Systematischer Follow-up.",
       "metric": "Zahnarztpraxis: 1'000 tote Leads → 21 Termine → CHF 47'000.",
       "icon": "🔄"
     },

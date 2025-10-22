@@ -36,11 +36,11 @@
     ]
   },
   "solution_showcase": {
-    "headline": "Strategy",
-    "headline_suffix": "<br />before tools",
-    "description": "AI transformation through proven business methodology, not just tool deployment. We start with needs analysis, audit your revenue funnel, identify real bottlenecks – then build systems that fit your processes.<br />First measurable wins in 30 days.",
+    "headline": "Strategy first,",
+    "headline_suffix": "<br />tools after",
+    "description": "AI transformation through proven business methodology, not just tool deployment. We start with needs analysis, audit your revenue funnel, identify real bottlenecks – then build systems that fit your processes. First measurable wins in 30 days.",
     "features": [
-      "Methodology-driven: Understand → Audit → Implement",
+      "Approach: Understand → Audit → Implement",
       "GDPR & nDSG compliant, highest data protection standards",
       "ROI Guarantee: Measurable results or money back"
     ],
@@ -129,13 +129,13 @@
   "solution_showcase_cards": {
     "card1": {
       "title": "Speed to Lead",
-      "description": "Lead comes via any channel → instant qualification → automatic CRM entry → follow-up runs. Response time under 10 seconds, 24/7. Every channel synced with your systems.",
-      "metric": "391% higher conversion under 60s.",
+      "description": "Lead comes via any channel → instant qualification → automatic CRM entry → follow-up runs. Response time under 10 seconds, 24/7.",
+      "metric": "Study: 391% higher conversion under 60s.",
       "icon": "⚡"
     },
     "card2": {
       "title": "Database Reactivation",
-      "description": "Intelligent segmentation of your CRM data. Automated multi-channel campaigns across all touchpoints. Personalized outreach that reactivates. Systematic follow-up without manual effort.",
+      "description": "Intelligent segmentation of your CRM data. Automated campaigns across all touchpoints. Personalized outreach that reactivates. Systematic follow-up without manual effort.",
       "metric": "Dental clinic: 1'000 dead leads → 21 appointments → CHF 47'000.",
       "icon": "🔄"
     },
