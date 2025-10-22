@@ -36,12 +36,12 @@
     ]
   },
   "solution_showcase": {
-    "headline": "Umsatz",
-    "headline_suffix": "-getriebene<br />Automatisierung",
-    "description": "Wir designen Custom AI-Strategien für Ihr Business. WhatsApp, Instagram DMs, Voice AI – ein einheitliches System mit gemeinsamem Gedächtnis über alle Kanäle. Jedes Gespräch synchronisiert mit Ihrem CRM, jeder Workflow orchestriert von Erstkontakt bis Abschluss.<br />Gebaut für Ihre spezifischen Wachstumsziele.",
+    "headline": "Strategie",
+    "headline_suffix": "<br />vor Tools",
+    "description": "AI-Transformation durch bewährte Business-Methodik, nicht nur Tool-Deployment. Wir starten mit Bedarfsanalyse, prüfen Ihren Revenue-Funnel, identifizieren echte Bottlenecks – dann bauen wir Systeme, die zu Ihren Prozessen passen.<br />Erste messbare Erfolge in 30 Tagen.",
     "features": [
-      "Omnichannel-System: WhatsApp, Instagram, Voice AI mit shared context + CRM",
-      "Garantiert GDPR & nDSG-konform, höchste Datenschutzstandards",
+      "Methodologie-getrieben: Verstehen → Prüfen → Implementieren",
+      "GDPR & nDSG-konform, höchste Datenschutzstandards",
       "ROI-Garantie: Messbare Resultate oder Geld zurück"
     ],
     "cta_button": "Let's talk"
