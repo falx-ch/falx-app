@@ -81,8 +81,8 @@
   "cost_calculator": {
     "currency": "CHF",
     "per_year": "pro Jahr",
-    "employee_description": "Vollzeit-Mitarbeiter ({hours} Std. Administration wöchentlich)",
-    "cost_basis": "Basis: CHF 150/h Vollkosten"
+    "employee_description": "Zeit ohne Umsatzfokus ({hours} Std./Woche)",
+    "cost_basis": "Basis: CHF 150/h"
   },
   "report_section_cards": {
     "card1": {

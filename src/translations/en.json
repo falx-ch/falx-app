@@ -82,8 +82,8 @@
   "cost_calculator": {
     "currency": "CHF",
     "per_year": "per year",
-    "employee_description": "Full-time employee ({hours} hrs. admin work weekly)",
-    "cost_basis": "Basis: CHF 150/hr full costs"
+    "employee_description": "Time not spent on revenue ({hours} hrs/week)",
+    "cost_basis": "Basis: CHF 150/hr"
   },
   "report_section_cards": {
     "card1": {
