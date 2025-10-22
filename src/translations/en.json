@@ -30,9 +30,9 @@
     "headline_suffix": " in your business",
     "description": "Leads come in but responses take too long. Your database is full but nobody reactivates it. Inquiries come in the evening but nobody answers. Every delay costs revenue.",
     "stats": [
-      "Speed to Lead: 78% of deals go to whoever responds in 5 minutes – not 5 hours",
-      "Database Reactivation: 60-80% of your CRM contacts are inactive – pure revenue opportunity lying dormant",
-      "24/7 Response: 35% of inquiries come outside business hours – and get lost"
+      "Speed to Lead: Average B2B response time is 42 hours – while 35–50% of sales go to whoever responds first",
+      "Database Reactivation: 60-80% of your CRM contacts are inactive – yet reactivation is 5–7× cheaper than new acquisition",
+      "24/7 Coverage: 35% of inquiries come outside business hours – and get lost"
     ]
   },
   "solution_showcase": {
@@ -51,7 +51,7 @@
     "headline_accent": "human",
     "headline_suffix": "",
     "description": "We're building a free tool for all families in Switzerland: Legally valid wills, understandable and secure. nDSG-compliant.",
-    "mission_statement": "Legata demonstrates our approach: Automate complex processes without losing humanity. Multi-channel communication (Voice, Chat, Web) connected with intelligent data processing. We build similar end-to-end systems for your business – so you can scale.",
+    "mission_statement": "Legata demonstrates our approach: Automate complex processes without losing humanity. We build similar end-to-end systems for your business – so you can scale.",
     "cta_primary": "Let's build something",
     "cta_secondary": "Notify At Launch",
     "cta_secondary_tooltip": "Coming Soon"
@@ -62,7 +62,7 @@
     "tagline_suffix": "together",
     "name": "Chris Kobler",
     "title": "Founder & AI Strategy Consultant",
-    "quote": "Most businesses hire to grow. I build systems that let you do 10x more with who you have. Simple rule: If it doesn't increase revenue or save real time, we don't build it.",
+    "quote": "Most businesses hire to grow. I build systems that let you do 10x more with who you have. Simple rule: If it doesn't increase revenue or save real time, I don't build it.",
     "cta_button": "Connect on LinkedIn",
     "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
   },
@@ -101,48 +101,48 @@
   },
   "problem_showcase_cards": {
     "card1": {
+      "icon": "⏱️",
+      "title": "Slow response times",
+      "subtitle": "While fastest wins the deal"
+    },
+    "card2": {
+      "icon": "💤",
+      "title": "Dormant database",
+      "subtitle": "Reactivation cheaper than acquisition"
+    },
+    "card3": {
+      "icon": "🌙",
+      "title": "After-hours inquiries",
+      "subtitle": "Lost without coverage"
+    },
+    "card4": {
       "icon": "📊",
       "title": "Manual data entry",
       "subtitle": "Error-prone & time-consuming"
     },
-    "card2": {
-      "icon": "💬",
-      "title": "Fragmented communication", 
-      "subtitle": "Information loss guaranteed"
-    },
-    "card3": {
-      "icon": "⚠️",
-      "title": "Compliance risks",
-      "subtitle": "Data protection in danger"
-    },
-    "card4": {
-      "icon": "🔄",
-      "title": "Endless loops",
-      "subtitle": "Inefficient workflows"
-    },
     "card5": {
       "icon": "💸",
-      "title": "Hidden costs",
-      "subtitle": "Resource waste"
+      "title": "Hidden revenue gaps",
+      "subtitle": "Every delay costs money"
     }
   },
   "solution_showcase_cards": {
     "card1": {
       "title": "Speed to Lead",
-      "description": "Lead comes via WhatsApp, Instagram DM, or call → instant qualification → automatic CRM entry → follow-up runs. Response time under 2 minutes, 24/7. Every channel synced with your systems.",
-      "metric": "Hours become seconds. Higher conversion.",
+      "description": "Lead comes via any channel → instant qualification → automatic CRM entry → follow-up runs. Response time under 10 seconds, 24/7. Every channel synced with your systems.",
+      "metric": "391% higher conversion under 60s.",
       "icon": "⚡"
     },
     "card2": {
       "title": "Database Reactivation",
-      "description": "Intelligent segmentation of your CRM data. Automated multi-channel campaigns via WhatsApp, Instagram, and Voice. Personalized outreach that reactivates. Systematic follow-up without manual effort.",
-      "metric": "Dormant leads become active revenue.",
+      "description": "Intelligent segmentation of your CRM data. Automated multi-channel campaigns across all touchpoints. Personalized outreach that reactivates. Systematic follow-up without manual effort.",
+      "metric": "Dental clinic: 1'000 dead leads → 21 appointments → CHF 47'000.",
       "icon": "🔄"
     },
     "card3": {
       "title": "AI Receptionist 24/7",
-      "description": "Handle all channels simultaneously – WhatsApp, Instagram, phone. Every inquiry qualified, every conversation logged, every lead in CRM. Your workflows run automatically while you sleep.",
-      "metric": "Never miss an inquiry. Pure revenue opportunity.",
+      "description": "Handle all channels simultaneously. Every inquiry qualified, every conversation logged, every lead in CRM. Your workflows run automatically while you sleep.",
+      "metric": "Zero data loss. Zero manual delays.",
       "icon": "🤖"
     }
   },

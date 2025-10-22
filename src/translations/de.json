@@ -30,9 +30,9 @@
     "headline_suffix": " in Ihrem Business",
     "description": "Leads kommen rein, aber die Antwort dauert zu lang. Ihre Datenbank ist voll, aber niemand reaktiviert sie. Anfragen kommen abends, aber niemand antwortet. Jede Verzögerung kostet Revenue.",
     "stats": [
-      "Speed to Lead: 78% der Deals gewinnt, wer in 5 Minuten antwortet – nicht in 5 Stunden",
-      "Database Reactivation: 60-80% Ihrer CRM-Kontakte sind inaktiv – pure Umsatzchance liegt brach",
-      "24/7 Response: 35% der Anfragen kommen ausserhalb Geschäftszeiten – und gehen verloren"
+      "Speed to Lead: Durchschnittliche B2B-Antwortzeit ist 42 Stunden – während 35–50% der Sales an den Schnellsten gehen",
+      "Database Reactivation: 60-80% Ihrer CRM-Kontakte sind inaktiv – dabei ist Reaktivierung 5–7× günstiger als Neuakquise",
+      "24/7 Coverage: 35% der Anfragen kommen ausserhalb Geschäftszeiten – und gehen verloren"
     ]
   },
   "solution_showcase": {
@@ -50,7 +50,7 @@
     "headline": "Empathie",
     "headline_suffix": "trifft Legal Tech",
     "description": "Wir bauen ein kostenloses Tool für alle Familien in der Schweiz: Rechtsgültige Testamente, verständlich und sicher. nDSG-konform.",
-    "mission_statement": "Legata zeigt unseren Ansatz: Komplexe Prozesse automatisieren, ohne Menschlichkeit zu verlieren. Multi-Channel-Kommunikation (Voice, Chat, Web) verbunden mit intelligenter Datenverarbeitung. Ähnliche End-to-End-Systeme bauen wir für Ihr Business – damit Sie skalieren können.",
+    "mission_statement": "Legata zeigt unseren Ansatz: Komplexe Prozesse automatisieren, ohne Menschlichkeit zu verlieren. Ähnliche End-to-End-Systeme bauen wir für Ihr Business – damit Sie skalieren können.",
     "cta_primary": "Let's build something",
     "cta_secondary": "Bei Launch benachrichtigen",
     "cta_secondary_tooltip": "Bald verfügbar"
@@ -100,48 +100,48 @@
   },
   "problem_showcase_cards": {
     "card1": {
+      "icon": "⏱️",
+      "title": "Langsame Antwortzeiten",
+      "subtitle": "Schnellster gewinnt den Deal"
+    },
+    "card2": {
+      "icon": "💤",
+      "title": "Schlafende Datenbank",
+      "subtitle": "Reaktivierung günstiger als Akquise"
+    },
+    "card3": {
+      "icon": "🌙",
+      "title": "Anfragen nach Feierabend",
+      "subtitle": "Gehen ohne Coverage verloren"
+    },
+    "card4": {
       "icon": "📊",
       "title": "Manuelle Datenerfassung",
       "subtitle": "Fehleranfällig & zeitaufwändig"
     },
-    "card2": {
-      "icon": "💬",
-      "title": "Fragmentierte Kommunikation", 
-      "subtitle": "Informationsverlust garantiert"
-    },
-    "card3": {
-      "icon": "⚠️",
-      "title": "Compliance-Risiken",
-      "subtitle": "Datenschutz in Gefahr"
-    },
-    "card4": {
-      "icon": "🔄",
-      "title": "Endlose Schleifen",
-      "subtitle": "Ineffiziente Workflows"
-    },
     "card5": {
       "icon": "💸",
-      "title": "Versteckte Kosten",
-      "subtitle": "Ressourcenverschwendung"
+      "title": "Versteckte Umsatzlücken",
+      "subtitle": "Jede Verzögerung kostet Geld"
     }
   },
   "solution_showcase_cards": {
     "card1": {
       "title": "Speed to Lead",
-      "description": "Lead kommt via WhatsApp, Instagram DM oder Anruf → sofortige Qualifizierung → automatischer CRM-Eintrag → Follow-up läuft. Antwortzeit unter 2 Minuten, 24/7. Jeder Kanal synchronisiert mit Ihren Systemen.",
-      "metric": "Aus Stunden werden Sekunden. Höhere Conversion.",
+      "description": "Lead kommt via beliebigem Kanal → sofortige Qualifizierung → automatischer CRM-Eintrag → Follow-up läuft. Antwortzeit unter 10 Sekunden, 24/7. Jeder Kanal synchronisiert mit Ihren Systemen.",
+      "metric": "391% höhere Conversion unter 60 Sekunden.",
       "icon": "⚡"
     },
     "card2": {
       "title": "Database Reactivation",
-      "description": "Intelligente Segmentierung Ihrer CRM-Daten. Automatisierte Multi-Channel-Kampagnen über WhatsApp, Instagram und Voice. Personalisierte Ansprache, die reaktiviert. Systematischer Follow-up ohne manuellen Aufwand.",
-      "metric": "Schlafende Leads werden zu aktivem Revenue.",
+      "description": "Intelligente Segmentierung Ihrer CRM-Daten. Automatisierte Multi-Channel-Kampagnen über alle Touchpoints. Personalisierte Ansprache, die reaktiviert. Systematischer Follow-up ohne manuellen Aufwand.",
+      "metric": "Zahnarztpraxis: 1'000 tote Leads → 21 Termine → CHF 47'000.",
       "icon": "🔄"
     },
     "card3": {
       "title": "AI Receptionist 24/7",
-      "description": "Alle Kanäle gleichzeitig bedienen – WhatsApp, Instagram, Telefon. Jede Anfrage wird qualifiziert, jedes Gespräch geloggt, jeder Lead ins CRM. Ihre Workflows laufen automatisch, während Sie schlafen.",
-      "metric": "Nie wieder verpasste Anfragen. Pure Umsatzchance.",
+      "description": "Alle Kanäle gleichzeitig bedienen. Jede Anfrage wird qualifiziert, jedes Gespräch geloggt, jeder Lead ins CRM. Ihre Workflows laufen automatisch, während Sie schlafen.",
+      "metric": "Null Datenverlust. Null manuelle Verzögerung.",
       "icon": "🤖"
     }
   },
