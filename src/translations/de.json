@@ -36,7 +36,7 @@
     ]
   },
   "solution_showcase": {
-    "headline": "Strategie zuerst,",
+    "headline": "Strategie zuerst",
     "headline_suffix": "<br />Tools danach",
     "description": "AI-Transformation durch bewährte Business-Methodik, nicht nur Tool-Deployment. Wir starten mit Bedarfsanalyse, prüfen Ihren Revenue-Funnel, identifizieren echte Bottlenecks – dann bauen wir Systeme, die zu Ihren Prozessen passen. Erste messbare Erfolge in 30 Tagen.",
     "features": [
@@ -141,7 +141,7 @@
     "card3": {
       "title": "AI Receptionist 24/7",
       "description": "Alle Kanäle gleichzeitig bedienen. Jede Anfrage wird qualifiziert, jedes Gespräch geloggt, jeder Lead ins CRM. Ihre Workflows laufen automatisch, während Sie schlafen.",
-      "metric": "Null Datenverlust. Null manuelle Verzögerung.",
+      "metric": "30-50% mehr qualifizierte Leads.",
       "icon": "🤖"
     }
   },
