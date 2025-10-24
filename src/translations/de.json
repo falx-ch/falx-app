@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Revenue-First AI Automation | Falx",
-    "description": "Ihr strategischer Growth Partner für messbare Umsatzsteigerung. WhatsApp, Instagram, Voice AI & CRM-Integration. Reaktivieren Sie Ihre Datenbank, verkürzen Sie Speed-to-Lead, automatisieren Sie Follow-ups. Kostenloser Growth Mapping Call."
+    "title": "Schweizer AI Partner für Business Growth | Falx",
+    "description": "Ihr strategischer Partner für messbares Wachstum. Wir identifizieren versteckte Umsatzchancen, reaktivieren schlafende Leads und bauen intelligente Systeme die verkaufen – 24/7. Messbare Resultate garantiert oder Geld zurück."
   },
   "navigation": {
     "report": "Umsatz",
@@ -129,19 +129,19 @@
     "card1": {
       "title": "Speed to Lead",
       "description": "Lead kommt via beliebigem Kanal → sofortige Qualifizierung → automatischer CRM-Eintrag → Follow-up läuft. Antwortzeit unter 10 Sekunden, 24/7.",
-      "metric": "Studie: 391% höhere Conversion unter 60 Sekunden.",
+      "metric": "Harvard Business Study: 391% höhere Conversion unter 60 Sekunden.",
       "icon": "⚡"
     },
     "card2": {
       "title": "Database Reactivation",
       "description": "Intelligente Segmentierung Ihrer CRM-Daten. Automatisierte Kampagnen über alle Touchpoints. Personalisierte Ansprache. Systematischer Follow-up.",
-      "metric": "Zahnarztpraxis: 1'000 tote Leads → 21 Termine → CHF 47'000.",
+      "metric": "Zahnarztpraxis Case Study: 1'000 tote Leads → 21 Termine → CHF 47'000.",
       "icon": "🔄"
     },
     "card3": {
       "title": "AI Receptionist 24/7",
       "description": "Alle Kanäle gleichzeitig bedienen. Jede Anfrage wird qualifiziert, jedes Gespräch geloggt, jeder Lead ins CRM. Ihre Workflows laufen automatisch, während Sie schlafen.",
-      "metric": "30-50% mehr qualifizierte Leads.",
+      "metric": "Zenoti Customer Survey: 30-50% mehr qualifizierte Leads.",
       "icon": "🤖"
     }
   },
