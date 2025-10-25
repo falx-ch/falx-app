@@ -20,9 +20,9 @@
   },
   "report_section": {
     "headline": "Was kostet",
-    "headline_accent": "verpasster",
-    "headline_suffix": "Umsatz wirklich?",
-    "description": "Jeder verpasste Lead, jede langsame Antwort, jeder vergessene Follow-up kostet Umsatz.<br />Wie viel Revenue verliert Ihr Unternehmen?"
+    "headline_accent": "Ineffizienz",
+    "headline_suffix": "wirklich?",
+    "description": "Jeder verpasste Lead, jede langsame Antwort, jeder vergessene Follow-up kostet Umsatz.<br />Wie viel verlieren Sie?"
   },
   "problem_identification": {
     "headline": "Umsatz-",
@@ -81,8 +81,8 @@
   "cost_calculator": {
     "currency": "CHF",
     "per_year": "pro Jahr",
-    "employee_description": "Zeit ohne Umsatzfokus ({hours} Std./Woche)",
-    "cost_basis": "Basis: CHF 150/h"
+    "employee_description": "Zeit ohne Verkaufsfokus ({hours} Std./Woche)",
+    "cost_basis": "Basis: CHF 150/h pro Person im Verkauf"
   },
   "report_section_cards": {
     "card1": {

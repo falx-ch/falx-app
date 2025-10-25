@@ -20,9 +20,9 @@
   },
   "report_section": {
     "headline": "What does",
-    "headline_accent": "missed",
-    "headline_suffix": "revenue really cost?",
-    "description": "Every missed lead, every slow response, every forgotten follow-up costs revenue.<br />How much is your business losing?"
+    "headline_accent": "inefficiency",
+    "headline_suffix": "really cost?",
+    "description": "Every missed lead, every slow response, every forgotten follow-up costs revenue.<br />How much are you losing?"
   },
   "problem_identification": {
     "headline": "Revenue ",
@@ -82,8 +82,8 @@
   "cost_calculator": {
     "currency": "CHF",
     "per_year": "per year",
-    "employee_description": "Time not spent on revenue ({hours} hrs/week)",
-    "cost_basis": "Basis: CHF 150/hr"
+    "employee_description": "Time not spent on sales ({hours} hrs/week)",
+    "cost_basis": "Basis: CHF 150/hr per person doing sales"
   },
   "report_section_cards": {
     "card1": {
