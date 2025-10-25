@@ -22,12 +22,12 @@
     "headline": "What does",
     "headline_accent": "inefficiency",
     "headline_suffix": "really cost?",
-    "description": "Every missed lead, every slow response, every forgotten follow-up costs revenue.<br />How much are you losing?"
+    "description": "Every missed lead, every slow response, every forgotten follow-up costs revenue."
   },
   "problem_identification": {
-    "headline": "Revenue ",
-    "headline_accent": "gaps",
-    "headline_suffix": " in your business",
+    "headline": "Unlock your ",
+    "headline_accent": "revenue potential",
+    "headline_suffix": "",
     "description": "Leads come in but responses take too long. Your database is full but nobody reactivates it. Inquiries come in the evening but nobody answers. Every delay costs revenue.",
     "stats": [
       "Speed is key: 35–50% of sales go to whoever answers within 5 minutes, not 5 hours",
@@ -57,12 +57,12 @@
     "cta_secondary_tooltip": "Coming Soon"
   },
   "founder_section": {
-    "tagline": "Creating",
+    "tagline": "Let's create",
     "tagline_accent": "greatness",
     "tagline_suffix": "together",
     "name": "Chris Kobler",
     "title": "Founder & AI Strategy Consultant",
-    "quote": "Every solution we build drives measurable growth and efficiency. We don't meet your expectations? Full refund, no questions asked.",
+    "quote": "Every solution we build drives measurable growth and efficiency. Full refund if we don't meet your expectations, no questions asked.",
     "cta_button": "Connect on LinkedIn",
     "image_alt": "Chris Kobler, Founder & AI Strategy Consultant"
   },
