@@ -101,7 +101,7 @@
   "problem_showcase_cards": {
     "card1": {
       "icon": "⏱️",
-      "title": "Langsame Antwortzeiten",
+      "title": "Langsame Antwort",
       "subtitle": "Schnellster gewinnt den Deal"
     },
     "card2": {
@@ -121,7 +121,7 @@
     },
     "card5": {
       "icon": "💸",
-      "title": "Versteckte Umsatzlücken",
+      "title": "Versteckter Umsatz",
       "subtitle": "Jede Verzögerung kostet Geld"
     }
   },

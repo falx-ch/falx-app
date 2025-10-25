@@ -102,7 +102,7 @@
   "problem_showcase_cards": {
     "card1": {
       "icon": "⏱️",
-      "title": "Slow response times",
+      "title": "Slow response",
       "subtitle": "While fastest wins the deal"
     },
     "card2": {
@@ -122,7 +122,7 @@
     },
     "card5": {
       "icon": "💸",
-      "title": "Hidden revenue gaps",
+      "title": "Hidden revenue",
       "subtitle": "Every delay costs money"
     }
   },
